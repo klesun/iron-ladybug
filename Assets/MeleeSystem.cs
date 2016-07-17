@@ -14,7 +14,6 @@ public class MeleeSystem : MonoBehaviour {
                 Distance = hit.distance;
                 if (Distance < MaxDistance){
                     hit.transform.SendMessage("ApplyDamage", Damage, SendMessageOptions.DontRequireReceiver);
-                    print(Distance);
                 }
             }
         }

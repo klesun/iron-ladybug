@@ -12,7 +12,7 @@ public class EnemyLogic : MonoBehaviour {
     }
 
     void Update() {
-        if (Health < 1) {
+        if (Health <= 0) {
             Destroy(this.gameObject);
         }
     }

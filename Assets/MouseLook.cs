@@ -20,28 +20,20 @@ using System.Collections;
 [AddComponentMenu("Camera-Control/Mouse Look")]
 public class MouseLook : MonoBehaviour {
 
-	public float sensitivityX = 15F;
-	public float sensitivityY = 15F;
-	public float minimumX = -360F;
-	public float maximumX = 360F;
-	public float minimumY = -60F;
-	public float maximumY = 60F;
+	public float sensitivityY = 5F;
+	public float minimumY = -15F;
+	public float maximumY = 15F;
 	float rotationX = 0F;
 	float rotationY = 0F;
 	Quaternion originalRotation;
 	void Update ()
 	{
 		// Read the mouse input axis
-		rotationX += Input.GetAxis("Mouse X") * sensitivityX;
 		rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-		rotationX = ClampAngle (rotationX, minimumX, maximumX);
 		rotationY = ClampAngle (rotationY, minimumY, maximumY);
-		Quaternion xQuaternion = Quaternion.AngleAxis (rotationX, Vector3.up);
 		Quaternion yQuaternion = Quaternion.AngleAxis (rotationY, -Vector3.right);
 
-		var newRot = originalRotation * xQuaternion * yQuaternion;
-        limitAngle(newRot, 0.2f, 0.3f, 0.2f);
-
+		var newRot = originalRotation * yQuaternion;
         transform.localRotation = newRot;
 	}
 	void Start ()

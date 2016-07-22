@@ -23,7 +23,6 @@ public class MouseLook : MonoBehaviour {
 	public float sensitivityY = 5F;
 	public float minimumY = -15F;
 	public float maximumY = 15F;
-	float rotationX = 0F;
 	float rotationY = 0F;
 	Quaternion originalRotation;
 	void Update ()

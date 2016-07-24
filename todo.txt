@@ -1,0 +1,3 @@
+1. Raycast for crosshair
+2. Camera is rotationg relative to self but should relative to player
+3. script which  takes arguments (platform count and spacing) and drawing platforms on map

@@ -10,7 +10,7 @@ public class FerrisWheel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		startPosition = transform.localPosition;
+		startPosition = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -20,10 +20,10 @@ public class FerrisWheel : MonoBehaviour {
 	}
 
 	void OnDrawGizmos() {
-		var markCnt = 24;
+		var markCnt = 240;
 		for (var i = 0; i < markCnt; ++i) {
 			var dPos = getLocalPositionAt (4.0f * Mathf.PI * i / markCnt);
-			Gizmos.DrawWireCube (transform.position + dPos, new Vector3(1,1,1));
+			Gizmos.DrawWireSphere (transform.position + dPos, 0.1f);
 		}
 	}
 

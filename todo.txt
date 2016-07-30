@@ -5,4 +5,8 @@
   3.2 make an ending point instead of object count
   3.3 offset
   
-
+4. npc
+  4.1 enemies
+    4.1.1 fighting system
+  4.2 quest givers
+    4.2.1 implement dialogues

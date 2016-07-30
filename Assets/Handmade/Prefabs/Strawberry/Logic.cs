@@ -3,11 +3,17 @@ using System.Collections;
 
 public class Logic : MonoBehaviour 
 {
-	public AudioSource collectedSound;
+	public AudioClip collectedSound;
+	public AudioClip collectedEvilSound;
 
 	void OnCollisionEnter(Collision collision)
 	{
-		collectedSound.Play ();
+		var snd = Random.Range (0, 10) == 0
+			? collectedEvilSound
+			: collectedSound;
+
+		AudioSource.PlayClipAtPoint(snd, transform.position);
+
 		Destroy (transform.parent.gameObject);
 	}
 }

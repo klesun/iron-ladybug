@@ -4,7 +4,8 @@ using System.Collections;
 public class HeroControl : MonoBehaviour 
 {
 	public float mouseSensitivity = 4.0F;
-	public AudioSource jumpingSound;
+	public AudioClip jumpingSound;
+	public AudioClip jumpingEvilSound;
 
 	Rigidbody m_Rigidbody;
 
@@ -28,7 +29,12 @@ public class HeroControl : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			m_Rigidbody.velocity += Vector3.up * 10;
-			jumpingSound.Play ();
+			var snd = Random.Range(0, 10) == 0
+				? jumpingEvilSound
+				: jumpingSound;
+
+			AudioSource.PlayClipAtPoint(snd, transform.position);
+
 		}
 	}
 }

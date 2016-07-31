@@ -6,7 +6,7 @@ public class Logic : MonoBehaviour
 	public AudioClip collectedSound;
 	public AudioClip collectedEvilSound;
 
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider hero)
 	{
 		var snd = Random.Range (0, 10) == 0
 			? collectedEvilSound

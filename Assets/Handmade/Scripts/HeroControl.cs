@@ -5,7 +5,8 @@ public class HeroControl : MonoBehaviour
 {
 	const float SPRINT_INTERVAL = 5;
 
-	public float mouseSensitivity = 4.0F;
+	private float mouseSensitivity = 4.0F;
+	public GameObject cameraAngle;
 	public AudioClip jumpingSound;
 	public AudioClip jumpingEvilSound;
 	public AudioClip sprintingEvilSound;
@@ -14,11 +15,8 @@ public class HeroControl : MonoBehaviour
 	private float? lastSprintTime = null;
 	private float distToGround;
 
-	Rigidbody m_Rigidbody;
-
 	void Start () 
 	{
-		m_Rigidbody = GetComponent<Rigidbody>();
 		Cursor.lockState = CursorLockMode.Locked;
 		distToGround = GetComponent<Collider> ().bounds.extents.y;
 	}
@@ -34,7 +32,7 @@ public class HeroControl : MonoBehaviour
 	{
 		if (IsGrounded()) {
 			if (Input.GetKeyDown(KeyCode.Space)) {
-				m_Rigidbody.velocity += Vector3.up * 10;
+				GetComponent<Rigidbody>().velocity += Vector3.up * 10;
 
 				var snd = Random.Range(0, 10) == 0
 					? jumpingEvilSound
@@ -45,11 +43,11 @@ public class HeroControl : MonoBehaviour
 		} else {
 			if (Input.GetKeyDown(KeyCode.Mouse0)) {
 				if (lastSprintTime == null || 
-					lastSprintTime - Time.fixedTime < -SPRINT_INTERVAL
+					Time.fixedTime - lastSprintTime > SPRINT_INTERVAL
 				) {
-					AudioSource.PlayClipAtPoint(sprintingEvilSound, transform.position);
-					m_Rigidbody.velocity += transform.forward * 20;
+					GetComponent<Rigidbody>().velocity += cameraAngle.transform.forward * 10;
 					lastSprintTime = Time.fixedTime;
+					AudioSource.PlayClipAtPoint(sprintingEvilSound, transform.position);
 				} else {
 					AudioSource.PlayClipAtPoint(outOfManaEvilSound, transform.position);
 				}

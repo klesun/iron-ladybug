@@ -10,3 +10,7 @@
     4.1.1 fighting system
   4.2 quest givers
     4.2.1 implement dialogues
+
+5. graphics
+  5.1 when hero does "sprint" in the air (left mouse button), add some nice effect with particles, like, for starters, four sources rotating around hero
+  5.2 use the hero model drawn by vika in blender. it would require at least several hours to tame the skeleton rigging and draw the animations for it.

@@ -9,8 +9,11 @@ public class HeroControl : MonoBehaviour
 	public GameObject cameraAngle;
 	public AudioClip jumpingSound;
 	public AudioClip jumpingEvilSound;
+	public AudioClip jumpingSfx;
 	public AudioClip sprintingEvilSound;
+	public AudioClip sprintingSfx;
 	public AudioClip outOfManaEvilSound;
+	public Transform gunShotSource;
 
 	private float? lastSprintTime = null;
 	private float distToGround;
@@ -39,6 +42,10 @@ public class HeroControl : MonoBehaviour
 					: jumpingSound;
 
 				AudioSource.PlayClipAtPoint(snd, transform.position);
+				//AudioSource.PlayClipAtPoint(jumpingSfx, transform.position);
+			}
+			if (Input.GetKeyDown (KeyCode.Mouse1)) {
+				AudioSource.PlayClipAtPoint(outOfManaEvilSound, transform.position);
 			}
 		} else {
 			if (Input.GetKeyDown(KeyCode.Mouse0)) {
@@ -48,6 +55,7 @@ public class HeroControl : MonoBehaviour
 					GetComponent<Rigidbody>().velocity += cameraAngle.transform.forward * 10;
 					lastSprintTime = Time.fixedTime;
 					AudioSource.PlayClipAtPoint(sprintingEvilSound, transform.position);
+					AudioSource.PlayClipAtPoint(sprintingSfx, transform.position);
 				} else {
 					AudioSource.PlayClipAtPoint(outOfManaEvilSound, transform.position);
 				}

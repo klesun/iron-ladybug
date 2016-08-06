@@ -30900,25 +30900,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 477598, guid: 03ac849c6397d954d9911748732302b0, type: 2}
+    - target: {fileID: 423472, guid: 03ac849c6397d954d9911748732302b0, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.5326752
+      value: 0.05661328
       objectReference: {fileID: 0}
-    - target: {fileID: 477598, guid: 03ac849c6397d954d9911748732302b0, type: 2}
+    - target: {fileID: 423472, guid: 03ac849c6397d954d9911748732302b0, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.070340455
+      value: 0.5010242
       objectReference: {fileID: 0}
-    - target: {fileID: 477598, guid: 03ac849c6397d954d9911748732302b0, type: 2}
+    - target: {fileID: 423472, guid: 03ac849c6397d954d9911748732302b0, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.83613276
+      value: 0.8565923
       objectReference: {fileID: 0}
-    - target: {fileID: 477598, guid: 03ac849c6397d954d9911748732302b0, type: 2}
+    - target: {fileID: 423472, guid: 03ac849c6397d954d9911748732302b0, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.110415146
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493592, guid: 03ac849c6397d954d9911748732302b0, type: 2}
-      propertyPath: gunShotSource
-      value: 
+      value: -0.10963225
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03ac849c6397d954d9911748732302b0, type: 2}

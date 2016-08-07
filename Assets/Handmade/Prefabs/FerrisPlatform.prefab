@@ -176,11 +176,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 185284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2be5eb6db5cc754e89da6cf89ae142a, type: 3}
+  m_Script: {fileID: 11500000, guid: f25d74d3cad1f6a4d8e78a345d11edd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplY: 11.63
-  amplZ: 7.05
+  amplY: 5
+  amplZ: 5
   speed: 0.5
 --- !u!1001 &100100000
 Prefab:

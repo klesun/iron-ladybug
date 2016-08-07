@@ -19,6 +19,7 @@ public class HeroControl : MonoBehaviour
 	public AudioClip sprintingSfx;
 	public AudioClip outOfManaEvilSound;
 	public Transform gunShotSource;
+	public AudioClip epeeSwingSound;
 
 	public Animator anima;
 
@@ -47,7 +48,10 @@ public class HeroControl : MonoBehaviour
 
 		if (IsGrounded()) {
 			anima.SetBool ("isFlying", false);
-			ApplyFriction (keyedDirection);
+			ApplyFriction ();
+			if (keyedDirection.magnitude > 0) {
+				anima.SetBool ("isInBattle", false);
+			}
 			Speeden (keyedDirection, RUNNING_BOOST, MAX_RUNNING_SPEED);
 			if (Input.GetKeyDown(KeyCode.Space)) {
 				//anima.Play ("Armature|jump", -1, 0f);
@@ -64,8 +68,24 @@ public class HeroControl : MonoBehaviour
 			if (Input.GetKeyDown (KeyCode.Mouse1)) {
 				AudioSource.PlayClipAtPoint(outOfManaEvilSound, transform.position);
 			}
+			if (Input.GetKeyDown (KeyCode.Mouse0)) {
+				if (anima.GetBool ("isInBattle") || body.velocity.magnitude > 0.1) {
+					if (lastSprintTime == null ||
+					    Time.fixedTime - lastSprintTime > SPRINT_INTERVAL
+					) {
+						body.velocity += Vector3.up * 2 + transform.forward * 7;
+						lastSprintTime = Time.fixedTime;
+						anima.SetTrigger ("attacking");
+						AudioSource.PlayClipAtPoint (epeeSwingSound, transform.position);
+					} else {
+						AudioSource.PlayClipAtPoint(outOfManaEvilSound, transform.position);
+					}
+				}
+				anima.SetBool ("isInBattle", true);
+			}
 		} else {
 			anima.SetBool ("isFlying", true);
+			anima.SetBool ("isInBattle", false);
 			Speeden (keyedDirection, RUNNING_BOOST / 2, MAX_RUNNING_SPEED / 4);
 			if (Input.GetKeyDown(KeyCode.Mouse0)) {
 				if (lastSprintTime == null || 
@@ -123,7 +143,7 @@ public class HeroControl : MonoBehaviour
 		}
 	}
 
-	void ApplyFriction(Vector3 keyedDirection)
+	void ApplyFriction()
 	{
 		// applying friction force
 		var frictionForce = -body.velocity.normalized * Time.deltaTime * FRICTION_FORCE;

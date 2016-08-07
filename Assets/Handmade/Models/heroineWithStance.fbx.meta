@@ -1,0 +1,215 @@
+fileFormatVersion: 2
+guid: 662ae874126ada84c89f2704e3fc7174
+timeCreated: 1470596538
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone
+    100004: Bone.001
+    100006: Bone.002
+    100008: Bone.003
+    100010: Bone.004
+    100012: Bone.004_end
+    100014: Bone.005
+    100016: Bone.006
+    100018: Bone.007
+    100020: Bone.008
+    100022: Bone.008_end
+    100024: Bone.009
+    100026: Bone.010
+    100028: Bone.011
+    100030: Bone.012
+    100032: Bone.012_end
+    100034: Bone.013
+    100036: Bone.014
+    100038: Bone.015
+    100040: Bone.016
+    100042: Bone.017
+    100044: Bone.017_end
+    100046: Bone.018
+    100048: Bone.019
+    100050: Bone.019_end
+    100052: boot.l1
+    100054: boot.l2
+    100056: boot.l3
+    100058: boot.r1
+    100060: boot.r2
+    100062: boot.r3
+    100064: collar
+    100066: cuirass
+    100068: epee
+    100070: hair
+    100072: hat
+    100074: //RootNode
+    100076: hood
+    100078: pants
+    100080: skin
+    100082: sleeve.l
+    100084: sleeve.r
+    400000: Armature
+    400002: Bone
+    400004: Bone.001
+    400006: Bone.002
+    400008: Bone.003
+    400010: Bone.004
+    400012: Bone.004_end
+    400014: Bone.005
+    400016: Bone.006
+    400018: Bone.007
+    400020: Bone.008
+    400022: Bone.008_end
+    400024: Bone.009
+    400026: Bone.010
+    400028: Bone.011
+    400030: Bone.012
+    400032: Bone.012_end
+    400034: Bone.013
+    400036: Bone.014
+    400038: Bone.015
+    400040: Bone.016
+    400042: Bone.017
+    400044: Bone.017_end
+    400046: Bone.018
+    400048: Bone.019
+    400050: Bone.019_end
+    400052: boot.l1
+    400054: boot.l2
+    400056: boot.l3
+    400058: boot.r1
+    400060: boot.r2
+    400062: boot.r3
+    400064: collar
+    400066: cuirass
+    400068: epee
+    400070: hair
+    400072: hat
+    400074: //RootNode
+    400076: hood
+    400078: pants
+    400080: skin
+    400082: sleeve.l
+    400084: sleeve.r
+    2300000: boot.l1
+    2300002: boot.l2
+    2300004: boot.l3
+    2300006: boot.r1
+    2300008: boot.r2
+    2300010: boot.r3
+    2300012: collar
+    2300014: cuirass
+    2300016: hair
+    2300018: hat
+    2300020: hood
+    2300022: sleeve.l
+    2300024: sleeve.r
+    3300000: boot.l1
+    3300002: boot.l2
+    3300004: boot.l3
+    3300006: boot.r1
+    3300008: boot.r2
+    3300010: boot.r3
+    3300012: collar
+    3300014: cuirass
+    3300016: hair
+    3300018: hat
+    3300020: hood
+    3300022: sleeve.l
+    3300024: sleeve.r
+    4300000: boot.r1
+    4300002: boot.r2
+    4300004: boot.r3
+    4300006: boot.l1
+    4300008: boot.l2
+    4300010: boot.l3
+    4300012: cuirass
+    4300014: hood
+    4300016: sleeve.l
+    4300018: sleeve.r
+    4300020: collar
+    4300022: hat
+    4300024: hair
+    4300026: epee
+    4300028: skin
+    4300030: pants
+    7400000: Armature|battleStance
+    7400002: Armature|hoodAction
+    7400004: Armature|idle
+    7400006: Armature|jump
+    7400008: Armature|lunge
+    7400010: Armature|run
+    7400012: hat|hoodAction
+    7400014: hat|run
+    7400016: hair|hoodAction
+    7400018: hair|jump
+    7400020: hood|hoodAction
+    7400022: hood|idle
+    9500000: //RootNode
+    13700000: epee
+    13700002: pants
+    13700004: skin
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

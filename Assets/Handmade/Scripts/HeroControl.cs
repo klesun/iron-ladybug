@@ -5,6 +5,11 @@ public class HeroControl : MonoBehaviour
 {
 	const float SPRINT_INTERVAL = 5;
 
+	const float FRICTION_FORCE = 12;
+	const float MAX_RUNNING_SPEED = 7;
+	const float RUNNING_BOOST = 18;
+	const float JUMP_BOOST = 8;
+
 	private float mouseSensitivity = 4.0F;
 	public GameObject cameraAngle;
 	public AudioClip jumpingSound;
@@ -26,6 +31,7 @@ public class HeroControl : MonoBehaviour
 		Cursor.lockState = CursorLockMode.Locked;
 		distToGround = GetComponent<Collider> ().bounds.extents.y;
 		body = GetComponent<Rigidbody> ();
+		body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 	}
 	
 	// Update is called once per frame
@@ -35,14 +41,18 @@ public class HeroControl : MonoBehaviour
 		HandleKeys ();
 	}
 
-	private void HandleKeys()
+	void HandleKeys()
 	{
+		var keyedDirection = GetKeyedDirection ();
+
 		if (IsGrounded()) {
 			anima.SetBool ("isFlying", false);
+			ApplyFriction (keyedDirection);
+			Speeden (keyedDirection, RUNNING_BOOST, MAX_RUNNING_SPEED);
 			if (Input.GetKeyDown(KeyCode.Space)) {
 				//anima.Play ("Armature|jump", -1, 0f);
 				anima.SetBool ("isFlying", true);
-				body.velocity += Vector3.up * 10;
+				body.velocity += Vector3.up * JUMP_BOOST;
 
 				var snd = Random.Range(0, 10) == 0
 					? jumpingEvilSound
@@ -56,11 +66,12 @@ public class HeroControl : MonoBehaviour
 			}
 		} else {
 			anima.SetBool ("isFlying", true);
+			Speeden (keyedDirection, RUNNING_BOOST / 2, MAX_RUNNING_SPEED / 4);
 			if (Input.GetKeyDown(KeyCode.Mouse0)) {
 				if (lastSprintTime == null || 
 					Time.fixedTime - lastSprintTime > SPRINT_INTERVAL
 				) {
-					GetComponent<Rigidbody>().velocity += cameraAngle.transform.forward * 10;
+					body.velocity += cameraAngle.transform.forward * 10;
 					lastSprintTime = Time.fixedTime;
 					AudioSource.PlayClipAtPoint(sprintingEvilSound, transform.position);
 					AudioSource.PlayClipAtPoint(sprintingSfx, transform.position);
@@ -70,26 +81,57 @@ public class HeroControl : MonoBehaviour
 			}
 		}
 
-		var factor = 1f;
-		if (Input.GetKey(KeyCode.W)) {
-			body.velocity += transform.forward * factor;
-			//transform.Translate (Vector3.forward * 0.05f);
-		}
-		if (Input.GetKey(KeyCode.S)) {
-			body.velocity -= transform.forward;
-			//transform.Translate (Vector3.forward * -0.05f);
-		}
-		if (Input.GetKey(KeyCode.A)) {
-			body.velocity -= transform.right * factor;
-			//transform.Translate (Vector3.right * -0.05f);
-		}
-		if (Input.GetKey(KeyCode.D)) {
-			body.velocity += transform.right * factor;
-			//transform.Translate (Vector3.right * 0.05f);
-		}
-
 		anima.SetFloat ("xSpeed", body.velocity.x);
 		anima.SetFloat ("ySpeed", body.velocity.z);
+	}
+
+	Vector3 GetKeyedDirection()
+	{
+		var result = new Vector3 ();
+
+		if (Input.GetKey(KeyCode.W)) {
+			result += transform.forward;
+		}
+		if (Input.GetKey(KeyCode.S)) {
+			result -= transform.forward;
+		}
+		if (Input.GetKey(KeyCode.A)) {
+			result -= transform.right;
+		}
+		if (Input.GetKey(KeyCode.D)) {
+			result += transform.right;
+		}
+
+		return result;
+	}
+
+	void Speeden(Vector3 keyedDirection, float boost, float maxSpeed)
+	{
+		var wasSpeed = body.velocity;
+
+		body.velocity += keyedDirection * Time.deltaTime * boost;
+
+		// nullyfying this frame boost if limit surpassed
+		if (body.velocity.magnitude > maxSpeed &&
+			body.velocity.magnitude > wasSpeed.magnitude
+		) {
+			if (wasSpeed.magnitude > maxSpeed) {
+				body.velocity = body.velocity.normalized * wasSpeed.magnitude;
+			} else {
+				body.velocity = body.velocity.normalized * maxSpeed;
+			}
+		}
+	}
+
+	void ApplyFriction(Vector3 keyedDirection)
+	{
+		// applying friction force
+		var frictionForce = -body.velocity.normalized * Time.deltaTime * FRICTION_FORCE;
+		if (frictionForce.magnitude > body.velocity.magnitude) {
+			body.velocity = Vector3.zero;
+		} else {
+			body.velocity += frictionForce;
+		}
 	}
 
 	bool IsGrounded()

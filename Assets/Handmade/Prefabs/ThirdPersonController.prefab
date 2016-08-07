@@ -227,11 +227,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466080}
-  - 95: {fileID: 9572818}
   - 54: {fileID: 5467036}
   - 136: {fileID: 13689316}
-  - 114: {fileID: 11485406}
-  - 114: {fileID: 11414042}
   - 114: {fileID: 11493592}
   m_Layer: 0
   m_Name: ThirdPersonController
@@ -250,7 +247,7 @@ GameObject:
   - 4: {fileID: 423938}
   - 95: {fileID: 9539236}
   m_Layer: 0
-  m_Name: heroine
+  m_Name: heroineModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1236,10 +1233,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131038}
-  m_LocalRotation: {x: 0, y: 0.9998577, z: 0, w: 0.016868645}
-  m_LocalPosition: {x: -78.38, y: -7.35, z: -2.84}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -59.9, y: -7.35, z: -18.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 178.0669, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 415374}
   - {fileID: 423938}
@@ -1905,7 +1902,7 @@ Animator:
   m_GameObject: {fileID: 132850}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 5b9c9a23bfa16134b9820b78f50d1824, type: 3}
-  m_Controller: {fileID: 9100000, guid: 7c631040586ef0b4ebd87fa63beaa87f, type: 2}
+  m_Controller: {fileID: 9100000, guid: db71f216708e2014d97d5cf0edfdc5e1, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1913,53 +1910,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &9572818
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131038}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11414042
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 360
-  m_StationaryTurnSpeed: 180
-  m_JumpPower: 6
-  m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 1
-  m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: 0.3
---- !u!114 &11485406
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11493592
 MonoBehaviour:
   m_ObjectHideFlags: 1

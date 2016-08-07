@@ -1,8 +1,6 @@
-1. Raycast for crosshair
-3. script which  takes arguments (platform count and spacing) and drawing platforms on map
-  3.1 platforms are moving one by one and frst is going on right, second lieft and so go on
-  3.2 make an ending point instead of object count
-  3.3 offset
+1. Crosshair
+2. platforms are moving one by one and frst is going on right, second lieft and so go on
+3. offset
   
 4. npc
   4.1 enemies
@@ -12,5 +10,4 @@
 
 5. graphics
   5.1 when hero does "sprint" in the air (left mouse button), add some nice effect with particles, like, for starters, four sources rotating around hero
-  5.2 use the hero model drawn by vika in blender. it would require at least several hours to tame the skeleton rigging and draw the animations for it.
   5.3 strawberries are too inperceptable! please, oh nameless hero, add some play with light to their material so these strawberries could be noticed from far distances and would contrast even with walls and ground of similar color (see how collectable gems are realized in spyro)

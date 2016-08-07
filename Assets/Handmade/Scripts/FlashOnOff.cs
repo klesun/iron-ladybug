@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class flashOnOff : MonoBehaviour {
+public class FlashOnOff : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {

@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 441662}
-  - 114: {fileID: 11413196}
+  - 114: {fileID: 11441918}
   m_Layer: 0
   m_Name: Strawberry
   m_TagString: Untagged
@@ -179,10 +179,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185786}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.97189, y: 13.287305, z: 41.5}
+  m_LocalRotation: {x: 0, y: 0.46877158, z: 0, w: -0.8833195}
+  m_LocalPosition: {x: -3.791523, y: 0.23633242, z: 1.5381031}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -55.9092, z: 0}
   m_Children:
   - {fileID: 488164}
   m_Father: {fileID: 0}
@@ -417,7 +417,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156576}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &11413196
+--- !u!114 &11441918
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -425,9 +425,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 185786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df8b3cf78be091b4d95b03368aa72d71, type: 3}
+  m_Script: {fileID: 11500000, guid: e2be5eb6db5cc754e89da6cf89ae142a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplY: -0.16
+  amplZ: 0.18
+  speed: 2
 --- !u!114 &11477430
 MonoBehaviour:
   m_ObjectHideFlags: 1

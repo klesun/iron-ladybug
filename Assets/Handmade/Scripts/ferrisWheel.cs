@@ -20,9 +20,9 @@ public class FerrisWheel : MonoBehaviour {
 	}
 
 	void OnDrawGizmos() {
-		var markCnt = 240;
+		var markCnt = 12;
 		for (var i = 0; i < markCnt; ++i) {
-			var dPos = getLocalPositionAt (4.0f * Mathf.PI * i / markCnt);
+			var dPos = getLocalPositionAt (Mathf.PI * i / markCnt);
 			Gizmos.DrawWireSphere (transform.position + dPos, 0.1f);
 		}
 	}

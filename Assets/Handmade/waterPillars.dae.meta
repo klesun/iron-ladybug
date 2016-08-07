@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: ee6ba1aa12b655f4f8371418ca701a3a
+timeCreated: 1468682672
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: basePillar
+    100002: Camera
+    100004: Lamp
+    100006: plank2
+    100008: plank3
+    100010: plank4_4971
+    100012: plank5
+    100014: plank6
+    100016: plank7_5645
+    100018: plank_4558
+    100020: Static_Mesh_Component_10
+    100022: Static_Mesh_Component_11
+    100024: Static_Mesh_Component_12
+    100026: Static_Mesh_Component_13
+    100028: Static_Mesh_Component_14
+    100030: Static_Mesh_Component_15
+    100032: Static_Mesh_Component_16
+    100034: Static_Mesh_Component_3
+    100036: Static_Mesh_Component_4
+    100038: Static_Mesh_Component_5
+    100040: Static_Mesh_Component_6
+    100042: Static_Mesh_Component_7
+    100044: Static_Mesh_Component_8
+    100046: Static_Mesh_Component_9
+    100048: VectorWall_98
+    100050: //RootNode
+    400000: basePillar
+    400002: Camera
+    400004: Lamp
+    400006: plank2
+    400008: plank3
+    400010: plank4_4971
+    400012: plank5
+    400014: plank6
+    400016: plank7_5645
+    400018: plank_4558
+    400020: Static_Mesh_Component_10
+    400022: Static_Mesh_Component_11
+    400024: Static_Mesh_Component_12
+    400026: Static_Mesh_Component_13
+    400028: Static_Mesh_Component_14
+    400030: Static_Mesh_Component_15
+    400032: Static_Mesh_Component_16
+    400034: Static_Mesh_Component_3
+    400036: Static_Mesh_Component_4
+    400038: Static_Mesh_Component_5
+    400040: Static_Mesh_Component_6
+    400042: Static_Mesh_Component_7
+    400044: Static_Mesh_Component_8
+    400046: Static_Mesh_Component_9
+    400048: VectorWall_98
+    400050: //RootNode
+    2300000: basePillar
+    2300002: plank2
+    2300004: plank3
+    2300006: plank4_4971
+    2300008: plank5
+    2300010: plank6
+    2300012: plank7_5645
+    2300014: plank_4558
+    2300016: Static_Mesh_Component_10
+    2300018: Static_Mesh_Component_11
+    2300020: Static_Mesh_Component_12
+    2300022: Static_Mesh_Component_13
+    2300024: Static_Mesh_Component_14
+    2300026: Static_Mesh_Component_15
+    2300028: Static_Mesh_Component_16
+    2300030: Static_Mesh_Component_3
+    2300032: Static_Mesh_Component_4
+    2300034: Static_Mesh_Component_5
+    2300036: Static_Mesh_Component_6
+    2300038: Static_Mesh_Component_7
+    2300040: Static_Mesh_Component_8
+    2300042: Static_Mesh_Component_9
+    3300000: basePillar
+    3300002: plank2
+    3300004: plank3
+    3300006: plank4_4971
+    3300008: plank5
+    3300010: plank6
+    3300012: plank7_5645
+    3300014: plank_4558
+    3300016: Static_Mesh_Component_10
+    3300018: Static_Mesh_Component_11
+    3300020: Static_Mesh_Component_12
+    3300022: Static_Mesh_Component_13
+    3300024: Static_Mesh_Component_14
+    3300026: Static_Mesh_Component_15
+    3300028: Static_Mesh_Component_16
+    3300030: Static_Mesh_Component_3
+    3300032: Static_Mesh_Component_4
+    3300034: Static_Mesh_Component_5
+    3300036: Static_Mesh_Component_6
+    3300038: Static_Mesh_Component_7
+    3300040: Static_Mesh_Component_8
+    3300042: Static_Mesh_Component_9
+    4300000: basePillar
+    4300002: plank3
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

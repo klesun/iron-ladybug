@@ -11,3 +11,8 @@
 5. graphics
   5.1 when hero does "sprint" in the air (left mouse button), add some nice effect with particles, like, for starters, four sources rotating around hero
   5.3 strawberries are too inperceptable! please, oh nameless hero, add some play with light to their material so these strawberries could be noticed from far distances and would contrast even with walls and ground of similar color (see how collectable gems are realized in spyro)
+
+6. Few more ideas how to use platforms:
+  6.1 Use the FerrisWheel.cs and Sequence.cs to make them move like a screw, it will be very nice
+  6.2 Make a place, where platforms will be randomly generated moving forward and backward like in metal slug when you had to jump over rockets
+7. Use custom editors or blender to build a tower with a cilinder and boxes around it. I believe it will be very beautifull. I first thought to do it by substracting cilinder mesh, but not sure unity has substraction, and we'd like to see changes in realtime.

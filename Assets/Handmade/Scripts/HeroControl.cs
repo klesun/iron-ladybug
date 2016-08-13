@@ -18,8 +18,8 @@ public class HeroControl : MonoBehaviour
 	public AudioClip sprintingEvilSound;
 	public AudioClip sprintingSfx;
 	public AudioClip outOfManaEvilSound;
-	public Transform gunShotSource;
 	public AudioClip epeeSwingSound;
+	public EmmitterControl boostEmmitter;
 
 	public Animator anima;
 
@@ -95,6 +95,7 @@ public class HeroControl : MonoBehaviour
 					lastSprintTime = Time.fixedTime;
 					AudioSource.PlayClipAtPoint(sprintingEvilSound, transform.position);
 					AudioSource.PlayClipAtPoint(sprintingSfx, transform.position);
+					boostEmmitter.Emmit ();
 				} else {
 					AudioSource.PlayClipAtPoint(outOfManaEvilSound, transform.position);
 				}

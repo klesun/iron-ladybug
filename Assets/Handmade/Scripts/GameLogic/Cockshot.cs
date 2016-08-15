@@ -6,7 +6,7 @@ public class Cockshot : MonoBehaviour, IPiercable
 {
 	public AudioClip explodingBaloonSound;
 
-	public void pierce()
+	public void GetPierced()
 	{
 		AudioSource.PlayClipAtPoint(explodingBaloonSound, transform.position);
 		Destroy(gameObject);

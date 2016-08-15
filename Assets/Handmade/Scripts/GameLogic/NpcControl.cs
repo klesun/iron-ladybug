@@ -4,8 +4,8 @@ using AssemblyCSharp;
 
 public class NpcControl : MonoBehaviour, IPiercable
 {
-	public const int LOUNGE_HEIGHT = 1;
-	public const int LOUNGE_LENGTH = 5;
+	public const float LOUNGE_HEIGHT = 1.5f;
+	public const float LOUNGE_LENGTH = 6;
 
 	const float SPRINT_INTERVAL = 5;
 
@@ -21,10 +21,14 @@ public class NpcControl : MonoBehaviour, IPiercable
 	public AudioClip sprintingSfx;
 	public AudioClip epeeSwingSound;
 	public EmmitterControl boostEmmitter;
+	public Blade epee;
 
 	private int health = 100;
 	private Rigidbody body;
 	private bool isDead = false;
+	public bool IsDead {
+		get { return isDead; }
+	}
 	private float? lastSprintTime = null;
 	private float distToGround;
 
@@ -34,6 +38,7 @@ public class NpcControl : MonoBehaviour, IPiercable
 		distToGround = GetComponent<Collider> ().bounds.extents.y;
 		body = GetComponent<Rigidbody> ();
 		body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+		epee.onClash = LoseGrip;
 	}
 	
 	// Update is called once per frame
@@ -50,6 +55,7 @@ public class NpcControl : MonoBehaviour, IPiercable
 			isDead = true;
 			body.constraints = 0; // so it fell
 			body.velocity -= transform.forward * 3;
+			epee.Disarm ();
 			// Destroy(this.gameObject);
 		}
 		if (IsGrounded ()) {
@@ -59,6 +65,8 @@ public class NpcControl : MonoBehaviour, IPiercable
 			anima.SetBool ("isFlying", true);
 			anima.SetBool ("isInBattle", false);
 		}
+
+		epee.isParrying = anima.GetCurrentAnimatorStateInfo (0).IsName ("Armature|batman");
 
 		anima.SetFloat ("xSpeed", body.velocity.x);
 		anima.SetFloat ("ySpeed", body.velocity.z);
@@ -75,14 +83,25 @@ public class NpcControl : MonoBehaviour, IPiercable
 	{
 		anima.SetBool ("isInBattle", true);
 		if (CanAttack()) {
+			anima.SetTrigger ("attacking");
 			body.velocity += 
 				+ NpcControl.LOUNGE_HEIGHT * Vector3.up
 				+ NpcControl.LOUNGE_LENGTH * transform.forward;
 
 			lastSprintTime = Time.fixedTime;
-			anima.SetTrigger ("attacking");
 			AudioSource.PlayClipAtPoint (epeeSwingSound, transform.position);
 			return true;
+		}
+		return false;
+	}
+
+	public bool Parry()
+	{
+		if (!isDead && IsGrounded() &&
+			anima.GetCurrentAnimatorStateInfo (0).IsName ("Armature|battleStance")
+		) {
+			anima.SetTrigger ("parrying");
+			body.velocity += transform.forward * 4;
 		}
 		return false;
 	}
@@ -114,12 +133,24 @@ public class NpcControl : MonoBehaviour, IPiercable
 		return false;
 	}
 
-	public void pierce()
+	public void GetPierced()
 	{
 		if (!isDead) {
-			health -= 50;
+			health -= 20;
 			AudioSource.PlayClipAtPoint(hitSound, transform.position);
+			LoseGrip ();
 		}
+	}
+
+	public void LoseGrip()
+	{
+		anima.SetTrigger ("hit");
+		body.velocity += 
+			- transform.forward * 3
+			+ Vector3.up * 1;
+
+		var penalizedTime = Time.fixedTime - SPRINT_INTERVAL + 1;
+		lastSprintTime = Mathf.Max(lastSprintTime ?? penalizedTime, penalizedTime);
 	}
 
 	public void Move(Vector3 keyedDirection)
@@ -136,13 +167,6 @@ public class NpcControl : MonoBehaviour, IPiercable
 		}
 	}
 
-	public void StopMoving()
-	{
-		if (IsGrounded()) {
-			body.velocity = Vector3.zero;
-		}
-	}
-
 	public bool IsGrounded()
 	{
 		return Mathf.Abs(body.velocity.y) < 0.1f
@@ -154,7 +178,7 @@ public class NpcControl : MonoBehaviour, IPiercable
 		return !isDead && IsGrounded () && (
 		    lastSprintTime == null ||
 		    Time.fixedTime - lastSprintTime > SPRINT_INTERVAL
-		);
+		) && !anima.GetCurrentAnimatorStateInfo (0).IsName ("Armature|open");
 	}
 
 	void Speeden(Vector3 keyedDirection, float boost, float maxSpeed)

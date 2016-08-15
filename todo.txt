@@ -5,6 +5,7 @@
 4. npc
   4.1 enemies
     4.1.1 fighting system
+      4.1.1.1 bosses
   4.2 quest givers
     4.2.1 implement dialogues
 
@@ -16,3 +17,7 @@
   6.1 Use the FerrisWheel.cs and Sequence.cs to make them move like a screw, it will be very nice
   6.2 Make a place, where platforms will be randomly generated moving forward and backward like in metal slug when you had to jump over rockets
 7. Use custom editors or blender to build a tower with a cilinder and boxes around it. I believe it will be very beautifull. I first thought to do it by substracting cilinder mesh, but not sure unity has substraction, and we'd like to see changes in realtime.
+
+
+=====================ASAP======================
+  Fix ground detection. It is broken now when you move by agnled surface. What should be done - store flag "grounded" when you jump or not raycasted on update - set it to false, when you raycasted on update - true

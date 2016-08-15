@@ -11,7 +11,7 @@ namespace AssemblyCSharp
 {
 	public interface IPiercable
 	{
-		void pierce();
+		void GetPierced();
 	}
 }
 

@@ -22,30 +22,45 @@ public class EnemyLogic : MonoBehaviour
 
     void Update() 
 	{
-		if (enemy != null) {
+		if (enemy != null && !enemy.npc.IsDead) {
 			// TODO: with delay
 			npc.Face (enemy.transform.position);
 
 			var enemyDistance = enemy.transform.position - transform.position;
-			var attackDistance = GetAttackDistance (npc.CanAttack() 
-				? npc.GetVelocity() 
-				: Vector3.zero);
-
-			if (enemy.npc.IsGrounded () &&
-				enemyDistance.magnitude <= attackDistance
-			) {
-				npc.Attack ();
+			enemyDistance.y = 0;
+			if (npc.CanAttack ()) {
+				var attackDistance = GetAttackDistance (npc.GetVelocity () - enemy.npc.GetVelocity()); 
+				// 0.75 cuz it's pretty easy to avoid when he atacks from longest distance
+				if (enemyDistance.magnitude <= attackDistance * 0.75) {
+					if (enemy.npc.IsGrounded ()) {
+						npc.Attack ();
+					}
+				} else {
+					npc.Move (CeilAxis(enemyDistance));
+				}
 			} else {
-				print ("moving " + enemyDistance + " " + attackDistance);
-				npc.Move (CeilAxis(enemyDistance));
+				var enemyAttackDistance = GetAttackDistance (enemy.npc.GetVelocity()); 
+				if (enemyAttackDistance - enemyDistance.magnitude > 0 &&
+					enemyAttackDistance - enemyDistance.magnitude < GetBackRoomDistance()
+				) {
+					npc.Move (-CeilAxis(enemyDistance));
+				}
 			}
+			npc.anima.SetBool ("isInBattle", true);
 		}
     }
+
+	float GetBackRoomDistance()
+	{
+		// TODO: raycast!
+		return 0;
+	}
 
 	void OnUfo(Collider collider)
 	{
 		foreach (var hero in collider.gameObject.GetComponents<HeroControl>()) {
 			enemy = hero;
+			hero.AcquireEnemy (this);
 		}
 	}
 

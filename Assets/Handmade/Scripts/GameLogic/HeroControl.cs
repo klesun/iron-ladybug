@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Linq;
+using System.Collections.Generic;
 
 public class HeroControl : MonoBehaviour 
 {
@@ -12,17 +13,24 @@ public class HeroControl : MonoBehaviour
 	public NpcControl npc;
 
 	private float mouseSensitivity = 4.0F;
+	private List<EnemyLogic> enemies = new List<EnemyLogic>();
 
 	void Start () 
 	{
 		Cursor.lockState = CursorLockMode.Locked;
 	}
+
+	public void AcquireEnemy(EnemyLogic enemy)
+	{
+		enemies.Add (enemy);
+	}
 	
-	// Update is called once per frame
 	void Update () 
 	{
 		transform.Rotate (new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0));
 		HandleKeys ();
+		enemies = enemies.Where (e => !e.npc.IsDead).ToList();
+		npc.anima.SetBool ("isInBattle", enemies.Count > 0);
 	}
 
 	void HandleKeys()
@@ -45,6 +53,10 @@ public class HeroControl : MonoBehaviour
 					AudioSource.PlayClipAtPoint(outOfManaEvilSound, transform.position);
 				}
 			}
+			if (Input.GetKeyDown (KeyCode.Mouse1)) {
+				npc.Parry ();
+			}
+
 		} else {
 			if (Input.GetKeyDown(KeyCode.Mouse0)) {
 				if (npc.Boost(cameraAngle.transform.forward)) {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ObjectSettings : MonoBehaviour {
+public class Sequence : MonoBehaviour {
 
 	public float spacing;
 	public GameObject originalMesh;
@@ -27,5 +27,4 @@ public class ObjectSettings : MonoBehaviour {
 	void OnDrawGizmos () {
 		PosForObjects ((pos, rot) => Gizmos.DrawWireCube (pos, new Vector3 (1,1,1)));
 	}
-
 }

@@ -52,24 +52,30 @@ public class NpcControl : MonoBehaviour, IPiercable
 	void Live()
 	{
 		if (health <= 0) {
-			isDead = true;
-			body.constraints = 0; // so it fell
-			body.velocity -= transform.forward * 3;
-			epee.Disarm ();
-			// Destroy(this.gameObject);
-		}
-		if (IsGrounded ()) {
-			anima.SetBool ("isFlying", false);
-			ApplyFriction ();
+			Die ();
 		} else {
-			anima.SetBool ("isFlying", true);
-			anima.SetBool ("isInBattle", false);
+			if (IsGrounded ()) {
+				anima.SetBool ("isFlying", false);
+				ApplyFriction ();
+			} else {
+				anima.SetBool ("isFlying", true);
+				anima.SetBool ("isInBattle", false);
+			}
+
+			epee.isParrying = anima.GetCurrentAnimatorStateInfo (0).IsName ("Armature|batman");
+
+			anima.SetFloat ("xSpeed", body.velocity.x);
+			anima.SetFloat ("ySpeed", body.velocity.z);
 		}
+	}
 
-		epee.isParrying = anima.GetCurrentAnimatorStateInfo (0).IsName ("Armature|batman");
-
-		anima.SetFloat ("xSpeed", body.velocity.x);
-		anima.SetFloat ("ySpeed", body.velocity.z);
+	public void Die()
+	{
+		isDead = true;
+		body.constraints = 0; // so it fell
+		body.velocity -= transform.forward * 3;
+		epee.Disarm ();
+		// Destroy(this.gameObject);
 	}
 
 	public void Face(Vector3 enemy)

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Sequence : MonoBehaviour {
 
@@ -7,8 +8,14 @@ public class Sequence : MonoBehaviour {
 	public GameObject originalMesh;
 	public Transform point;
 
-	void Start () {
-		PosForObjects ((pos, rot) => Object.Instantiate(originalMesh, pos, rot));
+	void Start () 
+	{
+		PosForObjects ((pos, rot) => UnityEngine.Object.Instantiate(originalMesh, pos, rot));
+		try {
+			Destroy (originalMesh);
+		} catch (Exception exc) {
+			// if it is prefab, it can't be deleted
+		}
 	}
 
 	delegate void CreateObj (Vector3 pos, Quaternion rot);
@@ -19,9 +26,8 @@ public class Sequence : MonoBehaviour {
 		int objc = (int)(Vector3.Distance (endPos, startPos) / spacing);
 		for (float i = 0; i < objc; i++) {
 			var drawPos = Vector3.Lerp (startPos, endPos, i / objc);
-			makeObj (drawPos, new Quaternion (0,0,0,0));
+			makeObj (drawPos, originalMesh.transform.rotation);
 		}
-
 	}
 
 	void OnDrawGizmos () {

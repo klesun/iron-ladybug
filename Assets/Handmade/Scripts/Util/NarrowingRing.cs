@@ -6,7 +6,7 @@ using System.Linq;
 public class NarrowingRing : MonoBehaviour 
 {
 	public GameObject vaneReference;
-	public int vaneCount = 6;
+	public int vaneCount = 24;
 	public float amplitude = 1;
 
 	private List<GameObject> vanes;
@@ -27,13 +27,8 @@ public class NarrowingRing : MonoBehaviour
 	void PlaceVanes (DPlaceTaker makeObj) 
 	{
 		for (float i = 0; i < vaneCount; ++i) {
-			var radians = 2 * Mathf.PI * i / vaneCount;
-			var dy = Mathf.Sin(radians) * amplitude;
-			var dz = Mathf.Cos(radians) * amplitude;
-			var drawPos =  transform.position + transform.right * dz + new Vector3 (0, dy, 0);
-
-			makeObj (drawPos, new Quaternion (0,0,0,0));
+			var drawPos = transform.position;// + transform.forward * dz + new Vector3 (0, dy, 0);
+			makeObj (drawPos, transform.rotation * Quaternion.Euler(360.0f * i / vaneCount, 0, 15));
 		}
-
 	}
 }

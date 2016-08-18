@@ -10,7 +10,7 @@ public class NpcControl : MonoBehaviour, IPiercable
 	const float SPRINT_INTERVAL = 5;
 
 	const float FRICTION_FORCE = 12;
-	const float MAX_RUNNING_SPEED = 7;
+	const float MAX_RUNNING_SPEED = 11;
 	const float RUNNING_BOOST = 18;
 	const float JUMP_BOOST = 8;
 	

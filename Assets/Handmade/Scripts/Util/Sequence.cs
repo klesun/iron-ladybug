@@ -8,11 +8,14 @@ public class Sequence : MonoBehaviour {
 	public GameObject originalMesh;
 	public Transform point;
 
+	private Transform originalTransform;
+
 	void Start () 
 	{
 		PosForObjects ((pos, rot) => UnityEngine.Object.Instantiate(originalMesh, pos, rot));
+		originalTransform = originalMesh.transform;
 		try {
-			Destroy (originalMesh);
+			//Hide (originalMesh);
 		} catch (Exception exc) {
 			// if it is prefab, it can't be deleted
 		}
@@ -32,5 +35,10 @@ public class Sequence : MonoBehaviour {
 
 	void OnDrawGizmos () {
 		PosForObjects ((pos, rot) => Gizmos.DrawWireCube (pos, new Vector3 (1,1,1)));
+	}
+
+	void Hide(GameObject g)
+	{
+		g.transform.position = new Vector3 (9999,9999,9999);
 	}
 }

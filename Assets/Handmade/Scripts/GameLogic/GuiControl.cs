@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Linq;
 
 /** 
  * shorthand for accessing text and 
@@ -8,14 +10,25 @@ using UnityEngine.UI;
  */
 public class GuiControl : MonoBehaviour 
 {
-	public RawImage iconA;
-	public Text textfieldA;
+	public QuoteBox[] quoteBoxArray;
 
-	public RawImage iconB;
-	public Text textfieldB;
+	private Queue<QuoteBox> quoteBoxes;
 
 	void Start () 
 	{
+		quoteBoxes = new Queue<QuoteBox> (quoteBoxArray);
+	}
+
+	public void Say(string quote, NpcControl speaker)
+	{
+		var qb = quoteBoxes.Dequeue ();
+		qb.Say (quote, speaker);
+		quoteBoxes.Enqueue (qb);
+	}
+
+	public void EndTalk()
+	{
+		quoteBoxes.ToList ().ForEach ((qb) => qb.RemoveSpeaker());
 	}
 
 	void Update () 

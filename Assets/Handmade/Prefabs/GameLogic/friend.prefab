@@ -358,6 +358,7 @@ GameObject:
   - 33: {fileID: 3386738}
   - 135: {fileID: 13528038}
   - 114: {fileID: 11423386}
+  - 114: {fileID: 11441380}
   m_Layer: 0
   m_Name: dialogueRadius
   m_TagString: Untagged
@@ -831,7 +832,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 431174}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!4 &421650
 Transform:
   m_ObjectHideFlags: 1
@@ -913,9 +914,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 340.18628, z: 0}
   m_Children:
+  - {fileID: 418586}
   - {fileID: 437848}
   - {fileID: 448010}
-  - {fileID: 418586}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &432134
@@ -970,7 +971,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_Children: []
   m_Father: {fileID: 431174}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &437938
 Transform:
   m_ObjectHideFlags: 1
@@ -1054,7 +1055,7 @@ Transform:
   - {fileID: 457008}
   - {fileID: 447718}
   m_Father: {fileID: 431174}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &449496
 Transform:
   m_ObjectHideFlags: 1
@@ -1088,7 +1089,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152798}
-  m_LocalRotation: {x: 0.05661328, y: 0.5010242, z: 0.8565923, w: -0.10963225}
+  m_LocalRotation: {x: 0.05661329, y: 0.50102425, z: 0.8565924, w: -0.10963227}
   m_LocalPosition: {x: -1.8639438e-17, y: 0.01950693, z: 1.3969838e-11}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
   m_LocalEulerAnglesHint: {x: -60.5471, y: -1.4995999, z: -164.53769}
@@ -1999,6 +2000,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909ccc88cea863642a4cc5503891de8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11441380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63fa52beed4296548b040d9128947ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script: {fileID: 4900000, guid: c79d85ef7a142ca4caddd6544a8198f7, type: 3}
+  speakerA: {fileID: 0}
+  speakerB: {fileID: 11447042}
+  gui: {fileID: 0}
+  trigger: {fileID: 11423386}
 --- !u!114 &11447042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2017,6 +2034,7 @@ MonoBehaviour:
   epeeSwingSound: {fileID: 8300000, guid: 188372b0a749e1347b8ca54ca427f997, type: 3}
   boostEmmitter: {fileID: 11414366}
   epee: {fileID: 11457020}
+  icon: {fileID: 2800000, guid: 9e749289c3ded694cb5bca5f2f9a33b3, type: 3}
 --- !u!114 &11457020
 MonoBehaviour:
   m_ObjectHideFlags: 1

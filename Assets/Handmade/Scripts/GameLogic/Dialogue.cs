@@ -24,11 +24,13 @@ public class Dialogue : MonoBehaviour
 
 	IEnumerator Say(int i, string[] quotes)
 	{
-		var textfield = i % 2 == 0 ? gui.textfieldA : gui.textfieldB;
+		var speaker = i % 2 == 0 ? speakerA : speakerB;
 		if (i < quotes.Length) {
-			textfield.text = quotes[i];
-			yield return new WaitForSeconds (GetReadingTime(quotes[i]));
-			StartCoroutine(Say(i + 1, quotes));
+			gui.Say (quotes [i], speaker);
+			yield return new WaitForSeconds (GetReadingTime (quotes [i]));
+			StartCoroutine (Say (i + 1, quotes));
+		} else {
+			gui.EndTalk ();
 		}
 	}
 

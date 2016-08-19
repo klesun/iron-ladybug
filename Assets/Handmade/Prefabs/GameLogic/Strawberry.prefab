@@ -60,6 +60,7 @@ GameObject:
   - 33: {fileID: 3357090}
   - 135: {fileID: 13568978}
   - 114: {fileID: 11477430}
+  - 114: {fileID: 11447178}
   m_Layer: 0
   m_Name: collider
   m_TagString: Untagged
@@ -179,10 +180,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185786}
-  m_LocalRotation: {x: 0, y: 0.46877158, z: 0, w: -0.8833195}
-  m_LocalPosition: {x: -0.038, y: 0.34, z: 0.079}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -92.8078, y: 28.2, z: -68.79991}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: -55.9092, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 488164}
   m_Father: {fileID: 0}
@@ -431,6 +432,17 @@ MonoBehaviour:
   amplY: 0.25
   amplZ: 0.2
   speed: 2
+--- !u!114 &11447178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909ccc88cea863642a4cc5503891de8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11477430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -444,6 +456,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectedSound: {fileID: 8300000, guid: 7e8d156dce42ff146a61271f096a171a, type: 3}
   collectedEvilSound: {fileID: 8300000, guid: 8ef05e4209431bc4681d46644bb8cc29, type: 3}
+  trigger: {fileID: 11447178}
+  quoteBox: {fileID: 0}
 --- !u!135 &13568978
 SphereCollider:
   m_ObjectHideFlags: 1

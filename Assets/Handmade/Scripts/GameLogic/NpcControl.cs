@@ -22,6 +22,7 @@ public class NpcControl : MonoBehaviour, IPiercable
 	public AudioClip epeeSwingSound;
 	public EmmitterControl boostEmmitter;
 	public Blade epee;
+	public Texture icon;
 
 	private int health = 100;
 	private Rigidbody body;

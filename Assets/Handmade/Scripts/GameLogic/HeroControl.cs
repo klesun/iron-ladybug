@@ -11,9 +11,10 @@ public class HeroControl : MonoBehaviour
 	public AudioClip outOfManaEvilSound;
 
 	public NpcControl npc;
+	public HeroStats stats;
 
 	private float mouseSensitivity = 4.0F;
-	private List<EnemyLogic> enemies = new List<EnemyLogic>();
+	private HashSet<EnemyLogic> enemies = new HashSet<EnemyLogic>();
 
 	void Start () 
 	{
@@ -29,7 +30,8 @@ public class HeroControl : MonoBehaviour
 	{
 		transform.Rotate (new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0));
 		HandleKeys ();
-		enemies = enemies.Where (e => !e.npc.IsDead).ToList();
+		stats.enemyCount += enemies.Where (e => e.npc.IsDead).Count();
+		enemies = new HashSet<EnemyLogic>(enemies.Where (e => !e.npc.IsDead));
 		npc.anima.SetBool ("isInBattle", enemies.Count > 0);
 	}
 

@@ -32,6 +32,8 @@ public class NpcControl : MonoBehaviour, IPiercable
 	}
 	private float? lastSprintTime = null;
 	private float distToGround;
+	private RaycastHit floor;
+	private bool isCloseToGround = false;
 
 	// Use this for initialization
 	void Start () 
@@ -52,6 +54,7 @@ public class NpcControl : MonoBehaviour, IPiercable
 
 	void Live()
 	{
+		isCloseToGround = Physics.Raycast (transform.position, -Vector3.up * 0.1f, out floor, distToGround + 0.1f);
 		if (health <= 0) {
 			Die ();
 		} else {
@@ -167,7 +170,8 @@ public class NpcControl : MonoBehaviour, IPiercable
 				if (keyedDirection.magnitude > 0) {
 					anima.SetBool ("isInBattle", false);
 				}
-				Speeden (keyedDirection, RUNNING_BOOST, MAX_RUNNING_SPEED);
+				var vector = keyedDirection - floor.normal * Vector3.Dot(floor.normal, keyedDirection);
+				Speeden (vector, RUNNING_BOOST, MAX_RUNNING_SPEED);
 			} else {
 				Speeden (keyedDirection, RUNNING_BOOST / 2, MAX_RUNNING_SPEED / 4);
 			}
@@ -176,8 +180,10 @@ public class NpcControl : MonoBehaviour, IPiercable
 
 	public bool IsGrounded()
 	{
-		return Mathf.Abs(body.velocity.y) < 0.1f
-			&& Physics.Raycast (transform.position, -Vector3.up * 0.1f, distToGround + 0.1f);
+		return isCloseToGround && (
+			body.velocity.magnitude < 0.1 || 
+			Vector3.Angle(floor.normal, body.velocity) >= 90
+		);
 	}
 
 	public bool CanAttack()

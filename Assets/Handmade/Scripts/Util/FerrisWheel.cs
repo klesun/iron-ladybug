@@ -8,18 +8,18 @@ public class FerrisWheel : MonoBehaviour {
 	public float amplZ = 5;
 	public float speed = 0.5f;
 
-	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		startPosition = transform.position;
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate () 
+	{
 		transform.position = getLocalPositionAt (Time.fixedTime * speed);
-		//transform.GetComponent<Rigidbody>().MovePosition(getLocalPositionAt(Time.fixedTime));
 	}
 
-	void OnDrawGizmos() {
+	void OnDrawGizmos() 
+	{
 		var markCnt = 12;
 		for (var i = 0; i < markCnt; ++i) {
 			var dPos = getLocalPositionAt (2 * Mathf.PI * i / markCnt);
@@ -27,7 +27,8 @@ public class FerrisWheel : MonoBehaviour {
 		}
 	}
 
-	Vector3 getLocalPositionAt(float radians) {
+	Vector3 getLocalPositionAt(float radians) 
+	{
 		var dy = Mathf.Sin(radians) * amplY;
 		var dz = Mathf.Cos(radians) * amplZ;
 		return startPosition + transform.forward * dz + new Vector3 (0, dy, 0);

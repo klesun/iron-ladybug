@@ -14,16 +14,12 @@ public class Sequence : MonoBehaviour {
 	{
 		PosForObjects ((pos, rot) => UnityEngine.Object.Instantiate(originalMesh, pos, rot));
 		originalTransform = originalMesh.transform;
-		try {
-			//Hide (originalMesh);
-		} catch (Exception exc) {
-			// if it is prefab, it can't be deleted
-		}
 	}
 
 	delegate void CreateObj (Vector3 pos, Quaternion rot);
 
-	void PosForObjects (CreateObj makeObj) {
+	void PosForObjects (CreateObj makeObj) 
+	{
 		Vector3 startPos = transform.position;
 		Vector3 endPos = point.transform.position;
 		int objc = (int)(Vector3.Distance (endPos, startPos) / spacing);
@@ -35,10 +31,5 @@ public class Sequence : MonoBehaviour {
 
 	void OnDrawGizmos () {
 		PosForObjects ((pos, rot) => Gizmos.DrawWireCube (pos, new Vector3 (1,1,1)));
-	}
-
-	void Hide(GameObject g)
-	{
-		g.transform.position = new Vector3 (9999,9999,9999);
 	}
 }

@@ -18,6 +18,9 @@
   6.2 Make a place, where platforms will be randomly generated moving forward and backward like in metal slug when you had to jump over rockets
 7. Use custom editors or blender to build a tower with a cilinder and boxes around it. I believe it will be very beautifull. I first thought to do it by substracting cilinder mesh, but not sure unity has substraction, and we'd like to see changes in realtime.
 
-
-=====================ASAP======================
-  Fix ground detection. It is broken now when you move by agnled surface. What should be done - store flag "grounded" when you jump or not raycasted on update - set it to false, when you raycasted on update - true
+8. Some random idea:
+  8.1 In the ololo.unity instead of N*K boring rotating platform matrix do this thing: rotate every platform randomly around Y axis and apply random aplitudes to the FerrisWheel script. This should be quite a challenge for player =3
+  8.2 Put a plain circle (flattened sphere) trigger to the Ring script and add a quest where heroine have to run around the ring and jump through it say 10 times in 15 seconds, it will be fun!
+  8.3 Add a quest where you have to run through houses and change their roof color to one you would guess from a riddle ("what is mine favourite color if my cloth is cyan, my house is cyan and my name contains 'cyan' in it?")
+  8.4 Just a note, it could be more bautiful if deadly ring segments disappeared after contact like strawberries do and did not kill instantly but took say 20 hp
+  8.5 It would be nice to automagically put some strawberries on the curve of the spring platform

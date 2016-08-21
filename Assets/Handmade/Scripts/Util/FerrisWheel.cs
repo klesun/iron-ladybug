@@ -6,7 +6,7 @@ public class FerrisWheel : MonoBehaviour {
 	Vector3 startPosition;
 	public float amplY = 5;
 	public float amplZ = 5;
-	public float speed = 0.5f;
+	public float frequence = 0.5f;
 
 	void Start () 
 	{
@@ -15,7 +15,7 @@ public class FerrisWheel : MonoBehaviour {
 	
 	void FixedUpdate () 
 	{
-		transform.position = getLocalPositionAt (Time.fixedTime * speed);
+		transform.position = getLocalPositionAt (2 * Mathf.PI * Time.fixedTime * frequence);
 	}
 
 	void OnDrawGizmos() 

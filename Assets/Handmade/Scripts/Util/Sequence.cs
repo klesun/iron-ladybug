@@ -8,12 +8,9 @@ public class Sequence : MonoBehaviour {
 	public GameObject originalMesh;
 	public Transform point;
 
-	private Transform originalTransform;
-
 	void Start () 
 	{
 		PosForObjects ((pos, rot) => UnityEngine.Object.Instantiate(originalMesh, pos, rot));
-		originalTransform = originalMesh.transform;
 	}
 
 	delegate void CreateObj (Vector3 pos, Quaternion rot);

@@ -9,7 +9,6 @@ public class Dialogue : MonoBehaviour
 	public GuiControl gui;
 	public SpaceTrigger trigger;
 
-	// Use this for initialization
 	void Start () 
 	{
 		trigger.callback = Play;

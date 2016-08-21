@@ -32,26 +32,6 @@ namespace AssemblyCSharp
 			gameObject.transform.rotation = Quaternion.Euler (new Vector3(0,0,0));
 			return gameObject.transform;
 		}
-
-		/** 
-		 * wrapper to built-in random that (i believe) guarantes 
-		 * to return same sequence each time for same seed 
-		 * this should be usefull when you want to preserve 
-		 * some random combination or allow user to adjust it
-		 */
-		public static IEnumerable<float> Rand(int seed, int sequenceLength)
-		{
-			var wasSeed = UnityEngine.Random.seed;
-			UnityEngine.Random.seed = seed;
-
-			var result = 
-				from i in Enumerable.Range (0, sequenceLength)
-				select UnityEngine.Random.value;
-
-			UnityEngine.Random.seed = wasSeed;
-
-			return result;
-		}
 	}
 }
 

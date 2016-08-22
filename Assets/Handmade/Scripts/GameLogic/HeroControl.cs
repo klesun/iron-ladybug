@@ -12,6 +12,7 @@ public class HeroControl : MonoBehaviour
 
 	public NpcControl npc;
 	public HeroStats stats;
+	public GuiControl gui;
 
 	private float mouseSensitivity = 4.0F;
 	private HashSet<EnemyLogic> enemies = new HashSet<EnemyLogic>();

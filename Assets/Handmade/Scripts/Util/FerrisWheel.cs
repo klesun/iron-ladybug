@@ -6,7 +6,7 @@ public class FerrisWheel : MonoBehaviour {
 	Vector3 startPosition;
 	public float amplY = 5;
 	public float amplZ = 5;
-	public float frequence = 0.5f;
+	public float frequence = 0.125f;
 
 	void Start () 
 	{

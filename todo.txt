@@ -24,3 +24,5 @@
   8.3 Add a quest where you have to run through houses and change their roof color to one you would guess from a riddle ("what is mine favourite color if my cloth is cyan, my house is cyan and my name contains 'cyan' in it?")
   8.4 Just a note, it could be more bautiful if deadly ring segments disappeared after contact like strawberries do and did not kill instantly but took say 20 hp
   8.5 It would be nice to automagically put some strawberries on the curve of the spring platform
+  8.6 Laser jumping-rope!
+  8.7 Make thing similar to ShardedBridge.cs - platforms moving only towards or backwards and dissapearing and reappearing at some point. Pretty much like rocket-jumping in metal slug x. Later it could be made 3-dimensional.

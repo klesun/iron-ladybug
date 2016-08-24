@@ -22,6 +22,7 @@ Some villain when heroine is defeated:
     "Вот это прикол!"
     "У тебя майка красная"
     "Тебе здесь не место, втыкаешь?"
+    ~"Сердечко покалывает?"
 
 Random quotes to interact with friendly npc-s
     "Я соберу всю клубнику на свете и построю из неё замок!"

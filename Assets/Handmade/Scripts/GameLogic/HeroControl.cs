@@ -20,6 +20,8 @@ public class HeroControl : MonoBehaviour
 	void Start () 
 	{
 		Cursor.lockState = CursorLockMode.Locked;
+		/** @debug - don't mind me, i'm just a line of code that would trigger singletone initialization */
+		AssemblyCSharp.Tls.inst ();
 	}
 
 	public void AcquireEnemy(EnemyLogic enemy)

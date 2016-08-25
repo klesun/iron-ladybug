@@ -10,17 +10,17 @@
     4.2.1 implement dialogues
 
 5. graphics
-  5.1 when hero does "sprint" in the air (left mouse button), add some nice effect with particles, like, for starters, four sources rotating around hero
   5.3 strawberries are too inperceptable! please, oh nameless hero, add some play with light to their material so these strawberries could be noticed from far distances and would contrast even with walls and ground of similar color (see how collectable gems are realized in spyro)
 
 6. Few more ideas how to use platforms:
   6.1 Use the FerrisWheel.cs and Sequence.cs to make them move like a screw, it will be very nice
-  6.2 Make a place, where platforms will be randomly generated moving forward and backward like in metal slug when you had to jump over rockets
 7. Use custom editors or blender to build a tower with a cilinder and boxes around it. I believe it will be very beautifull. I first thought to do it by substracting cilinder mesh, but not sure unity has substraction, and we'd like to see changes in realtime.
 
-8. Some random idea:
+8. Some random ideas:
   8.1 Anothe genious idea from the genious: in ololo.unity the red stairs - make it just two small staircases that are moving: when you gone from first to second, first starts moving forward and then upward, then you step on the first and the second starts moving forward and upward and so on.
   8.2 Put a plain circle (flattened sphere) trigger to the Ring script and add a quest where heroine have to run around the ring and jump through it say 10 times in 15 seconds, it will be fun!
   8.3 Add a quest where you have to run through houses and change their roof color to one you would guess from a riddle ("what is mine favourite color if my cloth is cyan, my house is cyan and my name contains 'cyan' in it?")
   8.4 Just a note, it could be more bautiful if deadly ring segments disappeared after contact like strawberries do and did not kill instantly but took say 20 hp
   8.5 It would be nice to automagically put some strawberries on the curve of the spring platform
+  8.6 Laser jumping-rope!
+  8.7 Make thing similar to ShardedBridge.cs - platforms moving only towards or backwards and dissapearing and reappearing at some point. Pretty much like rocket-jumping in metal slug x. Later it could be made 3-dimensional.

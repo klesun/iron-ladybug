@@ -7,11 +7,13 @@ using AssemblyCSharp;
  * ai reacts on circumstances in the world
  * ALL npc logic must be placed into NpcControl (todo: rename)
  */
-public class EnemyLogic : MonoBehaviour 
+public class EnemyLogic : ITrophy 
 {
 	public SpaceTrigger enemyDetectionRadius;
 	public NpcControl npc;
+
 	private HeroControl enemy = null;
+	private DCallback onDeath = null;
 
 	const float EPEE_LENGTH = 1.5f;
 
@@ -22,6 +24,10 @@ public class EnemyLogic : MonoBehaviour
 
     void Update() 
 	{
+		if (npc.IsDead && onDeath != null) {
+			onDeath ();
+			onDeath = null;
+		}
 		if (enemy != null && !enemy.npc.IsDead) {
 			// TODO: with delay
 			npc.Face (enemy.transform.position);
@@ -82,5 +88,15 @@ public class EnemyLogic : MonoBehaviour
 			0, //Mathf.Sign(v.y),
 			Mathf.Sign(v.z)
 		);
+	}
+
+	override public ETrophy GetName()
+	{
+		return ETrophy.ENEMY;
+	}
+
+	public override void SetOnCollected (DCallback callback)
+	{
+		onDeath = callback;
 	}
 }

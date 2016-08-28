@@ -46,10 +46,11 @@ public class QuoteBox : MonoBehaviour
 			gameObject.SetActive (true);
 			this.npc = npc;
 			icon.texture = npc.icon;
-			textfield.text = 
-				"Strawberries: " + stats.strawberryCount + "/" + stats.totalStrawberryCount + "\n" +
-				"Cockshots: " + stats.cockshotCount + "/" + stats.totalCockshotCount + "\n" +
-				"Enemies: " + stats.enemyCount + "/" + stats.totalEnemyCount + "\n";
+			textfield.text = "";
+			foreach (var entry in stats.trophyCounts) {
+				var total = stats.trophyTotalCounts [entry.Key];
+				textfield.text += entry.Key + ": " + entry.Value + "/" + total + "\n";
+			}
 
 			hideAt = Time.fixedTime + 3;
 		}

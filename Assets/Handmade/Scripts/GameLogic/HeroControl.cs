@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using AssemblyCSharp;
 
 public class HeroControl : MonoBehaviour 
 {
@@ -26,20 +27,25 @@ public class HeroControl : MonoBehaviour
 
 	public void AcquireEnemy(EnemyLogic enemy)
 	{
-		enemies.Add (enemy);
+		if (!enemy.npc.IsDead) {
+			enemies.Add (enemy);
+		}
 	}
 	
 	void Update () 
 	{
 		transform.Rotate (new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0));
 		HandleKeys ();
-		stats.enemyCount += enemies.Where (e => e.npc.IsDead).Count();
 		enemies = new HashSet<EnemyLogic>(enemies.Where (e => !e.npc.IsDead));
 		npc.anima.SetBool ("isInBattle", enemies.Count > 0);
 	}
 
 	void HandleKeys()
 	{
+		if (Tls.inst().IsPaused()) {
+			return;
+		}
+
 		npc.Move (GetKeyedDirection ());
 
 		if (npc.IsGrounded()) {

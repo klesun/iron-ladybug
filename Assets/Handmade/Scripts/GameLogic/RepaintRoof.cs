@@ -9,9 +9,6 @@ public class RepaintRoof : MonoBehaviour
 	public SpaceTrigger trigger;
 	public Rainbow roof;
 
-	// exclusively game logic
-	public string selectedColor;
-
 	void Start () 
 	{
 		trigger.callback = PromptToRepaint;

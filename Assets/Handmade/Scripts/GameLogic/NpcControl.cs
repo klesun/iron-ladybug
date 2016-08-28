@@ -138,6 +138,7 @@ public class NpcControl : MonoBehaviour, IPiercable
 				lastSprintTime = Time.fixedTime;
 				AudioSource.PlayClipAtPoint(sprintingSfx, transform.position);
 				boostEmmitter.Emmit ();
+				return true;
 			}
 		}
 		return false;

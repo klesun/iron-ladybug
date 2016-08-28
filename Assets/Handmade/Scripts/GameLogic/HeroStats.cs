@@ -1,47 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using AssemblyCSharp;
 
 public class HeroStats : MonoBehaviour 
 {
 	public QuoteBox quoteBox;
 	public NpcControl npc;
 
-	public int _strawberryCount = 0;
-	public int strawberryCount {
-		get { return _strawberryCount; }
-		set { if (_strawberryCount != value) {
-			_strawberryCount = value;
-			quoteBox.ShowStats (this, npc);
-		} }
-	}
-	public int _cockshotCount = 0;
-	public int cockshotCount {
-		get { return _cockshotCount; }
-		set { if (_cockshotCount != value) {
-			_cockshotCount = value;
-			quoteBox.ShowStats (this, npc);
-		} }
-	}
-	public int _enemyCount = 0;
-	public int enemyCount {
-		get { return _enemyCount; }
-		set { if (_enemyCount != value) {
-			_enemyCount = value;
-			quoteBox.ShowStats (this, npc);
-		} }
-	}
-
-	private int _totalStrawberryCount = 0;
-	public int totalStrawberryCount { get { return _totalStrawberryCount; } }
-	private int _totalCockshotCount = 0;
-	public int totalCockshotCount { get { return _totalCockshotCount; } }
-	private int _totalEnemyCount = 0;
-	public int totalEnemyCount { get { return _totalEnemyCount; } }
+	public Dictionary<ETrophy, int> trophyCounts = new Dictionary<ETrophy, int> ();
+	public Dictionary<ETrophy, int> trophyTotalCounts = new Dictionary<ETrophy, int> ();
 
 	void Start () 
 	{
-		_totalStrawberryCount += Object.FindObjectsOfType<Strawberry> ().Length;
-		_totalCockshotCount += Object.FindObjectsOfType<Cockshot> ().Length;
-		_totalEnemyCount += Object.FindObjectsOfType<EnemyLogic> ().Length;
+		// so it was runt after the Start() of all scripts that generate items
+		Tls.inst().mainThreadBridge.RunInMainThread(() => {
+			foreach (var _ in Object.FindObjectsOfType<ITrophy>()) {
+				var trophy = _;
+				if (!trophyCounts.ContainsKey(trophy.GetName())) {
+					trophyTotalCounts [trophy.GetName()] = 0;
+				}
+				++trophyTotalCounts [trophy.GetName()];
+				trophyCounts [trophy.GetName()] = 0;
+				trophy.SetOnCollected (() => Inc(trophy.GetName(), 1));
+			}
+		});
+	}
+
+	void Inc(ETrophy trophyName, int count)
+	{
+		if (!trophyCounts.ContainsKey(trophyName)) {
+			trophyCounts [trophyName] = 0;
+		}
+		trophyCounts [trophyName] += count;
+		quoteBox.ShowStats(this, npc);
 	}
 }

@@ -20,3 +20,4 @@
   8.5 It would be nice to automagically put some strawberries on the curve of the spring platform
   8.6 Laser jumping-rope!
   8.7 Make thing similar to ShardedBridge.cs - platforms moving only towards or backwards and dissapearing and reappearing at some point. Pretty much like rocket-jumping in metal slug x. Later it could be made 3-dimensional.
+  8.8 Yet another random idea - one could implement a "Тише едешь дальше будешь" game. Like, there is some distance you can move only when say, green light is burning. When it changes to red, all floor but small area around you disappears. When light is back green, floor appears back.

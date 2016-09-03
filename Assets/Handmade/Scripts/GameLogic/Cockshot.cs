@@ -9,7 +9,7 @@ public class Cockshot : ITrophy, IPiercable
 
 	public void GetPierced()
 	{
-		AudioSource.PlayClipAtPoint(explodingBaloonSound, transform.position);
+		Tls.inst ().PlayAudio (explodingBaloonSound);
 		if (onCollected != null) {
 			onCollected ();
 		}

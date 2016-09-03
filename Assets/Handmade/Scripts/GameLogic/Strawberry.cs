@@ -23,7 +23,7 @@ public class Strawberry : ITrophy
 				? collectedEvilSound
 				: collectedSound;
 
-			AudioSource.PlayClipAtPoint(snd, transform.position);
+			Tls.inst ().PlayAudio (snd);
 			onCollected ();
 			Destroy (gameObject);
 		}

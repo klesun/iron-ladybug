@@ -21,8 +21,6 @@ public class HeroControl : MonoBehaviour
 	void Start () 
 	{
 		Cursor.lockState = CursorLockMode.Locked;
-		/** @debug - don't mind me, i'm just a line of code that would trigger singletone initialization */
-		AssemblyCSharp.Tls.inst ();
 	}
 
 	public void AcquireEnemy(EnemyLogic enemy)
@@ -50,18 +48,16 @@ public class HeroControl : MonoBehaviour
 
 		if (npc.IsGrounded()) {
 			if (Input.GetKeyDown(KeyCode.Space) && npc.Jump()) {
-				AudioSource.PlayClipAtPoint(
+				Tls.inst ().PlayAudio (
 					Random.Range(0, 10) == 0
 						? jumpingEvilSound
-						: jumpingSound, 
-					transform.position
-				);
+						: jumpingSound);
 			}
 			if (Input.GetKeyDown (KeyCode.Mouse0)) {
 				if (npc.Attack()) {
 					// battle cry!
 				} else {
-					AudioSource.PlayClipAtPoint(outOfManaEvilSound, transform.position);
+					Tls.inst ().PlayAudio (outOfManaEvilSound);
 				}
 			}
 			if (Input.GetKeyDown (KeyCode.Mouse1)) {
@@ -71,9 +67,9 @@ public class HeroControl : MonoBehaviour
 		} else {
 			if (Input.GetKeyDown(KeyCode.Mouse0)) {
 				if (npc.Boost(cameraAngle.transform.forward)) {
-					AudioSource.PlayClipAtPoint(sprintingEvilSound, transform.position);
+					Tls.inst ().PlayAudio (sprintingEvilSound);
 				} else {
-					AudioSource.PlayClipAtPoint(outOfManaEvilSound, transform.position);
+					Tls.inst ().PlayAudio (outOfManaEvilSound);
 				}
 			}
 		}

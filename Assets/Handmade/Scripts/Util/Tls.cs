@@ -10,25 +10,26 @@ namespace AssemblyCSharp
 	/** singletone for doing stuff */
 	public class Tls : MonoBehaviour
 	{
-		private static Tls instance;
-		private readonly new GameObject  gameObject = new GameObject ();
-		private readonly Dropdown dropdown;
 		public readonly Nark mainThreadBridge;
+
+		private static Tls instance;
+		private readonly new GameObject  dullGameObject = new GameObject ();
+		private readonly Dropdown dropdown;
+		private readonly AudioSource audioSource;
 
 		private Tls ()
 		{
-			var canvasEl = new GameObject ("huj", typeof(Canvas), typeof(GraphicRaycaster));
+			var canvasEl = new GameObject ("staticCanvas", typeof(Canvas), typeof(GraphicRaycaster));
 			var dropdownEl = (GameObject)Instantiate (Resources.Load("Dropdown"));
 			dropdown = dropdownEl.GetComponent<Dropdown> ();
-			dropdown .options.Add (new Dropdown.OptionData("zalupa"));
-			dropdown .options.Add (new Dropdown.OptionData("dzigurda"));
-			dropdown .options.Add (new Dropdown.OptionData("pidor"));
-			dropdown .options.Add (new Dropdown.OptionData("lox"));
 			dropdownEl.transform.SetParent(canvasEl.transform);
 			canvasEl.GetComponent<Canvas> ().renderMode = RenderMode.ScreenSpaceOverlay;
 
-			gameObject.AddComponent (typeof(Nark));
-			mainThreadBridge = gameObject.GetComponent<Nark>();
+			dullGameObject.AddComponent (typeof(Nark));
+			mainThreadBridge = dullGameObject.GetComponent<Nark>();
+
+			var audioSourceEl = new GameObject ("staticAudio", typeof(AudioSource));
+			audioSource = audioSourceEl.GetComponent<AudioSource> ();
 		}
 
 		public static Tls inst()
@@ -37,15 +38,20 @@ namespace AssemblyCSharp
 				?? (instance = new Tls());
 		}
 
+		public void PlayAudio(AudioClip audio)
+		{
+			audioSource.PlayOneShot (audio);
+		}
+
 		/* 
 		 * get transform of a fake game object for access to 
 		 * methods like "lookAt" to get rotation between two dots 
 		*/
 		public Transform DullTransform(Vector3 pos)
 		{
-			gameObject.transform.position = pos;
-			gameObject.transform.rotation = Quaternion.Euler (new Vector3(0,0,0));
-			return gameObject.transform;
+			dullGameObject.transform.position = pos;
+			dullGameObject.transform.rotation = Quaternion.Euler (new Vector3(0,0,0));
+			return dullGameObject.transform;
 		}
 
 		public DCallback Pause()

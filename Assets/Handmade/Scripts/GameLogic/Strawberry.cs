@@ -25,7 +25,7 @@ public class Strawberry : ITrophy
 
 			AudioSource.PlayClipAtPoint(snd, transform.position);
 			onCollected ();
-			Destroy (transform.parent.gameObject);
+			Destroy (gameObject);
 		}
 	}
 

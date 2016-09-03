@@ -910,7 +910,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177150}
   m_LocalRotation: {x: 0, y: 0.1720468, z: 0, w: -0.9850888}
-  m_LocalPosition: {x: -73.28617, y: 3.222, z: -57.580208}
+  m_LocalPosition: {x: -9.115, y: 3.71, z: -55.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 340.18628, z: 0}
   m_Children:
@@ -1089,7 +1089,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152798}
-  m_LocalRotation: {x: 0.05661329, y: 0.50102425, z: 0.8565924, w: -0.10963227}
+  m_LocalRotation: {x: 0.05661328, y: 0.5010242, z: 0.8565923, w: -0.10963225}
   m_LocalPosition: {x: -1.8639438e-17, y: 0.01950693, z: 1.3969838e-11}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
   m_LocalEulerAnglesHint: {x: -60.5471, y: -1.4995999, z: -164.53769}
@@ -2011,11 +2011,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fa52beed4296548b040d9128947ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  script: {fileID: 4900000, guid: c79d85ef7a142ca4caddd6544a8198f7, type: 3}
+  script: {fileID: 0}
   speakerA: {fileID: 0}
   speakerB: {fileID: 11447042}
   gui: {fileID: 0}
   trigger: {fileID: 11423386}
+  quest: {fileID: 0}
 --- !u!114 &11447042
 MonoBehaviour:
   m_ObjectHideFlags: 1

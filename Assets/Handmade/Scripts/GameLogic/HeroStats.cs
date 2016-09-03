@@ -33,6 +33,12 @@ public class HeroStats : MonoBehaviour
 			trophyCounts [trophyName] = 0;
 		}
 		trophyCounts [trophyName] += count;
-		quoteBox.ShowStats(this, npc);
+
+		var text = "";
+		foreach (var entry in trophyCounts) {
+			var total = trophyTotalCounts [entry.Key];
+			text += entry.Key + ": " + entry.Value + "/" + total + "\n";
+		}
+		quoteBox.ShowStats(text, npc);
 	}
 }

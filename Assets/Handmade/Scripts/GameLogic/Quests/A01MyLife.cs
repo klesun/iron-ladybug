@@ -9,15 +9,9 @@ using System.Linq;
  */
 public class A01MyLife : IQuest
 {
-	public GameObject rewardCell;
-
 	override public bool CheckIsCompleted()
 	{
 		if (GetRoofs ().TrueForAll (r => r.color == Color.cyan)) {
-			if (rewardCell != null) {
-				Destroy (rewardCell);
-				rewardCell = null;
-			}
 			return true;
 		} else {
 			return false;

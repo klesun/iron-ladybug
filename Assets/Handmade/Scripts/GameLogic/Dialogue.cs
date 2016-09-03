@@ -12,6 +12,7 @@ public class Dialogue : MonoBehaviour
 	public GuiControl gui;
 	public SpaceTrigger trigger;
 	public IQuest quest;
+	public GameObject rewardPrison = null;
 
 	private DCallback sayNext = null;
 
@@ -39,8 +40,16 @@ public class Dialogue : MonoBehaviour
 			if (!quest.CheckIsCompleted ()) {
 				Say (0, script.text.Split ('\n'), Tls.inst ().Pause ());
 			} else {
-				Say (0, new List<string>{"...", "Отличная работа", "Ещё бы, это же моя работа"}, Tls.inst ().Pause ());
+				LiberateReward ();
 			}
+		}
+	}
+
+	public void LiberateReward()
+	{
+		Say (0, new List<string>{"...", "Отличная работа", "Ещё бы, это же моя работа"}, Tls.inst ().Pause ());
+		if (rewardPrison != null) {
+			Destroy (rewardPrison);
 		}
 	}
 

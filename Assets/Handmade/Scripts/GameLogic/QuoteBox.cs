@@ -40,17 +40,13 @@ public class QuoteBox : MonoBehaviour
 		textfield.text = "";
 	}
 
-	public void ShowStats(HeroStats stats, NpcControl npc)
+	public void ShowStats(string text, NpcControl npc)
 	{
 		if (this.npc == null || this.npc == npc) {
 			gameObject.SetActive (true);
 			this.npc = npc;
 			icon.texture = npc.icon;
-			textfield.text = "";
-			foreach (var entry in stats.trophyCounts) {
-				var total = stats.trophyTotalCounts [entry.Key];
-				textfield.text += entry.Key + ": " + entry.Value + "/" + total + "\n";
-			}
+			textfield.text = text;
 
 			hideAt = Time.fixedTime + 3;
 		}

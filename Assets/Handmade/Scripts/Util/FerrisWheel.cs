@@ -8,8 +8,14 @@ public class FerrisWheel : MonoBehaviour
 	public float frequence = 0.125f;
 	public float initialOffset = 0; // 1 = whole lap
 
-	float startTime = Time.fixedTime;
+	float startTime;
 	Vector3 startPosition;
+
+	void Start()
+	{
+		startPosition = transform.localPosition;
+		startTime = Time.fixedTime;
+	}
 
 	/** 
 	 * @return float - 0 if wheel is at the start, 
@@ -18,11 +24,6 @@ public class FerrisWheel : MonoBehaviour
 	public float GetOffset()
 	{
 		return (initialOffset + (Time.fixedTime - startTime) * frequence) % 1;
-	}
-
-	void Start () 
-	{
-		startPosition = transform.localPosition;
 	}
 	
 	void FixedUpdate () 

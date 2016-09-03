@@ -13,7 +13,7 @@ namespace AssemblyCSharp
 		public readonly Nark mainThreadBridge;
 
 		private static Tls instance;
-		private readonly new GameObject  dullGameObject = new GameObject ();
+		private readonly new GameObject dullGameObject = new GameObject ();
 		private readonly Dropdown dropdown;
 		private readonly AudioSource audioSource;
 

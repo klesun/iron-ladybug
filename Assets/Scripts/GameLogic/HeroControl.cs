@@ -65,7 +65,20 @@ public class HeroControl : MonoBehaviour
 			}
 			/** @debug */
 			if (Input.GetKeyDown (KeyCode.G)) {
-				Fluid.Inst ().PlayNote (69, 0);
+				var stop = Fluid.Inst ().PlayNote (69, 48);
+				Tls.inst ().SetTimeout (1f, () => {
+					stop();
+					stop = Fluid.Inst ().PlayNote (68, 48);
+					Tls.inst ().SetTimeout (1f, () => {
+						stop();
+						stop = Fluid.Inst ().PlayNote (67, 48);
+						Tls.inst ().SetTimeout (1f, () => {
+							stop();
+							stop = Fluid.Inst ().PlayNote (66, 48);
+							Tls.inst ().SetTimeout (1f, stop);
+						});
+					});
+				});
 			}
 		} else {
 			if (Input.GetKeyDown(KeyCode.Mouse0)) {

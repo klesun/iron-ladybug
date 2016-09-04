@@ -17,9 +17,9 @@ namespace AssemblyCSharp
 				?? (instance = new Fluid());
 		}
 
-		public DCallback PlayNote(int semitone, int channel)
+		public DCallback PlayNote(int semitone, int presetN)
 		{
-			var adapted = Adapter.Get (semitone, channel);
+			var adapted = Adapter.Get (semitone, presetN);
 			return PlaySample (adapted.audioClip, adapted.frequencyFactor);
 		}
 
@@ -28,7 +28,6 @@ namespace AssemblyCSharp
 			var audioSourceEl = new GameObject ("staticAudio", typeof(AudioSource));
 			var audioSource = audioSourceEl.GetComponent<AudioSource> ();
 			audioSource.clip = audio;
-			/** @TODO: test, not sure, but it is likely the speed */
 			audioSource.pitch = frequencyFactor;
 			audioSource.Play ();
 

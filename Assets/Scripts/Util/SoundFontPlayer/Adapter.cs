@@ -2,14 +2,15 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace AssemblyCSharp
 {
 	/** retrieves sample file and parameters from soundfont (pitch/loopTimes/attenuation/stuff) */
 	public class Adapter
 	{
-		private static string samplesDir = Application.dataPath + "/Unversioned/Dropbox/fluid/samples";
-		private static JsonDefinition soundFontInfo = ReadJson (Application.dataPath + "/Unversioned/Dropbox/fluid/presets.pretty.json");
+		private static string samplesDir = "Dropbox/fluid/samples";
+		private static JsonDefinition soundFontInfo = ReadJson (Application.dataPath + "/Resources/Dropbox/fluid/presets.pretty.json");
 
 		private static Dictionary<string, AudioClip> samplesByName = new Dictionary<string, AudioClip>();
 
@@ -19,11 +20,11 @@ namespace AssemblyCSharp
 		public readonly float loopStart;
 		public readonly float loopEnd;
 
-		private Adapter(int semitone, int channel)
+		private Adapter(int semitone, int presetN)
 		{
-			var presetN = 0; // for starters just piano is ok
 			var presetInfo = soundFontInfo.presets[presetN];
 			var sampleInfo = FindClosestSample (semitone, presetInfo.instrument.samples);
+
 			var generator = CombineGenerators (
 				OverrideGenerator(presetInfo.generatorApplyToAll, presetInfo.instrument.generator),
 				OverrideGenerator(presetInfo.instrument.generatorApplyToAll, sampleInfo.generator)
@@ -40,12 +41,9 @@ namespace AssemblyCSharp
 				: samplesByName[sampleInfo.sampleName] = GetSample(sampleInfo.sampleName);
 		}
 
-		public static Adapter Get(int semitone, int channel)
+		public static Adapter Get(int semitone, int presetN)
 		{
-			if (channel == 9) { // drum
-				throw new Exception("Not implemented yet!");
-			}
-			return new Adapter(semitone, channel);
+			return new Adapter(semitone, presetN);
 		}
 
 		static JsonDefinition ReadJson(string path)
@@ -56,7 +54,7 @@ namespace AssemblyCSharp
 				text = sr.ReadToEnd();
 			}
 
-			return JsonUtility.FromJson<JsonDefinition> ("{\"presets\": " + text + "}");
+			return JsonConvert.DeserializeObject<JsonDefinition> ("{\"presets\": " + text + "}");
 		}
 
 		static SampleInfo FindClosestSample(int semitone, SampleInfo[] options)
@@ -132,10 +130,13 @@ namespace AssemblyCSharp
 
 		static AudioClip GetSample(string fileName)
 		{
-			/** @debug */
-			MonoBehaviour.print (samplesDir + "/" + fileName + ".ogg");
+			var path = samplesDir + "/" + fileName;
+			var clip = Resources.Load<AudioClip> (path);
+			if (clip == null) {
+				throw new Exception("no such file in resources: " + path);
+			}
 
-			return Resources.Load<AudioClip> (samplesDir + "/" + fileName + ".ogg");
+			return clip;
 		}
 	}
 }

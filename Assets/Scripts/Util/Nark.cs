@@ -8,13 +8,15 @@ using System.Collections.Generic;
  */
 public class Nark : MonoBehaviour 
 {
-	private Queue<DCallback> callbacks = new Queue<DCallback>();
+	private ConcurrentQueue<DCallback> callbacks = new ConcurrentQueue<DCallback>();
 	
-	// Update is called once per frame
 	void Update () 
 	{
 		while (callbacks.Count > 0) {
-			callbacks.Dequeue ()();
+			var cb = callbacks.Dequeue ();
+			if (cb != null) {
+				cb ();
+			}
 		}
 	}
 

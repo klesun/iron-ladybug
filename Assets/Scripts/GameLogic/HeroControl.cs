@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Collections.Generic;
 using AssemblyCSharp;
+using Util.Midi;
+using Newtonsoft.Json;
 
 public class HeroControl : MonoBehaviour 
 {
@@ -14,6 +16,9 @@ public class HeroControl : MonoBehaviour
 	public NpcControl npc;
 	public HeroStats stats;
 	public GuiControl gui;
+
+	/** @debug */
+	public TextAsset testSong;
 
 	private float mouseSensitivity = 4.0F;
 	private HashSet<EnemyLogic> enemies = new HashSet<EnemyLogic>();
@@ -65,20 +70,24 @@ public class HeroControl : MonoBehaviour
 			}
 			/** @debug */
 			if (Input.GetKeyDown (KeyCode.G)) {
-				var stop = Fluid.Inst ().PlayNote (69, 48);
-				Tls.inst ().SetTimeout (1f, () => {
+				var stop = Fluid.Inst ().PlayNote (35, 43);
+				Tls.inst ().SetTimeout (5f, () => {
 					stop();
-					stop = Fluid.Inst ().PlayNote (68, 48);
+					stop = Fluid.Inst ().PlayNote (38, 43);
 					Tls.inst ().SetTimeout (1f, () => {
 						stop();
-						stop = Fluid.Inst ().PlayNote (67, 48);
+						stop = Fluid.Inst ().PlayNote (39, 43);
 						Tls.inst ().SetTimeout (1f, () => {
 							stop();
-							stop = Fluid.Inst ().PlayNote (66, 48);
+							stop = Fluid.Inst ().PlayNote (41, 43);
 							Tls.inst ().SetTimeout (1f, stop);
 						});
 					});
 				});
+			}
+			/** @debug */
+			if (Input.GetKeyDown (KeyCode.H)) {
+				new Player (JsonConvert.DeserializeObject<MidJsDefinition> (testSong.text)).Play();
 			}
 		} else {
 			if (Input.GetKeyDown(KeyCode.Mouse0)) {

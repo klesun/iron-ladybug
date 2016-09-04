@@ -1,0 +1,194 @@
+{"staffList":[
+    {"chordList":[
+        {"tactNumber":"0.0","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"74"}]},
+        {"tactNumber":"0.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"72"}]},
+        {"tactNumber":"0.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"71"}]},
+        {"tactNumber":"0.3","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"69"}]},
+        {"tactNumber":"1.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"68"}]},
+        {"tactNumber":"1.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"69"}]},
+        {"tactNumber":"1.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"71"}]},
+        {"tactNumber":"2.0","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"72"}]},
+        {"tactNumber":"2.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"68"}]},
+        {"tactNumber":"2.2","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"65"}]},
+        {"tactNumber":"3.0","noteList":[
+            {"channel":"0","length":"1","tune":"73"},
+            {"channel":"0","length":"1","tune":"70"},
+            {"channel":"0","length":"1","tune":"66"}]},
+        {"tactNumber":"4.0","noteList":[
+            {"channel":"0","length":"3 / 4","tune":"72"},
+            {"channel":"0","length":"3 / 4","tune":"71"},
+            {"channel":"0","length":"1","tune":"64"}],"slog":" учить"},
+        {"tactNumber":"4.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"69"}],"slog":"у-"},
+        {"tactNumber":"5.0","noteList":[
+            {"channel":"0","length":"1","tune":"68"},
+            {"channel":"0","length":"1","tune":"65"},
+            {"channel":"0","length":"1","tune":"60"}],"slog":"роки"},
+        {"tactNumber":"6.0","noteList":[
+            {"channel":"0","length":"3 / 4","tune":"67"},
+            {"channel":"0","length":"3 / 4","tune":"61"},
+            {"channel":"0","length":"3 / 4","tune":"58"}],"slog":"а сама"},
+        {"tactNumber":"6.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"72"},
+            {"channel":"0","length":"1 / 4","tune":"65"},
+            {"channel":"0","length":"1 / 4","tune":"56"}],"slog":"уш-"},
+        {"tactNumber":"7.0","noteList":[
+            {"channel":"0","length":"1","tune":"65"},
+            {"channel":"0","length":"3 / 4","tune":"64"},
+            {"channel":"0","length":"3 / 4","tune":"60"},
+            {"channel":"0","length":"1","tune":"58"},
+            {"channel":"0","length":"1","tune":"55"}],"slog":"ла"},
+        {"tactNumber":"7.1","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"62"},
+            {"channel":"0","length":"1 / 4","tune":"58"}],"slog":"к чу-"},
+        {"tactNumber":"7.2","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"64"}],"slog":"ва-"},
+        {"tactNumber":"8.0","noteList":[
+            {"channel":"0","length":"1","tune":"65"},
+            {"channel":"0","length":"1","tune":"56"}],"slog":"ку, ко"},
+        {"tactNumber":"9.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"66"},
+            {"channel":"0","length":"3 / 4","tune":"61"},
+            {"channel":"0","length":"3 / 4","tune":"58"}],"slog":"-то-"},
+        {"tactNumber":"9.1","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"70"}],"slog":"  -орый"},
+        {"tactNumber":"10.0","noteList":[
+            {"channel":"0","length":"1","tune":"65"},
+            {"channel":"0","length":"3 / 4","tune":"61"},
+            {"channel":"0","length":"1 / 2","tune":"58"}],"slog":"жил"},
+        {"tactNumber":"10.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"58"}],"slog":"в е-"},
+        {"tactNumber":"10.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"61"}],"slog":"ё"},
+        {"tactNumber":"11.0","noteList":[
+            {"channel":"0","length":"3 / 4","tune":"66"},
+            {"channel":"0","length":"3 / 4","tune":"63"},
+            {"channel":"0","length":"3 / 4","tune":"58"}],"slog":"тёплой"},
+        {"tactNumber":"11.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"70"}],"slog":"у-"},
+        {"tactNumber":"12.0","noteList":[
+            {"channel":"0","length":"3 / 4","tune":"73"},
+            {"channel":"0","length":"1 / 2","tune":"65"},
+            {"channel":"0","length":"3 / 4","tune":"57"}],"slog":"тробе,"},
+        {"tactNumber":"12.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"63"}],"slog":"мы не"},
+        {"tactNumber":"12.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"72"},
+            {"channel":"0","length":"1 / 4","tune":"63"}],"slog":"выбе-"},
+        {"tactNumber":"13.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"73"},
+            {"channel":"0","length":"1","tune":"65"},
+            {"channel":"0","length":"1 / 2","tune":"61"},
+            {"channel":"0","length":"1 / 2","tune":"58"}],"slog":"раем"},
+        {"tactNumber":"13.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"75"},
+            {"channel":"0","length":"1 / 4","tune":"66"}],"slog":"ма-"},
+        {"tactNumber":"13.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"73"},
+            {"channel":"0","length":"1 / 4","tune":"65"}],"slog":"те-"},
+        {"tactNumber":"14.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"72"},
+            {"channel":"0","length":"1 / 2","tune":"69"},
+            {"channel":"0","length":"1 / 2","tune":"67"},
+            {"channel":"0","length":"1 / 2","tune":"65"}],"slog":"рей, но"},
+        {"tactNumber":"14.1","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"73"},
+            {"channel":"0","length":"1 / 2","tune":"70"},
+            {"channel":"0","length":"1 / 2","tune":"67"},
+            {"channel":"0","length":"1 / 2","tune":"63"}],"slog":"я хо-"},
+        {"tactNumber":"15.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"73"},
+            {"channel":"0","length":"1 / 2","tune":"70"},
+            {"channel":"0","length":"1 / 2","tune":"66"},
+            {"channel":"0","length":"1 / 2","tune":"63"}],"slog":"тел б, чтоб"},
+        {"tactNumber":"15.1","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"75"},
+            {"channel":"0","length":"1 / 2","tune":"73"},
+            {"channel":"0","length":"1 / 2","tune":"70"},
+            {"channel":"0","length":"1 / 2","tune":"67"}],"slog":"моей"},
+        {"tactNumber":"16.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"77"},
+            {"channel":"0","length":"1 / 2","tune":"73"},
+            {"channel":"0","length":"1 / 2","tune":"69"},
+            {"channel":"0","length":"1","tune":"65"}],"slog":"мамой бы-"},
+        {"tactNumber":"16.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"78"},
+            {"channel":"0","length":"1 / 4","tune":"72"}],"slog":"ла"},
+        {"tactNumber":"16.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"77"},
+            {"channel":"0","length":"1 / 4","tune":"69"}]},
+        {"tactNumber":"17.0","noteList":[
+            {"channel":"0","length":"3 / 4","tune":"77"},
+            {"channel":"0","length":"3 / 4","tune":"70"},
+            {"channel":"0","length":"3 / 4","tune":"65"}]},
+        {"tactNumber":"17.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"80"},
+            {"channel":"0","length":"1 / 4","tune":"75"},
+            {"channel":"0","length":"1 / 4","tune":"72"},
+            {"channel":"0","length":"1 / 2","tune":"66"}],"slog":"Я\u0010"},
+        {"tactNumber":"18.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"82"},
+            {"channel":"0","length":"1 / 2","tune":"77"},
+            {"channel":"0","length":"1 / 2","tune":"73"}],"slog":"о-"},
+        {"tactNumber":"18.1","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"77"},
+            {"channel":"0","length":"1 / 2","tune":"75"},
+            {"channel":"0","length":"1 / 2","tune":"73"},
+            {"channel":"0","length":"1 / 2","tune":"71"}],"slog":"чень люб-\u0010"},
+        {"tactNumber":"19.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"80"},
+            {"channel":"0","length":"1 / 2","tune":"77"},
+            {"channel":"0","length":"1 / 2","tune":"70"}],"slog":"лю"},
+        {"tactNumber":"19.1","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"78"},
+            {"channel":"0","length":"1 / 2","tune":"75"},
+            {"channel":"0","length":"1 / 2","tune":"70"}],"slog":"е-"},
+        {"tactNumber":"20.0","noteList":[
+            {"channel":"0","length":"3 / 4","tune":"77"},
+            {"channel":"0","length":"3 / 4","tune":"73"},
+            {"channel":"0","length":"3 / 4","tune":"70"}],"slog":"ё,"},
+        {"tactNumber":"20.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"82"},
+            {"channel":"0","length":"1 / 4","tune":"73"},
+            {"channel":"0","length":"1 / 4","tune":"66"},
+            {"channel":"0","length":"1 / 4","tune":"63"}]},
+        {"tactNumber":"21.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"73"},
+            {"channel":"0","length":"1 / 2","tune":"70"},
+            {"channel":"0","length":"1","tune":"65"}]},
+        {"tactNumber":"21.1","noteList":[
+            {"channel":"0","length":"3 / 8","tune":"73"},
+            {"channel":"0","length":"3 / 8","tune":"72"}]},
+        {"tactNumber":"21.2","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"75"},
+            {"channel":"0","length":"1 / 8","tune":"70"}]},
+        {"tactNumber":"22.0","noteList":[
+            {"channel":"0","length":"1","tune":"69"},
+            {"channel":"0","length":"1 / 2","tune":"66"}],"slog":"вём "},
+        {"tactNumber":"22.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"68"}]},
+        {"tactNumber":"22.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"66"}]},
+        {"tactNumber":"23.0","noteList":[
+            {"channel":"0","length":"3 / 2","tune":"70"},
+            {"channel":"0","length":"3 / 2","tune":"65"}],"slog":"вём"}],"staffConfig":{"tempo":"120","numerator":"8","channelList":[
+          {"volume":"60","channelNumber":"1","instrument":"64"},
+          {"volume":"60","channelNumber":"2","instrument":"65"},
+          {"volume":"60","channelNumber":"3","instrument":"66"},
+          {"volume":"60","channelNumber":"4","instrument":"43"},
+          {"volume":"60","channelNumber":"5","instrument":"19"},
+          {"volume":"60","channelNumber":"6","instrument":"52"},
+          {"volume":"60","channelNumber":"7","instrument":"6"},
+          {"volume":"60","channelNumber":"8","instrument":"91"},
+          {"volume":"60","channelNumber":"9","instrument":"9"},
+          {"volume":"60","channelNumber":"10","instrument":"14"}],"keySignature":"0"}}]}

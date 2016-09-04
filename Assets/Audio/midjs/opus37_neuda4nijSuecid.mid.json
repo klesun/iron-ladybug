@@ -1,0 +1,173 @@
+{"staffList":[
+    {"chordList":[
+        {"tactNumber":"0.0","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"70"}]},
+        {"tactNumber":"0.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"62"}]},
+        {"tactNumber":"0.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"67"}]},
+        {"tactNumber":"0.3","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"70"}]},
+        {"tactNumber":"1.0","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"69"}]},
+        {"tactNumber":"1.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"62"}]},
+        {"tactNumber":"1.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"66"}]},
+        {"tactNumber":"1.3","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"69"}]},
+        {"tactNumber":"2.0","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"74"},
+            {"channel":"0","length":"1 / 4","tune":"67"}]},
+        {"tactNumber":"2.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"67"},
+            {"channel":"0","length":"1 / 4","tune":"62"}]},
+        {"tactNumber":"2.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"70"},
+            {"channel":"0","length":"1 / 4","tune":"66"}]},
+        {"tactNumber":"2.3","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"74"},
+            {"channel":"0","length":"1 / 4","tune":"64"}]},
+        {"tactNumber":"3.0","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"72"},
+            {"channel":"0","length":"1 / 4","tune":"63"}]},
+        {"tactNumber":"3.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"70"},
+            {"channel":"0","length":"1 / 4","tune":"62"}]},
+        {"tactNumber":"3.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"69"},
+            {"channel":"0","length":"1 / 4","tune":"60"}]},
+        {"tactNumber":"3.3","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"67"},
+            {"channel":"0","length":"1 / 4","tune":"58"}]},
+        {"tactNumber":"4.0","noteList":[
+            {"channel":"0","length":"3 / 4","tune":"72"},
+            {"channel":"0","length":"1 / 2","tune":"66"},
+            {"channel":"0","length":"1","tune":"57"}]},
+        {"tactNumber":"4.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"64"}]},
+        {"tactNumber":"4.2","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"74"},
+            {"channel":"0","length":"1 / 4","tune":"66"}]},
+        {"tactNumber":"4.3","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"75"}]},
+        {"tactNumber":"5.0","noteList":[
+            {"channel":"0","length":"1","tune":"74"},
+            {"channel":"0","length":"1 / 4","tune":"67"},
+            {"channel":"0","length":"1 / 4","tune":"60"}]},
+        {"tactNumber":"5.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"62"},
+            {"channel":"0","length":"1 / 4","tune":"58"}]},
+        {"tactNumber":"5.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"63"},
+            {"channel":"0","length":"1 / 4","tune":"57"}]},
+        {"tactNumber":"5.3","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"62"},
+            {"channel":"0","length":"1 / 4","tune":"55"}]},
+        {"tactNumber":"6.0","noteList":[
+            {"channel":"0","length":"3 / 4","tune":"69"},
+            {"channel":"0","length":"1 / 2","tune":"63"},
+            {"channel":"0","length":"3 / 4","tune":"54"}]},
+        {"tactNumber":"6.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"62"}]},
+        {"tactNumber":"6.2","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"72"},
+            {"channel":"0","length":"1 / 4","tune":"60"},
+            {"channel":"0","length":"1 / 4","tune":"54"}]},
+        {"tactNumber":"6.3","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"70"},
+            {"channel":"0","length":"1 / 8","tune":"58"}]},
+        {"tactNumber":"7.0","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"69"},
+            {"channel":"0","length":"1 / 4","tune":"60"},
+            {"channel":"0","length":"1 / 4","tune":"58"},
+            {"channel":"0","length":"1 / 4","tune":"55"}]},
+        {"tactNumber":"7.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"67"},
+            {"channel":"0","length":"1 / 4","tune":"58"},
+            {"channel":"0","length":"1 / 4","tune":"55"}]},
+        {"tactNumber":"7.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"66"},
+            {"channel":"0","length":"1 / 4","tune":"57"},
+            {"channel":"0","length":"1 / 4","tune":"50"}]},
+        {"tactNumber":"7.3","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"64"},
+            {"channel":"0","length":"1 / 8","tune":"55"},
+            {"channel":"0","length":"1 / 8","tune":"52"}]},
+        {"tactNumber":"7.4","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"66"},
+            {"channel":"0","length":"1 / 8","tune":"57"},
+            {"channel":"0","length":"1 / 8","tune":"54"}]},
+        {"tactNumber":"8.0","noteList":[
+            {"channel":"0","length":"1","tune":"67"},
+            {"channel":"0","length":"3 / 8","tune":"58"},
+            {"channel":"0","length":"1","tune":"55"}]},
+        {"tactNumber":"8.1","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"58"}]},
+        {"tactNumber":"8.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"58"}]},
+        {"tactNumber":"8.3","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"60"}]},
+        {"tactNumber":"9.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"67"},
+            {"channel":"0","length":"1","tune":"60"},
+            {"channel":"0","length":"1","tune":"57"}]},
+        {"tactNumber":"9.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"66"}]},
+        {"tactNumber":"9.2","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"64"}]},
+        {"tactNumber":"9.3","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"66"}]},
+        {"tactNumber":"10.0","noteList":[
+            {"channel":"0","length":"1","tune":"67"},
+            {"channel":"0","length":"3 / 8","tune":"58"},
+            {"channel":"0","length":"1 / 2","tune":"55"}]},
+        {"tactNumber":"10.1","noteList":[
+            {"channel":"0","length":"1 / 8","tune":"58"}]},
+        {"tactNumber":"10.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"58"},
+            {"channel":"0","length":"1 / 2","tune":"50"}]},
+        {"tactNumber":"10.3","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"60"}]},
+        {"tactNumber":"11.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"67"},
+            {"channel":"0","length":"1 / 2","tune":"63"},
+            {"channel":"0","length":"1 / 2","tune":"60"},
+            {"channel":"0","length":"1 / 2","tune":"57"}]},
+        {"tactNumber":"11.1","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"69"},
+            {"channel":"0","length":"1 / 2","tune":"62"},
+            {"channel":"0","length":"1 / 2","tune":"60"},
+            {"channel":"0","length":"1 / 2","tune":"57"}]},
+        {"tactNumber":"12.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"70"},
+            {"channel":"0","length":"1 / 2","tune":"63"},
+            {"channel":"0","length":"1 / 2","tune":"62"},
+            {"channel":"0","length":"1 / 2","tune":"55"}]},
+        {"tactNumber":"12.1","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"67"},
+            {"channel":"0","length":"1 / 2","tune":"63"},
+            {"channel":"0","length":"1 / 2","tune":"60"},
+            {"channel":"0","length":"1 / 2","tune":"55"}]},
+        {"tactNumber":"12.2","noteList":[
+            {"channel":"0","length":"1 / 4","tune":"72"}]},
+        {"tactNumber":"13.0","noteList":[
+            {"channel":"0","length":"1 / 2","tune":"72"},
+            {"channel":"0","length":"1 / 2","tune":"62"},
+            {"channel":"0","length":"1 / 2","tune":"59"},
+            {"channel":"0","length":"1 / 2","tune":"55"}]}],"staffConfig":{"tempo":"90","numerator":"8","channelList":[
+          {"volume":"30","channelNumber":"1"},
+          {"volume":"25","channelNumber":"2","instrument":"48"},
+          {"volume":"25","channelNumber":"3","instrument":"22"},
+          {"volume":"45","channelNumber":"4","instrument":"43"},
+          {"volume":"30","channelNumber":"5","instrument":"56"},
+          {"volume":"30","channelNumber":"6"},
+          {"volume":"30","channelNumber":"7","instrument":"48"},
+          {"volume":"60","channelNumber":"8","instrument":"91"},
+          {"volume":"60","channelNumber":"9","instrument":"9"},
+          {"volume":"60","channelNumber":"10","instrument":"14"},
+          {"volume":"60","channelNumber":"11"},
+          {"volume":"60","channelNumber":"12"},
+          {"volume":"60","channelNumber":"13"},
+          {"volume":"60","channelNumber":"14"},
+          {"volume":"60","channelNumber":"15"}],"keySignature":"0"}}]}

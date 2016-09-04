@@ -40,3 +40,4 @@ Thumbs.db
 #*.meta
 # our unversioned folder
 /Assets/Unversioned
+/Assets/Resources/Dropbox/

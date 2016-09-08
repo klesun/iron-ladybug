@@ -8,6 +8,10 @@ public class RepaintRoof : MonoBehaviour
 {
 	public SpaceTrigger trigger;
 	public Rainbow roof;
+	public AudioClip repaintSfx;
+
+	[HideInInspector]
+	public Color repaintColor;
 
 	void Start () 
 	{
@@ -16,18 +20,11 @@ public class RepaintRoof : MonoBehaviour
 
 	void PromptToRepaint(Collider collider)
 	{
-		// TODO: move dropdown implementation to a function that 
-		// would take dict of options and lambda to call when selected
-
 		foreach (var hero in collider.GetComponents<HeroControl>()) {
-			Tls.inst ().AskForChoice (new Dictionary<string, Color>{
-				{"red", Color.red},
-				{"green", Color.green},
-				{"blue", Color.blue},
-				{"cyan", Color.cyan},
-				{"magenta", Color.magenta},
-				{"yellow", Color.yellow},
-			}, (rgb) => roof.color = rgb);
+			if (repaintColor != null) {
+				roof.color = repaintColor;
+				Tls.inst ().PlayAudio (repaintSfx);
+			}
 		}
 	}
 }

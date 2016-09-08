@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: water 1
+  m_Name: Water
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
-  m_LightmapFlags: 5
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION
+  m_LightmapFlags: 1
   m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
@@ -103,7 +103,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.595
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -127,13 +127,13 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 1
+        second: 0
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: 0, g: 0.12459436, b: 0.19852942, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 0.33823532, g: 0.5618662, b: 1, a: 0.359}
+        second: {r: 0, g: 0.39411768, b: 0.85294116, a: 0.078}

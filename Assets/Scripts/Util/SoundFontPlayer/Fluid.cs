@@ -61,6 +61,10 @@ namespace AssemblyCSharp
 			// taking nearest to quartet round number
 			var crossFadeTime = Mathf.Floor(loopLength / 4 / wavePeriod) * wavePeriod;
 
+			// TODO: fix... well, it definitely sounds not how one would expect
+			// maybe my fancy way of doing SetTimeout() is the reason of detiming
+			// fade does not work too
+
 			DCallback swap = null;
 			swap = () => U.If(!interrupted, () => {
 				now = AudioSettings.dspTime;

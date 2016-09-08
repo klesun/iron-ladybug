@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using System.Collections.Generic;
 
 public class A02LaserRope : IQuest
 {
@@ -10,6 +11,7 @@ public class A02LaserRope : IQuest
 	public QuoteBox opponentIcon;
 	public FerrisWheel rope;
 	public Dialogue dialogue;
+	public GameObject rewardPrison;
 
 	private int hits = 0;
 	private float initialFreqeuqnce;
@@ -29,6 +31,8 @@ public class A02LaserRope : IQuest
 			}
 		};
 
+		questArea.callback = Play;
+
 		questArea.exitCallback = (c) => {
 			foreach (var hero in c.gameObject.GetComponents<HeroControl>()) {
 				hits = 0;
@@ -38,6 +42,17 @@ public class A02LaserRope : IQuest
 				}
 			}
 		};
+	}
+
+	void Play(Collider c)
+	{
+		foreach (var hero in c.gameObject.GetComponents<HeroControl>()) {
+			if (!CheckIsCompleted ()) {
+				dialogue.Play ();
+			} else {
+				LiberateReward ();
+			}
+		}
 	}
 
 	void Update () 
@@ -50,11 +65,19 @@ public class A02LaserRope : IQuest
 		if (isComplete) {
 			return true;
 		} else if (hits >= 12) {
-			dialogue.LiberateReward ();
+			LiberateReward ();
 			opponent.Die ();
 			return isComplete = true;
 		} else {
 			return false;
+		}
+	}
+
+	public void LiberateReward()
+	{
+		dialogue.Say (0, new List<string>{"...", "Отличная работа", "Ещё бы, это же моя работа"}, Tls.inst ().Pause ());
+		if (rewardPrison != null) {
+			Destroy (rewardPrison);
 		}
 	}
 }

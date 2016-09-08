@@ -608,10 +608,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183440}
-  m_LocalRotation: {x: 0, y: -0.009202048, z: 0, w: 0.99995774}
-  m_LocalPosition: {x: -153.35266, y: -127.84, z: -32.57322}
+  m_LocalRotation: {x: 0, y: 0.18013847, z: 0, w: 0.98364127}
+  m_LocalPosition: {x: -137.77687, y: -127.84, z: -54.61295}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: -1.0545, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 20.7556, z: 0}
   m_Children:
   - {fileID: 440084}
   - {fileID: 447986}
@@ -2126,7 +2126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 11401000}
   roof: {fileID: 11424936}
-  selectedColor: 
+  repaintSfx: {fileID: 8300000, guid: 0d9e48dc9d61e6f4b8e723f4e21c278d, type: 3}
+  repaintColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

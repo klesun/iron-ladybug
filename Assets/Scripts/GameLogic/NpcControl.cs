@@ -2,6 +2,8 @@
 using System.Collections;
 using AssemblyCSharp;
 
+[RequireComponent (typeof(Rigidbody))]
+[RequireComponent (typeof(Collider))]
 public class NpcControl : MonoBehaviour, IPiercable
 {
 	public const float LOUNGE_HEIGHT = 1.5f;
@@ -26,6 +28,7 @@ public class NpcControl : MonoBehaviour, IPiercable
 
 	private int health = 100;
 	private Rigidbody body;
+	private Collider collider;
 	private bool isDead = false;
 	public bool IsDead {
 		get { return isDead; }
@@ -34,14 +37,20 @@ public class NpcControl : MonoBehaviour, IPiercable
 	private float distToGround;
 	private RaycastHit floor;
 	private bool isCloseToGround = false;
+	private float initialFriction;
 
-	// Use this for initialization
 	void Start () 
 	{
 		distToGround = GetComponent<Collider> ().bounds.extents.y;
 		body = GetComponent<Rigidbody> ();
-		body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+		collider = GetComponent<Collider> ();
+		body.constraints = 
+			RigidbodyConstraints.FreezeRotationX | 
+			RigidbodyConstraints.FreezeRotationZ | 
+			RigidbodyConstraints.FreezeRotationY;
+
 		epee.onClash = LoseGrip;
+		initialFriction = collider.material.dynamicFriction;
 	}
 	
 	// Update is called once per frame
@@ -60,10 +69,11 @@ public class NpcControl : MonoBehaviour, IPiercable
 		} else {
 			if (IsGrounded ()) {
 				anima.SetBool ("isFlying", false);
-				ApplyFriction ();
+				collider.material.dynamicFriction = initialFriction;
 			} else {
 				anima.SetBool ("isFlying", true);
 				anima.SetBool ("isInBattle", false);
+				collider.material.dynamicFriction = 0;
 			}
 
 			epee.isParrying = anima.GetCurrentAnimatorStateInfo (0).IsName ("Armature|batman");
@@ -216,12 +226,12 @@ public class NpcControl : MonoBehaviour, IPiercable
 	void ApplyFriction()
 	{
 		// applying friction force
-		var frictionForce = -body.velocity.normalized * Time.deltaTime * FRICTION_FORCE;
-		if (frictionForce.magnitude > body.velocity.magnitude) {
-			body.velocity = Vector3.zero;
-		} else {
-			body.velocity += frictionForce;
-		}
+//		var frictionForce = -body.velocity.normalized * Time.deltaTime * FRICTION_FORCE;
+//		if (frictionForce.magnitude > body.velocity.magnitude) {
+//			body.velocity = Vector3.zero;
+//		} else {
+//			body.velocity += frictionForce;
+//		}
 	}
 
 	public Vector3 GetVelocity()

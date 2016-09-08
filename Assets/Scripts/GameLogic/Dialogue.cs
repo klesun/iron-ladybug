@@ -10,15 +10,12 @@ public class Dialogue : MonoBehaviour
 	public NpcControl speakerA;
 	public NpcControl speakerB;
 	public GuiControl gui;
-	public SpaceTrigger trigger;
-	public IQuest quest;
-	public GameObject rewardPrison = null;
 
 	private DCallback sayNext = null;
 
 	void Start () 
 	{
-		trigger.callback = Play;
+//		trigger.callback = Play;
 	}
 
 	void Update()
@@ -34,27 +31,22 @@ public class Dialogue : MonoBehaviour
 		}
 	}
 
-	void Play(Collider c)
+	public void Play(DCallback cb = null)
 	{
-		foreach (var hero in c.gameObject.GetComponents<HeroControl>()) {
-			if (!quest.CheckIsCompleted ()) {
-				Say (0, script.text.Split ('\n'), Tls.inst ().Pause ());
-			} else {
-				LiberateReward ();
-			}
-		}
+		cb = cb ?? (() => {});
+
+		var unpause = Tls.inst ().Pause ();
+		Say (0, script.text.Split ('\n'), () => { 
+			unpause();
+			cb();
+		});
 	}
 
-	public void LiberateReward()
+	/** TODO: rename to SayCustom() */
+	public void Say(int i, IList<string> quotes, DCallback whenDone = null)
 	{
-		Say (0, new List<string>{"...", "Отличная работа", "Ещё бы, это же моя работа"}, Tls.inst ().Pause ());
-		if (rewardPrison != null) {
-			Destroy (rewardPrison);
-		}
-	}
+		whenDone = whenDone ?? (() => {});
 
-	void Say(int i, IList<string> quotes, DCallback whenDone)
-	{
 		var speaker = i % 2 == 0 ? speakerA : speakerB;
 		if (i < quotes.Count) {
 			gui.Say (quotes [i], speaker);
@@ -69,6 +61,6 @@ public class Dialogue : MonoBehaviour
 
 	static float GetReadingTime(string text)
 	{
-		return text.Length * 0.075f;
+		return text.Length * 0.15f;
 	}
 }

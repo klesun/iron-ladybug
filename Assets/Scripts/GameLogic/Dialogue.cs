@@ -61,6 +61,6 @@ public class Dialogue : MonoBehaviour
 
 	static float GetReadingTime(string text)
 	{
-		return text.Length * 0.15f;
+		return Mathf.Max(3, text.Length * 0.15f);
 	}
 }

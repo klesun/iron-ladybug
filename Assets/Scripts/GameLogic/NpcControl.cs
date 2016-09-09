@@ -12,7 +12,7 @@ public class NpcControl : MonoBehaviour, IPiercable
 	const float SPRINT_INTERVAL = 5;
 
 	const float FRICTION_FORCE = 12;
-	const float MAX_RUNNING_SPEED = 11;
+	const float MAX_RUNNING_SPEED = 13;
 	const float RUNNING_BOOST = 18;
 	public const float JUMP_BOOST = 8;
 	
@@ -28,7 +28,6 @@ public class NpcControl : MonoBehaviour, IPiercable
 
 	private int health = 100;
 	private Rigidbody body;
-	private Collider collider;
 	private bool isDead = false;
 	public bool IsDead {
 		get { return isDead; }
@@ -37,20 +36,19 @@ public class NpcControl : MonoBehaviour, IPiercable
 	private float distToGround;
 	private RaycastHit floor;
 	private bool isCloseToGround = false;
-	private float initialFriction;
+	private float lastGroundTime;
 
 	void Start () 
 	{
 		distToGround = GetComponent<Collider> ().bounds.extents.y;
+		lastGroundTime = Time.fixedTime;
 		body = GetComponent<Rigidbody> ();
-		collider = GetComponent<Collider> ();
 		body.constraints = 
 			RigidbodyConstraints.FreezeRotationX | 
 			RigidbodyConstraints.FreezeRotationZ | 
 			RigidbodyConstraints.FreezeRotationY;
 
 		epee.onClash = LoseGrip;
-		initialFriction = collider.material.dynamicFriction;
 	}
 	
 	// Update is called once per frame
@@ -68,12 +66,14 @@ public class NpcControl : MonoBehaviour, IPiercable
 			Die ();
 		} else {
 			if (IsGrounded ()) {
+				lastGroundTime = Time.fixedTime;
 				anima.SetBool ("isFlying", false);
-				collider.material.dynamicFriction = initialFriction;
+				ApplyFriction ();
 			} else {
-				anima.SetBool ("isFlying", true);
-				anima.SetBool ("isInBattle", false);
-				collider.material.dynamicFriction = 0;
+				if (Time.fixedTime - lastGroundTime > 0.2) {
+					anima.SetBool ("isFlying", true);
+					anima.SetBool ("isInBattle", false);
+				}
 			}
 
 			epee.isParrying = anima.GetCurrentAnimatorStateInfo (0).IsName ("Armature|batman");
@@ -193,7 +193,7 @@ public class NpcControl : MonoBehaviour, IPiercable
 	{
 		return isCloseToGround && (
 			body.velocity.magnitude < 0.1 || 
-			Vector3.Angle(floor.normal, body.velocity) >= 90
+			Vector3.Angle(floor.normal, body.velocity) >= 89.99
 		);
 	}
 
@@ -226,12 +226,12 @@ public class NpcControl : MonoBehaviour, IPiercable
 	void ApplyFriction()
 	{
 		// applying friction force
-//		var frictionForce = -body.velocity.normalized * Time.deltaTime * FRICTION_FORCE;
-//		if (frictionForce.magnitude > body.velocity.magnitude) {
-//			body.velocity = Vector3.zero;
-//		} else {
-//			body.velocity += frictionForce;
-//		}
+		var frictionForce = -body.velocity.normalized * Time.deltaTime * FRICTION_FORCE;
+		if (frictionForce.magnitude > body.velocity.magnitude) {
+			body.velocity = Vector3.zero;
+		} else {
+			body.velocity += frictionForce;
+		}
 	}
 
 	public Vector3 GetVelocity()

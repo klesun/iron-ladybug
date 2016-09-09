@@ -17,19 +17,28 @@ namespace Util.Midi
 		{
 			this.song = song.staffList[0];
 			loopsLeft = this.song.staffConfig.loopTimes;
+
+			/** @debug */
+			MonoBehaviour.print (this.song.staffConfig.tempo);
 		}
 
-		public void Play()
+		public D.Cb Play(StopFlag flag = null)
 		{
-			if (position < song.chordList.Length) {
-				var chord = song.chordList[position++];
-				var seconds = PlayChord (chord);
-				Tls.inst ().SetTimeout (seconds, Play);
-			} else if (loopsLeft > 0) {
-				--loopsLeft;
-				position = 0; // TODO: use loopStart
-				Play ();
+			flag = flag ?? new StopFlag ();
+
+			if (!flag.isInterrupted) {
+				if (position < song.chordList.Length) {
+					var chord = song.chordList [position++];
+					var seconds = PlayChord (chord);
+					Tls.inst ().SetTimeout (seconds, () => Play(flag));
+				} else if (loopsLeft > 0) {
+					--loopsLeft;
+					position = 0; // TODO: use loopStart
+					Play (flag);
+				}
 			}
+
+			return () => flag.isInterrupted = true;
 		}
 
 		float PlayChord(Chord chord)
@@ -62,8 +71,13 @@ namespace Util.Midi
 
 		float AcadToSeconds(float length)
 		{
-			// semibreve takes 1 second when tempo is 60
-			return length * song.staffConfig.tempo / 60f;
+			// semibreve takes 1 second when tempo is 240
+			return 240f * length / song.staffConfig.tempo;
+		}
+
+		public class StopFlag
+		{
+			public bool isInterrupted = false;
 		}
 	}
 }

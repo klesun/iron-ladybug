@@ -33,10 +33,15 @@ namespace AssemblyCSharp
 				audioSource.pitch = adapted.frequencyFactor;
 				audioSource.volume = VOLUME_FACTOR;
 			});
-			var stop = LoopSeamless (S.Queue(audioSources), adapted.loopStart, adapted.loopEnd, semitone);
+
+
+			// broken
+			// TODO: fix
+			// var stop = LoopSeamless (S.Queue(audioSources), adapted.loopStart, adapted.loopEnd, semitone);
+			audioSources[0].Play();
 
 			return () => {
-				stop();
+				// stop();
 				audioSources.ForEach((a) => a.Stop());
 				GameObject.Destroy(audioSourceEl);
 			};

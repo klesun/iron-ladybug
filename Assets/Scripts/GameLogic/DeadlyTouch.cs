@@ -9,4 +9,11 @@ public class DeadlyTouch : MonoBehaviour
 			npc.Die ();
 		}
 	}
+
+	void OnTriggerEnter(Collider collider)
+	{
+		foreach (var npc in collider.gameObject.GetComponents<NpcControl>()) {
+			npc.Die ();
+		}
+	}
 }

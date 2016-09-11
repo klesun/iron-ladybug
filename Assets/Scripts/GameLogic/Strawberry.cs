@@ -1,41 +1,45 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Util;
 
-public class Strawberry : ITrophy
+namespace GameLogic
 {
-	public AudioClip collectedSound;
-	public AudioClip collectedEvilSound;
-	public SpaceTrigger trigger;
-	public ETrophy trophyName;
-
-	private DCallback onCollected = () => {};
-
-	void Start()
+	public class Strawberry : ITrophy
 	{
-		trigger.callback = OnGrab;
-	}
+		public AudioClip collectedSound;
+		public AudioClip collectedEvilSound;
+		public SpaceTrigger trigger;
+		public ETrophy trophyName;
 
-	void OnGrab(Collider collider)
-	{
-		foreach (var hero in collider.gameObject.GetComponents<HeroControl>()) {
-			var snd = Random.Range (0, 10) == 0
-				? collectedEvilSound
-				: collectedSound;
+		private DCallback onCollected = () => {};
 
-			Tls.inst ().PlayAudio (snd);
-			onCollected ();
-			Destroy (gameObject);
+		void Start()
+		{
+			trigger.callback = OnGrab;
 		}
-	}
 
-	override public void SetOnCollected(DCallback cb)
-	{
-		onCollected = cb;
-	}
+		void OnGrab(Collider collider)
+		{
+			foreach (var hero in collider.gameObject.GetComponents<HeroControl>()) {
+				var snd = Random.Range (0, 10) == 0
+					? collectedEvilSound
+					: collectedSound;
 
-	override public ETrophy GetName()
-	{
-		return trophyName;
+				Tls.inst ().PlayAudio (snd);
+				onCollected ();
+				Destroy (gameObject);
+			}
+		}
+
+		override public void SetOnCollected(DCallback cb)
+		{
+			onCollected = cb;
+		}
+
+		override public ETrophy GetName()
+		{
+			return trophyName;
+		}
 	}
 }

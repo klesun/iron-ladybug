@@ -4,7 +4,7 @@ using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace AssemblyCSharp
+namespace Util.SoundFontPlayer
 {
 	/** retrieves sample file and parameters from soundfont (pitch/loopTimes/attenuation/stuff) */
 	public class Adapter

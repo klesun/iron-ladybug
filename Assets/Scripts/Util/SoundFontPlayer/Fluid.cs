@@ -3,7 +3,7 @@ using UnityEngine;
 using Util;
 using System.Collections.Generic;
 
-namespace AssemblyCSharp
+namespace Util.SoundFontPlayer
 {
 	public class Fluid
 	{
@@ -22,7 +22,7 @@ namespace AssemblyCSharp
 				?? (instance = new Fluid());
 		}
 
-		public DCallback PlayNote(int semitone, int presetN)
+		public D.Cb PlayNote(int semitone, int presetN)
 		{
 			var adapted = Adapter.Get (semitone, presetN);
 
@@ -50,7 +50,7 @@ namespace AssemblyCSharp
 		/** 
 		 * @param srcSwaps expected to be at least two elements long
 		 */
-		static DCallback LoopSeamless(Queue<AudioSource> srcSwaps, float loopStart, float loopEnd, int semitone)
+		static D.Cb LoopSeamless(Queue<AudioSource> srcSwaps, float loopStart, float loopEnd, int semitone)
 		{
 			var interrupted = false;
 			var loopLength = loopEnd - loopStart;
@@ -70,7 +70,7 @@ namespace AssemblyCSharp
 			// maybe my fancy way of doing SetTimeout() is the reason of detiming
 			// fade does not work too
 
-			DCallback swap = null;
+			D.Cb swap = null;
 			swap = () => U.If(!interrupted, () => {
 				now = AudioSettings.dspTime;
 
@@ -100,7 +100,7 @@ namespace AssemblyCSharp
 		{
 			var steps = 10;
 			var step = 0;
-			DCallback doStep = null;
+			D.Cb doStep = null;
 			doStep = () => U.If (src != null && ++step < steps, () => {
 				src.volume = VOLUME_FACTOR * (outward ? steps - step : step) / steps;
 				Tls.inst().SetTimeout((float)(duration / steps), doStep);

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Newtonsoft.Json;
+using Util.SoundFontPlayer;
 
 namespace Util.Midi
 {
@@ -17,9 +18,6 @@ namespace Util.Midi
 		{
 			this.song = song.staffList[0];
 			loopsLeft = this.song.staffConfig.loopTimes;
-
-			/** @debug */
-			MonoBehaviour.print (this.song.staffConfig.tempo);
 		}
 
 		public D.Cb Play(StopFlag flag = null)

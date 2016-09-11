@@ -1,28 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Util;
 
-public class Cockshot : ITrophy, IPiercable
+namespace GameLogic
 {
-	public AudioClip explodingBaloonSound;
-	private DCallback onCollected = null;
-
-	public void GetPierced()
+	public class Cockshot : ITrophy, IPiercable
 	{
-		Tls.inst ().PlayAudio (explodingBaloonSound);
-		if (onCollected != null) {
-			onCollected ();
+		public AudioClip explodingBaloonSound;
+		private DCallback onCollected = null;
+
+		public void GetPierced()
+		{
+			Tls.inst ().PlayAudio (explodingBaloonSound);
+			if (onCollected != null) {
+				onCollected ();
+			}
+			Destroy(gameObject);
 		}
-		Destroy(gameObject);
-	}
 
-	public override ETrophy GetName ()
-	{
-		return ETrophy.COCKSHOT;
-	}
+		public override ETrophy GetName ()
+		{
+			return ETrophy.COCKSHOT;
+		}
 
-	public override void SetOnCollected (DCallback callback)
-	{
-		onCollected = callback;
+		public override void SetOnCollected (DCallback callback)
+		{
+			onCollected = callback;
+		}
 	}
 }

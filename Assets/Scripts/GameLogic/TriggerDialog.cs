@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Util;
+using Util.GameLogic;
 
-public class TriggerDialog : MonoBehaviour 
+namespace GameLogic
 {
-	public Dialogue dialog;
-	public SpaceTrigger trigger;
-
-	void Start () 
+	public class TriggerDialog : MonoBehaviour 
 	{
-		trigger.callback = c => U.If(c.gameObject.GetComponent<HeroControl>() != null, () => dialog.Play());
+		public Dialogue dialog;
+		public SpaceTrigger trigger;
+
+		void Start () 
+		{
+			trigger.callback = c => U.If(c.gameObject.GetComponent<HeroControl>() != null, () => dialog.Play());
+		}
 	}
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine.UI;
 using System.Timers;
 
-namespace AssemblyCSharp
+namespace Util
 {
 	/** singletone for doing stuff */
 	public class Tls
@@ -54,7 +54,7 @@ namespace AssemblyCSharp
 			return dullGameObject.transform;
 		}
 
-		public DCallback Pause()
+		public D.Cb Pause()
 		{
 			Time.timeScale = 0;
 			Cursor.lockState = CursorLockMode.None;
@@ -66,7 +66,7 @@ namespace AssemblyCSharp
 			};
 		}
 
-		public void AskForChoice<T>(IDictionary<string, T> options, DMono<T> cb)
+		public void AskForChoice<T>(IDictionary<string, T> options, AssemblyCSharp.DMono<T> cb)
 		{
 			var unpause = Pause ();
 			dropdown.options.Clear ();
@@ -92,10 +92,10 @@ namespace AssemblyCSharp
 		/** 
 		 * @return DCallback - call it to trigger the action before timeout
 		 */
-		public DCallback SetTimeout(float seconds, DCallback callback)
+		public D.Cb SetTimeout(float seconds, D.Cb callback)
 		{
 			var alreadyPerformed = false;
-			DCallback perform = () => {
+			D.Cb perform = () => {
 				if (!alreadyPerformed) {
 					mainThreadBridge.RunInMainThread (callback);
 					alreadyPerformed = true;

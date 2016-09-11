@@ -3,25 +3,28 @@ using System.Collections;
 using AssemblyCSharp;
 using System.Collections.Generic;
 
-/** 
- * use this to communicate with main thread from any thread
- */
-public class Nark : MonoBehaviour 
+namespace Util
 {
-	private ConcurrentQueue<DCallback> callbacks = new ConcurrentQueue<DCallback>();
-	
-	void Update () 
+	/** 
+	 * use this to communicate with main thread from any thread
+	 */
+	public class Nark : MonoBehaviour 
 	{
-		while (callbacks.Count > 0) {
-			var cb = callbacks.Dequeue ();
-			if (cb != null) {
-				cb ();
+		private ConcurrentQueue<D.Cb> callbacks = new ConcurrentQueue<D.Cb>();
+		
+		void Update () 
+		{
+			while (callbacks.Count > 0) {
+				var cb = callbacks.Dequeue ();
+				if (cb != null) {
+					cb ();
+				}
 			}
 		}
-	}
 
-	public void RunInMainThread(DCallback callback)
-	{
-		callbacks.Enqueue (callback);
+		public void RunInMainThread(D.Cb callback)
+		{
+			callbacks.Enqueue (callback);
+		}
 	}
 }

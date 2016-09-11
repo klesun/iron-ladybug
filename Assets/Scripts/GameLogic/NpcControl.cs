@@ -4,6 +4,7 @@ using AssemblyCSharp;
 
 [RequireComponent (typeof(Rigidbody))]
 [RequireComponent (typeof(Collider))]
+[SelectionBase]
 public class NpcControl : MonoBehaviour, IPiercable
 {
 	public const float LOUNGE_HEIGHT = 1.5f;
@@ -128,8 +129,11 @@ public class NpcControl : MonoBehaviour, IPiercable
 
 	public bool Jump()
 	{
-		if (!isDead && IsGrounded()) {
+		if (!isDead && isCloseToGround) {
 			anima.SetBool ("isFlying", true);
+			/** @debug */
+			body.velocity = new Vector3(body.velocity.x, 0, body.velocity.z);
+
 			body.velocity += Vector3.up * JUMP_BOOST;
 
 			AudioSource.PlayClipAtPoint(jumpingSfx, transform.position);

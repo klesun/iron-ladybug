@@ -4,7 +4,7 @@ using System.Collections;
 public class cursor : MonoBehaviour {
 
     // Use this for initialization
-    void Start() {
+    void Awake () {
         Cursor.visible = true;
     }
 }

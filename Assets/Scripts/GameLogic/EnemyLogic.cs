@@ -19,7 +19,7 @@ namespace GameLogic
 
 		const float EPEE_LENGTH = 1.5f;
 
-		void Start()
+		void Awake ()
 		{
 			enemyDetectionRadius.callback = OnUfo;
 		}

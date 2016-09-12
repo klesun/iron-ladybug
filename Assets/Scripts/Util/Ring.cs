@@ -13,7 +13,7 @@ namespace Util
 
 		private List<GameObject> vanes;
 
-		void Start () 
+		void Awake () 
 		{
 			PlaceVanes ((pos) => {
 				var drawTrans = Tls.inst ().DullTransform (pos);

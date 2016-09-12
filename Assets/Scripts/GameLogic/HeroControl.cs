@@ -6,10 +6,11 @@ using Util.Midi;
 using Newtonsoft.Json;
 using Util;
 using Util.SoundFontPlayer;
+using Interfaces;
 
 namespace GameLogic
 {
-	public class HeroControl : MonoBehaviour 
+	public class HeroControl : IHeroMb
 	{
 		public GameObject cameraAngle;
 		public AudioClip jumpingSound;
@@ -27,7 +28,7 @@ namespace GameLogic
 		private float mouseSensitivity = 4.0F;
 		private HashSet<EnemyLogic> enemies = new HashSet<EnemyLogic>();
 
-		void Start () 
+		void Awake () 
 		{
 			Cursor.lockState = CursorLockMode.Locked;
 		}
@@ -122,6 +123,11 @@ namespace GameLogic
 			}
 
 			return result;
+		}
+
+		override public INpcMb GetNpc()
+		{
+			return npc;
 		}
 	}
 }

@@ -11,7 +11,7 @@ public class FerrisWheel : MonoBehaviour
 	float startTime;
 	Vector3 startPosition;
 
-	void Start()
+	void Awake ()
 	{
 		startPosition = transform.localPosition;
 		startTime = Time.fixedTime;

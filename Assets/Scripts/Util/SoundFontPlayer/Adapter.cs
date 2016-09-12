@@ -10,6 +10,7 @@ namespace Util.SoundFontPlayer
 	public class Adapter
 	{
 		private static string samplesDir = "Dropbox/fluid/samples";
+		// "C:/gits/vika-loves-dota/Assets/Resources/Dropbox/fluid/presets.pretty.json"
 		private static JsonDefinition soundFontInfo = ReadJson (Application.dataPath + "/Resources/Dropbox/fluid/presets.pretty.json");
 
 		private static Dictionary<string, AudioClip> samplesByName = new Dictionary<string, AudioClip>();

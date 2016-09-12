@@ -17,7 +17,7 @@ public class SpringPlatform : MonoBehaviour
 	private Vector3 speed;
 
 	// Update is called once per frame
-	void Start () 
+	void Awake () 
 	{
 		speed = (forcePoint.position - transform.position) * scale; 
 		trigger.callback = (c) => {

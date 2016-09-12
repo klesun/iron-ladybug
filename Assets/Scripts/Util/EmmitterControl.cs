@@ -10,7 +10,7 @@ public class EmmitterControl : MonoBehaviour
 	public ParticleSystem[] emmitters;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		StopEmission ();
 	}

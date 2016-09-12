@@ -14,7 +14,7 @@ namespace GameLogic
 
 		private DCallback onCollected = () => {};
 
-		void Start()
+		void Awake ()
 		{
 			trigger.callback = OnGrab;
 		}

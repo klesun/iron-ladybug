@@ -8,7 +8,7 @@ public class Sequence : MonoBehaviour {
 	public GameObject originalMesh;
 	public Transform point;
 
-	void Start () 
+	void Awake () 
 	{
 		PosForObjects ((pos, rot) => UnityEngine.Object.Instantiate(originalMesh, pos, rot));
 	}

@@ -19,7 +19,7 @@ namespace Util
 		private float initialMass;
 		private bool isRecovering = false;
 
-		void Start ()
+		void Awake ()
 		{
 			initialPosition = transform.position;
 			initialRotation = transform.rotation;

@@ -17,7 +17,7 @@ namespace GameLogic
 		[HideInInspector]
 		public Color repaintColor;
 
-		void Start () 
+		void Awake () 
 		{
 			trigger.callback = PromptToRepaint;
 		}

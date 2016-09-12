@@ -3,17 +3,23 @@ using System.Collections;
 using AssemblyCSharp;
 using System.Timers;
 using System.Collections.Generic;
+using GameLogic;
+using Interfaces;
 
 namespace Util.GameLogic
 {
 	public class Dialogue : MonoBehaviour 
 	{
 		public TextAsset script;
-		public NpcControl speakerA;
-		public NpcControl speakerB;
-		public GuiControl gui;
+		public INpcMb speakerA = null; // defaults to player
+		public INpcMb speakerB;
 
 		private D.Cb sayNext = null;
+
+		void Awake ()
+		{
+			speakerA = speakerA ?? (Tls.inst ().GetHero ().GetNpc());
+		}
 
 		void Update()
 		{
@@ -46,12 +52,12 @@ namespace Util.GameLogic
 
 			var speaker = i % 2 == 0 ? speakerA : speakerB;
 			if (i < quotes.Count) {
-				gui.Say (quotes [i], speaker);
+				Sa.Inst().gui.Say (quotes [i], speaker);
 				D.Cb cb = () => Say (i + 1, quotes, whenDone);
 				var seconds = GetReadingTime (quotes [i]);
 				sayNext = Tls.inst ().SetTimeout(seconds, cb);
 			} else {
-				gui.EndTalk ();
+				Sa.Inst().gui.EndTalk ();
 				whenDone ();
 			}
 		}

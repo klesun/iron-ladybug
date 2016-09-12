@@ -25,7 +25,7 @@ public class ShardedBridge : MonoBehaviour
 
 	delegate void DCreateObj (Vector3 pos, Quaternion rot, float amplX, float amplY, float period);
 
-	void Start () 
+	void Awake () 
 	{
 		
 		PlaceShards ((pos, rot, amplX, amplY, period) => {

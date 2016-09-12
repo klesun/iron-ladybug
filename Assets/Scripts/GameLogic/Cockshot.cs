@@ -2,6 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 using Util;
+using Interfaces;
 
 namespace GameLogic
 {

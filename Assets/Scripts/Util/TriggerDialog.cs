@@ -10,7 +10,7 @@ namespace GameLogic
 		public Dialogue dialog;
 		public SpaceTrigger trigger;
 
-		void Start () 
+		void Awake () 
 		{
 			trigger.callback = c => U.If(c.gameObject.GetComponent<HeroControl>() != null, () => dialog.Play());
 		}

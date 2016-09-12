@@ -14,7 +14,7 @@ public class TransformListener : MonoBehaviour
 	Vector3 lastScale;
 	Quaternion lastRotation;
 
-	void Start()
+	void Awake ()
 	{
 		lastPosition = transform.position;
 	}

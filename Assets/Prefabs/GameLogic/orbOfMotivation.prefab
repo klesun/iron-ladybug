@@ -45,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 33.84, y: 44.73, z: -57.5}
   m_LocalScale: {x: 0.14529963, y: 0.14529963, z: 0.14529963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -112,6 +112,7 @@ MonoBehaviour:
   amplY: 0.22
   amplZ: 0
   frequence: 0.125
+  initialOffset: 0
 --- !u!114 &11489932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,7 +127,7 @@ MonoBehaviour:
   collectedSound: {fileID: 8300000, guid: 727fedb3c409a1645871b24f37d322fe, type: 3}
   collectedEvilSound: {fileID: 8300000, guid: 727fedb3c409a1645871b24f37d322fe, type: 3}
   trigger: {fileID: 11495284}
-  trophyName: 2
+  trophyName: 1
 --- !u!114 &11495284
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7,15 +7,13 @@ namespace Util
 	public class BgmManager 
 	{
 		private static BgmManager instance;
-		private float lastSwitchTime;
 		private MidJsDefinition currentSong = null;
 		private Player player = null;
-		private D.Cb stopPlayback;
+		private D.Cb stopPlayback = () => {};
 
 		public BgmManager()
 		{
-			lastSwitchTime = Time.fixedTime;
-			stopPlayback = () => {};
+			//stopPlayback = () => {};
 		}
 
 		public static BgmManager Inst()

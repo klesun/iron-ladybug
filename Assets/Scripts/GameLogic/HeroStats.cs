@@ -8,13 +8,12 @@ namespace GameLogic
 {
 	public class HeroStats : MonoBehaviour 
 	{
-		public QuoteBox quoteBox;
 		public NpcControl npc;
 
 		public Dictionary<ETrophy, int> trophyCounts = new Dictionary<ETrophy, int> ();
 		public Dictionary<ETrophy, int> trophyTotalCounts = new Dictionary<ETrophy, int> ();
 
-		void Start () 
+		void Awake () 
 		{
 			// so it was runt after the Start() of all scripts that generate items
 			Tls.inst().mainThreadBridge.RunInMainThread(() => {
@@ -42,7 +41,7 @@ namespace GameLogic
 				var total = trophyTotalCounts [entry.Key];
 				text += entry.Key + ": " + entry.Value + "/" + total + "\n";
 			}
-			quoteBox.ShowStats(text, npc);
+			Sa.Inst ().gui.quoteBoxArray [0].ShowStats (text, npc);
 		}
 	}
 }

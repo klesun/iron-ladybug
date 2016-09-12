@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UI;
 using System.Timers;
+using GameLogic;
+using Interfaces;
 
 namespace Util
 {
@@ -13,22 +15,16 @@ namespace Util
 		public readonly Nark mainThreadBridge;
 
 		private static Tls instance;
-		private readonly GameObject dullGameObject = new GameObject ();
-		private readonly Dropdown dropdown;
+		private readonly GameObject dullGameObject = new GameObject ("_nark");
 		private readonly AudioSource audioSource;
+		private IHero hero;
 
 		private Tls ()
 		{
-			var canvasEl = new GameObject ("staticCanvas", typeof(Canvas), typeof(GraphicRaycaster));
-			var dropdownEl = (GameObject)GameObject.Instantiate (Resources.Load("Dropdown"));
-			dropdown = dropdownEl.GetComponent<Dropdown> ();
-			dropdownEl.transform.SetParent(canvasEl.transform);
-			canvasEl.GetComponent<Canvas> ().renderMode = RenderMode.ScreenSpaceOverlay;
-
 			dullGameObject.AddComponent (typeof(Nark));
 			mainThreadBridge = dullGameObject.GetComponent<Nark>();
 
-			var audioSourceEl = new GameObject ("staticAudio", typeof(AudioSource));
+			var audioSourceEl = new GameObject ("_staticAudio", typeof(AudioSource));
 			audioSource = audioSourceEl.GetComponent<AudioSource> ();
 		}
 
@@ -66,29 +62,6 @@ namespace Util
 			};
 		}
 
-		public void AskForChoice<T>(IDictionary<string, T> options, AssemblyCSharp.DMono<T> cb)
-		{
-			var unpause = Pause ();
-			dropdown.options.Clear ();
-			dropdown.options.Add (new Dropdown.OptionData("none"));
-			foreach (var key in options.Keys) {
-				dropdown.options.Add (new Dropdown.OptionData(key));
-			}
-
-			dropdown.gameObject.SetActive (true);
-			var tmp = dropdown.onValueChanged;
-			dropdown.value = 0;
-			dropdown.onValueChanged = tmp;
-			dropdown.Hide ();
-
-			dropdown.onValueChanged.AddListener ((i) => {
-				dropdown.gameObject.SetActive(false);
-				unpause();
-				cb(options[dropdown.captionText.text]);
-				dropdown.onValueChanged.RemoveAllListeners();
-			});
-		}
-
 		/** 
 		 * @return DCallback - call it to trigger the action before timeout
 		 */
@@ -117,6 +90,11 @@ namespace Util
 		public bool IsPaused()
 		{
 			return Time.timeScale == 0;
+		}
+
+		public IHero GetHero()
+		{
+			return hero ?? (hero = UnityEngine.Object.FindObjectOfType<IHeroMb>());
 		}
 	}
 }

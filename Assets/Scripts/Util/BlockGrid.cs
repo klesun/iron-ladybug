@@ -13,7 +13,7 @@ public class BlockGrid : MonoBehaviour
 	public float spacingX = 1.0f;
 	public int sideRows = 3;
 
-	void Start () 
+	void Awake () 
 	{
 	}
 

@@ -3,6 +3,7 @@ using System.Collections;
 using Newtonsoft.Json;
 using Util.Midi;
 using GameLogic;
+using Interfaces;
 
 namespace Util
 {
@@ -15,16 +16,16 @@ namespace Util
 		public TextAsset audioFile;
 		public SpaceTrigger trigger;
 
-		void Start () 
+		void Awake () 
 		{
 			var text = audioFile.text;
 			var parsedSong = JsonConvert.DeserializeObject<MidJsDefinition> (text);
 			trigger.callback = (c) => U.If(
-				c.GetComponent<HeroControl>() != null, 
+				c.GetComponent<IHero>() != null, 
 				() => BgmManager.Inst ().SetBgm (parsedSong)
 			);
 			trigger.exitCallback = (c) => U.If(
-				c.GetComponent<HeroControl>() != null, 
+				c.GetComponent<IHero>() != null, 
 				() => BgmManager.Inst ().UnsetBgm (parsedSong)
 			);
 		}

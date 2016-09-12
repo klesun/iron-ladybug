@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Interfaces;
 
 public class Blade : MonoBehaviour 
 {
@@ -16,7 +17,7 @@ public class Blade : MonoBehaviour
 
 	const float CLASH_DURATION = 1;
 
-	void Start()
+	void Awake ()
 	{
 		epeeTip.callback = OnPierce;
 		lastClashedOn = Time.fixedTime;

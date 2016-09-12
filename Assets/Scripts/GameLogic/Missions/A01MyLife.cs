@@ -17,7 +17,17 @@ namespace GameLogic.Missions
 		public SpaceTrigger questGiverSpace;
 		public GameObject rewardPrison;
 
-		void Start()
+		/** TODO: move somewhere else */
+		public readonly static Dictionary<string, Color> colorNameMap = new Dictionary<string, Color> {
+			{ "red", Color.red },
+			{ "green", Color.green },
+			{ "blue", Color.blue },
+			{ "cyan", Color.cyan },
+			{ "magenta", Color.magenta },
+			{ "yellow", Color.yellow },
+		};
+
+		void Awake ()
 		{
 			questGiverSpace.callback = Play;
 		}
@@ -30,14 +40,8 @@ namespace GameLogic.Missions
 				if (!CheckIsCompleted ()) {
 					dialogue.Play (() => {
 						dialogue.Say(1, new List<string>{"Какой МОЙ любимый цвет?"});
-						Tls.inst ().AskForChoice (new Dictionary<string, Color>{
-							{"red", Color.red},
-							{"green", Color.green},
-							{"blue", Color.blue},
-							{"cyan", Color.cyan},
-							{"magenta", Color.magenta},
-							{"yellow", Color.yellow},
-						}, (rgb) => GetRoofs().ForEach(r => r.repaintColor = rgb));
+						Sa.Inst().gui.AskForChoice (colorNameMap, (rgb) => 
+							GetRoofs().ForEach(r => r.repaintColor = rgb));
 						dialogue.Say(1, new List<string>{"Вот значит что ты обо мне думаешь... Вот тебе краска, когда перекрасишь все крыши - возвращайся, я скажу был ли твой ответ верным."});
 					});
 				} else {

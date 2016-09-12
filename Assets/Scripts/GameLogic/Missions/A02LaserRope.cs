@@ -12,7 +12,6 @@ namespace GameLogic.Missions
 		public SpaceTrigger questArea;
 		public SpaceTrigger overJumpTrigger;
 		public NpcControl opponent;
-		public QuoteBox opponentIcon;
 		public FerrisWheel rope;
 		public Dialogue dialogue;
 		public GameObject rewardPrison;
@@ -22,7 +21,7 @@ namespace GameLogic.Missions
 		private int highscore = 12;
 		private bool isComplete = false;
 		
-		void Start () 
+		void Awake () 
 		{
 			initialFreqeuqnce = rope.frequence;
 
@@ -30,7 +29,8 @@ namespace GameLogic.Missions
 				foreach (var hero in c.gameObject.GetComponents<HeroControl>()) {
 					++hits;
 					highscore = Mathf.Max(highscore, hits);
-					opponentIcon.ShowStats("Hits: " + hits + "\n" + "Highscore: " + highscore, opponent);
+					var msg = "Hits: " + hits + "\n" + "Highscore: " + highscore;
+					Sa.Inst().gui.quoteBoxArray[1].ShowStats(msg, opponent);
 					rope.SetFrequence(rope.frequence * 1.1f);
 				}
 			};
@@ -42,7 +42,7 @@ namespace GameLogic.Missions
 					hits = 0;
 					rope.SetFrequence(initialFreqeuqnce);
 					if (!opponent.IsDead) {
-						opponentIcon.ShowStats("Вернись, трус!", opponent);
+						Sa.Inst().gui.quoteBoxArray[1].ShowStats("Вернись, трус!", opponent);
 					}
 				}
 			};

@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DeadlyTouch : MonoBehaviour 
+namespace GameLogic
 {
-	void OnCollisionEnter(Collision collision)
+	public class DeadlyTouch : MonoBehaviour 
 	{
-		foreach (var npc in collision.collider.gameObject.GetComponents<NpcControl>()) {
-			npc.Die ();
+		void OnCollisionEnter(Collision collision)
+		{
+			foreach (var npc in collision.collider.gameObject.GetComponents<NpcControl>()) {
+				npc.Die ();
+			}
 		}
-	}
 
-	void OnTriggerEnter(Collider collider)
-	{
-		foreach (var npc in collider.gameObject.GetComponents<NpcControl>()) {
-			npc.Die ();
+		void OnTriggerEnter(Collider collider)
+		{
+			foreach (var npc in collider.gameObject.GetComponents<NpcControl>()) {
+				npc.Die ();
+			}
 		}
 	}
 }

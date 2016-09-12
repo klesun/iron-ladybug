@@ -6,8 +6,7 @@
  */
 using UnityEngine;
 
-
-namespace AssemblyCSharp
+namespace Interfaces
 {
 	public interface IPiercable
 	{

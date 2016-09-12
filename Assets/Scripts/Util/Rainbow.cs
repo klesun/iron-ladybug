@@ -7,7 +7,7 @@ public class Rainbow : MonoBehaviour
 	public Renderer materialHolder;
 	public Color color = new Color(0,1,0);
 
-	void Start () 
+	void Awake () 
 	{
 		if (materialHolder != null) {
 			// http://answers.unity3d.com/questions/283271/material-leak-in-editor.html

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor;
 using System.Collections.Generic;
 
 [ExecuteInEditMode]
@@ -17,6 +16,7 @@ public class BlockGrid : MonoBehaviour
 	{
 	}
 
+	#if UNITY_EDITOR
 	void OnValidate() 
 	{
 		spacingZ = Mathf.Max (spacingZ, 0.1f);
@@ -28,6 +28,7 @@ public class BlockGrid : MonoBehaviour
 			blockRef.onChange = Renew;
 		}
 	}
+	#endif
 
 	void Renew()
 	{

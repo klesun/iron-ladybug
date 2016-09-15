@@ -6,4 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ololo.unity
+    path: Assets/Scenes/A01riveryLand.unity
+  - enabled: 1
+    path: Assets/Scenes/village.unity
+  - enabled: 1
+    path: Assets/Scenes/cilinderMountain.unity

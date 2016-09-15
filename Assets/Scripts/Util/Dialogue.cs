@@ -55,6 +55,8 @@ namespace Util.GameLogic
 				Sa.Inst().gui.Say (quotes [i], speaker);
 				D.Cb cb = () => Say (i + 1, quotes, whenDone);
 				var seconds = GetReadingTime (quotes [i]);
+				// TODO: it actually does not work when paused - implement 
+				// another SetTimeout that would not depend on game time
 				sayNext = Tls.inst ().SetTimeout(seconds, cb);
 			} else {
 				Sa.Inst().gui.EndTalk ();

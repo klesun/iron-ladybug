@@ -10,21 +10,15 @@ namespace Util
 	 */
 	public class Nark : MonoBehaviour 
 	{
-		private ConcurrentQueue<D.Cb> callbacks = new ConcurrentQueue<D.Cb>();
-		
-		void Update () 
+		public void SetTimeout(float seconds, D.Cb callback)
 		{
-			while (callbacks.Count > 0) {
-				var cb = callbacks.Dequeue ();
-				if (cb != null) {
-					cb ();
-				}
-			}
+			StartCoroutine (WaitAndPerform(seconds, callback));
 		}
 
-		public void RunInMainThread(D.Cb callback)
+		IEnumerator WaitAndPerform(float seconds, D.Cb callback)
 		{
-			callbacks.Enqueue (callback);
+			yield return new WaitForSeconds (seconds);
+			callback ();
 		}
 	}
 }

@@ -70,19 +70,21 @@ namespace Util
 			var alreadyPerformed = false;
 			D.Cb perform = () => {
 				if (!alreadyPerformed) {
-					mainThreadBridge.RunInMainThread (callback);
+					callback();
+//					mainThreadBridge.SetTimeout (callback);
 					alreadyPerformed = true;
 				}
 			};
+			mainThreadBridge.SetTimeout (seconds, perform);
 
-			if (seconds > 0) {
-				Timer timer = new Timer (seconds * 1000);
-				timer.AutoReset = false;
-				timer.Enabled = true;
-				timer.Elapsed += new ElapsedEventHandler ((_, __) => perform());
-			} else {
-				perform();
-			}
+//			if (seconds > 0) {
+//				Timer timer = new Timer (seconds * 1000);
+//				timer.AutoReset = false;
+//				timer.Enabled = true;
+//				timer.Elapsed += new ElapsedEventHandler ((_, __) => perform());
+//			} else {
+//				perform();
+//			}
 
 			return perform;
 		}

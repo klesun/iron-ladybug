@@ -11,7 +11,7 @@ namespace Util.SoundFontPlayer
 	{
 		private static string samplesDir = "Dropbox/fluid/samples";
 		// "C:/gits/vika-loves-dota/Assets/Resources/Dropbox/fluid/presets.pretty.json"
-		private static JsonDefinition soundFontInfo = ReadJson (Application.dataPath + "/Resources/Dropbox/fluid/presets.pretty.json");
+		private static JsonDefinition soundFontInfo = ReadJson ("Dropbox/fluid/presets.pretty");
 
 		private static Dictionary<string, AudioClip> samplesByName = new Dictionary<string, AudioClip>();
 
@@ -45,17 +45,6 @@ namespace Util.SoundFontPlayer
 		public static Adapter Get(int semitone, int presetN)
 		{
 			return new Adapter(semitone, presetN);
-		}
-
-		static JsonDefinition ReadJson(string path)
-		{
-			string text;
-			using (StreamReader sr = new StreamReader(path))
-			{
-				text = sr.ReadToEnd();
-			}
-
-			return JsonConvert.DeserializeObject<JsonDefinition> ("{\"presets\": " + text + "}");
 		}
 
 		static SampleInfo FindClosestSample(int semitone, SampleInfo[] options)
@@ -138,6 +127,12 @@ namespace Util.SoundFontPlayer
 			}
 
 			return clip;
+		}
+
+		static JsonDefinition ReadJson(string path)
+		{
+			var text = Resources.Load<TextAsset> (path).text;
+			return JsonConvert.DeserializeObject<JsonDefinition> ("{\"presets\": " + text + "}");
 		}
 	}
 }

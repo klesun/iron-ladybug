@@ -16,7 +16,7 @@ namespace GameLogic
 		void Awake () 
 		{
 			// so it was runt after the Start() of all scripts that generate items
-			Tls.inst().mainThreadBridge.SetTimeout(0, () => {
+			Tls.Inst().timeout.Game(0, () => {
 				foreach (var _ in Object.FindObjectsOfType<ITrophy>()) {
 					var trophy = _;
 					if (!trophyCounts.ContainsKey(trophy.GetName())) {

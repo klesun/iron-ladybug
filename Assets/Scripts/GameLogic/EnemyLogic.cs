@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Util;
 
 namespace GameLogic
 {
@@ -15,13 +16,13 @@ namespace GameLogic
 		public NpcControl npc;
 
 		private HeroControl enemy = null;
-		private DCallback onDeath = null;
+		private D.Cb onDeath = null;
 
 		const float EPEE_LENGTH = 1.5f;
 
 		void Awake ()
 		{
-			enemyDetectionRadius.callback = OnUfo;
+			enemyDetectionRadius.OnIn(OnUfo);
 		}
 
 	    void Update() 
@@ -97,7 +98,7 @@ namespace GameLogic
 			return ETrophy.ENEMY;
 		}
 
-		public override void SetOnCollected (DCallback callback)
+		public override void SetOnCollected (D.Cb callback)
 		{
 			onDeath = callback;
 		}

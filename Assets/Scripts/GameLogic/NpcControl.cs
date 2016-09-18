@@ -90,7 +90,7 @@ namespace GameLogic
 
 		public void Die()
 		{
-			Tls.inst().PlayAudio(Sa.Inst ().audioMap.npcDeathScream);
+			Tls.Inst().PlayAudio(Sa.Inst ().audioMap.npcDeathScream);
 			isDead = true;
 			body.constraints = 0; // so it fell
 			body.velocity -= transform.forward * 3;

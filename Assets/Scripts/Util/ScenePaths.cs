@@ -12,11 +12,18 @@ namespace Util
 	public class ScenePaths : MonoBehaviour 
 	{
 		public List<string> scenePaths;
+		/* 
+		 * it conflicts with simulatenously opened scenes in editor 
+		 * so it would make sense to enabled this flag only before build
+		 */
+		public bool isEnabled = true; 
 
 		void Awake () 
 		{
-			foreach (var path in scenePaths) {
-				SceneManager.LoadScene (path, LoadSceneMode.Additive);
+			if (isEnabled) {
+				foreach (var path in scenePaths) {
+					SceneManager.LoadScene (path, LoadSceneMode.Additive);
+				}
 			}
 		}
 	}

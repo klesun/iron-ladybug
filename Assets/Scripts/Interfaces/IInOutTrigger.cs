@@ -1,12 +1,12 @@
-﻿using UnityEngine;
-using System.Collections;
-using AssemblyCSharp;
+using System;
+using Util;
 
-/** 
- * anything that ocassionally emmits one of two events
- */
-abstract public class IInOutTrigger : MonoBehaviour 
+namespace Interfaces
 {
-	abstract public void OnIn (DCallback cb);
-	abstract public void OnOut (DCallback cb);
+	public interface IInOutTrigger
+	{
+		void OnIn (D.Cb cb);
+		void OnOut (D.Cb cb);
+	}
 }
+

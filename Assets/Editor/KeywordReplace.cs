@@ -12,7 +12,7 @@ public class KeywordReplace : UnityEditor.AssetModificationProcessor
 	{
 		var path = relPath.Replace(".meta", "");
 		int extIndex = path.LastIndexOf(".");
-		string ext = path.Substring(extIndex);
+		string ext = extIndex > -1 ? path.Substring(extIndex) : null;
 		if (ext != ".cs" && ext != ".js" && ext != ".boo") return;
 		int index = Application.dataPath.LastIndexOf("Assets");
 		path = Application.dataPath.Substring(0, index) + path;

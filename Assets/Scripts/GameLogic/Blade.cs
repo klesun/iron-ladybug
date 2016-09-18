@@ -19,7 +19,7 @@ public class Blade : MonoBehaviour
 
 	void Awake ()
 	{
-		epeeTip.callback = OnPierce;
+		epeeTip.OnIn(OnPierce);
 		lastClashedOn = Time.fixedTime;
 	}
 

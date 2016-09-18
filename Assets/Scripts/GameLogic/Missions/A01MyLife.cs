@@ -29,13 +29,13 @@ namespace GameLogic.Missions
 
 		void Awake ()
 		{
-			questGiverSpace.callback = Play;
+			questGiverSpace.OnIn(Play);
 		}
 
 		void Play(Collider c)
 		{
-			foreach (var hero in c.gameObject.GetComponents<HeroControl>()) {
-				var colors = GetRoofs ().Select (r => r.roof.color).Distinct ();
+			if (c.gameObject.GetComponent<HeroControl>() != null) {
+				// var colors = GetRoofs ().Select (r => r.roof.color).Distinct ();
 				// TODO: say, how many left and say that it is wrong color if all are of same color
 				if (!CheckIsCompleted ()) {
 					dialogue.Play (() => {
@@ -52,7 +52,7 @@ namespace GameLogic.Missions
 
 		public void LiberateReward()
 		{
-			dialogue.Say (0, new List<string>{"...", "Отличная работа", "Ещё бы, это же моя работа"}, Tls.inst ().Pause ());
+			dialogue.Say (0, new List<string>{"...", "Отличная работа", "Ещё бы, это же моя работа"}, Tls.Inst ().Pause ());
 			if (rewardPrison != null) {
 				Destroy (rewardPrison);
 			}

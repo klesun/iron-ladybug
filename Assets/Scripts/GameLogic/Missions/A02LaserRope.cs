@@ -25,32 +25,32 @@ namespace GameLogic.Missions
 		{
 			initialFreqeuqnce = rope.frequence;
 
-			overJumpTrigger.callback = (c) => {
-				foreach (var hero in c.gameObject.GetComponents<HeroControl>()) {
+			overJumpTrigger.OnIn((c) => {
+				if (c.gameObject.GetComponent<HeroControl>() != null) {
 					++hits;
 					highscore = Mathf.Max(highscore, hits);
 					var msg = "Hits: " + hits + "\n" + "Highscore: " + highscore;
 					Sa.Inst().gui.quoteBoxArray[1].ShowStats(msg, opponent);
 					rope.SetFrequence(rope.frequence * 1.1f);
 				}
-			};
+			});
 
-			questArea.callback = Play;
+			questArea.OnIn(Play);
 
-			questArea.exitCallback = (c) => {
-				foreach (var hero in c.gameObject.GetComponents<HeroControl>()) {
+			questArea.OnOut((c) => {
+				if (c.gameObject.GetComponent<HeroControl>() != null) {
 					hits = 0;
 					rope.SetFrequence(initialFreqeuqnce);
 					if (!opponent.IsDead) {
 						Sa.Inst().gui.quoteBoxArray[1].ShowStats("Вернись, трус!", opponent);
 					}
 				}
-			};
+			});
 		}
 
 		void Play(Collider c)
 		{
-			foreach (var hero in c.gameObject.GetComponents<HeroControl>()) {
+			if (c.gameObject.GetComponent<HeroControl>() != null) {
 				if (!CheckIsCompleted ()) {
 					dialogue.Play ();
 				} else {
@@ -79,7 +79,7 @@ namespace GameLogic.Missions
 
 		public void LiberateReward()
 		{
-			dialogue.Say (0, new List<string>{"...", "Отличная работа", "Ещё бы, это же моя работа"}, Tls.inst ().Pause ());
+			dialogue.Say (0, new List<string>{"...", "Отличная работа", "Ещё бы, это же моя работа"}, Tls.Inst ().Pause ());
 			if (rewardPrison != null) {
 				Destroy (rewardPrison);
 			}

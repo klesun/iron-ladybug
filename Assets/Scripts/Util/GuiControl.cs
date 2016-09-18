@@ -49,9 +49,9 @@ namespace GameLogic
 			quoteBoxes.ToList ().ForEach ((qb) => qb.RemoveSpeaker());
 		}
 
-		public void AskForChoice<T>(IDictionary<string, T> options, AssemblyCSharp.DMono<T> cb)
+		public void AskForChoice<T>(IDictionary<string, T> options, D.Cu<T> cb)
 		{
-			var unpause = Tls.inst().Pause ();
+			var unpause = Tls.Inst().Pause ();
 			generalDropdown.options.Clear ();
 			generalDropdown.options.Add (new Dropdown.OptionData("none"));
 			generalDropdown.AddOptions (S.List(options.Keys).Select (k => MkDdOpt(k)).ToList());

@@ -7,32 +7,39 @@ namespace GameLogic
 {
 	public class Strawberry : ITrophy
 	{
-		public AudioClip collectedSound;
-		public AudioClip collectedEvilSound;
+		public AudioClip collectedSound = null;
+		public AudioClip collectedEvilSound = null;
 		public SpaceTrigger trigger;
 		public ETrophy trophyName;
 
-		private DCallback onCollected = () => {};
+		private D.Cb onCollected = () => {};
 
 		void Awake ()
 		{
-			trigger.callback = OnGrab;
+			trigger.OnIn(OnGrab);
 		}
 
 		void OnGrab(Collider collider)
 		{
-			foreach (var hero in collider.gameObject.GetComponents<HeroControl>()) {
-				var snd = Random.Range (0, 10) == 0
+			if (collider.gameObject.GetComponent<HeroControl>() != null) {
+				var snd = collectedSound == null || collectedEvilSound != null && Random.Range (0, 10) == 0
 					? collectedEvilSound
 					: collectedSound;
 
-				Tls.inst ().PlayAudio (snd);
+				if (snd) {
+					Tls.Inst ().PlayAudio (snd);
+				}
+				if (trophyName == ETrophy.ORB_OF_MOTIVATION) {
+					var bgm = Sa.Inst ().audioMap.missionCompleteBgm;
+					BgmManager.Inst ().SetBgm (bgm);
+				}
+
 				onCollected ();
 				Destroy (gameObject);
 			}
 		}
 
-		override public void SetOnCollected(DCallback cb)
+		override public void SetOnCollected(D.Cb cb)
 		{
 			onCollected = cb;
 		}

@@ -1211,6 +1211,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcDeathScream: {fileID: 8300000, guid: f3bda89a3dcdb0740a352a6cd00b9680, type: 3}
+  missionCompleteBgmFile: {fileID: 4900000, guid: 288360e1425bac34cb715e0efd6fa748,
+    type: 3}
+  missionCompleteBgm:
+    staffList: []
 --- !u!114 &11465858
 MonoBehaviour:
   m_ObjectHideFlags: 1

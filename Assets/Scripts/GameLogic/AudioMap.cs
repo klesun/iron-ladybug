@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Util.Midi;
+using Newtonsoft.Json;
 
 namespace GameLogic
 {
@@ -13,5 +15,12 @@ namespace GameLogic
 	public class AudioMap : MonoBehaviour 
 	{
 		public AudioClip npcDeathScream;
+		public TextAsset missionCompleteBgmFile;
+		public MidJsDefinition missionCompleteBgm;
+
+		public void Awake()
+		{
+			missionCompleteBgm = JsonConvert.DeserializeObject<MidJsDefinition> (missionCompleteBgmFile.text);
+		}
 	}
 }

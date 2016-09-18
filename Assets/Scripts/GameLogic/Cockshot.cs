@@ -9,11 +9,11 @@ namespace GameLogic
 	public class Cockshot : ITrophy, IPiercable
 	{
 		public AudioClip explodingBaloonSound;
-		private DCallback onCollected = null;
+		private D.Cb onCollected = null;
 
 		public void GetPierced()
 		{
-			Tls.inst ().PlayAudio (explodingBaloonSound);
+			Tls.Inst ().PlayAudio (explodingBaloonSound);
 			if (onCollected != null) {
 				onCollected ();
 			}
@@ -25,7 +25,7 @@ namespace GameLogic
 			return ETrophy.COCKSHOT;
 		}
 
-		public override void SetOnCollected (DCallback callback)
+		public override void SetOnCollected (D.Cb callback)
 		{
 			onCollected = callback;
 		}

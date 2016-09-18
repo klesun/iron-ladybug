@@ -1,0 +1,92 @@
+{"staffList": [
+    {"staffConfig": {"tempo": "22.5", "loopStart": "0", "loopTimes": "0", "keySignature": "0", "channelList": [
+        {"instrument": "0", "channelNumber": 0},
+        {"instrument": "64", "channelNumber": 1},
+        {"instrument": "40", "channelNumber": 2},
+        {"instrument": "7", "channelNumber": 3},
+        {"instrument": "43", "channelNumber": 4},
+        {"instrument": "52", "channelNumber": 5},
+        {"instrument": "6", "channelNumber": 6},
+        {"instrument": "91", "channelNumber": 7},
+        {"instrument": "0", "channelNumber": 8},
+        {"instrument": "14", "channelNumber": 9},
+        {"instrument": "0", "channelNumber": 10},
+        {"instrument": "0", "channelNumber": 11},
+        {"instrument": "0", "channelNumber": 12},
+        {"instrument": "0", "channelNumber": 13},
+        {"instrument": "0", "channelNumber": 14},
+        {"instrument": "0", "channelNumber": 15}
+    ]}, "chordList": [
+        {"noteList": [
+            {"tune": 67, "channel": 1, "length": 0.0625}
+        ]},
+        {"noteList": [
+            {"tune": 69, "channel": 1, "length": 0.0625}
+        ]},
+        {"noteList": [
+            {"tune": 70, "channel": 1, "length": 0.125},
+            {"tune": 60, "channel": 1, "length": 0.1875},
+            {"tune": 55, "channel": 2, "length": 0.1875},
+            {"tune": 51, "channel": 3, "length": 0.1875},
+            {"tune": 43, "channel": 4, "length": 0.1875}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 1, "length": 0.0625}
+        ]},
+        {"noteList": [
+            {"tune": 72, "channel": 1, "length": 0.0625},
+            {"tune": 57, "channel": 2, "length": 0.0625},
+            {"tune": 54, "channel": 3, "length": 0.0625},
+            {"tune": 50, "channel": 1, "length": 0.0625},
+            {"tune": 48, "channel": 4, "length": 0.0625}
+        ]},
+        {"noteList": [
+            {"tune": 72, "channel": 1, "length": 0.0625},
+            {"tune": 59, "channel": 3, "length": 0.0625},
+            {"tune": 43, "channel": 4, "length": 0.75},
+            {"tune": 62, "channel": 2, "length": 0.0625}
+        ]},
+        {"noteList": [
+            {"tune": 71, "channel": 1, "length": 0.0625},
+            {"tune": 62, "channel": 3, "length": 0.0625},
+            {"tune": 67, "channel": 2, "length": 0.0625}
+        ]},
+        {"noteList": [
+            {"tune": 64, "channel": 2, "length": 0.041666666666666664},
+            {"tune": 69, "channel": 1, "length": 0.041666666666666664},
+            {"tune": 60, "channel": 3, "length": 0.041666666666666664}
+        ]},
+        {"noteList": [
+            {"tune": 71, "channel": 1, "length": 0.041666666666666664},
+            {"tune": 62, "channel": 2, "length": 0.041666666666666664},
+            {"tune": 55, "channel": 3, "length": 0.041666666666666664}
+        ]},
+        {"noteList": [
+            {"tune": 54, "channel": 3, "length": 0.041666666666666664},
+            {"tune": 72, "channel": 1, "length": 0.041666666666666664},
+            {"tune": 69, "channel": 2, "length": 0.041666666666666664}
+        ]},
+        {"noteList": [
+            {"tune": 71, "channel": 1, "length": 0.5},
+            {"tune": 55, "channel": 3, "length": 0.0625},
+            {"tune": 69, "channel": 2, "length": 0.0625}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 2, "length": 0.0625},
+            {"tune": 50, "channel": 3, "length": 0.125}
+        ]},
+        {"noteList": [
+            {"tune": 66, "channel": 2, "length": 0.041666666666666664}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 2, "length": 0.041666666666666664}
+        ]},
+        {"noteList": [
+            {"tune": 69, "channel": 2, "length": 0.041666666666666664}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 2, "length": 0.25},
+            {"tune": 50, "channel": 3, "length": 0.25}
+        ]}
+    ]}
+]}

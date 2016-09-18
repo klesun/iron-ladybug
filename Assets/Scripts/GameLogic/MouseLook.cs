@@ -2,27 +2,28 @@
 
 public class MouseLook : MonoBehaviour 
 {
+	public float minAngle = -75;
+	public float maxAngle = +60;
+	public float sensitivity = 0.0005f;
+
 	void Update ()
 	{
-		Rotate (Input.GetAxis("Mouse Y"));
+		Rotate (Input.GetAxis("Mouse Y") * sensitivity);
 	}
 
 	private void Rotate(float mouseYFactor)
 	{
-		var degrees = mouseYFactor * 10;
-		transform.localRotation *= Quaternion.AngleAxis (-degrees, Vector3.right);
-		var e = transform.localRotation.eulerAngles;
-		transform.localRotation = Quaternion.Euler (
-			e.x < 180 ? Mathf.Min(60, e.x) : Mathf.Max(285, e.x), //Mathf.Max(-75, Mathf.Min(60, 360 + e.x)),
-			e.y,
-			e.z
-		);
-		Zoom (transform.localRotation.x);
+		var e = transform.rotation.eulerAngles;
+		var xRot = e.x - mouseYFactor * 10;
+		xRot = xRot > 180 ? xRot - 360 : xRot;
+		xRot = Mathf.Min (maxAngle, Mathf.Max(minAngle, xRot));
+		transform.rotation = Quaternion.Euler (xRot, e.y, e.z);
+		Zoom (xRot);
 	}
 
-	private void Zoom(float mouseYFactor)
+	private void Zoom(float angle)
 	{
-		var zFactor = Mathf.Pow (0.5f, mouseYFactor);
+		var zFactor = Mathf.Pow (2f, angle / 60f);
 		transform.localScale = new Vector3 (
 			transform.localScale.x,
 			transform.localScale.y,

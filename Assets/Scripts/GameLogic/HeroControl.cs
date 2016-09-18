@@ -50,7 +50,7 @@ namespace GameLogic
 
 		void HandleKeys()
 		{
-			if (Tls.inst().IsPaused()) {
+			if (Tls.Inst().IsPaused()) {
 				return;
 			}
 
@@ -58,7 +58,7 @@ namespace GameLogic
 
 			if (npc.IsGrounded()) {
 				if (Input.GetKeyDown(KeyCode.Space) && npc.Jump()) {
-					Tls.inst ().PlayAudio (
+					Tls.Inst ().PlayAudio (
 						Random.Range(0, 10) == 0
 							? jumpingEvilSound
 							: jumpingSound);
@@ -67,7 +67,7 @@ namespace GameLogic
 					if (npc.Attack()) {
 						// battle cry!
 					} else {
-						Tls.inst ().PlayAudio (outOfManaEvilSound);
+						Tls.Inst ().PlayAudio (outOfManaEvilSound);
 					}
 				}
 				if (Input.GetKeyDown (KeyCode.Mouse1)) {
@@ -76,30 +76,30 @@ namespace GameLogic
 				/** @debug */
 				if (Input.GetKeyDown (KeyCode.G)) {
 					var stop = Fluid.Inst ().PlayNote (35, 43);
-					Tls.inst ().SetTimeout (5f, () => {
+					Tls.Inst ().SetGameTimeout (5f, () => {
 						stop();
 						stop = Fluid.Inst ().PlayNote (38, 43);
-						Tls.inst ().SetTimeout (1f, () => {
+						Tls.Inst ().SetGameTimeout (1f, () => {
 							stop();
 							stop = Fluid.Inst ().PlayNote (39, 43);
-							Tls.inst ().SetTimeout (1f, () => {
+							Tls.Inst ().SetGameTimeout (1f, () => {
 								stop();
 								stop = Fluid.Inst ().PlayNote (41, 43);
-								Tls.inst ().SetTimeout (1f, stop);
+								Tls.Inst ().SetGameTimeout (1f, stop);
 							});
 						});
 					});
 				}
 				/** @debug */
 				if (Input.GetKeyDown (KeyCode.H)) {
-					new Player (JsonConvert.DeserializeObject<MidJsDefinition> (testSong.text)).Play();
+					new Playback (JsonConvert.DeserializeObject<MidJsDefinition> (testSong.text)).Play();
 				}
 			} else {
 				if (Input.GetKeyDown(KeyCode.Mouse0)) {
 					if (npc.Boost(cameraAngle.transform.forward)) {
-						Tls.inst ().PlayAudio (sprintingEvilSound);
+						Tls.Inst ().PlayAudio (sprintingEvilSound);
 					} else {
-						Tls.inst ().PlayAudio (outOfManaEvilSound);
+						Tls.Inst ().PlayAudio (outOfManaEvilSound);
 					}
 				}
 			}

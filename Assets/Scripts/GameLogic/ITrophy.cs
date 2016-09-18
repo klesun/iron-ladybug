@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace AssemblyCSharp
+namespace Util
 {
 	public enum ETrophy{STRAWBERRY, ORB_OF_MOTIVATION, COCKSHOT, ENEMY}
 
@@ -11,7 +11,7 @@ namespace AssemblyCSharp
 	 */
 	public abstract class ITrophy: MonoBehaviour
 	{
-		public abstract void SetOnCollected(DCallback callback);
+		public abstract void SetOnCollected(D.Cb callback);
 		public abstract ETrophy GetName();
 	}
 }

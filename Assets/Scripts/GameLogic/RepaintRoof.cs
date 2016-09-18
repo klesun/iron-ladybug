@@ -15,19 +15,19 @@ namespace GameLogic
 		public AudioClip repaintSfx;
 
 		[HideInInspector]
-		public Color repaintColor;
+		public Color? repaintColor;
 
 		void Awake () 
 		{
-			trigger.callback = PromptToRepaint;
+			trigger.OnIn(PromptToRepaint);
 		}
 
 		void PromptToRepaint(Collider collider)
 		{
-			foreach (var hero in collider.GetComponents<HeroControl>()) {
-				if (repaintColor != null) {
-					roof.color = repaintColor;
-					Tls.inst ().PlayAudio (repaintSfx);
+			if (collider.GetComponent<HeroControl>() != null) {
+				if (repaintColor.HasValue) {
+					roof.color = repaintColor.Value;
+					Tls.Inst ().PlayAudio (repaintSfx);
 				}
 			}
 		}

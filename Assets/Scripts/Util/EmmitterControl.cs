@@ -18,7 +18,8 @@ public class EmmitterControl : MonoBehaviour
 	public void Emmit()
 	{
 		foreach (var e in emmitters) {
-			e.enableEmission = true;
+			var em = e.emission;
+			em.enabled = true;
 		}
 		Invoke ("StopEmission", 1f);
 	}
@@ -26,7 +27,8 @@ public class EmmitterControl : MonoBehaviour
 	private void StopEmission()
 	{
 		foreach (var e in emmitters) {
-			e.enableEmission = false;
+			var em = e.emission;
+			em.enabled = false;
 		}
 	}
 }

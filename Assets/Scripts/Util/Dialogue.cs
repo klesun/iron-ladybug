@@ -18,7 +18,7 @@ namespace Util.GameLogic
 
 		void Awake ()
 		{
-			speakerA = speakerA ?? (Tls.inst ().GetHero ().GetNpc());
+			speakerA = speakerA ?? (Tls.Inst ().GetHero ().GetNpc());
 		}
 
 		void Update()
@@ -27,18 +27,31 @@ namespace Util.GameLogic
 				Input.GetKeyDown (KeyCode.Mouse0) ||
 				Input.GetKeyDown (KeyCode.Space);
 
+			var skipAllButtonClicked = 
+				Input.GetKeyDown (KeyCode.Mouse1) ||
+				Input.GetKeyDown (KeyCode.Escape);
+
 			if (sayNext != null && skipButtonClicked) {
-				var tmp = sayNext;
-				sayNext = null;
-				tmp ();
+				sayNext ();
+			}
+			if (skipAllButtonClicked) {
+				StartCoroutine(skipAll ());
 			}
 		}
 
-		public void Play(DCallback cb = null)
+		IEnumerator skipAll()
+		{
+			while (sayNext != null) {
+				yield return Timeout.WaitForRealSeconds(0.05f);
+				sayNext ();
+			}
+		}
+
+		public void Play(D.Cb cb = null)
 		{
 			cb = cb ?? (() => {});
 
-			var unpause = Tls.inst ().Pause ();
+			var unpause = Tls.Inst ().Pause ();
 			Say (0, script.text.Split ('\n'), () => { 
 				unpause();
 				cb();
@@ -57,10 +70,11 @@ namespace Util.GameLogic
 				var seconds = GetReadingTime (quotes [i]);
 				// TODO: it actually does not work when paused - implement 
 				// another SetTimeout that would not depend on game time
-				sayNext = Tls.inst ().SetTimeout(seconds, cb);
+				sayNext = Tls.Inst ().timeout.Real(seconds, cb);
 			} else {
 				Sa.Inst().gui.EndTalk ();
 				whenDone ();
+				sayNext = null;
 			}
 		}
 

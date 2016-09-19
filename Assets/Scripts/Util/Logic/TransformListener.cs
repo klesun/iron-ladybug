@@ -35,5 +35,14 @@ namespace Util
 				}
 			}
 		}
+
+		#if UNITY_EDITOR
+		void OnValidate() 
+		{
+			if (onChange != null) {
+				UnityEditor.EditorApplication.delayCall += () => onChange();
+			}
+		}
+		#endif
 	}
 }

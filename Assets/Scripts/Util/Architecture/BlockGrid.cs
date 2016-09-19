@@ -5,14 +5,20 @@ using System.Collections.Generic;
 namespace Util
 {
 	[ExecuteInEditMode]
+	[SelectionBase]
 	public class BlockGrid : MonoBehaviour 
 	{
+		const float REVALIDATION_PERIOD = 0.1f;
+
 		public TransformListener endPoint;
 		public TransformListener blockRef;
 		public GameObject blockCont;
 		public float spacingZ = 1.0f;
 		public float spacingX = 1.0f;
 		public int sideRows = 3;
+
+		double? lastValidatedOn = null;
+		bool revalidationRequested = false;
 
 		void Awake () 
 		{
@@ -25,18 +31,31 @@ namespace Util
 			spacingX = Mathf.Max (spacingX, 0.1f);
 
 			if (endPoint != null && blockRef != null && blockCont != null) {
-				UnityEditor.EditorApplication.delayCall += Renew;
-				endPoint.onChange = Renew;
-				blockRef.onChange = Renew;
+				UnityEditor.EditorApplication.delayCall += () => revalidationRequested = true;
+				endPoint.onChange = () => revalidationRequested = true;
+				blockRef.onChange = () => revalidationRequested = true;
 			}
 		}
 		#endif
+
+		void Update()
+		{
+			var now = System.DateTime.Now.Ticks / 10000000d;
+			if (revalidationRequested && (lastValidatedOn == null || now - lastValidatedOn > REVALIDATION_PERIOD)) {
+				revalidationRequested = false;
+				lastValidatedOn = now;
+				Renew ();
+			}
+		}
 
 		void Renew()
 		{
 			if (this == null) {
 				// well, it complains about it being 
 				// destroyed when i start the game
+				return;
+			}
+			if (Application.isPlaying) {
 				return;
 			}
 

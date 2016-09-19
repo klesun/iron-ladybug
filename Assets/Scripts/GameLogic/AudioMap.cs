@@ -15,12 +15,16 @@ namespace GameLogic
 	public class AudioMap : MonoBehaviour 
 	{
 		public AudioClip npcDeathScream;
-		public TextAsset missionCompleteBgmFile;
 		public MidJsDefinition missionCompleteBgm;
+		public MidJsDefinition battleBgm;
+
+		public TextAsset missionCompleteBgmFile;
+		public TextAsset battleBgmFile;
 
 		public void Awake()
 		{
 			missionCompleteBgm = JsonConvert.DeserializeObject<MidJsDefinition> (missionCompleteBgmFile.text);
+			battleBgm = JsonConvert.DeserializeObject<MidJsDefinition> (battleBgmFile.text);
 		}
 	}
 }

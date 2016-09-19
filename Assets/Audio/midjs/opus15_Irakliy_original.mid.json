@@ -1,328 +1,415 @@
-{"staffList":[
-    {"chordList":[
-        {"tactNumber":"0.0","noteList":[
-            {"channel":"3","length":"1 / 2","tune":"69"},
-            {"channel":"2","length":"1 / 2","tune":"65"},
-            {"channel":"3","length":"1 / 2","tune":"62"}],"slog":"Мой пр"},
-        {"tactNumber":"0.1","noteList":[
-            {"channel":"1","length":"1 / 2","tune":"67"},
-            {"channel":"2","length":"1 / 2","tune":"64"},
-            {"channel":"3","length":"1 / 2","tune":"62"}],"slog":"вращается"},
-        {"tactNumber":"1.0","noteList":[
-            {"channel":"1","length":"1 / 2","tune":"67"},
-            {"channel":"2","length":"3 / 4","tune":"62"},
-            {"channel":"3","length":"1 / 2","tune":"57"}],"slog":"со скоростью"},
-        {"tactNumber":"1.1","noteList":[
-            {"channel":"1","length":"1 / 4","tune":"65"},
-            {"channel":"3","length":"1 / 4","tune":"59"}],"slog":"больше"},
-        {"tactNumber":"1.2","noteList":[
-            {"channel":"3","length":"1 / 4","tune":"64"},
-            {"channel":"2","length":"1 / 4","tune":"61"}],"slog":"тера-"},
-        {"tactNumber":"2.0","noteList":[
-            {"channel":"3","length":"1 / 2","tune":"69"},
-            {"channel":"1","length":"1","tune":"65"},
-            {"channel":"2","length":"1 / 2","tune":"62"}],"slog":"герца"},
-        {"tactNumber":"2.1","noteList":[
-            {"channel":"3","length":"1 / 2","tune":"67"},
-            {"channel":"3","length":"1 / 2","tune":"58"}],"slog":"я могу вычислить"},
-        {"tactNumber":"3.0","noteList":[
-            {"channel":"3","length":"3 / 4","tune":"70"},
-            {"channel":"2","length":"1 / 2","tune":"64"},
-            {"channel":"3","length":"1 / 2","tune":"57"}],"slog":"корень из "},
-        {"tactNumber":"3.1","noteList":[
-            {"channel":"2","length":"1 / 4","tune":"62"},
-            {"channel":"0","length":"1 / 4","tune":"55"}],"slog":"любого двенадцати-"},
-        {"tactNumber":"3.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"72"},
-            {"channel":"2","length":"1 / 4","tune":"64"},
-            {"channel":"0","length":"1 / 4","tune":"55"},
-            {"channel":"0","length":"1 / 4","tune":"52"}],"slog":"значного"},
-        {"tactNumber":"4.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"69"},
-            {"channel":"0","length":"1 / 2","tune":"65"},
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1 / 2","tune":"53"}],"slog":"числа"},
-        {"tactNumber":"4.1","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"65"},
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1 / 2","tune":"58"}],"slog":"с точностью до"},
-        {"tactNumber":"5.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"70"},
-            {"channel":"0","length":"1 / 2","tune":"65"},
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1 / 2","tune":"58"}],"slog":"пятого"},
-        {"tactNumber":"5.1","noteList":[
-            {"channel":"3","length":"1 / 4","tune":"69"},
-            {"channel":"0","length":"1 / 4","tune":"65"},
-            {"channel":"0","length":"1 / 4","tune":"62"},
-            {"channel":"0","length":"1 / 4","tune":"55"}],"slog":"знака"},
-        {"tactNumber":"5.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"67"},
-            {"channel":"0","length":"1 / 4","tune":"65"},
-            {"channel":"0","length":"1 / 4","tune":"62"},
-            {"channel":"0","length":"1 / 4","tune":"56"}],"slog":"после запя-"},
-        {"tactNumber":"6.0","noteList":[
-            {"channel":"0","length":"2","tune":"69"},
-            {"channel":"0","length":"2","tune":"64"},
-            {"channel":"0","length":"1 / 2","tune":"61"},
-            {"channel":"0","length":"2","tune":"57"}],"slog":"той"},
-        {"tactNumber":"6.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"61"}],"slog":"с помощью"},
-        {"tactNumber":"6.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"59"}],"slog":"кальку-"},
-        {"tactNumber":"7.0","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"61"}],"slog":"лятора"},
-        {"tactNumber":"7.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"57"}]},
-        {"tactNumber":"7.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"61"},
-            {"channel":"0","length":"1 / 2","tune":"50"}]},
-        {"tactNumber":"7.3","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"64"}]},
-        {"tactNumber":"8.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"65"},
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1 / 2","tune":"57"}],"slog":"король экспоненци-"},
-        {"tactNumber":"8.1","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"70"},
-            {"channel":"0","length":"1 / 2","tune":"64"},
-            {"channel":"0","length":"1 / 2","tune":"53"}],"slog":"альных уравн-"},
-        {"tactNumber":"9.0","noteList":[
-            {"channel":"0","length":"1","tune":"67"},
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1 / 2","tune":"54"}],"slog":"ений"},
-        {"tactNumber":"9.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"64"},
-            {"channel":"0","length":"1 / 4","tune":"62"},
-            {"channel":"0","length":"1 / 4","tune":"55"}],"slog":"бог"},
-        {"tactNumber":"9.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"61"},
-            {"channel":"0","length":"1 / 4","tune":"57"}],"slog":"Ас-"},
-        {"tactNumber":"10.0","noteList":[
-            {"channel":"0","length":"1","tune":"67"},
-            {"channel":"0","length":"1","tune":"61"},
-            {"channel":"0","length":"1 / 2","tune":"52"}],"slog":"емб-"},
-        {"tactNumber":"10.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"55"}]},
-        {"tactNumber":"10.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"52"}],"slog":"ле-"},
-        {"tactNumber":"11.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"66"},
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1","tune":"54"}],"slog":"ра,"},
-        {"tactNumber":"11.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"67"},
-            {"channel":"0","length":"1 / 4","tune":"64"}],"slog":"я"},
-        {"tactNumber":"11.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"69"},
-            {"channel":"0","length":"1 / 4","tune":"62"}],"slog":"люб-"},
-        {"tactNumber":"12.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"64"},
-            {"channel":"0","length":"1 / 2","tune":"57"},
-            {"channel":"0","length":"1 / 2","tune":"49"}],"slog":"лю"},
-        {"tactNumber":"12.1","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1 / 2","tune":"54"},
-            {"channel":"0","length":"1 / 2","tune":"47"}],"slog":"Ю-"},
-        {"tactNumber":"13.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"70"},
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"2","tune":"55"},
-            {"channel":"0","length":"2","tune":"46"}],"slog":"зефу"},
-        {"tactNumber":"13.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"67"},
-            {"channel":"0","length":"1 / 4","tune":"62"}],"slog":"Нет,"},
-        {"tactNumber":"13.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"64"},
-            {"channel":"0","length":"1 / 2","tune":"62"}],"slog":"совсем"},
-        {"tactNumber":"14.0","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"62"}],"slog":"нет,"},
-        {"tactNumber":"14.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"62"},
-            {"channel":"0","length":"1 / 4","tune":"61"}],"slog":"я лю"},
-        {"tactNumber":"14.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"64"},
-            {"channel":"0","length":"1 / 4","tune":"62"}]},
-        {"tactNumber":"14.3","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"67"},
-            {"channel":"0","length":"1 / 4","tune":"62"}]},
-        {"tactNumber":"15.0","noteList":[
-            {"channel":"0","length":"2","tune":"66"},
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"2","tune":"47"}]},
-        {"tactNumber":"15.1","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"59"}],"slog":"ще свя-"},
-        {"tactNumber":"16.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"61"},
-            {"channel":"0","length":"1 / 2","tune":"54"}],"slog":"похуй"},
-        {"tactNumber":"16.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"62"},
-            {"channel":"0","length":"1 / 4","tune":"59"}],"slog":"я"},
-        {"tactNumber":"16.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"61"},
-            {"channel":"0","length":"1 / 4","tune":"57"}],"slog":"Мес-"},
-        {"tactNumber":"17.0","noteList":[
-            {"channel":"0","length":"2","tune":"67"},
-            {"channel":"0","length":"1","tune":"63"},
-            {"channel":"0","length":"1","tune":"60"},
-            {"channel":"0","length":"1","tune":"55"},
-            {"channel":"0","length":"2","tune":"48"}],"slog":"сия в апреле я до"},
-        {"tactNumber":"18.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1 / 2","tune":"59"},
-            {"channel":"0","length":"1 / 2","tune":"57"}],"slog":"строю ма-"},
-        {"tactNumber":"18.1","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"65"},
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1 / 2","tune":"55"}],"slog":"шину"},
-        {"tactNumber":"19.0","noteList":[
-            {"channel":"0","length":"2","tune":"67"},
-            {"channel":"0","length":"1 / 2","tune":"63"},
-            {"channel":"0","length":"1 / 2","tune":"60"},
-            {"channel":"0","length":"3 / 2","tune":"48"}],"slog":"времени"},
-        {"tactNumber":"19.1","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"63"},
-            {"channel":"0","length":"1","tune":"59"},
-            {"channel":"0","length":"1 / 2","tune":"55"}],"slog":"и отвечу на все воп-"},
-        {"tactNumber":"20.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1 / 2","tune":"53"}],"slog":"росы че"},
-        {"tactNumber":"20.1","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1 / 2","tune":"55"}],"slog":"ло-"},
-        {"tactNumber":"21.0","noteList":[
-            {"channel":"0","length":"3 / 2","tune":"67"},
-            {"channel":"0","length":"1","tune":"63"},
-            {"channel":"0","length":"1","tune":"60"},
-            {"channel":"0","length":"1","tune":"51"},
-            {"channel":"0","length":"1","tune":"48"}],"slog":"вечества, жизнь"},
-        {"tactNumber":"22.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"63"},
-            {"channel":"0","length":"1 / 2","tune":"59"},
-            {"channel":"0","length":"1 / 2","tune":"50"}],"slog":"милли-"},
-        {"tactNumber":"22.1","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"65"},
-            {"channel":"0","length":"1 / 2","tune":"62"},
-            {"channel":"0","length":"1 / 2","tune":"59"},
-            {"channel":"0","length":"1 / 2","tune":"50"}],"slog":"арда лю"},
-        {"tactNumber":"23.0","noteList":[
-            {"channel":"0","length":"2","tune":"67"},
-            {"channel":"0","length":"2","tune":"63"},
-            {"channel":"0","length":"2","tune":"60"},
-            {"channel":"0","length":"1","tune":"55"},
-            {"channel":"0","length":"2","tune":"48"}],"slog":"дей"},
-        {"tactNumber":"24.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"67"},
-            {"channel":"0","length":"1 / 2","tune":"55"}],"slog":"стоит меньше"},
-        {"tactNumber":"24.1","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"69"},
-            {"channel":"0","length":"1 / 2","tune":"57"}],"slog":"моего"},
-        {"tactNumber":"25.0","noteList":[
-            {"channel":"0","length":"3 / 2","tune":"70"},
-            {"channel":"0","length":"2","tune":"62"},
-            {"channel":"0","length":"2","tune":"60"},
-            {"channel":"0","length":"3 / 2","tune":"58"},
-            {"channel":"0","length":"2","tune":"55"},
-            {"channel":"0","length":"2","tune":"48"}],"slog":"ногтя..."},
-        {"tactNumber":"26.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"72"},
-            {"channel":"0","length":"1 / 2","tune":"60"}],"slog":"и ногтя Ю-"},
-        {"tactNumber":"27.0","noteList":[
-            {"channel":"0","length":"1","tune":"72"},
-            {"channel":"0","length":"1","tune":"67"},
-            {"channel":"0","length":"1","tune":"62"},
-            {"channel":"0","length":"1","tune":"59"},
-            {"channel":"0","length":"1","tune":"55"},
-            {"channel":"0","length":"1","tune":"50"},
-            {"channel":"0","length":"1","tune":"43"}]},
-        {"tactNumber":"28.0","noteList":[
-            {"channel":"0","length":"1","tune":"72"},
-            {"channel":"0","length":"1","tune":"66"},
-            {"channel":"0","length":"1","tune":"63"},
-            {"channel":"0","length":"1","tune":"59"},
-            {"channel":"0","length":"1","tune":"51"},
-            {"channel":"0","length":"1","tune":"47"}]},
-        {"tactNumber":"29.0","noteList":[
-            {"channel":"0","length":"1","tune":"71"},
-            {"channel":"0","length":"1 / 2","tune":"66"},
-            {"channel":"0","length":"1 / 2","tune":"64"},
-            {"channel":"0","length":"1 / 2","tune":"57"},
-            {"channel":"0","length":"1","tune":"52"},
-            {"channel":"0","length":"1 / 2","tune":"43"}]},
-        {"tactNumber":"29.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"66"},
-            {"channel":"0","length":"1 / 4","tune":"63"},
-            {"channel":"0","length":"1 / 4","tune":"54"}]},
-        {"tactNumber":"29.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"67"},
-            {"channel":"0","length":"1 / 4","tune":"64"},
-            {"channel":"0","length":"1 / 4","tune":"55"}]},
-        {"tactNumber":"30.0","noteList":[
-            {"channel":"0","length":"1","tune":"69"},
-            {"channel":"0","length":"1","tune":"64"},
-            {"channel":"0","length":"1","tune":"57"},
-            {"channel":"0","length":"1","tune":"54"},
-            {"channel":"0","length":"1","tune":"48"}]},
-        {"tactNumber":"31.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"67"},
-            {"channel":"0","length":"1 / 2","tune":"60"},
-            {"channel":"0","length":"1 / 2","tune":"59"},
-            {"channel":"0","length":"1 / 2","tune":"52"}]},
-        {"tactNumber":"31.1","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"67"},
-            {"channel":"0","length":"1 / 2","tune":"59"},
-            {"channel":"0","length":"1 / 2","tune":"57"},
-            {"channel":"0","length":"1 / 2","tune":"52"}]},
-        {"tactNumber":"32.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"66"},
-            {"channel":"0","length":"1 / 2","tune":"59"},
-            {"channel":"0","length":"1 / 2","tune":"57"},
-            {"channel":"0","length":"1 / 2","tune":"52"}]},
-        {"tactNumber":"32.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"61"},
-            {"channel":"0","length":"1 / 4","tune":"59"},
-            {"channel":"0","length":"1 / 4","tune":"57"},
-            {"channel":"0","length":"1 / 4","tune":"52"}]},
-        {"tactNumber":"32.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"63"},
-            {"channel":"0","length":"1 / 4","tune":"59"},
-            {"channel":"0","length":"1 / 4","tune":"57"},
-            {"channel":"0","length":"1 / 4","tune":"52"}]},
-        {"tactNumber":"33.0","noteList":[
-            {"channel":"0","length":"3 / 2","tune":"64"},
-            {"channel":"0","length":"3 / 2","tune":"59"},
-            {"channel":"0","length":"3 / 2","tune":"55"},
-            {"channel":"0","length":"3 / 2","tune":"52"}],"slog":"￿"},
-        {"tactNumber":"34.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"65"}]},
-        {"tactNumber":"35.0","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"69"}]},
-        {"tactNumber":"35.1","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"64"}]},
-        {"tactNumber":"36.0","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"57"}]},
-        {"tactNumber":"36.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"60"}]},
-        {"tactNumber":"36.2","noteList":[
-            {"channel":"0","length":"3 / 4","tune":"65"},
-            {"channel":"0","length":"3 / 4","tune":"62"}]},
-        {"tactNumber":"37.0","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"69"},
-            {"channel":"0","length":"1 / 4","tune":"59"}]},
-        {"tactNumber":"37.1","noteList":[
-            {"channel":"0","length":"3 / 4","tune":"72"},
-            {"channel":"0","length":"1 / 2","tune":"64"}]},
-        {"tactNumber":"38.0","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"63"}]},
-        {"tactNumber":"38.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"71"},
-            {"channel":"0","length":"1 / 4","tune":"62"}]},
-        {"tactNumber":"38.2","noteList":[
-            {"channel":"0","length":"1 / 2","tune":"72"},
-            {"channel":"0","length":"1 / 2","tune":"60"}]},
-        {"tactNumber":"39.0","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"74"}],"slog":"0"},
-        {"tactNumber":"39.1","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"72"}]},
-        {"tactNumber":"39.2","noteList":[
-            {"channel":"0","length":"1 / 4","tune":"71"}]}],"staffConfig":{"tempo":"120","numerator":"8","channelList":[],"keySignature":"0"}}]}
+{"staffList": [
+    {"staffConfig": {"tempo": "120", "loopStart": "0", "loopTimes": "100", "keySignature": "0", "channelList": [
+        {"instrument": "29", "channelNumber": 0},
+        {"instrument": "29", "channelNumber": 1},
+        {"instrument": "29", "channelNumber": 2},
+        {"instrument": "29", "channelNumber": 3},
+        {"instrument": "0", "channelNumber": 4},
+        {"instrument": "0", "channelNumber": 5},
+        {"instrument": "0", "channelNumber": 6},
+        {"instrument": "0", "channelNumber": 7},
+        {"instrument": "0", "channelNumber": 8},
+        {"instrument": "0", "channelNumber": 9},
+        {"instrument": "0", "channelNumber": 10},
+        {"instrument": "0", "channelNumber": 11},
+        {"instrument": "0", "channelNumber": 12},
+        {"instrument": "0", "channelNumber": 13},
+        {"instrument": "0", "channelNumber": 14},
+        {"instrument": "0", "channelNumber": 15}
+    ]}, "chordList": [
+        {"noteList": [
+            {"tune": 69, "channel": 3, "length": 0.5},
+            {"tune": 65, "channel": 2, "length": 0.5},
+            {"tune": 62, "channel": 3, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 1, "length": 0.5},
+            {"tune": 64, "channel": 2, "length": 0.5},
+            {"tune": 62, "channel": 3, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 1, "length": 0.5},
+            {"tune": 62, "channel": 2, "length": 0.75},
+            {"tune": 57, "channel": 3, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 65, "channel": 1, "length": 0.25},
+            {"tune": 59, "channel": 3, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 64, "channel": 3, "length": 0.25},
+            {"tune": 61, "channel": 2, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 69, "channel": 3, "length": 0.5},
+            {"tune": 65, "channel": 1, "length": 1},
+            {"tune": 62, "channel": 2, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 3, "length": 0.5},
+            {"tune": 58, "channel": 3, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 70, "channel": 3, "length": 0.75},
+            {"tune": 64, "channel": 2, "length": 0.5},
+            {"tune": 57, "channel": 3, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 62, "channel": 2, "length": 0.25},
+            {"tune": 55, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 72, "channel": 0, "length": 0.25},
+            {"tune": 64, "channel": 2, "length": 0.25},
+            {"tune": 55, "channel": 0, "length": 0.25},
+            {"tune": 52, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 69, "channel": 0, "length": 0.5},
+            {"tune": 65, "channel": 0, "length": 0.5},
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 53, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 65, "channel": 0, "length": 0.5},
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 58, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 70, "channel": 0, "length": 0.5},
+            {"tune": 65, "channel": 0, "length": 0.5},
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 58, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 69, "channel": 3, "length": 0.25},
+            {"tune": 65, "channel": 0, "length": 0.25},
+            {"tune": 62, "channel": 0, "length": 0.25},
+            {"tune": 55, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 0.25},
+            {"tune": 65, "channel": 0, "length": 0.25},
+            {"tune": 62, "channel": 0, "length": 0.25},
+            {"tune": 56, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 69, "channel": 0, "length": 2},
+            {"tune": 64, "channel": 0, "length": 2},
+            {"tune": 61, "channel": 0, "length": 0.5},
+            {"tune": 57, "channel": 0, "length": 2}
+        ]},
+        {"noteList": [
+            {"tune": 61, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 59, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 61, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 57, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 61, "channel": 0, "length": 0.25},
+            {"tune": 50, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 64, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 65, "channel": 0, "length": 0.5},
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 57, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 70, "channel": 0, "length": 0.5},
+            {"tune": 64, "channel": 0, "length": 0.5},
+            {"tune": 53, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 1},
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 54, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 64, "channel": 0, "length": 0.25},
+            {"tune": 62, "channel": 0, "length": 0.25},
+            {"tune": 55, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 61, "channel": 0, "length": 0.25},
+            {"tune": 57, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 1},
+            {"tune": 61, "channel": 0, "length": 1},
+            {"tune": 52, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 55, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 52, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 66, "channel": 0, "length": 0.5},
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 54, "channel": 0, "length": 1}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 0.25},
+            {"tune": 64, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 69, "channel": 0, "length": 0.25},
+            {"tune": 62, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 64, "channel": 0, "length": 0.5},
+            {"tune": 57, "channel": 0, "length": 0.5},
+            {"tune": 49, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 54, "channel": 0, "length": 0.5},
+            {"tune": 47, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 70, "channel": 0, "length": 0.5},
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 55, "channel": 0, "length": 2},
+            {"tune": 46, "channel": 0, "length": 2}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 0.25},
+            {"tune": 62, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 64, "channel": 0, "length": 0.25},
+            {"tune": 62, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 62, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 62, "channel": 0, "length": 0.25},
+            {"tune": 61, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 64, "channel": 0, "length": 0.25},
+            {"tune": 62, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 0.25},
+            {"tune": 62, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 66, "channel": 0, "length": 2},
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 47, "channel": 0, "length": 2}
+        ]},
+        {"noteList": [
+            {"tune": 59, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 61, "channel": 0, "length": 0.5},
+            {"tune": 54, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 62, "channel": 0, "length": 0.25},
+            {"tune": 59, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 61, "channel": 0, "length": 0.25},
+            {"tune": 57, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 2},
+            {"tune": 63, "channel": 0, "length": 1},
+            {"tune": 60, "channel": 0, "length": 1},
+            {"tune": 55, "channel": 0, "length": 1},
+            {"tune": 48, "channel": 0, "length": 2}
+        ]},
+        {"noteList": [
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 59, "channel": 0, "length": 0.5},
+            {"tune": 57, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 65, "channel": 0, "length": 0.5},
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 55, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 2},
+            {"tune": 63, "channel": 0, "length": 0.5},
+            {"tune": 60, "channel": 0, "length": 0.5},
+            {"tune": 48, "channel": 0, "length": 1.5}
+        ]},
+        {"noteList": [
+            {"tune": 63, "channel": 0, "length": 0.5},
+            {"tune": 59, "channel": 0, "length": 1},
+            {"tune": 55, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 53, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 55, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 1.5},
+            {"tune": 63, "channel": 0, "length": 1},
+            {"tune": 60, "channel": 0, "length": 1},
+            {"tune": 51, "channel": 0, "length": 1},
+            {"tune": 48, "channel": 0, "length": 1}
+        ]},
+        {"noteList": [
+            {"tune": 63, "channel": 0, "length": 0.5},
+            {"tune": 59, "channel": 0, "length": 0.5},
+            {"tune": 50, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 65, "channel": 0, "length": 0.5},
+            {"tune": 62, "channel": 0, "length": 0.5},
+            {"tune": 59, "channel": 0, "length": 0.5},
+            {"tune": 50, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 2},
+            {"tune": 63, "channel": 0, "length": 2},
+            {"tune": 60, "channel": 0, "length": 2},
+            {"tune": 55, "channel": 0, "length": 1},
+            {"tune": 48, "channel": 0, "length": 2}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 0.5},
+            {"tune": 55, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 69, "channel": 0, "length": 0.5},
+            {"tune": 57, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 70, "channel": 0, "length": 1.5},
+            {"tune": 62, "channel": 0, "length": 2},
+            {"tune": 60, "channel": 0, "length": 2},
+            {"tune": 58, "channel": 0, "length": 1.5},
+            {"tune": 55, "channel": 0, "length": 2},
+            {"tune": 48, "channel": 0, "length": 2}
+        ]},
+        {"noteList": [
+            {"tune": 72, "channel": 0, "length": 0.5},
+            {"tune": 60, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 72, "channel": 0, "length": 1},
+            {"tune": 67, "channel": 0, "length": 1},
+            {"tune": 62, "channel": 0, "length": 1},
+            {"tune": 59, "channel": 0, "length": 1},
+            {"tune": 55, "channel": 0, "length": 1},
+            {"tune": 50, "channel": 0, "length": 1},
+            {"tune": 43, "channel": 0, "length": 1}
+        ]},
+        {"noteList": [
+            {"tune": 72, "channel": 0, "length": 1},
+            {"tune": 66, "channel": 0, "length": 1},
+            {"tune": 63, "channel": 0, "length": 1},
+            {"tune": 59, "channel": 0, "length": 1},
+            {"tune": 51, "channel": 0, "length": 1},
+            {"tune": 47, "channel": 0, "length": 1}
+        ]},
+        {"noteList": [
+            {"tune": 71, "channel": 0, "length": 1},
+            {"tune": 66, "channel": 0, "length": 0.5},
+            {"tune": 64, "channel": 0, "length": 0.5},
+            {"tune": 57, "channel": 0, "length": 0.5},
+            {"tune": 52, "channel": 0, "length": 1},
+            {"tune": 43, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 66, "channel": 0, "length": 0.25},
+            {"tune": 63, "channel": 0, "length": 0.25},
+            {"tune": 54, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 0.25},
+            {"tune": 64, "channel": 0, "length": 0.25},
+            {"tune": 55, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 69, "channel": 0, "length": 1},
+            {"tune": 64, "channel": 0, "length": 1},
+            {"tune": 57, "channel": 0, "length": 1},
+            {"tune": 54, "channel": 0, "length": 1},
+            {"tune": 48, "channel": 0, "length": 1}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 0.5},
+            {"tune": 60, "channel": 0, "length": 0.5},
+            {"tune": 59, "channel": 0, "length": 0.5},
+            {"tune": 52, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 67, "channel": 0, "length": 0.5},
+            {"tune": 59, "channel": 0, "length": 0.5},
+            {"tune": 57, "channel": 0, "length": 0.5},
+            {"tune": 52, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 66, "channel": 0, "length": 0.5},
+            {"tune": 59, "channel": 0, "length": 0.5},
+            {"tune": 57, "channel": 0, "length": 0.5},
+            {"tune": 52, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 61, "channel": 0, "length": 0.25},
+            {"tune": 59, "channel": 0, "length": 0.25},
+            {"tune": 57, "channel": 0, "length": 0.25},
+            {"tune": 52, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 63, "channel": 0, "length": 0.25},
+            {"tune": 59, "channel": 0, "length": 0.25},
+            {"tune": 57, "channel": 0, "length": 0.25},
+            {"tune": 52, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 64, "channel": 0, "length": 1.5},
+            {"tune": 59, "channel": 0, "length": 1.5},
+            {"tune": 55, "channel": 0, "length": 1.5},
+            {"tune": 52, "channel": 0, "length": 1.5}
+        ]},
+        {"noteList": [
+            {"tune": 65, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 69, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 64, "channel": 0, "length": 0.5}
+        ]},
+        {"noteList": [
+            {"tune": 57, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 60, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 65, "channel": 0, "length": 0.75},
+            {"tune": 62, "channel": 0, "length": 0.75}
+        ]},
+        {"noteList": [
+            {"tune": 69, "channel": 0, "length": 0.25},
+            {"tune": 59, "channel": 0, "length": 0.25}
+        ]},
+        {"noteList": [
+            {"tune": 72, "channel": 0, "length": 0.5},
+            {"tune": 64, "channel": 0, "length": 0.5}
+        ]}
+    ]}
+]}

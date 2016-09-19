@@ -45,7 +45,13 @@ namespace GameLogic
 			transform.Rotate (new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0));
 			HandleKeys ();
 			enemies = new HashSet<EnemyLogic>(enemies.Where (e => !e.npc.IsDead));
-			npc.anima.SetBool ("isInBattle", enemies.Count > 0);
+			if (enemies.Count > 0) {
+				npc.anima.SetBool ("isInBattle", true);
+				BgmManager.Inst ().SetBgm (Sa.Inst().audioMap.battleBgm).SetVolumeFactor(0.4f);
+			} else {
+				npc.anima.SetBool ("isInBattle", false);
+				BgmManager.Inst ().UnsetBgm (Sa.Inst().audioMap.battleBgm);
+			}
 		}
 
 		void HandleKeys()

@@ -16,7 +16,12 @@ namespace Util.Logic
 
 		List<D.Cb> hits = new List<D.Cb>();
 		bool hitBackRequested = false;
-		float delayStart = Time.fixedTime;
+		float delayStart;
+
+		public void Awake()
+		{
+			delayStart = Time.fixedTime;
+		}
 
 		public void Bundle(D.Cb hitBack)
 		{

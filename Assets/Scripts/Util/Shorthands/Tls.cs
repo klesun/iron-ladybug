@@ -16,7 +16,7 @@ namespace Util
 		public readonly Timeout timeout;
 
 		private static Tls instance;
-		private readonly GameObject dullGameObject = new GameObject ("_Timeout");
+		private GameObject dullGameObject = new GameObject ("_Timeout");
 		private readonly AudioSource audioSource;
 		private IHero hero;
 
@@ -46,6 +46,7 @@ namespace Util
 		*/
 		public Transform DullTransform(Vector3 pos)
 		{
+			dullGameObject = dullGameObject ?? new GameObject ("_Timeout");
 			dullGameObject.transform.position = pos;
 			dullGameObject.transform.rotation = Quaternion.Euler (new Vector3(0,0,0));
 			return dullGameObject.transform;

@@ -8,7 +8,7 @@ namespace Util
 	/** 
 	 * use this to communicate with main thread from any thread
 	 */
-	public class Timeout : MonoBehaviour 
+	public class Timeout : MonoBehaviour
 	{
 		public D.Cb Game(float seconds, D.Cb callback)
 		{

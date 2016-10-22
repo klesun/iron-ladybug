@@ -1,7 +1,8 @@
 Dropbox content:
-# two heavy textures =3
-/Assets/Resources/Dropbox/assorted/: https://www.dropbox.com/sh/tymvqkj6spx9pfr/AABDJH-VU1EY4AStLCny_fPfa?dl=0
-# 18 MiB of Fluid SoundFont samples
-/Assets/Resources/Dropbox/fluid/: https://www.dropbox.com/sh/n27016xm2mq522w/AADfM3SNC2wkhNElw-qH8-YAa?dl=0
+https://www.dropbox.com/sh/11566brvk6ztwlz/AADbuBz7raFt49c0dllfIQRpa?dl=0
+
+this download the folder from the link - the folder is called "shared"
+put it under such path:
+/Assets/Resources/Dropbox/shared/
 
 pm me if you got problems retrieving them

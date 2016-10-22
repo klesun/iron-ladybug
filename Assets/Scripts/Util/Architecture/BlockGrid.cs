@@ -52,7 +52,7 @@ namespace Util
 		{
 			if (this == null) {
 				// well, it complains about it being 
-				// destroyed when i start the game
+				// destroyed when i starts the game
 				return;
 			}
 			if (Application.isPlaying) {

@@ -62,13 +62,14 @@ namespace GameLogic
 
 			npc.Move (GetKeyedDirection ());
 
+			if (Input.GetKeyDown(KeyCode.Space) && npc.Jump()) {
+				Tls.Inst ().PlayAudio (
+					Random.Range(0, 10) == 0
+					? jumpingEvilSound
+					: jumpingSound);
+			}
+
 			if (npc.IsGrounded()) {
-				if (Input.GetKeyDown(KeyCode.Space) && npc.Jump()) {
-					Tls.Inst ().PlayAudio (
-						Random.Range(0, 10) == 0
-							? jumpingEvilSound
-							: jumpingSound);
-				}
 				if (Input.GetKeyDown (KeyCode.Mouse0)) {
 					if (npc.Attack()) {
 						// battle cry!

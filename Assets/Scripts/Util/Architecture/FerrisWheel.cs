@@ -36,6 +36,11 @@ public class FerrisWheel : MonoBehaviour
 		var markCnt = 12;
 		for (var i = 0; i < markCnt; ++i) {
 			var dPos = getLocalPositionAt (2 * Mathf.PI * i / markCnt);
+			if (transform.parent != null) {
+				dPos = 
+					dPos.z * transform.parent.transform.forward + 
+					dPos.y * transform.parent.transform.up;
+			}
 			Gizmos.DrawWireSphere (transform.position + dPos, 0.1f);
 		}
 	}
@@ -44,7 +49,8 @@ public class FerrisWheel : MonoBehaviour
 	{
 		var dy = Mathf.Sin(radians) * amplY;
 		var dz = Mathf.Cos(radians) * amplZ;
-		return startPosition + transform.forward * dz + transform.up * dy;
+		return startPosition + Vector3.forward * dz + Vector3.up * dy;
+		//return startPosition + transform.forward * dz + transform.up * dy;
 	}
 
 	public void SetFrequence(float value)

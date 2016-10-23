@@ -11,6 +11,7 @@ namespace Util
 	public class TransformListener : MonoBehaviour 
 	{
 		public D.Cb onChange = null;
+		public TransformListener parent = null;
 
 		Vector3 lastPosition;
 		Vector3 lastScale;
@@ -23,16 +24,15 @@ namespace Util
 
 		void Update()
 		{
-			if (onChange != null) {
-				if (lastPosition != transform.position ||
-					lastScale != transform.lossyScale ||
-					lastRotation != transform.rotation
-				) {
-					lastPosition = transform.position;
-					lastScale = transform.lossyScale;
-					lastRotation = transform.rotation;
-					onChange();
-				}
+			if (lastPosition != transform.position ||
+				lastScale != transform.lossyScale ||
+				lastRotation != transform.rotation
+			) {
+				lastPosition = transform.position;
+				lastScale = transform.lossyScale;
+				lastRotation = transform.rotation;
+
+				OnValidate ();
 			}
 		}
 
@@ -41,6 +41,9 @@ namespace Util
 		{
 			if (onChange != null) {
 				UnityEditor.EditorApplication.delayCall += () => onChange();
+			}
+			if (parent != null) {
+				parent.OnValidate ();
 			}
 		}
 		#endif

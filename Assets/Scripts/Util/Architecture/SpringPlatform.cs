@@ -10,6 +10,7 @@ public class SpringPlatform : MonoBehaviour
 {
 	public Transform forcePoint;
 	public SpaceTrigger trigger;
+	public AudioClip sfx = null;
 
 	public float scale = 4;
 	public int markCnt = 36;
@@ -22,6 +23,9 @@ public class SpringPlatform : MonoBehaviour
 		speed = (forcePoint.position - transform.position) * scale; 
 		trigger.OnIn((c) => {
 			foreach (var body in c.gameObject.GetComponents<Rigidbody>()) {
+				if (sfx != null) {
+					AudioSource.PlayClipAtPoint(sfx, c.bounds.center);
+				}
 				body.velocity = speed;
 			}
 		});

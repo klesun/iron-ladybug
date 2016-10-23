@@ -67,7 +67,7 @@ namespace Util
 
 			blockCont.transform.LookAt (endPoint.transform);
 
-			var dist = Vector3.Distance (blockRef.gameObject.transform.position, endPoint.gameObject.transform.position);
+			var dist = Vector3.Distance (blockCont.gameObject.transform.position, endPoint.gameObject.transform.position);
 			for (var i = 0; i < dist / spacingZ; ++i) {
 				for (var j = -sideRows; j <= sideRows; ++j) {
 					var block = UnityEngine.Object.Instantiate (blockRef.gameObject);

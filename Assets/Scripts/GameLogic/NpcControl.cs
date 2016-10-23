@@ -42,6 +42,7 @@ namespace GameLogic
 		private RaycastHit floor;
 		private bool isCloseToGround = false;
 		private float lastGroundTime;
+		private bool isFlying = true;
 
 		void Awake () 
 		{
@@ -71,11 +72,13 @@ namespace GameLogic
 				Die ();
 			} else {
 				if (IsGrounded ()) {
+					isFlying = false;
 					lastGroundTime = Time.fixedTime;
 					anima.SetBool ("isFlying", false);
 					ApplyFriction ();
 				} else {
 					if (Time.fixedTime - lastGroundTime > 0.2) {
+						isFlying = true;
 						anima.SetBool ("isFlying", true);
 						anima.SetBool ("isInBattle", false);
 					}
@@ -134,7 +137,7 @@ namespace GameLogic
 
 		public bool Jump()
 		{
-			if (!isDead && isCloseToGround) {
+			if (!isDead && !isFlying) {
 				anima.SetBool ("isFlying", true);
 				/** @debug */
 				body.velocity = new Vector3(body.velocity.x, 0, body.velocity.z);

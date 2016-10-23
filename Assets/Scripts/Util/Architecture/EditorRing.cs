@@ -11,8 +11,8 @@ namespace Assets.Scripts.Util.Architecture
 	{
 		const float REVALIDATION_PERIOD = 0.1f;
 
-		public TransformListener blockRef;
-		public GameObject blockCont;
+		public TransformListener blockRef = null;
+		public GameObject blockCont = null;
 		public int linkCount = 24;
 		public float completeness = 1;
 		public float radius = 1;

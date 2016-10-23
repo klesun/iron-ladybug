@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
-using AssemblyCSharp;
+using Util;
 
-namespace Util
+namespace Assets.Scripts.Util.Logic
 {
 	/** 
 	 * provides ability to hang a callback on it's position change
-	*/
+	 */
 	[ExecuteInEditMode]
 	public class TransformListener : MonoBehaviour 
 	{
@@ -37,7 +36,7 @@ namespace Util
 		}
 
 		#if UNITY_EDITOR
-		void OnValidate() 
+		void OnValidate()
 		{
 			if (onChange != null) {
 				UnityEditor.EditorApplication.delayCall += () => onChange();

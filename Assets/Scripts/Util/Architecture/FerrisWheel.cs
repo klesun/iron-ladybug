@@ -28,14 +28,14 @@ public class FerrisWheel : MonoBehaviour
 	
 	void FixedUpdate () 
 	{
-		transform.localPosition = getLocalPositionAt (2 * Mathf.PI * GetOffset());
+		transform.localPosition = GetLocalPositionAt (2 * Mathf.PI * GetOffset());
 	}
 
 	void OnDrawGizmos() 
 	{
 		var markCnt = 12;
 		for (var i = 0; i < markCnt; ++i) {
-			var dPos = getLocalPositionAt (2 * Mathf.PI * i / markCnt);
+			var dPos = GetLocalPositionAt (2 * Mathf.PI * i / markCnt);
 			if (transform.parent != null) {
 				dPos = 
 					dPos.z * transform.parent.transform.forward + 
@@ -45,7 +45,7 @@ public class FerrisWheel : MonoBehaviour
 		}
 	}
 
-	Vector3 getLocalPositionAt(float radians) 
+	Vector3 GetLocalPositionAt(float radians)
 	{
 		var dy = Mathf.Sin(radians) * amplY;
 		var dz = Mathf.Cos(radians) * amplZ;

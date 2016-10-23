@@ -2,6 +2,7 @@
 using UnityEngine;
 using Util;
 using System.Collections.Generic;
+using Assets.Scripts.Util.Logic;
 
 namespace Assets.Scripts.Util.Architecture
 {

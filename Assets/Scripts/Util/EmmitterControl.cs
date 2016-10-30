@@ -7,28 +7,28 @@ using System.Collections;
  */
 public class EmmitterControl : MonoBehaviour 
 {
-	public ParticleSystem[] emmitters;
+    public ParticleSystem[] emmitters;
 
-	// Use this for initialization
-	void Awake () 
-	{
-		StopEmission ();
-	}
+    // Use this for initialization
+    void Awake ()
+    {
+        StopEmission ();
+    }
 
-	public void Emmit()
-	{
-		foreach (var e in emmitters) {
-			var em = e.emission;
-			em.enabled = true;
-		}
-		Invoke ("StopEmission", 1f);
-	}
+    public void Emmit()
+    {
+        foreach (var e in emmitters) {
+            var em = e.emission;
+            em.enabled = true;
+        }
+        Invoke ("StopEmission", 1f);
+    }
 
-	private void StopEmission()
-	{
-		foreach (var e in emmitters) {
-			var em = e.emission;
-			em.enabled = false;
-		}
-	}
+    private void StopEmission()
+    {
+        foreach (var e in emmitters) {
+            var em = e.emission;
+            em.enabled = false;
+        }
+    }
 }

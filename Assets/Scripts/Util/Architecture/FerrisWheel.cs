@@ -3,60 +3,60 @@ using System.Collections;
 
 public class FerrisWheel : MonoBehaviour 
 {
-	public float amplY = 5;
-	public float amplZ = 5;
-	public float frequence = 0.125f;
-	public float initialOffset = 0; // 1 = whole lap
+    public float amplY = 5;
+    public float amplZ = 5;
+    public float frequence = 0.125f;
+    public float initialOffset = 0; // 1 = whole lap
 
-	float startTime;
-	Vector3 startPosition;
+    float startTime;
+    Vector3 startPosition;
 
-	void Awake ()
-	{
-		startPosition = transform.localPosition;
-		startTime = Time.fixedTime;
-	}
+    void Awake ()
+    {
+        startPosition = transform.localPosition;
+        startTime = Time.fixedTime;
+    }
 
-	/** 
-	 * @return float - 0 if wheel is at the start, 
-	 * 0.33 if it is at 1/3 of the way and so on
-	 */
-	public float GetOffset()
-	{
-		return (initialOffset + (Time.fixedTime - startTime) * frequence) % 1;
-	}
-	
-	void FixedUpdate () 
-	{
-		transform.localPosition = GetLocalPositionAt (2 * Mathf.PI * GetOffset());
-	}
+    /**
+     * @return float - 0 if wheel is at the start,
+     * 0.33 if it is at 1/3 of the way and so on
+     */
+    public float GetOffset()
+    {
+        return (initialOffset + (Time.fixedTime - startTime) * frequence) % 1;
+    }
 
-	void OnDrawGizmos() 
-	{
-		var markCnt = 12;
-		for (var i = 0; i < markCnt; ++i) {
-			var dPos = GetLocalPositionAt (2 * Mathf.PI * i / markCnt);
-			if (transform.parent != null) {
-				dPos = 
-					dPos.z * transform.parent.transform.forward + 
-					dPos.y * transform.parent.transform.up;
-			}
-			Gizmos.DrawWireSphere (transform.position + dPos, 0.1f);
-		}
-	}
+    void FixedUpdate ()
+    {
+        transform.localPosition = GetLocalPositionAt (2 * Mathf.PI * GetOffset());
+    }
 
-	Vector3 GetLocalPositionAt(float radians)
-	{
-		var dy = Mathf.Sin(radians) * amplY;
-		var dz = Mathf.Cos(radians) * amplZ;
-		return startPosition + Vector3.forward * dz + Vector3.up * dy;
-		//return startPosition + transform.forward * dz + transform.up * dy;
-	}
+    void OnDrawGizmos()
+    {
+        var markCnt = 12;
+        for (var i = 0; i < markCnt; ++i) {
+            var dPos = GetLocalPositionAt (2 * Mathf.PI * i / markCnt);
+            if (transform.parent != null) {
+                dPos =
+                    dPos.z * transform.parent.transform.forward +
+                    dPos.y * transform.parent.transform.up;
+            }
+            Gizmos.DrawWireSphere (transform.position + dPos, 0.1f);
+        }
+    }
 
-	public void SetFrequence(float value)
-	{
-		initialOffset = GetOffset ();
-		startTime = Time.fixedTime;
-		frequence = value;
-	}
+    Vector3 GetLocalPositionAt(float radians)
+    {
+        var dy = Mathf.Sin(radians) * amplY;
+        var dz = Mathf.Cos(radians) * amplZ;
+        return startPosition + Vector3.forward * dz + Vector3.up * dy;
+        //return startPosition + transform.forward * dz + transform.up * dy;
+    }
+
+    public void SetFrequence(float value)
+    {
+        initialOffset = GetOffset ();
+        startTime = Time.fixedTime;
+        frequence = value;
+    }
 }

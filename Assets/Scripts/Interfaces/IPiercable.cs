@@ -8,9 +8,9 @@ using UnityEngine;
 
 namespace Interfaces
 {
-	public interface IPiercable
-	{
-		void GetPierced();
-	}
+    public interface IPiercable
+    {
+        void GetPierced();
+    }
 }
 

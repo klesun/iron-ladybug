@@ -7,14 +7,14 @@ using Interfaces;
  * turn is tied to some sort of visual platform
  */
 public class CharacterHolder : MonoBehaviour {
-	void OnTriggerEnter(Collider unit) {
-		if (unit.gameObject.GetComponent<INpc>() != null) {
-			unit.transform.parent = transform.parent;
-		}
-	}
-	void OnTriggerExit(Collider unit) {
-		if (unit.gameObject.GetComponent<INpc>() != null) {
-			unit.transform.parent = null;
-		}
-	}
+    void OnTriggerEnter(Collider unit) {
+        if (unit.gameObject.GetComponent<INpc>() != null) {
+            unit.transform.parent = transform.parent;
+        }
+    }
+    void OnTriggerExit(Collider unit) {
+        if (unit.gameObject.GetComponent<INpc>() != null) {
+            unit.transform.parent = null;
+        }
+    }
 }

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using AssemblyCSharp;
+using Assets.Scripts.Util.Bgm;
 using Util.Midi;
 using Newtonsoft.Json;
 using Util;
@@ -10,131 +11,131 @@ using Interfaces;
 
 namespace GameLogic
 {
-	public class HeroControl : IHeroMb
-	{
-		public GameObject cameraAngle;
-		public AudioClip jumpingSound;
-		public AudioClip jumpingEvilSound;
-		public AudioClip sprintingEvilSound;
-		public AudioClip outOfManaEvilSound;
+    public class HeroControl : IHeroMb
+    {
+        public GameObject cameraAngle;
+        public AudioClip jumpingSound;
+        public AudioClip jumpingEvilSound;
+        public AudioClip sprintingEvilSound;
+        public AudioClip outOfManaEvilSound;
 
-		public NpcControl npc;
-		public HeroStats stats;
-		public GuiControl gui;
+        public NpcControl npc;
+        public HeroStats stats;
+        public GuiControl gui;
 
-		/** @debug */
-		public TextAsset testSong;
+        /** @debug */
+        public TextAsset testSong;
 
-		private float mouseSensitivity = 4.0F;
-		private HashSet<EnemyLogic> enemies = new HashSet<EnemyLogic>();
+        private float mouseSensitivity = 4.0F;
+        private HashSet<EnemyLogic> enemies = new HashSet<EnemyLogic>();
 
-		void Awake () 
-		{
-			Cursor.lockState = CursorLockMode.Locked;
-		}
+        void Awake ()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
-		public void AcquireEnemy(EnemyLogic enemy)
-		{
-			if (!enemy.npc.IsDead) {
-				enemies.Add (enemy);
-			}
-		}
-		
-		void Update () 
-		{
-			transform.Rotate (new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0));
-			HandleKeys ();
-			enemies = new HashSet<EnemyLogic>(enemies.Where (e => !e.npc.IsDead));
-			if (enemies.Count > 0) {
-				npc.anima.SetBool ("isInBattle", true);
-				BgmManager.Inst ().SetBgm (Sa.Inst().audioMap.battleBgm).SetVolumeFactor(0.4f);
-			} else {
-				npc.anima.SetBool ("isInBattle", false);
-				BgmManager.Inst ().UnsetBgm (Sa.Inst().audioMap.battleBgm);
-			}
-		}
+        public void AcquireEnemy(EnemyLogic enemy)
+        {
+            if (!enemy.npc.IsDead) {
+                enemies.Add (enemy);
+            }
+        }
 
-		void HandleKeys()
-		{
-			if (Tls.Inst().IsPaused()) {
-				return;
-			}
+        void Update ()
+        {
+            transform.Rotate (new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0));
+            HandleKeys ();
+            enemies = new HashSet<EnemyLogic>(enemies.Where (e => !e.npc.IsDead));
+            if (enemies.Count > 0) {
+                npc.anima.SetBool ("isInBattle", true);
+                Bgm.Inst ().SetBgm (Sa.Inst().audioMap.battleBgm).SetVolumeFactor(0.4f);
+            } else {
+                npc.anima.SetBool ("isInBattle", false);
+                Bgm.Inst ().UnsetBgm (Sa.Inst().audioMap.battleBgm);
+            }
+        }
 
-			npc.Move (GetKeyedDirection ());
+        void HandleKeys()
+        {
+            if (Tls.Inst().IsPaused()) {
+                return;
+            }
 
-			if (Input.GetKeyDown(KeyCode.Space) && npc.Jump()) {
-				Tls.Inst ().PlayAudio (
-					Random.Range(0, 10) == 0
-					? jumpingEvilSound
-					: jumpingSound);
-			}
+            npc.Move (GetKeyedDirection ());
 
-			if (npc.IsGrounded()) {
-				if (Input.GetKeyDown (KeyCode.Mouse0)) {
-					if (npc.Attack()) {
-						// battle cry!
-					} else {
-						Tls.Inst ().PlayAudio (outOfManaEvilSound);
-					}
-				}
-				if (Input.GetKeyDown (KeyCode.Mouse1)) {
-					npc.Parry ();
-				}
-				/** @debug */
-				if (Input.GetKeyDown (KeyCode.G)) {
-					var stop = Fluid.Inst ().PlayNote (35, 43);
-					Tls.Inst ().SetGameTimeout (5f, () => {
-						stop();
-						stop = Fluid.Inst ().PlayNote (38, 43);
-						Tls.Inst ().SetGameTimeout (1f, () => {
-							stop();
-							stop = Fluid.Inst ().PlayNote (39, 43);
-							Tls.Inst ().SetGameTimeout (1f, () => {
-								stop();
-								stop = Fluid.Inst ().PlayNote (41, 43);
-								Tls.Inst ().SetGameTimeout (1f, stop);
-							});
-						});
-					});
-				}
-				/** @debug */
-				if (Input.GetKeyDown (KeyCode.H)) {
-					new Playback (JsonConvert.DeserializeObject<MidJsDefinition> (testSong.text)).Play();
-				}
-			} else {
-				if (Input.GetKeyDown(KeyCode.Mouse0)) {
-					if (npc.Boost(cameraAngle.transform.forward)) {
-						Tls.Inst ().PlayAudio (sprintingEvilSound);
-					} else {
-						Tls.Inst ().PlayAudio (outOfManaEvilSound);
-					}
-				}
-			}
-		}
+            if (Input.GetKeyDown(KeyCode.Space) && npc.Jump()) {
+                Tls.Inst ().PlayAudio (
+                    Random.Range(0, 10) == 0
+                    ? jumpingEvilSound
+                    : jumpingSound);
+            }
 
-		Vector3 GetKeyedDirection()
-		{
-			var result = new Vector3 ();
+            if (npc.IsGrounded()) {
+                if (Input.GetKeyDown (KeyCode.Mouse0)) {
+                    if (npc.Attack()) {
+                        // battle cry!
+                    } else {
+                        Tls.Inst ().PlayAudio (outOfManaEvilSound);
+                    }
+                }
+                if (Input.GetKeyDown (KeyCode.Mouse1)) {
+                    npc.Parry ();
+                }
+                /** @debug */
+                if (Input.GetKeyDown (KeyCode.G)) {
+                    var stop = Fluid.Inst ().PlayNote (35, 43);
+                    Tls.Inst ().SetGameTimeout (5f, () => {
+                        stop();
+                        stop = Fluid.Inst ().PlayNote (38, 43);
+                        Tls.Inst ().SetGameTimeout (1f, () => {
+                            stop();
+                            stop = Fluid.Inst ().PlayNote (39, 43);
+                            Tls.Inst ().SetGameTimeout (1f, () => {
+                                stop();
+                                stop = Fluid.Inst ().PlayNote (41, 43);
+                                Tls.Inst ().SetGameTimeout (1f, stop);
+                            });
+                        });
+                    });
+                }
+                /** @debug */
+                if (Input.GetKeyDown (KeyCode.H)) {
+                    new Playback (JsonConvert.DeserializeObject<MidJsDefinition> (testSong.text)).Play();
+                }
+            } else {
+                if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                    if (npc.Boost(cameraAngle.transform.forward)) {
+                        Tls.Inst ().PlayAudio (sprintingEvilSound);
+                    } else {
+                        Tls.Inst ().PlayAudio (outOfManaEvilSound);
+                    }
+                }
+            }
+        }
 
-			if (Input.GetKey(KeyCode.W)) {
-				result += transform.forward;
-			}
-			if (Input.GetKey(KeyCode.S)) {
-				result -= transform.forward;
-			}
-			if (Input.GetKey(KeyCode.A)) {
-				result -= transform.right;
-			}
-			if (Input.GetKey(KeyCode.D)) {
-				result += transform.right;
-			}
+        Vector3 GetKeyedDirection()
+        {
+            var result = new Vector3 ();
 
-			return result;
-		}
+            if (Input.GetKey(KeyCode.W)) {
+                result += transform.forward;
+            }
+            if (Input.GetKey(KeyCode.S)) {
+                result -= transform.forward;
+            }
+            if (Input.GetKey(KeyCode.A)) {
+                result -= transform.right;
+            }
+            if (Input.GetKey(KeyCode.D)) {
+                result += transform.right;
+            }
 
-		override public INpcMb GetNpc()
-		{
-			return npc;
-		}
-	}
+            return result;
+        }
+
+        override public INpcMb GetNpc()
+        {
+            return npc;
+        }
+    }
 }

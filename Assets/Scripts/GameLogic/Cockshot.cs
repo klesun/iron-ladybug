@@ -6,28 +6,28 @@ using Interfaces;
 
 namespace GameLogic
 {
-	public class Cockshot : ITrophy, IPiercable
-	{
-		public AudioClip explodingBaloonSound;
-		private D.Cb onCollected = null;
+    public class Cockshot : ITrophy, IPiercable
+    {
+        public AudioClip explodingBaloonSound;
+        private D.Cb onCollected = null;
 
-		public void GetPierced()
-		{
-			Tls.Inst ().PlayAudio (explodingBaloonSound);
-			if (onCollected != null) {
-				onCollected ();
-			}
-			Destroy(gameObject);
-		}
+        public void GetPierced()
+        {
+            Tls.Inst ().PlayAudio (explodingBaloonSound);
+            if (onCollected != null) {
+                onCollected ();
+            }
+            Destroy(gameObject);
+        }
 
-		public override ETrophy GetName ()
-		{
-			return ETrophy.COCKSHOT;
-		}
+        public override ETrophy GetName ()
+        {
+            return ETrophy.COCKSHOT;
+        }
 
-		public override void SetOnCollected (D.Cb callback)
-		{
-			onCollected = callback;
-		}
-	}
+        public override void SetOnCollected (D.Cb callback)
+        {
+            onCollected = callback;
+        }
+    }
 }

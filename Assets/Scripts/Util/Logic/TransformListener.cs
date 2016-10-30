@@ -3,48 +3,48 @@ using Util;
 
 namespace Assets.Scripts.Util.Logic
 {
-	/** 
-	 * provides ability to hang a callback on it's position change
-	 */
-	[ExecuteInEditMode]
-	public class TransformListener : MonoBehaviour 
-	{
-		public D.Cb onChange = null;
-		public TransformListener parent = null;
+    /**
+     * provides ability to hang a callback on it's position change
+     */
+    [ExecuteInEditMode]
+    public class TransformListener : MonoBehaviour
+    {
+        public D.Cb onChange = null;
+        public TransformListener parent = null;
 
-		Vector3 lastPosition;
-		Vector3 lastScale;
-		Quaternion lastRotation;
+        Vector3 lastPosition;
+        Vector3 lastScale;
+        Quaternion lastRotation;
 
-		void Awake ()
-		{
-			lastPosition = transform.position;
-		}
+        void Awake ()
+        {
+            lastPosition = transform.position;
+        }
 
-		void Update()
-		{
-			if (lastPosition != transform.position ||
-				lastScale != transform.lossyScale ||
-				lastRotation != transform.rotation
-			) {
-				lastPosition = transform.position;
-				lastScale = transform.lossyScale;
-				lastRotation = transform.rotation;
+        void Update()
+        {
+            if (lastPosition != transform.position ||
+                lastScale != transform.lossyScale ||
+                lastRotation != transform.rotation
+            ) {
+                lastPosition = transform.position;
+                lastScale = transform.lossyScale;
+                lastRotation = transform.rotation;
 
-				OnValidate ();
-			}
-		}
+                OnValidate ();
+            }
+        }
 
-		#if UNITY_EDITOR
-		void OnValidate()
-		{
-			if (onChange != null) {
-				UnityEditor.EditorApplication.delayCall += () => onChange();
-			}
-			if (parent != null) {
-				parent.OnValidate ();
-			}
-		}
-		#endif
-	}
+        #if UNITY_EDITOR
+        void OnValidate()
+        {
+            if (onChange != null) {
+                UnityEditor.EditorApplication.delayCall += () => onChange();
+            }
+            if (parent != null) {
+                parent.OnValidate ();
+            }
+        }
+        #endif
+    }
 }

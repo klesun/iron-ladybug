@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace AssemblyCSharp
 {
-	public abstract class IQuest: MonoBehaviour
-	{
-		public abstract bool CheckIsCompleted();
-	}
+    public abstract class IQuest: MonoBehaviour
+    {
+        public abstract bool CheckIsCompleted();
+    }
 }
 

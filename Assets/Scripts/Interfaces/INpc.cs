@@ -10,5 +10,6 @@ namespace Interfaces
     {
         Texture GetPortrait ();
         GameObject GetGameObject ();
+        void Die();
     }
 }

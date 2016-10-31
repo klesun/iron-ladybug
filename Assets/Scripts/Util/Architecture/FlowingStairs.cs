@@ -104,7 +104,7 @@ namespace Assets.Scripts.Util.Architecture
             var localEndPoint = blockCont.gameObject.transform.InverseTransformPoint(endPoint.transform.position);
             var length = (int) Mathf.Floor(localEndPoint.magnitude / spacing) - stairs.Length;;
             var period = length * 2 * stepMusicNumerator * 1.0f / stepMusicDenominator;
-            var completeTime = Bgm.Bgm.Inst().GetTactProgress() / period;
+            var completeTime = Bgm.Bgm.Inst().GetProgress() / period;
             var loopedTime = completeTime % 1;
 
             var moved = PlaceStairsStateless(
@@ -121,7 +121,7 @@ namespace Assets.Scripts.Util.Architecture
             var semiStepIndex = (int)(length * 2 * completeTime);
             if (lastSemiStepIndex != semiStepIndex) {
                 lastSemiStepIndex = semiStepIndex;
-                if (stepSfx != null && moved != null) {
+                if (stepSfx != null && moved != null && Application.isPlaying) {
                     AudioSource.PlayClipAtPoint(stepSfx, moved.position);
                 }
             }

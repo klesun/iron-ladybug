@@ -91,7 +91,7 @@ namespace GameLogic
             }
         }
 
-        public void Die()
+        public override void Die()
         {
             Tls.Inst().PlayAudio(Sa.Inst ().audioMap.npcDeathScream);
             isDead = true;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Assets.Scripts.Util.Architecture;
 
 /** 
  * this script generates sequence of flying 
@@ -33,7 +34,7 @@ public class ShardedBridge : MonoBehaviour
             var ferrisWheel = (FerrisWheel)shard.AddComponent(typeof(FerrisWheel));
             ferrisWheel.amplZ = amplX;
             ferrisWheel.amplY = amplY;
-            ferrisWheel.frequence = period > 0 ? 1 / period : 0;
+            ferrisWheel.periodDenominator = period > 0 ? 1 / period : 0;
         });
     }
 

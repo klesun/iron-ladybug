@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Interfaces;
+using UnityEngine;
 using Util;
 
 namespace Assets.Scripts.Util.Logic
@@ -7,7 +8,7 @@ namespace Assets.Scripts.Util.Logic
      * provides ability to hang a callback on it's position change
      */
     [ExecuteInEditMode]
-    public class TransformListener : MonoBehaviour
+    public class TransformListener : MonoBehaviour, IValidator
     {
         public D.Cb onChange = null;
         public TransformListener parent = null;
@@ -36,7 +37,7 @@ namespace Assets.Scripts.Util.Logic
         }
 
         #if UNITY_EDITOR
-        void OnValidate()
+        public void OnValidate()
         {
             if (onChange != null) {
                 UnityEditor.EditorApplication.delayCall += () => onChange();

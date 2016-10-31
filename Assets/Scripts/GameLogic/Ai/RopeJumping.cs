@@ -1,7 +1,9 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Assets.Scripts.Util.Architecture;
+using Assets.Scripts.Util.Bgm;
+using GameLogic;
+using UnityEngine;
 
-namespace GameLogic.Ai
+namespace Assets.Scripts.GameLogic.Ai
 {
     /**
      * supposing for now that npc stands
@@ -19,7 +21,7 @@ namespace GameLogic.Ai
 
         void Update ()
         {
-            var period = 1.0f / rope.frequence;
+            var period = (rope.periodNumerator * 1f / rope.periodDenominator) * Bgm.Inst().GetPeriod();
             var time = rope.GetOffset() * period;
             var leftTilCenter = 3.0f / 4.0f * period - time;
 

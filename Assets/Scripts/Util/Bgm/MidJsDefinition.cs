@@ -46,6 +46,7 @@ namespace Util.Midi
          * when tempo is 240: 1/4 note length = 1/4 second
          */
         public float tempo;
+        public float tactSize = 4 / 4;
         /*
          * a number in range [-7, 7]. when -1: Ti is flat;
          * when -2: Ti and Mi are flat; when +2: Fa and Re are sharp and so on...

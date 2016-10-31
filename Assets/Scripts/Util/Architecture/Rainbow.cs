@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Interfaces;
 
 [ExecuteInEditMode]
 public class Rainbow : MonoBehaviour 
@@ -20,7 +21,12 @@ public class Rainbow : MonoBehaviour
     void Update ()
     {
         if (materialHolder != null) {
-            materialHolder.sharedMaterial.color = color;
+            if (materialHolder.sharedMaterial.color != color) {
+                materialHolder.sharedMaterial.color = color;
+                foreach (var vdator in gameObject.GetComponents<IValidator>()) {
+                    vdator.OnValidate();
+                }
+            }
         }
     }
 }

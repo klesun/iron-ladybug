@@ -11,5 +11,6 @@ namespace Interfaces
     {
         abstract public Texture GetPortrait();
         abstract public GameObject GetGameObject();
+        abstract public void Die();
     }
 }

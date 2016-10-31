@@ -2,6 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 using System.Collections.Generic;
+using Assets.Scripts.Util.Architecture;
 using Util.GameLogic;
 using Util;
 
@@ -23,7 +24,7 @@ namespace GameLogic.Missions
 
         void Awake ()
         {
-            initialFreqeuqnce = rope.frequence;
+            initialFreqeuqnce = rope.periodDenominator;
 
             overJumpTrigger.OnIn((c) => {
                 if (c.gameObject.GetComponent<HeroControl>() != null) {
@@ -31,7 +32,7 @@ namespace GameLogic.Missions
                     highscore = Mathf.Max(highscore, hits);
                     var msg = "Hits: " + hits + "\n" + "Highscore: " + highscore;
                     Sa.Inst().gui.quoteBoxArray[1].ShowStats(msg, opponent);
-                    rope.SetFrequence(rope.frequence * 1.1f);
+                    rope.SetFrequence(rope.periodDenominator * 1.1f);
                 }
             });
 

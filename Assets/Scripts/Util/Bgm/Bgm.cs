@@ -17,6 +17,7 @@ namespace Assets.Scripts.Util.Bgm
         private int tactsPassedBeforeSongStart = 0;
         private float songStartedAt = 0;
         private float tempo = 120;
+        private float tactSize = 4 / 4;
 
         public Bgm()
         {
@@ -61,7 +62,7 @@ namespace Assets.Scripts.Util.Bgm
          * @return number of tacts that passed since
          * start of game + current tact completion factor
          */
-        public float GetTactProgress()
+        public float GetProgress()
         {
             return tactsPassedBeforeSongStart + GetSongCurrentTime();
         }
@@ -69,31 +70,40 @@ namespace Assets.Scripts.Util.Bgm
         public float GetSongCurrentTime()
         {
             // 240 is a tempo in which whole note matches one second
-            return (Time.fixedTime - songStartedAt) * tempo / 240;
+            return  (Time.fixedTime - songStartedAt) * tempo / 240 / tactSize;
         }
 
-        void ResetTactCounter(float newTempo)
+        public float GetPeriod()
         {
             // implying tact size is always 4/4
             // this should be changed in future
+            return tactSize * 240f / tempo;
+        }
+
+        void ResetTactCounter(StaffConfig newConfig)
+        {
             tactsPassedBeforeSongStart += (int)GetSongCurrentTime();
-            tempo = newTempo;
+            tempo = newConfig.tempo;
+            tactSize = newConfig.tactSize;
             songStartedAt = Time.fixedTime;
         }
 
         void Play()
         {
-            stopPlayback ();
-            stopPlayback = () => {};
-            pendingSongs.Last ().If (player => {
-                var interrupted = false;
-                player.whenDone = () => U.If(!interrupted, () => UnsetBgm(player.song));
-                ResetTactCounter(player.song.staffList[0].staffConfig.tempo);
-                var stopPlaybackTmp = player.Play ();
-                stopPlayback = () => {
-                    stopPlaybackTmp();
-                    interrupted = true;
-                };
+            var stitchTime = GetPeriod() - (Time.fixedTime - songStartedAt) % GetPeriod();
+            Tls.Inst().timeout.Real(stitchTime, () => {
+                stopPlayback ();
+                stopPlayback = () => {};
+                pendingSongs.Last ().If (player => {
+                    var interrupted = false;
+                    player.whenDone = () => U.If(!interrupted, () => UnsetBgm(player.song));
+                    ResetTactCounter(player.song.staffList[0].staffConfig);
+                    var stopPlaybackTmp = player.Play ();
+                    stopPlayback = () => {
+                        stopPlaybackTmp();
+                        interrupted = true;
+                    };
+                });
             });
         }
     }

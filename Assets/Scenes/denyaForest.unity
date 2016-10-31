@@ -3025,7 +3025,7 @@ MonoBehaviour:
   triggers:
   - {fileID: 1849812853}
   stitchTime: 5
-  volumeFactor: 1
+  volumeFactor: 0.4
 --- !u!65 &1849812850
 BoxCollider:
   m_ObjectHideFlags: 0

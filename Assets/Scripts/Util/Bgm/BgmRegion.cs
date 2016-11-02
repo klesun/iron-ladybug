@@ -1,18 +1,12 @@
-﻿using UnityEngine;
-using System.Collections;
-using Newtonsoft.Json;
-using Util.Midi;
-using GameLogic;
+﻿using System.Collections.Generic;
 using Interfaces;
-using System.Collections.Generic;
-using Assets.Scripts.Util.Bgm;
+using Newtonsoft.Json;
+using UnityEngine;
+using Util;
+using Util.Midi;
 
-namespace Util
+namespace Assets.Scripts.Util.Bgm
 {
-    /**
-     * TODO: move to GameLogic namespace or use some other
-     * way do determine that game object is player's npc
-    */
     public class BgmRegion : MonoBehaviour
     {
         public TextAsset audioFile;
@@ -37,6 +31,7 @@ namespace Util
                 trigger.OnIn((c) => U.If(
                     c.GetComponent<IHero>() != null,
                     () => {
+                        // TODO: if some song is already being triggered, but have more time to switch than this, drop it
                         ++inLevel;
                         interruptStitch();
                         interruptStitch = Tls.Inst().timeout.Game(stitchTime, () =>

@@ -27,5 +27,13 @@ namespace Assets.Scripts.Util.Architecture
                 trafficLight.ReportInteraction(this, maybeNpc);
             }
         }
+
+        void OnCollisionExit(Collision col)
+        {
+            var maybeNpc = col.gameObject.GetComponent<INpc>();
+            if (maybeNpc != null) {
+                trafficLight.ReportOutteraction(maybeNpc);
+            }
+        }
     }
 }

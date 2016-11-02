@@ -14,9 +14,17 @@ namespace Util
         public TransformListener endPoint;
         public TransformListener blockRef;
         public GameObject blockCont;
+        // these range limitations are from head.
+        // feel free to increase bounds if you need
+        [Range(0.01f, 1000)]
         public float spacingZ = 1.0f;
+        [Range(0.01f, 1000)]
         public float spacingX = 1.0f;
+        [Range(0, 100)]
         public int sideRows = 3;
+        [Range(0, 1)]
+        public float skipRate = 0;
+        public int randomSeed = 13;
 
         double? lastValidatedOn = null;
         bool revalidationRequested = false;
@@ -68,9 +76,14 @@ namespace Util
 
             blockCont.transform.LookAt (endPoint.transform);
 
+            var random = new System.Random (randomSeed);
+
             var dist = Vector3.Distance (blockCont.gameObject.transform.position, endPoint.gameObject.transform.position);
             for (var i = 0; i < dist / spacingZ; ++i) {
                 for (var j = -sideRows; j <= sideRows; ++j) {
+                    if (random.NextDouble() < skipRate) {
+                        continue;
+                    }
                     var block = UnityEngine.Object.Instantiate (blockRef.gameObject);
                     block.name = "_block" + i + "x" + j;
                     block.transform.SetParent (blockCont.transform);

@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 using Util;
 
@@ -17,6 +18,7 @@ namespace Assets.Scripts.Util.Architecture
         private D.Cb onIn = () => {};
         private D.Cb onOut = () => {};
         private TrafficLightBlock lastStoodBlock = null;
+        private List<INpc> npcsOnYellow = new List<INpc>();
 
         void Update ()
         {
@@ -42,6 +44,9 @@ namespace Assets.Scripts.Util.Architecture
                     red.color = Color.red;
                     onIn ();
                     Darken (green, 0.2f);
+                    foreach (var npc in npcsOnYellow) {
+                        npc.Die();
+                    }
                 }
             }
         }
@@ -81,9 +86,16 @@ namespace Assets.Scripts.Util.Architecture
                 if (lastStoodBlock != block) {
                     npc.Die();
                 }
-            } else {
-                // TODO: when player stands on yellow, he should die when it becomes red
+            } else if (yellow.color == Color.yellow) {
+                if (lastStoodBlock != block) {
+                    npcsOnYellow.Add(npc);
+                }
             }
+        }
+
+        public void ReportOutteraction(INpc npc)
+        {
+            npcsOnYellow.Remove(npc);
         }
 
         public Color GetColor(TrafficLightBlock block)

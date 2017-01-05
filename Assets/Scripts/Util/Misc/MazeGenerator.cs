@@ -52,14 +52,18 @@ namespace Assets.Scripts.Util.Misc
                     ++turns;
                     cell.ways.Add(way);
                     grid[x, y].ways.Add(way.Opp());
-                    forksTillExit = Math.Max(PaveTheWayRb(grid, x, y, x1, y1), forksTillExit);
+                    var turnForks = PaveTheWayRb(grid, x, y, x1, y1);
+                    if (turnForks > 0) {
+                        forksTillExit = turnForks;
+                        cell.forwardDirection = way;
+                    }
                 }
             }
             if (x0 == x1 && y0 == y1 || (forksTillExit > 0 && turns > 1)) {
                 ++forksTillExit;
                 cell.isForked = true;
             }
-            cell.backDirection = backDirection;
+            cell.backDirection = backDirection ?? new Way(){kind = Way.EKind.S};
             cell.forksTillExit = forksTillExit;
 
             return forksTillExit;
@@ -143,7 +147,8 @@ namespace Assets.Scripts.Util.Misc
         {
             public bool visited = false;
             public int forksTillExit = 0;
-            public Way backDirection = new Way(){kind = Way.EKind.S};
+            public Way backDirection = new Way(){kind = Way.EKind.N};
+            public Way forwardDirection = new Way(){kind = Way.EKind.S};
             public bool isForked = false;
             public HashSet<Way> ways = new HashSet<Way>();
         }
@@ -163,12 +168,6 @@ namespace Assets.Scripts.Util.Misc
                 {EKind.E,  0},
                 {EKind.W,  0},
             };
-            static Dictionary<EKind, EKind> OPPOSITE = new Dictionary<EKind, EKind>{
-                {EKind.N, EKind.S},
-                {EKind.S, EKind.N},
-                {EKind.E, EKind.W},
-                {EKind.W, EKind.E},
-            };
 
             public EKind kind;
 
@@ -179,7 +178,26 @@ namespace Assets.Scripts.Util.Misc
 
             public Way Opp()
             {
+                var OPPOSITE = new Dictionary<EKind, EKind>{
+                    {EKind.N, EKind.S},
+                    {EKind.S, EKind.N},
+                    {EKind.E, EKind.W},
+                    {EKind.W, EKind.E},
+                };
+
                 return new Way(){kind = OPPOSITE[kind]};
+            }
+
+            public int getDegree()
+            {
+                var degreeByKind = new Dictionary<EKind, int>{
+                    {EKind.N, 90},
+                    {EKind.S, 270},
+                    {EKind.E, 0},
+                    {EKind.W, 180},
+                };
+
+                return degreeByKind[kind];
             }
         }
     }

@@ -27,7 +27,7 @@ namespace Assets.Scripts.Util.Architecture
         // optional
         public Text pseudoGraphicHolder = null;
         // optional
-        public TransformListener floorSample = null;
+        public MazeFloor floorSample = null;
 
         double? lastValidatedOn = null;
         bool revalidationRequested = false;
@@ -84,7 +84,7 @@ namespace Assets.Scripts.Util.Architecture
             var gen = new MazeGenerator(randomSeed);
             var grid = gen.Generate(width, height, entrancePlace, exitPlace);
 
-            if (pseudoGraphicHolder) {
+            if (pseudoGraphicHolder != null) {
                 pseudoGraphicHolder.text = MazeGenerator.PrintGrid(grid);
             }
 
@@ -113,15 +113,14 @@ namespace Assets.Scripts.Util.Architecture
                     }
 
                     if (floorSample != null) {
+                        if (floorSample.textHolder != null) {
+                            floorSample.textHolder.text = cell.isForked ? cell.forksTillExit + "" : "";
+                        }
                         var floor = Instantiate(floorSample.gameObject);
                         floor.name = "_generated_floor_" + x + "_" + y;
                         floor.transform.SetParent (cont.gameObject.transform);
-                        floor.transform.localRotation = Quaternion.identity;
+                        floor.transform.localRotation = Quaternion.Euler(0,- cell.forwardDirection.getDegree(),0);
                         floor.transform.localPosition = (new Vector3(x, 0, y)) * spacing;
-
-                        if (cell.isForked) {
-
-                        }
                     }
                 }
             }

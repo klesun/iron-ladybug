@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using AssemblyCSharp;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using Util;
 
-namespace Util
+namespace Assets.Scripts.Util.Architecture
 {
     public class Ring : MonoBehaviour
     {

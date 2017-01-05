@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Assets.Scripts.Util.Shorthands;
 using UnityEngine;
 using Util;
@@ -30,10 +31,27 @@ namespace Assets.Scripts.Util.Bgm
                 ?? (instance = new Bgm());
         }
 
+        public void AddRegion(Playback playback)
+        {
+            pendingSongs.s.Add(playback);
+            // start playing it after 5 seconds if it is still top in the list
+            // and there should not be more than one play requests at a time
+            Play();
+        }
+
+        public void RemoveRegion(Playback playback)
+        {
+            pendingSongs.s.Remove(playback);
+            // stop playing if required
+            // TODO: probably trials bound to music time should stay in the song
+            // pace even when player leaves the region and song stops playing
+            Play();
+        }
+
         public Playback SetBgm(MidJsDefinition song)
         {
             if (song != pendingSongs.Last ().Map (p => p.song).Or (null)) {
-                var player = new Playback (song);
+                var player = new Playback (song, true);
 //                {
 //                    whenDone = () => U.If(!interrupted, () => UnsetBgm(song)),
 //                };
@@ -96,7 +114,10 @@ namespace Assets.Scripts.Util.Bgm
                 stopPlayback = () => {};
                 pendingSongs.Last ().If (player => {
                     var interrupted = false;
-                    player.whenDone = () => U.If(!interrupted, () => UnsetBgm(player.song));
+                    player.whenDone =
+                        () => U.If(!interrupted).then =
+                        () => UnsetBgm(player.song);
+
                     ResetTactCounter(player.song.staffList[0].staffConfig);
                     var stopPlaybackTmp = player.Play ();
                     stopPlayback = () => {

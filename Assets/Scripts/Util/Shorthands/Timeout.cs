@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-using AssemblyCSharp;
-using System.Collections.Generic;
+﻿using System.Collections;
+using UnityEngine;
+using Util;
 
-namespace Util
+namespace Assets.Scripts.Util.Shorthands
 {
     /**
      * use this to communicate with main thread from any thread

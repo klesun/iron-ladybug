@@ -1,4 +1,5 @@
 using System;
+using Assets.Scripts.Util.Shorthands;
 
 namespace Util.Shorthands
 {
@@ -42,13 +43,13 @@ namespace Util.Shorthands
             }
         }
 
-        public Util.U.IfResult If(D.Cu<T> body)
+        public U.ThenResult If(D.Cu<T> body)
         {
             if (isPresent) {
                 body (value);
-                return new Util.U.IfResult () { applied = true };
+                return new U.ThenResult () { applied = true };
             } else {
-                return new Util.U.IfResult () { applied = false };
+                return new U.ThenResult () { applied = false };
             }
         }
     }

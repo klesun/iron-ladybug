@@ -17,20 +17,15 @@ namespace Assets.Scripts.Util.Logic
         Vector3 lastScale;
         Quaternion lastRotation;
 
-        void Awake ()
-        {
-            lastPosition = transform.position;
-        }
-
         void Update()
         {
-            if (lastPosition != transform.position ||
-                lastScale != transform.lossyScale ||
-                lastRotation != transform.rotation
+            if (lastPosition != transform.localPosition ||
+                lastScale != transform.localScale ||
+                lastRotation != transform.localRotation
             ) {
-                lastPosition = transform.position;
-                lastScale = transform.lossyScale;
-                lastRotation = transform.rotation;
+                lastPosition = transform.localPosition;
+                lastScale = transform.localScale;
+                lastRotation = transform.localRotation;
 
                 OnValidate ();
             }

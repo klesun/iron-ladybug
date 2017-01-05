@@ -1,13 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Schema;
-using Assets.Scripts.Util.Bgm;
 using Assets.Scripts.Util.Logic;
-using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.UI;
-using Util;
 
 namespace Assets.Scripts.Util.Architecture
 {

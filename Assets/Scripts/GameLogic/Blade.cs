@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Assets.Scripts.Util.Logic;
 using Interfaces;
 
 public class Blade : MonoBehaviour 

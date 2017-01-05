@@ -2,6 +2,9 @@
 using System.Collections;
 using System;
 
+/**
+ * @deprecated - use BlockGrid.cs instead
+ */
 public class Sequence : MonoBehaviour {
 
     public float spacing;

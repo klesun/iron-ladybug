@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Util.Logic;
+using Assets.Scripts.Util.Shorthands;
 using Util;
 using Util.GameLogic;
 using Interfaces;
@@ -13,7 +15,7 @@ namespace GameLogic
 
         void Awake ()
         {
-            trigger.OnIn(c => U.If(c.gameObject.GetComponent<IHero>() != null, () => dialog.Play()));
+            trigger.OnIn(c => U.IfOld(c.gameObject.GetComponent<IHero>() != null, () => dialog.Play()));
         }
     }
 }

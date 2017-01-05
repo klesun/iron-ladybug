@@ -58,8 +58,6 @@ namespace Assets.Scripts.Util.Architecture
             AddLinks ();
         }
 
-        delegate void DPlaceTaker (Vector3 pos);
-
         void RemoveLinks()
         {
             var deadmen = new List<GameObject>();

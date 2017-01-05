@@ -22,9 +22,9 @@ namespace Assets.Scripts.Util.Architecture
         }
 
         /**
-     * @return float - 0 if wheel is at the start,
-     * 0.33 if it is at 1/3 of the way and so on
-     */
+         * @return float - 0 if wheel is at the start,
+         * 0.33 if it is at 1/3 of the way and so on
+         */
         public float GetOffset()
         {
             return (initialOffset + (Bgm.Bgm.Inst().GetProgress() - startTime) * periodDenominator / periodNumerator) % 1;

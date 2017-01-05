@@ -72,7 +72,7 @@ namespace Util.SoundFontPlayer
             // fade does not work too
 
             D.Cb swap = null;
-            swap = () => U.If(!interrupted, () => {
+            swap = () => U.IfOld(!interrupted, () => {
                 now = AudioSettings.dspTime;
 
                 free.time = loopStart;
@@ -102,7 +102,7 @@ namespace Util.SoundFontPlayer
             var steps = 10;
             var step = 0;
             D.Cb doStep = null;
-            doStep = () => U.If (src != null && ++step < steps, () => {
+            doStep = () => U.IfOld (src != null && ++step < steps, () => {
                 src.volume = VOLUME_FACTOR * (outward ? steps - step : step) / steps;
                 Tls.Inst().timeout.Real((float)(duration / steps), doStep);
             });

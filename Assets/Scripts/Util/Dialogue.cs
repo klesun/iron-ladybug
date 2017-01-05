@@ -3,6 +3,7 @@ using System.Collections;
 using AssemblyCSharp;
 using System.Timers;
 using System.Collections.Generic;
+using Assets.Scripts.Util.Shorthands;
 using GameLogic;
 using Interfaces;
 
@@ -16,7 +17,7 @@ namespace Util.GameLogic
 
         private D.Cb sayNext = null;
 
-        void Awake ()
+        void Start ()
         {
             speakerA = speakerA ?? (Tls.Inst ().GetHero ().GetNpc());
         }

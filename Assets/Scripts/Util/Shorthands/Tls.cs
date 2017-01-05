@@ -7,6 +7,7 @@ using System.Timers;
 using GameLogic;
 using Interfaces;
 using System.Collections;
+using Assets.Scripts.Util.Shorthands;
 
 namespace Util
 {
@@ -72,6 +73,11 @@ namespace Util
             return timeout.Game (seconds, callback);
         }
 
+        public TimeoutResult Timeout(float seconds)
+        {
+            return new TimeoutResult { seconds = seconds, timeout = timeout };
+        }
+
         public bool IsPaused()
         {
             return Time.timeScale == 0;
@@ -80,6 +86,29 @@ namespace Util
         public IHero GetHero()
         {
             return hero ?? (hero = UnityEngine.Object.FindObjectOfType<IHeroMb>());
+        }
+
+        public class TimeoutResult
+        {
+            public float seconds;
+            public Timeout timeout;
+
+            public D.Cb game {
+                set { timeout.Game(seconds, value); }
+            }
+            public D.Cb real {
+                set { timeout.Real(seconds, value); }
+            }
+
+            public D.Cb Game(D.Cb value)
+            {
+                return timeout.Game(seconds, value);
+            }
+
+            public D.Cb Real(D.Cb value)
+            {
+                return timeout.Real(seconds, value);
+            }
         }
     }
 }

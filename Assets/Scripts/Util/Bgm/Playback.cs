@@ -16,11 +16,13 @@ namespace Assets.Scripts.Util.Bgm
         Staff staff;
         int loopsLeft;
         float volumeFactor = 1;
+        readonly bool useGameTime;
 
-        public Playback (MidJsDefinition song)
+        public Playback (MidJsDefinition song, bool useGameTime = false)
         {
             this.song = song;
             this.staff = song.staffList[0];
+            this.useGameTime = useGameTime;
             loopsLeft = this.staff.staffConfig.loopTimes;
         }
 
@@ -30,7 +32,7 @@ namespace Assets.Scripts.Util.Bgm
 
             // timeouting so playback started in the next assync code block
             // to allow user set some configuration in the next statements
-            Tls.Inst().timeout.Real(0.001f, () => PlayNext (flag, Time.realtimeSinceStartup));
+            Timeout(0.001f, () => PlayNext (flag, GetTime()));
 
             return () => flag.isInterrupted = true;
         }
@@ -54,12 +56,12 @@ namespace Assets.Scripts.Util.Bgm
 
         void PlayNext(RunInfo flag, float expectedTime)
         {
-            var actualTime = Time.realtimeSinceStartup;
+            var actualTime = GetTime();
             if (!flag.isInterrupted) {
                 if (position < staff.chordList.Length) {
                     var chord = staff.chordList [position++];
                     var seconds = PlayChord (chord);
-                    Tls.Inst ().timeout.Real (
+                    Timeout (
                         seconds - (actualTime - expectedTime),
                         () => PlayNext (flag, expectedTime + seconds)
                     );
@@ -93,12 +95,32 @@ namespace Assets.Scripts.Util.Bgm
                 var stop = !isRest
                     ? Fluid.Inst ().PlayNote (note.tune, instr, volumeFactor)
                     : () => {};
-                Tls.Inst().timeout.Real (AcadToSeconds(noteLength), stop);
+                Timeout (AcadToSeconds(noteLength), stop);
 
                 chordLength = chordLength != null ? Mathf.Min (chordLength ?? 0, noteLength) : noteLength;
             }
 
             return AcadToSeconds(chordLength ?? 0);
+        }
+
+        float GetTime()
+        {
+            return useGameTime
+                ? Time.fixedTime
+                : Time.realtimeSinceStartup;
+        }
+
+        D.Cb Timeout(float seconds, D.Cb callback)
+        {
+            if (seconds <= 0) {
+                callback();
+                return () => {};
+            } else {
+                var tout = Tls.Inst().Timeout(seconds);
+                return useGameTime
+                    ? tout.Game(callback)
+                    : tout.Real(callback);
+            }
         }
 
         static float ParseFraction(string fraction)

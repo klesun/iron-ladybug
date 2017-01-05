@@ -84,9 +84,16 @@ namespace Util
                     if (random.NextDouble() < skipRate) {
                         continue;
                     }
-                    var block = UnityEngine.Object.Instantiate (blockRef.gameObject);
+                    var block = Instantiate (blockRef.gameObject);
                     block.name = "_block" + i + "x" + j;
                     block.transform.SetParent (blockCont.transform);
+
+                    var wasAngles = block.transform.rotation.eulerAngles;
+                    block.transform.localRotation = Quaternion.identity;
+                    var nowAngles = block.transform.rotation.eulerAngles;
+                    // cont always faces to end point, but we want to preserve vertical angle of segments
+                    block.transform.rotation = Quaternion.Euler(wasAngles.x, nowAngles.y, nowAngles.z);
+
                     block.transform.localPosition = new Vector3 (j * spacingX, 0, i * spacingZ);
                 }
             }

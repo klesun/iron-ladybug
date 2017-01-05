@@ -1,8 +1,6 @@
-﻿using System;
-using AssemblyCSharp;
-using UnityEngine;
+﻿using Util;
 
-namespace Util
+namespace Assets.Scripts.Util.Shorthands
 {
     /**
      * U stands for "Uporotostj"
@@ -12,17 +10,43 @@ namespace Util
      */
     public static class U
     {
-        public static IfResult If(bool condition, D.Cb body)
+        public static ThenResult IfOld(bool condition, D.Cb body)
         {
             if (condition) {
                 body ();
-                return new IfResult () { applied = true };
+                return new ThenResult () { applied = true };
             } else {
-                return new IfResult () { applied = false };
+                return new ThenResult () { applied = false };
             }
         }
 
+        public static IfResult If(bool condition)
+        {
+            return new IfResult() { applied = condition };
+        }
+
         public class IfResult
+        {
+            public bool applied = true;
+
+            public D.Cb then {
+                set {
+                    if (applied) {
+                        value();
+                    }
+                }
+            }
+
+            public ThenResult Then(D.Cb cb)
+            {
+                if (applied) {
+                    cb();
+                }
+                return new ThenResult() { applied = applied };
+            }
+        }
+
+        public class ThenResult
         {
             public bool applied = true;
 

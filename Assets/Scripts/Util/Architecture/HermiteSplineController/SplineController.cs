@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public enum eOrientationMode { NODE = 0, TANGENT }
 
@@ -16,105 +17,91 @@ public class SplineController : MonoBehaviour
     public bool AutoClose = true;
     public bool HideOnExecute = true;
 
-
     SplineInterpolator mSplineInterp;
     Transform[] mTransforms;
 
     void OnDrawGizmos()
     {
         Transform[] trans = GetTransforms();
-        if (trans.Length < 2)
-            return;
+        if (trans.Length < 2) return;
 
-        SplineInterpolator interp = GetComponent(typeof(SplineInterpolator)) as SplineInterpolator;
+        var interp = GetComponent<SplineInterpolator>();
         SetupSplineInterpolator(interp, trans);
         interp.StartInterpolation(null, false, WrapMode);
 
-
-        Vector3 prevPos = trans[0].position;
-        for (int c = 1; c <= 100; c++)
+        var prevPos = trans[0].position;
+        for (var c = 1; c <= 100; c++)
         {
-            float currTime = c * Duration / 100;
-            Vector3 currPos = interp.GetHermiteAtTime(currTime);
-            float mag = (currPos-prevPos).magnitude * 2;
+            var currTime = c * Duration / 100;
+            var currPos = interp.GetHermiteAtTime(currTime);
+            var mag = (currPos-prevPos).magnitude * 2;
             Gizmos.color = new Color(mag, 0, 0, 1);
             Gizmos.DrawLine(prevPos, currPos);
             prevPos = currPos;
         }
     }
 
-
     void Start()
     {
         mSplineInterp = GetComponent(typeof(SplineInterpolator)) as SplineInterpolator;
-
         mTransforms = GetTransforms();
 
-        if (HideOnExecute)
+        if (HideOnExecute) {
             DisableTransforms();
+        }
 
-        if (AutoStart)
+        if (AutoStart) {
             FollowSpline();
+        }
     }
 
     void SetupSplineInterpolator(SplineInterpolator interp, Transform[] trans)
     {
         interp.Reset();
 
-        float step = (AutoClose) ? Duration / trans.Length :
-            Duration / (trans.Length - 1);
+        var step = AutoClose
+            ? Duration / trans.Length
+            : Duration / (trans.Length - 1);
 
-        int c;
-        for (c = 0; c < trans.Length; c++)
-        {
-            if (OrientationMode == eOrientationMode.NODE)
-            {
-                interp.AddPoint(trans[c].position, trans[c].rotation, step * c, new Vector2(0, 1));
-            }
-            else if (OrientationMode == eOrientationMode.TANGENT)
-            {
+        var i = -1;
+        while (++i < trans.Length) {
+            if (OrientationMode == eOrientationMode.NODE) {
+                interp.AddPoint(trans[i].position, trans[i].rotation, step * i, new Vector2(0, 1));
+            } else if (OrientationMode == eOrientationMode.TANGENT) {
                 Quaternion rot;
-                if (c != trans.Length - 1)
-                    rot = Quaternion.LookRotation(trans[c + 1].position - trans[c].position, trans[c].up);
-                else if (AutoClose)
-                    rot = Quaternion.LookRotation(trans[0].position - trans[c].position, trans[c].up);
-                else
-                    rot = trans[c].rotation;
+                if (i != trans.Length - 1) {
+                    rot = Quaternion.LookRotation(trans[i + 1].position - trans[i].position, trans[i].up);
+                } else if (AutoClose) {
+                    rot = Quaternion.LookRotation(trans[0].position - trans[i].position, trans[i].up);
+                } else {
+                    rot = trans[i].rotation;
+                }
 
-                interp.AddPoint(trans[c].position, rot, step * c, new Vector2(0, 1));
+                interp.AddPoint(trans[i].position, rot, step * i, new Vector2(0, 1));
             }
         }
 
-        if (AutoClose)
-            interp.SetAutoCloseMode(step * c);
+        if (AutoClose) {
+            interp.SetAutoCloseMode(step * i);
+        }
     }
 
 
-    /// <summary>
-    /// Returns children transforms, sorted by name.
-    /// </summary>
+    // Returns children transforms, sorted by name.
     Transform[] GetTransforms()
     {
-        if (SplineRoot != null)
-        {
-            List<Component> components = new List<Component>(SplineRoot.GetComponentsInChildren(typeof(Transform)));
-            List<Transform> transforms = components.ConvertAll(c => (Transform)c);
-
+        if (SplineRoot != null) {
+            var transforms = SplineRoot.GetComponentsInChildren<Transform>().ToList();
             transforms.Remove(SplineRoot.transform);
-            transforms.Sort(delegate(Transform a, Transform b)
-            {
-                return a.name.CompareTo(b.name);
-            });
+            transforms.Sort((a, b) => a.name.CompareTo(b.name));
 
             return transforms.ToArray();
+        } else {
+            return new Transform[] { };
         }
-
-        return null;
     }
 
-    /// <summary>
-    /// Disables the spline objects, we don't need them outside design-time.
-    /// </summary>
+    // Disables the spline objects, we don't need them outside design-time.
     void DisableTransforms()
     {
         if (SplineRoot != null)
@@ -124,9 +111,7 @@ public class SplineController : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// Starts the interpolation
-    /// </summary>
+    // Starts the interpolation
     void FollowSpline()
     {
         if (mTransforms.Length > 0)

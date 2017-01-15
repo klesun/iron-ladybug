@@ -1,15 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Collections.Generic;
-using AssemblyCSharp;
 using Assets.Scripts.Util.Bgm;
-using Util.Midi;
-using Newtonsoft.Json;
-using Util;
-using Util.SoundFontPlayer;
+using GameLogic;
 using Interfaces;
+using Newtonsoft.Json;
+using UnityEngine;
+using Util;
+using Util.Midi;
+using Util.SoundFontPlayer;
 
-namespace GameLogic
+namespace Assets.Scripts.GameLogic
 {
     public class HeroControl : IHeroMb
     {

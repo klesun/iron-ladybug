@@ -15,6 +15,12 @@ namespace Assets.Scripts.Util.Shorthands
     {
         public readonly List<T> s;
 
+        public D.Cu2<T, int> each { set {
+            for (var i = 0; i < s.Count; ++i) {
+                value(s[i], i);
+            }
+        } }
+
         public L (IEnumerable<T> subj)
         {
             this.s = new List<T> (subj);

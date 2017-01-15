@@ -8,18 +8,28 @@ namespace Util.Shorthands
         public bool isPresent;
         private T value;
 
-        private Opt ()
+        public D.Cu<T> get {
+            set {
+                if (isPresent) {
+                    value(this.value);
+                }
+            }
+        }
+
+        public Opt (bool isPresent, T value)
         {
+            this.isPresent = isPresent;
+            this.value = value;
         }
 
         public static Opt<Tf> Some<Tf>(Tf valueArg)
         {
-            return new Opt<Tf> () { isPresent = true, value = valueArg };
+            return new Opt<Tf> (true, valueArg);
         }
 
         public static Opt<Tf> None<Tf>()
         {
-            return new Opt<Tf> () { isPresent = false };
+            return new Opt<Tf> (false, default(Tf));
         }
 
         public T Or(T defaultValue)

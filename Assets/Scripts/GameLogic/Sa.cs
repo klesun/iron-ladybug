@@ -1,8 +1,8 @@
-﻿using System;
+﻿using GameLogic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GameLogic
+namespace Assets.Scripts.GameLogic
 {
     /**
      * Sa stands for "Static Assets"

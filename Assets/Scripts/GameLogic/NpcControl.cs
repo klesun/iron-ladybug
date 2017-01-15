@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-using AssemblyCSharp;
+﻿using Interfaces;
+using UnityEngine;
 using Util;
-using Interfaces;
 
-namespace GameLogic
+namespace Assets.Scripts.GameLogic
 {
     [RequireComponent (typeof(Rigidbody))]
     [RequireComponent (typeof(Collider))]
@@ -21,13 +19,9 @@ namespace GameLogic
         const float RUNNING_BOOST = 18;
         public const float JUMP_BOOST = 8;
 
-        public AudioClip hitSound;
         public Animator anima;
-
-        public AudioClip jumpingSfx;
-        public AudioClip sprintingSfx;
-        public AudioClip epeeSwingSound;
-        public EmmitterControl boostEmmitter;
+        // optional
+        public EmmitterControl boostEmmitter = null;
         public Blade epee;
         public Texture icon;
 
@@ -118,7 +112,7 @@ namespace GameLogic
                     + NpcControl.LOUNGE_LENGTH * transform.forward;
 
                 lastSprintTime = Time.fixedTime;
-                AudioSource.PlayClipAtPoint (epeeSwingSound, transform.position);
+                AudioSource.PlayClipAtPoint (Sa.Inst().audioMap.npcEpeeSwingSfx, transform.position);
                 return true;
             }
             return false;
@@ -144,7 +138,7 @@ namespace GameLogic
 
                 body.velocity += Vector3.up * JUMP_BOOST;
 
-                AudioSource.PlayClipAtPoint(jumpingSfx, transform.position);
+                AudioSource.PlayClipAtPoint(Sa.Inst().audioMap.npcJumpSfx, transform.position);
                 lastGroundTime += -100;
                 return true;
             }
@@ -159,8 +153,10 @@ namespace GameLogic
                 ) {
                     body.velocity += direction * 10;
                     lastSprintTime = Time.fixedTime;
-                    AudioSource.PlayClipAtPoint(sprintingSfx, transform.position);
-                    boostEmmitter.Emmit ();
+                    AudioSource.PlayClipAtPoint(Sa.Inst().audioMap.npcSprintSfx, transform.position);
+                    if (boostEmmitter != null) {
+                        boostEmmitter.Emmit ();
+                    }
                     return true;
                 }
             }
@@ -171,7 +167,7 @@ namespace GameLogic
         {
             if (!isDead) {
                 health -= 20;
-                AudioSource.PlayClipAtPoint(hitSound, transform.position);
+                AudioSource.PlayClipAtPoint(Sa.Inst().audioMap.npcHitSfx, transform.position);
                 LoseGrip ();
             }
         }

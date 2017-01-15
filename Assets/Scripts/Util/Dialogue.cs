@@ -3,6 +3,7 @@ using System.Collections;
 using AssemblyCSharp;
 using System.Timers;
 using System.Collections.Generic;
+using Assets.Scripts.GameLogic;
 using Assets.Scripts.Util.Shorthands;
 using GameLogic;
 using Interfaces;

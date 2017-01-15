@@ -2,6 +2,7 @@
 using UnityEngine;
 using Util;
 
+// deprecated - use EditorRing
 namespace Assets.Scripts.Util.Architecture
 {
     public class Ring : MonoBehaviour

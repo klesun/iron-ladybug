@@ -2,6 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 using System.Collections.Generic;
+using Assets.Scripts.GameLogic;
 using Assets.Scripts.Util.Architecture;
 using Assets.Scripts.Util.Logic;
 using Util.GameLogic;

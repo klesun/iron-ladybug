@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Newtonsoft.Json;
+using UnityEngine;
 using Util.Midi;
-using Newtonsoft.Json;
 
-namespace GameLogic
+namespace Assets.Scripts.GameLogic
 {
     /**
      * if my guess is correct, i can keep the static mapping from code to
@@ -15,6 +14,11 @@ namespace GameLogic
     public class AudioMap : MonoBehaviour
     {
         public AudioClip npcDeathScream;
+        public AudioClip npcHitSfx;
+        public AudioClip npcJumpSfx;
+        public AudioClip npcSprintSfx;
+        public AudioClip npcEpeeSwingSfx;
+
         public MidJsDefinition missionCompleteBgm;
         public MidJsDefinition battleBgm;
 

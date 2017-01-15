@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Util;
+using Util.Shorthands;
 
 namespace Assets.Scripts.Util.Shorthands
 {
@@ -25,6 +26,17 @@ namespace Assets.Scripts.Util.Shorthands
 
         public static Queue<T> Queue<T>(IEnumerable<T> someArray) {
             return new Queue<T> (someArray);
+        }
+
+        public static T4<T> T4<T>(T a, T b, T c, T d) {
+            return new T4<T>(a,b,c,d);
+        }
+
+        public static Opt<T> Opt<T>(T value = default(T))
+        {
+            return value == null
+                ? new Opt<T>(false, default(T))
+                : new Opt<T>(true, value);
         }
     }
 }

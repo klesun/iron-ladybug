@@ -7,11 +7,13 @@ using Newtonsoft.Json;
 namespace Util.SoundFontPlayer
 {
     /** retrieves sample file and parameters from soundfont (pitch/loopTimes/attenuation/stuff) */
-    public class Adapter
+    public class Adapter 
     {
-        private static string samplesDir = "Dropbox/fluid/samples";
+        readonly private static string DROPBOX = "Dropbox/shared";
+        
+        private static string samplesDir = DROPBOX + "/fluid/samples";
         // "C:/gits/vika-loves-dota/Assets/Resources/Dropbox/fluid/presets.pretty.json"
-        private static JsonDefinition soundFontInfo = ReadJson ("Dropbox/fluid/presets.pretty");
+        private static JsonDefinition soundFontInfo = ReadJson (DROPBOX + "/fluid/presets.pretty");
 
         private static Dictionary<string, AudioClip> samplesByName = new Dictionary<string, AudioClip>();
 

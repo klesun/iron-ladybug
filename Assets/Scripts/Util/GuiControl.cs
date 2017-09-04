@@ -41,7 +41,14 @@ namespace GameLogic
         public void Say(string quote, INpc speaker)
         {
             var qb = quoteBoxes.Dequeue ();
-            qb.Say (quote, speaker);
+            qb.Say(quote, speaker);
+            quoteBoxes.Enqueue (qb);
+        }
+
+        public void SayShyly(string quote, INpc speaker)
+        {
+            var qb = quoteBoxes.Dequeue ();
+            qb.ShowStats(quote, speaker);
             quoteBoxes.Enqueue (qb);
         }
 

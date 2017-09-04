@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using UnityEngine;
+using Util.Bgm;
 using Util.Midi;
 
 namespace Assets.Scripts.GameLogic
@@ -19,16 +20,13 @@ namespace Assets.Scripts.GameLogic
         public AudioClip npcSprintSfx;
         public AudioClip npcEpeeSwingSfx;
 
-        public MidJsDefinition missionCompleteBgm;
-        public MidJsDefinition battleBgm;
+        public MidJsFile missionCompleteBgmFile;
+        public MidJsFile battleBgmFile;
 
-        public TextAsset missionCompleteBgmFile;
-        public TextAsset battleBgmFile;
+        public MidJsDefinition missionCompleteBgm
+        {get { return missionCompleteBgmFile.getParsed(); }}
 
-        public void Awake()
-        {
-            missionCompleteBgm = JsonConvert.DeserializeObject<MidJsDefinition> (missionCompleteBgmFile.text);
-            battleBgm = JsonConvert.DeserializeObject<MidJsDefinition> (battleBgmFile.text);
-        }
+        public MidJsDefinition battleBgm
+        {get { return battleBgmFile.getParsed(); }}
     }
 }

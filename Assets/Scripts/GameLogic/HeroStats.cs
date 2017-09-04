@@ -42,7 +42,7 @@ namespace GameLogic
                 var total = trophyTotalCounts [entry.Key];
                 text += entry.Key + ": " + entry.Value + "/" + total + "\n";
             }
-            Sa.Inst ().gui.quoteBoxArray [0].ShowStats (text, npc);
+            Sa.Inst().gui.quoteBoxArray[0].ShowStats(text, npc);
         }
     }
 }

@@ -470,7 +470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &185382
 GameObject:
   m_ObjectHideFlags: 1
@@ -639,7 +639,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4758573735359566}
+  - {fileID: 4350805141355696}
   m_Father: {fileID: 450504}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1215,13 +1217,8 @@ MonoBehaviour:
   npcJumpSfx: {fileID: 8300000, guid: 854aad1715e9f094e93b2ee795834bcf, type: 3}
   npcSprintSfx: {fileID: 8300000, guid: 7d5eac82e5d607d4b8a2e30b35aea457, type: 3}
   npcEpeeSwingSfx: {fileID: 8300000, guid: 188372b0a749e1347b8ca54ca427f997, type: 3}
-  missionCompleteBgm:
-    staffList: []
-  battleBgm:
-    staffList: []
-  missionCompleteBgmFile: {fileID: 4900000, guid: 288360e1425bac34cb715e0efd6fa748,
-    type: 3}
-  battleBgmFile: {fileID: 4900000, guid: 00a6c8313ff8c984fa8afbb1037fd065, type: 3}
+  missionCompleteBgmFile: {fileID: 114539962910372336}
+  battleBgmFile: {fileID: 114663600415379790}
 --- !u!114 &11465858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1547,6 +1544,8 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &21225718
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1587,6 +1586,8 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &21245064
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1627,6 +1628,8 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &21268286
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1667,6 +1670,8 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &21272276
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1707,6 +1712,8 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &21275122
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1747,6 +1754,8 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!222 &22202636
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -1862,7 +1871,7 @@ Canvas:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158304}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -1871,6 +1880,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2328,3 +2338,98 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147276}
   m_IsPrefabParent: 1
+--- !u!1 &1288542822533232
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4350805141355696}
+  - component: {fileID: 114663600415379790}
+  - component: {fileID: 114892635252260218}
+  m_Layer: 0
+  m_Name: defaultBattleBgm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1789141637057458
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4758573735359566}
+  - component: {fileID: 114539962910372336}
+  m_Layer: 0
+  m_Name: missionCompleteBgm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4350805141355696
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1288542822533232}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493774}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4758573735359566
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1789141637057458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493774}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114539962910372336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1789141637057458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d74f852a5d941ce92055b5fcf551e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midJsFile: {fileID: 4900000, guid: 288360e1425bac34cb715e0efd6fa748, type: 3}
+--- !u!114 &114663600415379790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1288542822533232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d74f852a5d941ce92055b5fcf551e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midJsFile: {fileID: 4900000, guid: 288360e1425bac34cb715e0efd6fa748, type: 3}
+--- !u!114 &114892635252260218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1288542822533232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d74f852a5d941ce92055b5fcf551e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midJsFile: {fileID: 4900000, guid: 00a6c8313ff8c984fa8afbb1037fd065, type: 3}

@@ -65,13 +65,13 @@ namespace Assets.Scripts.Util.Bgm
 
         public void UnsetBgm(MidJsDefinition song)
         {
-            if (song == pendingSongs.Last ().Map (p => p.song).Or (null)) {
+            if (song == pendingSongs.Last().Map(p => p.song).Or (null)) {
                 pendingSongs.Pop ();
                 Play ();
             } else {
-                var idx = pendingSongs.s.FindLastIndex (ps => ps.song == song);
+                var idx = pendingSongs.s.FindLastIndex(ps => ps.song == song);
                 if (idx > -1) {
-                    pendingSongs.s.RemoveAt (idx);
+                    pendingSongs.s.RemoveAt(idx);
                 }
             }
         }
@@ -112,7 +112,7 @@ namespace Assets.Scripts.Util.Bgm
             Tls.Inst().timeout.Real(stitchTime, () => {
                 stopPlayback ();
                 stopPlayback = () => {};
-                pendingSongs.Last ().If (player => {
+                pendingSongs.Last().If (player => {
                     var interrupted = false;
                     player.whenDone =
                         () => U.If(!interrupted).then =

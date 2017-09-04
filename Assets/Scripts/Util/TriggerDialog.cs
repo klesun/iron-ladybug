@@ -12,10 +12,16 @@ namespace GameLogic
     {
         public Dialogue dialog;
         public SpaceTrigger trigger;
+        public bool isRepeatable = true;
+
+        private int timesTriggered = 0; 
 
         void Awake ()
         {
-            trigger.OnIn(c => U.IfOld(c.gameObject.GetComponent<IHero>() != null, () => dialog.Play()));
+            trigger.OnIn(c => 
+                U.If(c.gameObject.GetComponent<IHero>() != null).then = () => 
+                U.If(timesTriggered++ == 0 || isRepeatable).then = () => 
+                dialog.Play());
         }
     }
 }

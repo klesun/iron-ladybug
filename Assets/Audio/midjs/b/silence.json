@@ -1,0 +1,24 @@
+{"staffList": [
+    {"staffConfig": {"tempo": "22.5", "loopStart": "0", "loopTimes": "0", "keySignature": "0", "channelList": [
+        {"instrument": "0", "channelNumber": 0},
+        {"instrument": "64", "channelNumber": 1},
+        {"instrument": "40", "channelNumber": 2},
+        {"instrument": "7", "channelNumber": 3},
+        {"instrument": "43", "channelNumber": 4},
+        {"instrument": "52", "channelNumber": 5},
+        {"instrument": "6", "channelNumber": 6},
+        {"instrument": "91", "channelNumber": 7},
+        {"instrument": "0", "channelNumber": 8},
+        {"instrument": "14", "channelNumber": 9},
+        {"instrument": "0", "channelNumber": 10},
+        {"instrument": "0", "channelNumber": 11},
+        {"instrument": "0", "channelNumber": 12},
+        {"instrument": "0", "channelNumber": 13},
+        {"instrument": "0", "channelNumber": 14},
+        {"instrument": "0", "channelNumber": 15}
+    ]}, "chordList": [
+        {"noteList": [
+            {"tune": 0, "channel": 9, "length": 1.00},
+        ]}
+    ]}
+]}

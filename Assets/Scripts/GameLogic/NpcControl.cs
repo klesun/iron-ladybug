@@ -1,4 +1,6 @@
-﻿using Interfaces;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Interfaces;
+using Interfaces;
 using UnityEngine;
 using Util;
 
@@ -24,8 +26,9 @@ namespace Assets.Scripts.GameLogic
         public EmmitterControl boostEmmitter = null;
         public Blade epee;
         public Texture icon;
+        public int health = 100;
+        public List<ISkillMb> skills = new List<ISkillMb>();
 
-        private int health = 100;
         private Rigidbody body;
         private bool isDead = false;
         public bool IsDead {
@@ -118,6 +121,18 @@ namespace Assets.Scripts.GameLogic
             return false;
         }
 
+        public bool UseSkill(ISkillMb skill)
+        {
+            if (CanAttack()) {
+                anima.SetTrigger ("parrying");
+                lastSprintTime = Time.fixedTime;
+                skill.Perform(this);
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         public bool Parry()
         {
             if (!isDead && IsGrounded() &&
@@ -168,7 +183,8 @@ namespace Assets.Scripts.GameLogic
             if (!isDead) {
                 health -= 20;
                 AudioSource.PlayClipAtPoint(Sa.Inst().audioMap.npcHitSfx, transform.position);
-                LoseGrip ();
+                LoseGrip();
+                Sa.Inst().gui.SayShyly("HP left: " + health, this);
             }
         }
 

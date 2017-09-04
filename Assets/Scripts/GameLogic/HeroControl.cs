@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Util.Bgm;
+using Assets.Scripts.Util.Shorthands;
 using GameLogic;
 using Interfaces;
 using Newtonsoft.Json;
@@ -28,10 +29,12 @@ namespace Assets.Scripts.GameLogic
 
         private float mouseSensitivity = 4.0F;
         private HashSet<EnemyLogic> enemies = new HashSet<EnemyLogic>();
+        private MidJsDefinition currentBattleBgm;
 
         void Awake ()
         {
             Cursor.lockState = CursorLockMode.Locked;
+            currentBattleBgm = Sa.Inst().audioMap.battleBgm;
         }
 
         public void AcquireEnemy(EnemyLogic enemy)
@@ -48,10 +51,16 @@ namespace Assets.Scripts.GameLogic
             enemies = new HashSet<EnemyLogic>(enemies.Where (e => !e.npc.IsDead));
             if (enemies.Count > 0) {
                 npc.anima.SetBool ("isInBattle", true);
-                Bgm.Inst ().SetBgm (Sa.Inst().audioMap.battleBgm).SetVolumeFactor(0.4f);
+                currentBattleBgm = Sa.Inst().audioMap.battleBgm;
+                foreach (var enemy in enemies) {
+                    currentBattleBgm = U.Opt(enemy.bgm)
+                        .Map(ebgm => ebgm.getParsed())
+                        .Def(currentBattleBgm);
+                }
+                Bgm.Inst().SetBgm(currentBattleBgm).SetVolumeFactor(0.4f);
             } else {
                 npc.anima.SetBool ("isInBattle", false);
-                Bgm.Inst ().UnsetBgm (Sa.Inst().audioMap.battleBgm);
+                Bgm.Inst().UnsetBgm(currentBattleBgm);
             }
         }
 
@@ -72,6 +81,7 @@ namespace Assets.Scripts.GameLogic
 
             if (npc.IsGrounded()) {
                 if (Input.GetKeyDown (KeyCode.Mouse0)) {
+                    Cursor.lockState = CursorLockMode.Locked;
                     if (npc.Attack()) {
                         // battle cry!
                     } else {
@@ -104,6 +114,7 @@ namespace Assets.Scripts.GameLogic
                 }
             } else {
                 if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                    Cursor.lockState = CursorLockMode.Locked;
                     if (npc.Boost(cameraAngle.transform.forward)) {
                         Tls.Inst ().PlayAudio (sprintingEvilSound);
                     } else {

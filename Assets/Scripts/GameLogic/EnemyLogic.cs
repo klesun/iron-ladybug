@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.GameLogic;
+using Assets.Scripts.Interfaces;
 using Assets.Scripts.Util.Logic;
 using Util;
+using Util.Bgm;
+using Util.Midi;
 
 namespace GameLogic
 {
@@ -16,6 +20,8 @@ namespace GameLogic
     {
         public SpaceTrigger enemyDetectionRadius;
         public NpcControl npc;
+        /** optional */
+        public MidJsFile bgm = null;
 
         private HeroControl enemy = null;
         private D.Cb onDeath = null;
@@ -41,8 +47,11 @@ namespace GameLogic
                 enemyDistance.y = 0;
                 if (npc.CanAttack ()) {
                     var attackDistance = GetAttackDistance (npc.GetVelocity () - enemy.npc.GetVelocity());
-                    // 0.75 cuz it's pretty easy to avoid when he atacks from longest distance
-                    if (enemyDistance.magnitude <= attackDistance * 0.75) {
+                    var chosenSkill = ChooseSkill();
+                    if (chosenSkill != null) {
+                        npc.UseSkill(chosenSkill);
+                    } else if (enemyDistance.magnitude <= attackDistance * 0.75) {
+                        // 0.75 cuz it's pretty easy to avoid when he atacks from longest distance
                         if (enemy.npc.IsGrounded ()) {
                             npc.Attack ();
                         }
@@ -59,6 +68,18 @@ namespace GameLogic
                 }
                 npc.anima.SetBool ("isInBattle", true);
             }
+        }
+
+        ISkillMb ChooseSkill()
+        {
+            int n = npc.skills.Count;
+            for (int i = 0; i < n; ++i) {
+                if (new System.Random().NextDouble() < 1.0 * n) {
+                    return npc.skills[i];
+                }
+            }
+            // no skills rolled
+            return null;
         }
 
         float GetBackRoomDistance()

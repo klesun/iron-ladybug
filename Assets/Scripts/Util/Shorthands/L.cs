@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine.AI;
 using Util;
 using Util.Shorthands;
 
@@ -50,6 +52,14 @@ namespace Assets.Scripts.Util.Shorthands
                 return Opt<T>.None<T> ();
             }
         }
+        
+        /** "first" */
+        public Opt<T> Fst()
+        {
+            return s.Count > 0
+                ? Opt<T>.Some(s[0])
+                : Opt<T>.None<T>();
+        }
 
         /**
          * built-in Linq version throws InvalidOperationException
@@ -64,6 +74,25 @@ namespace Assets.Scripts.Util.Shorthands
         public L<Tn> Change<Tn>(D.F1<List<T>, IEnumerable<Tn>> changer)
         {
             return new L<Tn>(changer(this.s));
+        }
+
+        /** filter */
+        public L<T> Flt(Predicate<T> pred)
+        {
+            var newList = new List<T>();
+            foreach (var el in s) {
+                if (pred(el)) {
+                    newList.Add(el);
+                }
+            }
+            return new L<T>(newList);
+        }
+        
+        /** sort */
+        public L<T> Srt(Func<T, IComparable> getOrder)
+        {
+            s.Sort((a,b) => getOrder(a).CompareTo(getOrder(b)));
+            return this;
         }
     }
 }

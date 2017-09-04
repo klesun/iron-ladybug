@@ -1,4 +1,7 @@
-﻿using Util;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Util;
+using Util.Shorthands;
 
 namespace Assets.Scripts.Util.Shorthands
 {
@@ -23,6 +26,16 @@ namespace Assets.Scripts.Util.Shorthands
         public static IfResult If(bool condition)
         {
             return new IfResult() { applied = condition };
+        }
+
+        public static Opt<T> Opt<T>(T value)
+        {
+            return new Opt<T>(value != null, value);
+        }
+
+        public static L<T> L<T>(IList<T> elements)
+        {
+            return new L<T>(elements);
         }
 
         public class IfResult

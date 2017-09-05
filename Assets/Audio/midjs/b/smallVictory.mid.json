@@ -1,0 +1,46 @@
+{"staffList": [
+    {"staffConfig": {"tempo": "75", "loopStart": "0", "loopTimes": "0", "keySignature": "0", "tactSize": "0.5", "channelList": [
+        {"instrument": "10", "channelNumber": 0},
+        {"instrument": "46", "channelNumber": 1},
+        {"instrument": "46", "channelNumber": 2},
+        {"instrument": "46", "channelNumber": 3},
+        {"instrument": "52", "channelNumber": 4},
+        {"instrument": "6", "channelNumber": 5},
+        {"instrument": "91", "channelNumber": 6},
+        {"instrument": "9", "channelNumber": 7},
+        {"instrument": "14", "channelNumber": 8},
+        {"instrument": "0", "channelNumber": 9},
+        {"instrument": "0", "channelNumber": 10},
+        {"instrument": "0", "channelNumber": 11},
+        {"instrument": "0", "channelNumber": 12},
+        {"instrument": "0", "channelNumber": 13},
+        {"instrument": "0", "channelNumber": 14},
+        {"instrument": "0", "channelNumber": 15}
+    ]}, "chordList": [
+        {"noteList": [
+            {"tune": 73, "channel": 3, "length": 0.125},
+            {"tune": 70, "channel": 1, "length": 0.125},
+            {"tune": 66, "channel": 2, "length": 0.125}
+        ], "startState": {}, "finishState": {}},
+        {"noteList": [
+            {"tune": 75, "channel": 3, "length": 0.125},
+            {"tune": 68, "channel": 1, "length": 0.125},
+            {"tune": 65, "channel": 2, "length": 0.125}
+        ], "startState": {}, "finishState": {}},
+        {"noteList": [
+            {"tune": 77, "channel": 3, "length": 0.125},
+            {"tune": 70, "channel": 1, "length": 0.125},
+            {"tune": 63, "channel": 2, "length": 0.125}
+        ], "startState": {}, "finishState": {}},
+        {"noteList": [
+            {"tune": 72, "channel": 3, "length": 0.125},
+            {"tune": 68, "channel": 1, "length": 0.125},
+            {"tune": 63, "channel": 2, "length": 0.125}
+        ], "startState": {}, "finishState": {}},
+        {"noteList": [
+            {"tune": 74, "channel": 3, "length": 1},
+            {"tune": 70, "channel": 1, "length": 1},
+            {"tune": 65, "channel": 2, "length": 1}
+        ], "startState": {}, "finishState": {}}
+    ]}
+]}

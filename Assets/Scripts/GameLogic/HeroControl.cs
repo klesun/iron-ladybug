@@ -29,7 +29,7 @@ namespace Assets.Scripts.GameLogic
 
         private float mouseSensitivity = 4.0F;
         private HashSet<EnemyLogic> enemies = new HashSet<EnemyLogic>();
-        private MidJsDefinition currentBattleBgm;
+        private MidJsDefinition currentBattleBgm = null;
 
         void Awake ()
         {
@@ -51,16 +51,19 @@ namespace Assets.Scripts.GameLogic
             enemies = new HashSet<EnemyLogic>(enemies.Where (e => !e.npc.IsDead));
             if (enemies.Count > 0) {
                 npc.anima.SetBool ("isInBattle", true);
-                currentBattleBgm = Sa.Inst().audioMap.battleBgm;
-                foreach (var enemy in enemies) {
-                    currentBattleBgm = U.Opt(enemy.bgm)
-                        .Map(ebgm => ebgm.getParsed())
-                        .Def(currentBattleBgm);
+                if (currentBattleBgm == null) {
+                    currentBattleBgm = Sa.Inst().audioMap.battleBgm;
+                    foreach (var enemy in enemies) {
+                        currentBattleBgm = U.Opt(enemy.bgm)
+                            .Map(ebgm => ebgm.getParsed())
+                            .Def(currentBattleBgm);
+                    }
+                    Bgm.Inst().SetBgm(currentBattleBgm).SetVolumeFactor(0.4f);
                 }
-                Bgm.Inst().SetBgm(currentBattleBgm).SetVolumeFactor(0.4f);
             } else {
                 npc.anima.SetBool ("isInBattle", false);
                 Bgm.Inst().UnsetBgm(currentBattleBgm);
+                currentBattleBgm = null;
             }
         }
 

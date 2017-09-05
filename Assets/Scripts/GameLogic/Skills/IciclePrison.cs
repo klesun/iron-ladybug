@@ -29,6 +29,8 @@ namespace Assets.Scripts.GameLogic.Skills
         public float nextBarDelay = 0.05f;
         public float decayDelay = 8.0f;
         public int barCount = 64;
+        public AudioClip icicleSfx = null;
+        public AudioClip decaySfx = null;
         
         enum E_SIDE {PLAYER, ENEMIES, NEUTRAL}
 
@@ -62,8 +64,10 @@ namespace Assets.Scripts.GameLogic.Skills
                 var drawPos = basePos + Vector3.right * dx + Vector3.forward * dz;
                 Tls.Inst().SetGameTimeout(i * nextBarDelay, () => {
                     var bar = Object.Instantiate(icicleRef, drawPos, Quaternion.identity);
+                    U.Opt(icicleSfx).get = sfx => AudioSource.PlayClipAtPoint(sfx, drawPos, 0.5f);
                     Tls.Inst().SetGameTimeout(decayDelay, () => {
                         Object.Destroy(bar);
+                        U.Opt(decaySfx).get = sfx => AudioSource.PlayClipAtPoint(sfx, drawPos, 1.0f);
                     });
                 });
             }

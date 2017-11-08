@@ -1,5 +1,5 @@
 {"staffList": [
-    {"staffConfig": {"tempo": "120", "loopStart": "0", "loopTimes": "100", "keySignature": "0", "channelList": [
+    {"staffConfig": {"tempo": "120", "loopStart": "0", "loopTimes": "100", "keySignature": "0", "tactSize": "1", "channelList": [
         {"instrument": "18", "channelNumber": 0},
         {"instrument": "18", "channelNumber": 1},
         {"instrument": "18", "channelNumber": 2},
@@ -19,637 +19,661 @@
     ]}, "chordList": [
         {"noteList": [
             {"tune": 57, "channel": 3, "length": 0.375}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 3, "length": 0.0625}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 3, "length": 0.0625}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 58, "channel": 3, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 58, "channel": 3, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 55, "channel": 3, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 55, "channel": 3, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 3, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 3, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 53, "channel": 3, "length": 0.375}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 53, "channel": 3, "length": 0.0625}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 53, "channel": 3, "length": 0.0625}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 55, "channel": 3, "length": 0.16666666666666666}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 55, "channel": 3, "length": 0.16666666666666666}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 55, "channel": 3, "length": 0.16666666666666666}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 51, "channel": 3, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 51, "channel": 3, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 50, "channel": 3, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 49, "channel": 3, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 2, "length": 0.5},
             {"tune": 50, "channel": 3, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 2, "length": 0.5},
             {"tune": 51, "channel": 3, "length": 0.5},
             {"tune": 49, "channel": 4, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 2, "length": 0.5},
             {"tune": 53, "channel": 3, "length": 0.5},
             {"tune": 50, "channel": 4, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 2, "length": 0.5},
             {"tune": 55, "channel": 3, "length": 0.5},
             {"tune": 52, "channel": 4, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 2, "length": 0.75},
             {"tune": 54, "channel": 3, "length": 0.75},
             {"tune": 50, "channel": 4, "length": 0.75}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 58, "channel": 2, "length": 0.1875},
             {"tune": 52, "channel": 3, "length": 0.1875},
             {"tune": 50, "channel": 4, "length": 0.1875}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 58, "channel": 2, "length": 0.0625},
             {"tune": 52, "channel": 3, "length": 0.0625},
             {"tune": 50, "channel": 4, "length": 0.0625}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 2, "length": 0.5},
             {"tune": 54, "channel": 3, "length": 0.5},
             {"tune": 49, "channel": 4, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 55, "channel": 2, "length": 0.5},
             {"tune": 52, "channel": 3, "length": 0.5},
             {"tune": 47, "channel": 4, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 49, "channel": 4, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 53, "channel": 2, "length": 0.375},
             {"tune": 50, "channel": 4, "length": 0.375}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 52, "channel": 2, "length": 0.125},
             {"tune": 48, "channel": 4, "length": 0.125}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 55, "channel": 2, "length": 0.25},
             {"tune": 46, "channel": 4, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 54, "channel": 2, "length": 0.25},
             {"tune": 45, "channel": 4, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 54, "channel": 2, "length": 0.25},
             {"tune": 44, "channel": 4, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 52, "channel": 2, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 50, "channel": 2, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 52, "channel": 2, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 54, "channel": 2, "length": 0.5},
             {"tune": 50, "channel": 3, "length": 0.5},
             {"tune": 45, "channel": 4, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 52, "channel": 2, "length": 0.5},
             {"tune": 47, "channel": 3, "length": 0.5},
             {"tune": 44, "channel": 4, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 54, "channel": 2, "length": 1.5},
             {"tune": 49, "channel": 3, "length": 1.5},
             {"tune": 46, "channel": 4, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 0, "channel": 9, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 1, "length": 0.08333333333333333}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 1, "length": 0.08333333333333333}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 1, "length": 0.08333333333333333}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 1, "length": 1.5},
             {"tune": 0, "channel": 9, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 2, "length": 1},
             {"tune": 0, "channel": 9, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 55, "channel": 3, "length": 1.5},
             {"tune": 0, "channel": 9, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 1, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 61, "channel": 1, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 63, "channel": 1, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 64, "channel": 1, "length": 1},
             {"tune": 60, "channel": 2, "length": 1},
             {"tune": 54, "channel": 3, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 62, "channel": 2, "length": 0.75},
             {"tune": 62, "channel": 1, "length": 0.75},
             {"tune": 51, "channel": 3, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 2, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 66, "channel": 1, "length": 1},
             {"tune": 59, "channel": 2, "length": 1},
             {"tune": 52, "channel": 3, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 64, "channel": 1, "length": 1},
             {"tune": 59, "channel": 2, "length": 1},
             {"tune": 47, "channel": 4, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 66, "channel": 1, "length": 1},
             {"tune": 59, "channel": 2, "length": 1},
             {"tune": 48, "channel": 4, "length": 0.75}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 50, "channel": 4, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 64, "channel": 1, "length": 0.5},
             {"tune": 59, "channel": 2, "length": 0.5},
             {"tune": 45, "channel": 4, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 64, "channel": 1, "length": 0.5},
             {"tune": 59, "channel": 2, "length": 0.5},
             {"tune": 48, "channel": 4, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 63, "channel": 1, "length": 1.5},
             {"tune": 59, "channel": 2, "length": 1},
             {"tune": 47, "channel": 4, "length": 2}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 2, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 61, "channel": 1, "length": 0.25},
             {"tune": 55, "channel": 2, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 63, "channel": 1, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 64, "channel": 1, "length": 1},
             {"tune": 54, "channel": 2, "length": 1},
             {"tune": 47, "channel": 4, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 62, "channel": 1, "length": 1},
             {"tune": 56, "channel": 2, "length": 1},
             {"tune": 52, "channel": 3, "length": 1},
             {"tune": 47, "channel": 4, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 1, "length": 1},
             {"tune": 57, "channel": 2, "length": 1},
             {"tune": 52, "channel": 3, "length": 1},
             {"tune": 47, "channel": 4, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 1, "length": 1},
             {"tune": 54, "channel": 2, "length": 1},
             {"tune": 51, "channel": 3, "length": 1},
             {"tune": 47, "channel": 4, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 2, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 50, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 50, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 50, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 50, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 50, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 50, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 50, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 50, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 57, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 57, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 57, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 57, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25},
             {"tune": 49, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 62, "channel": 0, "length": 0.25},
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 45, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 45, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 43, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 42, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 40, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 39, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 43, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 45, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 62, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 47, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 50, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 48, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 55, "channel": 0, "length": 0.25},
             {"tune": 50, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 0, "length": 0.25},
             {"tune": 57, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 0, "length": 0.25},
             {"tune": 57, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 0, "length": 0.25},
             {"tune": 57, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 0, "length": 0.25},
             {"tune": 57, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 52, "channel": 0, "length": 0.25},
             {"tune": 49, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 0, "length": 0.25},
             {"tune": 54, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 55, "channel": 0, "length": 1},
             {"tune": 52, "channel": 0, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 0, "channel": 9, "length": 1}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 55, "channel": 0, "length": 0.5},
             {"tune": 49, "channel": 0, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 58, "channel": 0, "length": 0.25},
             {"tune": 50, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.5},
             {"tune": 52, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 54, "channel": 0, "length": 0.08333333333333333}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 50, "channel": 0, "length": 0.08333333333333333}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 49, "channel": 0, "length": 0.08333333333333333}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 60, "channel": 0, "length": 0.75},
             {"tune": 48, "channel": 0, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 45, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 0, "length": 0.5},
             {"tune": 42, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 45, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 59, "channel": 0, "length": 0.25},
             {"tune": 51, "channel": 0, "length": 0.5}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
             {"tune": 57, "channel": 0, "length": 0.25}
-        ]},
+        ], "startState": {}, "finishState": {}},
         {"noteList": [
-            {"tune": 55, "channel": 0, "length": 1.5},
-            {"tune": 52, "channel": 0, "length": 1.5},
-            {"tune": 47, "channel": 0, "length": 1.5}
-        ]}
+            {"tune": 55, "channel": 0, "length": 0.5},
+            {"tune": 52, "channel": 0, "length": 0.5}
+        ], "startState": {}, "finishState": {}},
+        {"noteList": [
+            {"tune": 54, "channel": 0, "length": 0.5},
+            {"tune": 50, "channel": 0, "length": 0.5},
+            {"tune": 47, "channel": 0, "length": 0.5}
+        ], "startState": {}, "finishState": {}},
+        {"noteList": [
+            {"tune": 52, "channel": 0, "length": 0.5},
+            {"tune": 48, "channel": 0, "length": 0.5},
+            {"tune": 45, "channel": 0, "length": 0.5}
+        ], "startState": {}, "finishState": {}},
+        {"noteList": [
+            {"tune": 55, "channel": 0, "length": 0.16666666666666666},
+            {"tune": 50, "channel": 0, "length": 0.16666666666666666},
+            {"tune": 47, "channel": 0, "length": 0.16666666666666666}
+        ], "startState": {}, "finishState": {}},
+        {"noteList": [
+            {"tune": 56, "channel": 0, "length": 0.16666666666666666},
+            {"tune": 51, "channel": 0, "length": 0.16666666666666666},
+            {"tune": 48, "channel": 0, "length": 0.16666666666666666}
+        ], "startState": {}, "finishState": {}},
+        {"noteList": [
+            {"tune": 60, "channel": 0, "length": 0.16666666666666666},
+            {"tune": 55, "channel": 0, "length": 0.16666666666666666},
+            {"tune": 52, "channel": 0, "length": 0.16666666666666666}
+        ], "startState": {}, "finishState": {}}
     ]}
 ]}

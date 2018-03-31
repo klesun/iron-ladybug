@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33313120813155566}
   - component: {fileID: 65944630695119516}
   - component: {fileID: 114788148764944848}
+  - component: {fileID: 114808316967422622}
   m_Layer: 0
   m_Name: platformRegion
   m_TagString: Untagged
@@ -86,8 +87,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1322593349783294}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
-  m_LocalScale: {x: 1.2156823, y: 0.539377, z: 1.2156823}
+  m_LocalPosition: {x: 0, y: 0.825, z: 0}
+  m_LocalScale: {x: 1.4136564, y: 0.7707053, z: 1.4471583}
   m_Children: []
   m_Father: {fileID: 4000332793444474}
   m_RootOrder: 0
@@ -99,8 +100,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1619641152202342}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.121, z: 0}
-  m_LocalScale: {x: 1.4976665, y: 0.6644907, z: 1.4976666}
+  m_LocalPosition: {x: 0, y: 0.156, z: 0}
+  m_LocalScale: {x: 1.4976665, y: 1.1149827, z: 1.4976666}
   m_Children: []
   m_Father: {fileID: 4000332793444474}
   m_RootOrder: 1
@@ -114,11 +115,12 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,6 +131,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -186,6 +189,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909ccc88cea863642a4cc5503891de8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outThreshold: 0.2
+--- !u!114 &114808316967422622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1322593349783294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f16394a4bf30d45a1fcf72052e6934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114885391688386094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,8 +226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   region: {fileID: 114788148764944848}
-  stayDuration: 2
+  stayDuration: 4
   pressedSfx: {fileID: 8300000, guid: 77132bcda84a03c449dc543e4045423a, type: 3}
   platformColor: {fileID: 114885391688386094}
+  pressingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   pressedColor: {r: 0, g: 1, b: 0, a: 1}
   wasPressed: 0

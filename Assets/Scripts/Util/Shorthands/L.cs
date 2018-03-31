@@ -52,7 +52,7 @@ namespace Assets.Scripts.Util.Shorthands
                 return Opt<T>.None<T> ();
             }
         }
-        
+
         /** "first" */
         public Opt<T> Fst()
         {
@@ -87,7 +87,7 @@ namespace Assets.Scripts.Util.Shorthands
             }
             return new L<T>(newList);
         }
-        
+
         /** sort */
         public L<T> Srt(Func<T, IComparable> getOrder)
         {

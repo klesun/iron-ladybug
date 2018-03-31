@@ -8,6 +8,7 @@ using GameLogic;
 using Interfaces;
 using System.Collections;
 using Assets.Scripts.Util.Shorthands;
+using Util.Shorthands;
 
 namespace Util
 {
@@ -78,6 +79,35 @@ namespace Util
             return new TimeoutResult { seconds = seconds, timeout = timeout };
         }
 
+        /**
+         * be carefull when using this - object can be destroyed when animation
+         * is still not don't - you should check `if obj == null return;` in your
+         * closure, or you may get a null pointer exception
+         */
+        public AnimateResult Animate(int steps, float seconds, D.Cu<float> doStep)
+        {
+            var animation = new AnimateResult();
+            var startTime = Time.fixedTime;
+            var i = 0;
+            D.Cb doNext = null;
+            doNext = () => {
+                if (animation.done) return;
+                var progress = (Time.fixedTime - startTime) / seconds;
+                progress = Math.Min(progress, 1);
+                doStep(progress);
+                if (i++ < steps) {
+                    var nextProgress = i / 1.0f / steps;
+                    var tillNext = seconds * Math.Max(nextProgress - progress, 0.001f);
+                    SetGameTimeout(tillNext, doNext);
+                } else {
+                    animation.done = true;
+                    animation.thens.each = (cb,_) => cb();
+                }
+            };
+            doNext();
+            return animation;
+        }
+
         public bool IsPaused()
         {
             return Time.timeScale == 0;
@@ -108,6 +138,33 @@ namespace Util
             public D.Cb Real(D.Cb value)
             {
                 return timeout.Real(seconds, value);
+            }
+        }
+
+        public class AnimateResult
+        {
+            internal bool done = false;
+            internal L<D.Cb> thens = new L<D.Cb>();
+
+            internal AnimateResult()
+            {
+            }
+
+            public D.Cb thn { set {
+                if (done) {
+                    value();
+                } else {
+                    thens.s.Add(value);
+                }
+            } }
+
+            /**
+             * stop animation without execution
+             * of function requested on finish
+             */
+            public void Stp()
+            {
+                done = true;
             }
         }
     }

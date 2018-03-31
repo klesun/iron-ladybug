@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Util.Shorthands;
 
 namespace Interfaces
 {
@@ -12,5 +13,6 @@ namespace Interfaces
         abstract public Texture GetPortrait();
         abstract public GameObject GetGameObject();
         abstract public void Die();
+        abstract public Opt<RaycastHit> GetFloor();
     }
 }

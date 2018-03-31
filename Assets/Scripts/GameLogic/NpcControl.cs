@@ -1,15 +1,17 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.Interfaces;
+using Assets.Scripts.Util.Shorthands;
 using Interfaces;
 using UnityEngine;
 using Util;
+using Util.Shorthands;
 
 namespace Assets.Scripts.GameLogic
 {
     [RequireComponent (typeof(Rigidbody))]
     [RequireComponent (typeof(Collider))]
     [SelectionBase]
-    public class NpcControl : INpcMb, IPiercable, INpc
+    public class NpcControl : INpcMb, IPiercable
     {
         public const float LOUNGE_HEIGHT = 1.5f;
         public const float LOUNGE_LENGTH = 6;
@@ -64,7 +66,10 @@ namespace Assets.Scripts.GameLogic
 
         void Live()
         {
-            isCloseToGround = Physics.Raycast (transform.position, -Vector3.up * 0.1f, out floor, distToGround + 0.1f);
+            isCloseToGround = Physics.Raycast (
+                transform.position, -Vector3.up * 0.1f, out floor, distToGround + 0.1f,
+                layerMask: -5, queryTriggerInteraction: QueryTriggerInteraction.Ignore
+            );
             if (health <= 0) {
                 Die ();
             } else {
@@ -220,6 +225,11 @@ namespace Assets.Scripts.GameLogic
                 body.velocity.magnitude < 0.1 ||
                 Vector3.Angle(floor.normal, body.velocity) >= 89.99
             );
+        }
+
+        public override Opt<RaycastHit> GetFloor()
+        {
+            return S.Opt(floor);
         }
 
         public bool CanAttack()

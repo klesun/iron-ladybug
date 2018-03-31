@@ -3,8 +3,15 @@ using UnityEngine;
 using Util;
 
 namespace Assets.Scripts.Util.Logic {
-    public class SpaceTrigger : MonoBehaviour
-    {
+    public class SpaceTrigger : MonoBehaviour {
+
+        /**
+         * i dunno why, but if you move right-left on same place few times, OnTriggerExit
+         * gets triggered even though you are not even close to leaving the region
+         * so we will not trigger onOut body _comes back_ in this threshold window
+         */
+        public float outThreshold = 0.2f;
+
         private List<D.Cu<Collider>> callbacks = new List<D.Cu<Collider>>();
         private List<D.Cu<Collider>> exitCallbacks = new List<D.Cu<Collider>>();
 

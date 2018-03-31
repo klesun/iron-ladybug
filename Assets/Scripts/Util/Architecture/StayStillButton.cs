@@ -4,12 +4,13 @@ using Assets.Scripts.Util.Shorthands;
 using Interfaces;
 using UnityEngine;
 using Util;
+using Util.Shorthands;
 
 namespace Assets.Scripts.Util.Architecture
 {
-    /** 
-     * this is a button that reuires you stay in a 
-     * region for some time to trigger the action 
+    /**
+     * this is a button that reuires you stay in a
+     * region for some time to trigger the action
      */
     public class StayStillButton: MonoBehaviour
     {
@@ -20,21 +21,40 @@ namespace Assets.Scripts.Util.Architecture
         public float stayDuration = 2.0f;
         public AudioClip pressedSfx = null;
         public Rainbow platformColor = null;
+        public Color pressingColor = Color.yellow;
         public Color pressedColor = Color.green;
 
         public bool wasPressed = false;
-        
+        private Opt<Tls.AnimateResult> moving = U.Opt<Tls.AnimateResult>(null);
+
         void Awake()
         {
-            region.onIn = 
-                (col) => U.Opt(col.GetComponent<IHeroMb>()).get = 
+            var startPos = transform.position;
+            var startColor = U.Opt(platformColor).Map(r => r.color).Def(Color.gray);
+            region.onIn =
+                (col) => U.Opt(col.GetComponent<IHeroMb>()).get =
                 (hero) => {
-                    wasPressed = true;
-                    U.Opt(pressedSfx).get = Tls.Inst().PlayAudio;
-                    U.Opt(platformColor).get = 
-                        (clr) => clr.color = pressedColor;
+                    if (wasPressed) return;
+                    U.Opt(platformColor).get =
+                        (clr) => clr.color = pressingColor;
+                    moving = U.Opt(Tls.Inst().Animate(50, stayDuration, (prog) =>
+                        transform.position = startPos + Vector3.down * prog * 0.5f));
+                    moving.get = anim => anim.thn = () => {
+                        wasPressed = true;
+                        U.Opt(pressedSfx).get = Tls.Inst().PlayAudio;
+                        U.Opt(platformColor).get =
+                            (clr) => clr.color = pressedColor;
+                    };
                 };
-            region.onOut = (col) => {};
+            region.onOut =
+                (col) => U.Opt(col.GetComponent<IHeroMb>()).get =
+                (hero) => {
+                    if (wasPressed) return;
+                    moving.get = anim => anim.Stp();
+                    transform.position = startPos;
+                    U.Opt(platformColor).get =
+                        (clr) => clr.color = startColor;
+                };
         }
     }
 }

@@ -47,7 +47,6 @@ namespace Assets.Scripts.Util.Architecture
         }
 #endif
 
-
         static Transform PlaceStairsStateless(
             IList<Transform> stairs,
             float completion,

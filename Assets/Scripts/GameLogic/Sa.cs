@@ -11,10 +11,7 @@ namespace Assets.Scripts.GameLogic
     public class Sa: MonoBehaviour
     {
         public AudioMap audioMap;
-        public GuiControl gui;
-        /** TODO: i suppose move them into GuiControl */
-        public Dropdown dropdown;
-        public GameObject dropdownEl;
+        public Gui gui;
 
         private static Sa inst;
 

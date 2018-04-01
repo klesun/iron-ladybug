@@ -13,9 +13,8 @@ namespace GameLogic
     /**
      * shorthand for accessing text and
      * buttons shown to user on top of camera
-     * TODO: rename to just Gui
      */
-    public class GuiControl : MonoBehaviour
+    public class Gui : MonoBehaviour
     {
         [Serializable]
         public struct Kv {
@@ -25,6 +24,7 @@ namespace GameLogic
 
         public QuoteBox[] quoteBoxArray;
         public Dropdown generalDropdown;
+        public Slider castProgrssBar;
         public Kv[] colorSpriteTuples;
         private Dictionary<string, Sprite> colorSprites = new Dictionary<string, Sprite>();
 

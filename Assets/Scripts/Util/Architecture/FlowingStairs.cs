@@ -61,6 +61,12 @@ namespace Assets.Scripts.Util.Architecture
         }
 #endif
 
+        private static float calcSegmentCompletion(float completion, int length, int fullMovingIdx)
+        {
+            var segmentTime = length > 0 ? 1f / length : 1;
+            return Mathf.Max(completion - segmentTime * fullMovingIdx, 0) / segmentTime;
+        }
+
         static Transform PlaceStairsStateless(
             IList<Transform> stairs,
             float completion,
@@ -74,7 +80,6 @@ namespace Assets.Scripts.Util.Architecture
             }
             int fullMovingIdx = (int) Mathf.Floor(length * completion);
             var movingIdx = fullMovingIdx % stairs.Count;
-            var segmentTime = length > 0 ? 1f / length : 1;
             var dy = (direction * spacing).y;
             var dx = (direction * spacing - Vector3.up * dy).magnitude;
 
@@ -88,9 +93,7 @@ namespace Assets.Scripts.Util.Architecture
                 var basePos = fullIdx * spacing * direction;
 
                 if (relIdx == 0) {
-                    var segmentCompletion = completion % segmentTime / segmentTime;
-                    // TODO: there is a bug - when you have 2 stairs and set offset to 3 you see that
-                    // instead of being at start, stair is at it's animation end in this fram
+                    var segmentCompletion = calcSegmentCompletion(completion, length, fullMovingIdx);
                     if (segmentCompletion < 0.5f) { // half
                         stair.localPosition = basePos
                             + Vector3.forward * stairs.Count * dx * segmentCompletion * 2;

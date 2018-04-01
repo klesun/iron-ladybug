@@ -43,10 +43,15 @@ namespace Util.Shorthands
                 ? Opt<T0>.Some (mapper (value))
                 : Opt<T0>.None<T0> ();
         }
-        
+
         public T Def(T fallback)
         {
             return isPresent ? value : fallback;
+        }
+
+        public bool Has()
+        {
+            return isPresent;
         }
 
         public T Unwrap()

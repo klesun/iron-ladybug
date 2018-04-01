@@ -31,7 +31,7 @@ namespace Assets.Scripts.GameLogic
         public int health = 100;
         public List<ISkillMb> skills = new List<ISkillMb>();
 
-        private Rigidbody body;
+        public Rigidbody body;
         private bool isDead = false;
         public bool IsDead {
             get { return isDead; }

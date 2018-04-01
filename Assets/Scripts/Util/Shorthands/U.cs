@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using Util;
 using Util.Shorthands;
 
@@ -30,7 +31,11 @@ namespace Assets.Scripts.Util.Shorthands
 
         public static Opt<T> Opt<T>(T value)
         {
-            return new Opt<T>(value != null, value);
+            // sometimes some Transform var that is real "null" inside MonoBehaviour, becomes
+            // a Transform that throws exceptions on access when you pass it outside. Casting it to string
+            // results in "null". I guess this is the only way to check if value is _really_ not null
+            var isNull = value == null || value + "" == "null";
+            return new Opt<T>(!isNull, value);
         }
 
         public static L<T> L<T>(IList<T> elements)

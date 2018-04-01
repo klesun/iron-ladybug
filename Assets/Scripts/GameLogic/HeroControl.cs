@@ -3,6 +3,7 @@ using System.Linq;
 using Assets.Scripts.Util.Bgm;
 using Assets.Scripts.Util.Shorthands;
 using GameLogic;
+using GameLogic.Entities;
 using Interfaces;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -93,6 +94,9 @@ namespace Assets.Scripts.GameLogic
                 }
                 if (Input.GetKeyDown (KeyCode.Mouse1)) {
                     npc.Parry ();
+                }
+                if (Input.GetKeyDown (KeyCode.Tab)) {
+                    CheckpointUtil.Inst().JumpToNext(this);
                 }
                 /** @debug */
                 if (Input.GetKeyDown (KeyCode.G)) {

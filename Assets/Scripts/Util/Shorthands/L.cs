@@ -88,6 +88,20 @@ namespace Assets.Scripts.Util.Shorthands
             return new L<T>(newList);
         }
 
+        public L<T2> Map<T2>(D.F1<T, T2> f)
+        {
+            var newList = new List<T2>();
+            each = (el,i) => newList.Add(f(el));
+            return new L<T2>(newList);
+        }
+
+        public L<T2> Fop<T2>(D.F1<T, Opt<T2>> f)
+        {
+            var newList = new List<T2>();
+            each = (el,i) => f(el).get = n => newList.Add(n);
+            return new L<T2>(newList);
+        }
+
         /** sort */
         public L<T> Srt(Func<T, IComparable> getOrder)
         {

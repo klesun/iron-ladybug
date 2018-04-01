@@ -22,15 +22,15 @@ namespace Util
 
         void Awake ()
         {
-            initialPosition = transform.position;
-            initialRotation = transform.rotation;
+            initialPosition = transform.localPosition;
+            initialRotation = transform.localRotation;
             initialMass = body.mass;
         }
 
         void Update ()
         {
-            var isMoved = Vector3.Distance (initialPosition, transform.position) > 0.1;
-            var isRotated = Quaternion.Angle (initialRotation, transform.rotation) > 0.1;
+            var isMoved = Vector3.Distance (initialPosition, transform.localPosition) > 0.1;
+            var isRotated = Quaternion.Angle (initialRotation, transform.localRotation) > 0.1;
 
             if ((isMoved || isRotated) && !isRecoverScheduled) {
                 bundler.Bundle (RestoreState);
@@ -47,8 +47,8 @@ namespace Util
                 collider.enabled = false;
             }
 
-            var finalPosition = transform.position;
-            var finalRotation = transform.rotation;
+            var finalPosition = transform.localPosition;
+            var finalRotation = transform.localRotation;
             var i = 0;
             var steps = returnDuration * 60;
             D.Cb doStep = null;
@@ -59,8 +59,8 @@ namespace Util
                     return;
                 }
                 if (i++ < steps) {
-                    transform.position = Vector3.Lerp (finalPosition, initialPosition, i * 1.0f / steps);
-                    transform.rotation = Quaternion.Lerp (finalRotation, initialRotation, i * 1.0f / steps);
+                    transform.localPosition = Vector3.Lerp (finalPosition, initialPosition, i * 1.0f / steps);
+                    transform.localRotation = Quaternion.Lerp (finalRotation, initialRotation, i * 1.0f / steps);
                     Tls.Inst().SetGameTimeout(returnDuration / steps, doStep);
                 } else {
                     body.mass = initialMass;

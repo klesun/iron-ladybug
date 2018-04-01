@@ -89,10 +89,8 @@ namespace Assets.Scripts.Util.Architecture
 
                 if (relIdx == 0) {
                     var segmentCompletion = completion % segmentTime / segmentTime;
-                    if (1 - segmentCompletion < 0.0001) {
-                        // TODO: understand and do correctly
-                        segmentCompletion = 0;
-                    }
+                    // TODO: there is a bug - when you have 2 stairs and set offset to 3 you see that
+                    // instead of being at start, stair is at it's animation end in this fram
                     if (segmentCompletion < 0.5f) { // half
                         stair.localPosition = basePos
                             + Vector3.forward * stairs.Count * dx * segmentCompletion * 2;

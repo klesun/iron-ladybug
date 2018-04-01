@@ -1,7 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.GameLogic;
 using Assets.Scripts.Util.Logic;
+using Assets.Scripts.Util.Shorthands;
+using Interfaces;
 using UnityEngine;
+using Util;
 
 namespace Assets.Scripts.Util.Architecture
 {
@@ -18,11 +23,20 @@ namespace Assets.Scripts.Util.Architecture
         // tact will single step take
         public int stepMusicNumerator = 1;
         public int stepMusicDenominator = 1;
+        public float offset = 0;
+        public SpaceTrigger skipTactBtn = null;
 
         private Transform[] stairs = new Transform[0];
 
         // for sfx
         private int lastSemiStepIndex = -1;
+
+        void Awake()
+        {
+            U.Opt(skipTactBtn).get = btn => btn.onIn =
+                (col) => U.Opt(col.GetComponent<IHeroMb>()).get =
+                (hero) => offset += 1;
+        }
 
         void Update ()
         {
@@ -58,7 +72,6 @@ namespace Assets.Scripts.Util.Architecture
             if (stairs.Count == 0) {
                 return moved;
             }
-
             int fullMovingIdx = (int) Mathf.Floor(length * completion);
             var movingIdx = fullMovingIdx % stairs.Count;
             var segmentTime = length > 0 ? 1f / length : 1;
@@ -76,6 +89,10 @@ namespace Assets.Scripts.Util.Architecture
 
                 if (relIdx == 0) {
                     var segmentCompletion = completion % segmentTime / segmentTime;
+                    if (1 - segmentCompletion < 0.0001) {
+                        // TODO: understand and do correctly
+                        segmentCompletion = 0;
+                    }
                     if (segmentCompletion < 0.5f) { // half
                         stair.localPosition = basePos
                             + Vector3.forward * stairs.Count * dx * segmentCompletion * 2;
@@ -97,7 +114,7 @@ namespace Assets.Scripts.Util.Architecture
             var localEndPoint = blockCont.gameObject.transform.InverseTransformPoint(endPoint.transform.position);
             var length = (int) Mathf.Floor(localEndPoint.magnitude / spacing) - stairs.Length;;
             var period = length * 2 * stepMusicNumerator * 1.0f / stepMusicDenominator;
-            var completeTime = Bgm.Bgm.Inst().GetProgress() / period;
+            var completeTime = (Bgm.Bgm.Inst().GetProgress() + offset) / period;
             var loopedTime = completeTime % 1;
 
             var moved = PlaceStairsStateless(

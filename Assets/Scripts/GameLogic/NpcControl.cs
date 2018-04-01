@@ -223,13 +223,16 @@ namespace Assets.Scripts.GameLogic
         {
             return isCloseToGround && (
                 body.velocity.magnitude < 0.1 ||
-                Vector3.Angle(floor.normal, body.velocity) >= 89.99
+                Vector3.Angle(floor.normal, body.velocity) >= 89.99 &&
+                Vector3.Angle(floor.normal, Vector3.up) <= 45.00
             );
         }
 
-        public override Opt<RaycastHit> GetFloor()
+        public override Opt<Vector3> GetGround()
         {
-            return S.Opt(floor);
+            return IsGrounded()
+                ? S.Opt(transform.position)
+                : S.Opt(floor).Map(r => r.point);
         }
 
         public bool CanAttack()

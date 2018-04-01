@@ -68,7 +68,7 @@ namespace Assets.Scripts.GameLogic.Skills
 
         private void Imprison(INpcMb target)
         {
-            var basePos = target.GetFloor().Map(f => f.point).Def(target.transform.position);
+            var basePos = target.GetGround().Def(target.transform.position);
             var offset = (float)(barCount * new System.Random().NextDouble());
             for (var i = 0; i < barCount; ++i) {
                 var dx = Mathf.Sin (2 * Mathf.PI * (offset + i) / barCount) * radius;

@@ -13,6 +13,6 @@ namespace Interfaces
         abstract public Texture GetPortrait();
         abstract public GameObject GetGameObject();
         abstract public void Die();
-        abstract public Opt<RaycastHit> GetFloor();
+        abstract public Opt<Vector3> GetGround();
     }
 }

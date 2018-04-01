@@ -82,7 +82,8 @@ namespace Assets.Scripts.Util.Bgm
          */
         public float GetProgress()
         {
-            return tactsPassedBeforeSongStart + GetSongCurrentTime();
+            return !Application.isPlaying ? 0 :
+                tactsPassedBeforeSongStart + GetSongCurrentTime();
         }
 
         public float GetSongCurrentTime()

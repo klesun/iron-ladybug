@@ -219,7 +219,7 @@ namespace Assets.Scripts.GameLogic
             }
         }
 
-        public bool IsGrounded()
+        public override bool IsGrounded()
         {
             return isCloseToGround && (
                 body.velocity.magnitude < 0.1 ||
@@ -228,7 +228,7 @@ namespace Assets.Scripts.GameLogic
             );
         }
 
-        public override Opt<Vector3> GetGround()
+        public Opt<Vector3> GetGround()
         {
             return IsGrounded()
                 ? S.Opt(transform.position)

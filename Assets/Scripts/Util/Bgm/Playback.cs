@@ -15,7 +15,7 @@ namespace Assets.Scripts.Util.Bgm
         int position = 0;
         Staff staff;
         int loopsLeft;
-        float volumeFactor = 1;
+        float volumeFactor = 0.75f;
         readonly bool useGameTime;
 
         public Playback (MidJsDefinition song, bool useGameTime = false)

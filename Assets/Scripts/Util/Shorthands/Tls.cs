@@ -84,9 +84,14 @@ namespace Util
          * is still not don't - you should check `if obj == null return;` in your
          * closure, or you may get a null pointer exception
          */
-        public AnimateResult Animate(int steps, float seconds, D.Cu<float> doStep)
+        public Animated Animate(int steps, float seconds, D.Cu<float> doStep)
         {
-            var animation = new AnimateResult();
+            return Animate(steps, seconds, (prog, i) => doStep(prog));
+        }
+
+        public Animated Animate(int steps, float seconds, D.Cu2<float, int> doStep)
+        {
+            var animation = new Animated();
             var startTime = Time.fixedTime;
             var i = 0;
             D.Cb doNext = null;
@@ -94,7 +99,7 @@ namespace Util
                 if (animation.done) return;
                 var progress = (Time.fixedTime - startTime) / seconds;
                 progress = Math.Min(progress, 1);
-                doStep(progress);
+                doStep(progress, i);
                 if (i++ < steps) {
                     var nextProgress = i / 1.0f / steps;
                     var tillNext = seconds * Math.Max(nextProgress - progress, 0.001f);
@@ -141,12 +146,12 @@ namespace Util
             }
         }
 
-        public class AnimateResult
+        public class Animated
         {
             internal bool done = false;
             internal L<D.Cb> thens = new L<D.Cb>();
 
-            internal AnimateResult()
+            internal Animated()
             {
             }
 

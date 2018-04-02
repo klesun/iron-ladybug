@@ -26,7 +26,7 @@ namespace Assets.Scripts.Util.Architecture
         public Color pressedColor = Color.green;
 
         public bool wasPressed = false;
-        private Opt<Tls.AnimateResult> moving = U.Opt<Tls.AnimateResult>(null);
+        private Opt<Tls.Animated> moving = U.Opt<Tls.Animated>(null);
 
         void Awake()
         {

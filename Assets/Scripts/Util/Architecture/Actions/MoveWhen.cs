@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Util.Logic;
+﻿using System;
+using Assets.Scripts.Util.Logic;
 using Assets.Scripts.Util.Shorthands;
 using Interfaces;
 using UnityEngine;
@@ -25,11 +26,12 @@ namespace Util.Architecture.Actions {
                 hero => U.If(!started).then =
                 () => {
                     started = true;
-                    Tls.Inst().Animate(100, seconds, prog => {
+                    var steps = (int) Math.Max(Math.Round(seconds / 0.0001), 1);
+                    Tls.Inst().Animate(steps, seconds, prog => {
                         transform.position = startPos
-                            + Vector3.up * yOffset * prog
-                            + Vector3.forward * zOffset * prog
-                            + Vector3.right * xOffset * prog
+                            + transform.up * yOffset * prog
+                            + transform.forward * zOffset * prog
+                            + transform.right * xOffset * prog
                             ;
                     });
                 };

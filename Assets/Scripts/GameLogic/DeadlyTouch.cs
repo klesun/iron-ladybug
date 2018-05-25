@@ -9,14 +9,14 @@ namespace GameLogic
         void OnCollisionEnter(Collision collision)
         {
             foreach (var npc in collision.collider.gameObject.GetComponents<NpcControl>()) {
-                npc.Die ();
+                npc.SetHeroHealth(0);
             }
         }
 
         void OnTriggerEnter(Collider collider)
         {
             foreach (var npc in collider.gameObject.GetComponents<NpcControl>()) {
-                npc.Die ();
+                npc.SetHeroHealth(0);
             }
         }
     }

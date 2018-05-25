@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Util;
 using Util.Shorthands;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.GameLogic
 {
@@ -24,12 +25,15 @@ namespace Assets.Scripts.GameLogic
         const float RUNNING_BOOST = 18;
         public const float JUMP_BOOST = 8;
 
+        // HEATLH
+        public int Health;
+        public UnityEngine.UI.Slider HealthBar;
+        
         public Animator anima;
         // optional
         public EmmitterControl boostEmmitter = null;
         public Blade epee;
         public Texture icon;
-        public int health = 100;
         public List<ISkillMb> skills = new List<ISkillMb>();
 
         public Rigidbody body;
@@ -46,6 +50,7 @@ namespace Assets.Scripts.GameLogic
 
         void Awake ()
         {
+            SetHeroHealth(100);
             distToGround = GetComponent<Collider> ().bounds.extents.y;
             lastGroundTime = Time.fixedTime;
             body = GetComponent<Rigidbody> ();
@@ -65,13 +70,37 @@ namespace Assets.Scripts.GameLogic
             }
         }
 
+        public void SetHeroHealth(int value)
+        {
+            Health = value;
+            
+            if (Health < 1) {
+                Die();
+            }
+            
+            RenderHealthBar();
+        }
+    
+        private int GetHeroHealth () 
+        {
+            return Health;
+        }
+    
+        void RenderHealthBar()
+        {
+            if (HealthBar) {
+                HealthBar.value = GetHeroHealth();
+            }
+        }
+        
         void Live()
         {
             isCloseToGround = Physics.Raycast (
                 transform.position, -Vector3.up * 0.1f, out floor, distToGround + 0.1f,
                 layerMask: -5, queryTriggerInteraction: QueryTriggerInteraction.Ignore
             );
-            if (health <= 0) {
+
+            if (GetHeroHealth() <= 0) {
                 Die ();
             } else {
                 if (IsGrounded ()) {
@@ -192,10 +221,10 @@ namespace Assets.Scripts.GameLogic
         public void GetPierced()
         {
             if (!isDead) {
-                health -= 20;
+                SetHeroHealth(GetHeroHealth() - 20);
                 AudioSource.PlayClipAtPoint(Sa.Inst().audioMap.npcHitSfx, transform.position);
                 LoseGrip();
-                Sa.Inst().gui.SayShyly("HP left: " + health, this);
+                Sa.Inst().gui.SayShyly("HP left: " + GetHeroHealth(), this);
             }
         }
 

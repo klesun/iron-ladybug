@@ -3,6 +3,7 @@ using Assets.Scripts.Interfaces;
 using Assets.Scripts.Util.Shorthands;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.UI;
 using Util;
 using Util.Shorthands;
 
@@ -58,7 +59,7 @@ namespace Assets.Scripts.GameLogic
 
         // Update is called once per frame
         void Update ()
-        {
+        { 
             if (!isDead) {
                 Live();
             }
@@ -95,11 +96,16 @@ namespace Assets.Scripts.GameLogic
 
         public override void Die()
         {
+            var mainCam = Camera.main;
+            var death_txt = GameObject.Find("death_text");
+            
+            death_txt.GetComponent<Text>().enabled = true;
             Tls.Inst().PlayAudio(Sa.Inst ().audioMap.npcDeathScream);
             isDead = true;
             body.constraints = 0; // so it fell
             body.velocity -= transform.forward * 3;
             epee.Disarm ();
+            mainCam.transform.parent = null;
             // Destroy(this.gameObject);
         }
 

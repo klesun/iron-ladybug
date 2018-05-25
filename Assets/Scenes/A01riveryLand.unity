@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4441186, g: 0.48731053, b: 0.5394175, a: 1}
+  m_IndirectSpecularColor: {r: 0.444119, g: 0.4873113, b: 0.5394188, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1407,6 +1407,20 @@ Prefab:
     - target: {fileID: 4000011929805952, guid: 03ac849c6397d954d9911748732302b0, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 383.469
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010674974710, guid: 03ac849c6397d954d9911748732302b0, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000010253424442, guid: 03ac849c6397d954d9911748732302b0,
+        type: 2}
+      propertyPath: m_AllowDynamicResolution
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000010253424442, guid: 03ac849c6397d954d9911748732302b0,
+        type: 2}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03ac849c6397d954d9911748732302b0, type: 2}
@@ -3876,7 +3890,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 147276, guid: 07d74726c3f02d244b8d871e36000cd0, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07d74726c3f02d244b8d871e36000cd0, type: 2}
@@ -3973,6 +3987,80 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ee6ba1aa12b655f4f8371418ca701a3a, type: 3}
+--- !u!1 &1463363646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1463363647}
+  - component: {fileID: 1463363649}
+  - component: {fileID: 1463363648}
+  m_Layer: 5
+  m_Name: death_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1463363647
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463363646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1523233424}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 445.51, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1463363648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463363646}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.88235295, g: 0.11029412, b: 0.43070108, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7457aa8b4dd37924e9fbf11883fc111e, type: 3}
+    m_FontSize: 46
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 47
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: POTRACHENO
+--- !u!222 &1463363649
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463363646}
 --- !u!1 &1466332946
 GameObject:
   m_ObjectHideFlags: 0
@@ -4444,6 +4532,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: 5351c1bba958db245b4ef25483ae84c1, type: 3}
   m_PrefabInternal: {fileID: 1514403340}
+--- !u!224 &1523233424 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22438260, guid: 07d74726c3f02d244b8d871e36000cd0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1426225887}
 --- !u!1 &1569266936 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100034, guid: 5351c1bba958db245b4ef25483ae84c1, type: 3}

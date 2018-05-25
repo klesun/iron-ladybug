@@ -11,6 +11,8 @@ namespace Util.Architecture.Actions {
         public SpaceTrigger trigger = null;
         public float seconds = 0.5f;
         public int yOffset = 1;
+        public int xOffset = 0;
+        public int zOffset = 0;
 
         private bool started = false;
 
@@ -24,7 +26,11 @@ namespace Util.Architecture.Actions {
                 () => {
                     started = true;
                     Tls.Inst().Animate(100, seconds, prog => {
-                        transform.position = startPos + Vector3.up * yOffset * prog;
+                        transform.position = startPos
+                            + Vector3.up * yOffset * prog
+                            + Vector3.forward * zOffset * prog
+                            + Vector3.right * xOffset * prog
+                            ;
                     });
                 };
         }

@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Rotate : MonoBehaviour 
-{
-    void Update ()
+public class Rotate : MonoBehaviour {
+    
+    public float xStep = 0;
+    public float yStep = 0;
+    public float zStep = 10;
+
+    private void FixedUpdate()
     {
-        transform.Rotate (0,0,10);
+        transform.Rotate (xStep, yStep, zStep);
     }
 }

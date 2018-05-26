@@ -125,16 +125,20 @@ namespace Assets.Scripts.GameLogic
 
         public override void Die()
         {
-            var mainCam = Camera.main;
-            var death_txt = GameObject.Find("death_text");
-            
-            death_txt.GetComponent<Text>().enabled = true;
             Tls.Inst().PlayAudio(Sa.Inst ().audioMap.npcDeathScream);
             isDead = true;
             body.constraints = 0; // so it fell
             body.velocity -= transform.forward * 3;
             epee.Disarm ();
-            mainCam.transform.parent = null;
+
+            if (body.GetComponent<IHeroMb>())
+            {
+                var death_text = GameObject.Find("death_text").GetComponent<Text>();
+                death_text.transform.position = new Vector3(Screen.width / 2, Screen.height / 2, 1);
+                death_text.enabled = true;
+                Camera.main.transform.parent = null;
+            }
+           
             // Destroy(this.gameObject);
         }
 

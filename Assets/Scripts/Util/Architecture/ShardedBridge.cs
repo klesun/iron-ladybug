@@ -2,6 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Util.Architecture;
+using Util.Architecture.Animated;
 
 /** 
  * this script generates sequence of flying 

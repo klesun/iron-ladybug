@@ -134,6 +134,7 @@ namespace Assets.Scripts.GameLogic
             body.constraints = 0; // so it fell
             body.velocity -= transform.forward * 3;
             epee.Disarm ();
+            transform.parent = null;
             mainCam.transform.parent = null;
             // Destroy(this.gameObject);
         }

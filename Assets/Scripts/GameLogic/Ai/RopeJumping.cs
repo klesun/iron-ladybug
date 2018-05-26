@@ -2,6 +2,7 @@
 using Assets.Scripts.Util.Bgm;
 using GameLogic;
 using UnityEngine;
+using Util.Architecture.Animated;
 
 namespace Assets.Scripts.GameLogic.Ai
 {

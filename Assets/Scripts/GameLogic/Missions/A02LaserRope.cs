@@ -7,6 +7,7 @@ using Assets.Scripts.Util.Architecture;
 using Assets.Scripts.Util.Logic;
 using Util.GameLogic;
 using Util;
+using Util.Architecture.Animated;
 
 namespace GameLogic.Missions
 {

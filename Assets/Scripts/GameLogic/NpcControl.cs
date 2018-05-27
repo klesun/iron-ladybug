@@ -50,6 +50,11 @@ namespace Assets.Scripts.GameLogic
 
         void Awake ()
         {
+            var hbX = Screen.width - 140;
+            var hbY = Screen.height - Screen.height + 40;
+            if (HealthBar) {
+                HealthBar.transform.position = new Vector3(hbX, hbY, 1);
+            }
             SetHeroHealth(100);
             distToGround = GetComponent<Collider> ().bounds.extents.y;
             lastGroundTime = Time.fixedTime;

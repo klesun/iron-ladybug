@@ -38,28 +38,6 @@ namespace Assets.Scripts.GameLogic.Skills
         public AudioClip decaySfx = null;
         public Transform ground = null;
 
-        enum E_SIDE {PLAYER, ENEMIES, NEUTRAL}
-
-        private static E_SIDE GetSide(INpcMb npc)
-        {
-            if (npc.GetComponent<HeroControl>() != null) {
-                return E_SIDE.PLAYER;
-            } else if (npc.GetComponent<EnemyLogic>() != null) {
-                return E_SIDE.ENEMIES;
-            } else {
-                return E_SIDE.NEUTRAL;
-            }
-        }
-
-        private static bool AreEnemies(INpcMb a, INpcMb b)
-        {
-            var sideA = GetSide(a);
-            var sideB = GetSide(b);
-            return sideA != E_SIDE.NEUTRAL
-                && sideB != E_SIDE.NEUTRAL
-                && sideA != sideB;
-        }
-
         private Opt<Vector3> GetGround(INpcMb target)
         {
             var tarPos = target.transform.position;
@@ -164,7 +142,7 @@ namespace Assets.Scripts.GameLogic.Skills
         public override void Perform(INpcMb caster)
         {
             U.L(Object.FindObjectsOfType<INpcMb>())
-                .Flt(npc => AreEnemies(npc, caster))
+                .Flt(npc => NpcUtil.AreEnemies(npc, caster))
                 .Srt(npc => (npc.transform.position - caster.transform.position).magnitude)
                 .Fst().get =
                     target => GetGround(target).get =

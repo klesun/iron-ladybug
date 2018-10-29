@@ -22,7 +22,7 @@ namespace Assets.Scripts.GameLogic
 
         const float FRICTION_FORCE = 12;
         const float MAX_RUNNING_SPEED = 13;
-        const float RUNNING_BOOST = 18;
+        public const float RUNNING_BOOST = 18;
         public const float JUMP_BOOST = 8;
 
         // HEATLH
@@ -139,9 +139,13 @@ namespace Assets.Scripts.GameLogic
 
             if (body.GetComponent<IHeroMb>())
             {
-                var death_text = GameObject.Find("death_text").GetComponent<Text>();
-                death_text.transform.position = new Vector3(Screen.width / 2, Screen.height / 2, 1);
-                death_text.enabled = true;
+                var go = GameObject.Find("death_text");
+                if (go) {
+                    foreach (var death_text in go.GetComponents<Text>()) {
+                        death_text.transform.position = new Vector3(Screen.width / 2, Screen.height / 2, 1);
+                        death_text.enabled = true;
+                    }
+                }
                 Camera.main.transform.parent = null;
             }
            
@@ -194,14 +198,14 @@ namespace Assets.Scripts.GameLogic
             return false;
         }
 
-        public bool Jump()
+        public bool Jump(float boost = JUMP_BOOST)
         {
             if (!isDead && !isFlying) {
                 anima.SetBool ("isFlying", true);
                 /** @debug */
                 body.velocity = new Vector3(body.velocity.x, 0, body.velocity.z);
 
-                body.velocity += Vector3.up * JUMP_BOOST;
+                body.velocity += Vector3.up * boost;
 
                 AudioSource.PlayClipAtPoint(Sa.Inst().audioMap.npcJumpSfx, transform.position);
                 lastGroundTime += -100;
@@ -212,7 +216,7 @@ namespace Assets.Scripts.GameLogic
 
         public bool Boost(Vector3 direction)
         {
-            if (!isDead && !IsGrounded ()) {
+            if (!isDead) {
                 if (lastSprintTime == null ||
                     Time.fixedTime - lastSprintTime > SPRINT_INTERVAL
                 ) {

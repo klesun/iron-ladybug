@@ -6,7 +6,7 @@ public class CameraCollission : MonoBehaviour {
 	private Vector3 dir;
 	private float distance;
 	private float maxDistance = 2.3F;
-	private float minDistance = 0.95F;
+	private float minDistance = 0.75F;
 	
 	void Start ()
 	{
@@ -22,14 +22,18 @@ public class CameraCollission : MonoBehaviour {
 		
 			if ( Physics.Linecast( transform.parent.position, desiredCameraPos, out hit ) )
 			{
-				distance = Mathf.Clamp( hit.distance, minDistance, maxDistance );
+				var newDistance = hit.distance - 1;
+				if (newDistance < minDistance) {
+					newDistance = 0;
+				}
+				distance = Mathf.Min( newDistance, maxDistance );
 			}
 			else
 			{
 				distance = maxDistance;
 			}
 		
-			transform.localPosition=Vector3.Lerp(transform.localPosition, dir * distance, Time.deltaTime * 10.0F);
+			transform.localPosition=Vector3.Lerp(transform.localPosition, dir * distance, Time.deltaTime * 40.0F);
 		}
 	}
 }

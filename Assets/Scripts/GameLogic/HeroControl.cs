@@ -47,8 +47,10 @@ namespace Assets.Scripts.GameLogic
 
         void Update ()
         {
-            transform.Rotate (new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0));
-            HandleKeys ();
+            if (!Tls.Inst().IsPaused()) {
+                transform.Rotate (new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0));
+                HandleKeys ();
+            }
             enemies = new HashSet<EnemyLogic>(enemies.Where (e => !e.npc.IsDead));
             if (enemies.Count > 0) {
                 npc.anima.SetBool ("isInBattle", true);
@@ -68,13 +70,18 @@ namespace Assets.Scripts.GameLogic
             }
         }
 
+        private void OpenSpellBook()
+        {
+            new SpellBook(this).Open();
+        }
+
         void HandleKeys()
         {
-            if (Tls.Inst().IsPaused()) {
-                return;
-            }
-
             npc.Move (GetKeyedDirection ());
+
+            if (Input.GetKeyDown(KeyCode.E)) {
+                OpenSpellBook();
+            }
 
             if (Input.GetKeyDown(KeyCode.Space) && npc.Jump()) {
                 Tls.Inst ().PlayAudio (

@@ -44,7 +44,7 @@ namespace GameLogic.Missions
                         dialogue.Say(1, new List<string>{"Какой МОЙ любимый цвет?"});
                         Sa.Inst().gui.AskForChoice (colorNameMap, (rgb) =>
                             GetRoofs().ForEach(r => r.repaintColor = rgb));
-                        dialogue.Say(1, new List<string>{"Вот значит что ты обо мне думаешь... Вот тебе краска, когда перекрасишь все крыши - возвращайся, я скажу был ли твой ответ верным."});
+                        dialogue.Say(1, new List<string>{"Вот тебе краска, когда перекрасишь все крыши - возвращайся, я скажу был ли твой ответ верным."});
                     });
                 } else {
                     LiberateReward ();

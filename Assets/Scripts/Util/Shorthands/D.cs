@@ -12,6 +12,7 @@ namespace Util
         /** "Consumer" */
         public delegate void Cu<T>(T value);
         public delegate void Cu2<T, T2>(T value, T2 value2);
+        public delegate T Su<T>();
     }
 }
 

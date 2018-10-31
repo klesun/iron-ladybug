@@ -23,7 +23,6 @@ namespace Assets.Scripts.GameLogic
 
         public NpcControl npc;
         public HeroStats stats;
-        public Gui gui;
 
         /** @debug */
         public TextAsset testSong;

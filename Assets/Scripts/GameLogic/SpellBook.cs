@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.GameLogic;
+using Assets.Scripts.Util.Shorthands;
+using GameLogic.Destructibles;
 using Interfaces;
 using UnityEngine;
 using Util;
@@ -35,6 +37,23 @@ namespace GameLogic {
             return hero.npc.Boost(vector) ? CASTED : "Can not dash now";
         }
         
+        private string FireBall()
+        {
+            return S.Opt(Sa.Inst().fireBallRef).Match(
+                (fireBallRef) => {
+                    var fireBallGo = Object.Instantiate (fireBallRef.gameObject);
+                    fireBallGo.name = "_generated_fireball";
+                    fireBallGo.transform.rotation = hero.cameraAngle.transform.rotation;
+                    fireBallGo.transform.position = hero.transform.position + Vector3.up * 1.0f + hero.transform.forward * 1.5f;
+                    foreach (var fireBall in fireBallGo.GetComponents<FireBall>()) {
+                        fireBall.rigidBody.velocity = hero.cameraAngle.transform.forward * 20;
+                    }
+                    return CASTED;
+                }, 
+                () => "Fire Ball reference object is not set, say thanks to the developer of this map =3"
+            );
+        }
+        
         public void Open()
         {
             var spellMap = new Dictionary<string, D.Su<string>> {
@@ -42,6 +61,7 @@ namespace GameLogic {
                 {"MegaJump", MegaJump},
                 {"Dash", Dash},
                 {"Float", SayNotImplemented},
+                {"FireBall", FireBall},
                 {"Telekinesis", () => "Not Telekinesable"},
             };
                 

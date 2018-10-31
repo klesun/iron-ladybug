@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 using Assets.Scripts.Util.Shorthands;
 
 namespace Util.Shorthands
@@ -71,6 +72,11 @@ namespace Util.Shorthands
             } else {
                 return new U.ThenResult () { applied = false };
             }
+        }
+
+        public T0 Match<T0>(D.F1<T, T0> mapper, D.Su<T0> elser)
+        {
+            return Has() ? mapper(value) : elser(); 
         }
     }
 }

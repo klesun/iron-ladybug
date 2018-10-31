@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Util;
 
 public class MouseLook : MonoBehaviour 
 {
@@ -8,7 +9,9 @@ public class MouseLook : MonoBehaviour
 
     void Update ()
     {
-        Rotate (Input.GetAxis("Mouse Y") * sensitivity);
+        if (!Tls.Inst().IsPaused()) {
+            Rotate (Input.GetAxis("Mouse Y") * sensitivity);
+        }
     }
 
     private void Rotate(float mouseYFactor)

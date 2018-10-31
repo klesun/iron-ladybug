@@ -48,3 +48,6 @@ Thumbs.db
 /Assets/Plugins/Editor/JetBrains.meta
 /ProjectSettings/PresetManager.asset
 /UnityPackageManager
+# collaborators widget
+/Packages/
+/.collabignore

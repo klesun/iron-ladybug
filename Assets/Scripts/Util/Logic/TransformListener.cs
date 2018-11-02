@@ -31,16 +31,16 @@ namespace Assets.Scripts.Util.Logic
             }
         }
 
-        #if UNITY_EDITOR
         public void OnValidate()
         {
+#if UNITY_EDITOR
             if (onChange != null) {
                 UnityEditor.EditorApplication.delayCall += () => onChange();
             }
+#endif
             if (parent != null) {
                 parent.OnValidate ();
             }
         }
-        #endif
     }
 }

@@ -5,6 +5,7 @@ using GameLogic.Destructibles;
 using Interfaces;
 using UnityEngine;
 using Util;
+using Util.Controls;
 
 namespace GameLogic {
     public class SpellBook {
@@ -42,6 +43,7 @@ namespace GameLogic {
             return S.Opt(Sa.Inst().fireBallRef).Match(
                 (fireBallRef) => {
                     var fireBallGo = Object.Instantiate (fireBallRef.gameObject);
+                    fireBallGo.SetActive(true);
                     fireBallGo.name = "_generated_fireball";
                     fireBallGo.transform.rotation = hero.cameraAngle.transform.rotation;
                     fireBallGo.transform.position = hero.transform.position + Vector3.up * 1.0f + hero.transform.forward * 1.5f;

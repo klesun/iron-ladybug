@@ -8,6 +8,7 @@ using Interfaces;
 using Newtonsoft.Json;
 using UnityEngine;
 using Util;
+using Util.Controls;
 using Util.Midi;
 using Util.SoundFontPlayer;
 
@@ -30,6 +31,13 @@ namespace Assets.Scripts.GameLogic
         private float mouseSensitivity = 4.0F;
         private HashSet<EnemyLogic> enemies = new HashSet<EnemyLogic>();
         private MidJsDefinition currentBattleBgm = null;
+
+        private IPlayerInput input = new LocalPlayerInput();
+
+        public void SetInput(IPlayerInput input)
+        {
+            this.input = input;
+        }
 
         void Awake ()
         {
@@ -78,11 +86,11 @@ namespace Assets.Scripts.GameLogic
         {
             npc.Move (GetKeyedDirection ());
 
-            if (Input.GetKeyDown(KeyCode.E)) {
+            if (input.GetKeyDown(KeyCode.E)) {
                 OpenSpellBook();
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && npc.Jump()) {
+            if (input.GetKeyDown(KeyCode.Space) && npc.Jump()) {
                 Tls.Inst ().PlayAudio (
                     Random.Range(0, 10) == 0
                     ? jumpingEvilSound
@@ -90,7 +98,7 @@ namespace Assets.Scripts.GameLogic
             }
 
             if (npc.IsGrounded()) {
-                if (Input.GetKeyDown (KeyCode.Mouse0)) {
+                if (input.GetKeyDown (KeyCode.Mouse0)) {
                     Cursor.lockState = CursorLockMode.Locked;
                     if (npc.Attack()) {
                         // battle cry!
@@ -98,14 +106,14 @@ namespace Assets.Scripts.GameLogic
                         Tls.Inst ().PlayAudio (outOfManaEvilSound);
                     }
                 }
-                if (Input.GetKeyDown (KeyCode.Mouse1)) {
+                if (input.GetKeyDown (KeyCode.Mouse1)) {
                     npc.Parry ();
                 }
-                if (Input.GetKeyDown (KeyCode.Tab)) {
+                if (input.GetKeyDown (KeyCode.Tab)) {
                     CheckpointUtil.Inst().JumpToNext(this);
                 }
                 /** @debug */
-                if (Input.GetKeyDown (KeyCode.G)) {
+                if (input.GetKeyDown (KeyCode.G)) {
                     var stop = Fluid.Inst ().PlayNote (35, 43);
                     Tls.Inst ().SetGameTimeout (5f, () => {
                         stop();
@@ -122,11 +130,11 @@ namespace Assets.Scripts.GameLogic
                     });
                 }
                 /** @debug */
-                if (Input.GetKeyDown (KeyCode.H)) {
+                if (input.GetKeyDown (KeyCode.H)) {
                     new Playback (JsonConvert.DeserializeObject<MidJsDefinition> (testSong.text)).Play();
                 }
             } else {
-                if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                if (input.GetKeyDown(KeyCode.Mouse0)) {
                     Cursor.lockState = CursorLockMode.Locked;
                     if (npc.Boost(cameraAngle.transform.forward)) {
                         Tls.Inst ().PlayAudio (sprintingEvilSound);
@@ -141,16 +149,16 @@ namespace Assets.Scripts.GameLogic
         {
             var result = new Vector3 ();
 
-            if (Input.GetKey(KeyCode.W)) {
+            if (input.GetKey(KeyCode.W)) {
                 result += transform.forward;
             }
-            if (Input.GetKey(KeyCode.S)) {
+            if (input.GetKey(KeyCode.S)) {
                 result -= transform.forward;
             }
-            if (Input.GetKey(KeyCode.A)) {
+            if (input.GetKey(KeyCode.A)) {
                 result -= transform.right;
             }
-            if (Input.GetKey(KeyCode.D)) {
+            if (input.GetKey(KeyCode.D)) {
                 result += transform.right;
             }
 

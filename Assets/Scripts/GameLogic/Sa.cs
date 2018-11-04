@@ -16,6 +16,7 @@ namespace Assets.Scripts.GameLogic
         public AudioMap audioMap;
         public Gui gui;
 
+        public HeroControl playerRef;
         public FireBall fireBallRef;
 
         private static Sa inst;

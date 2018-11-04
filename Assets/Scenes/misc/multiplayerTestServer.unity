@@ -154,21 +154,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 676479511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 227461547, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  showGUI: 1
-  offsetX: 0
-  offsetY: 0
---- !u!114 &676479514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 676479511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 759bd0abf5f44fb89e70ea0e22b84883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -243,6 +228,21 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
+--- !u!114 &676479514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 676479511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 227461547, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  showGUI: 1
+  offsetX: 0
+  offsetY: 0
 --- !u!136 &676479515
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -444,7 +444,7 @@ Transform:
   m_GameObject: {fileID: 1884925641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.21804565, y: -0.469, z: -0.4465165}
-  m_LocalScale: {x: 7.693367, y: 0.034845527, z: 7.693367}
+  m_LocalScale: {x: 21.154451, y: 0.016971666, z: 21.154451}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1

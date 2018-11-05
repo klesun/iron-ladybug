@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 92000011481339170}
   - component: {fileID: 124000013407115398}
   - component: {fileID: 81000011986158862}
+  - component: {fileID: 114234020733087038}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -325,7 +326,6 @@ GameObject:
   - component: {fileID: 114000012770646726}
   - component: {fileID: 114000012936139798}
   - component: {fileID: 114000011902541116}
-  - component: {fileID: 114846971486934472}
   m_Layer: 0
   m_Name: heroine
   m_TagString: Untagged
@@ -1260,8 +1260,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011092839074}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4747341, y: -0.45157725, z: -2.7553058}
+  m_LocalRotation: {x: -0, y: -0.20337279, z: -0, w: -0.9791015}
+  m_LocalPosition: {x: 305.34, y: 41.41, z: 360.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000012948380988}
@@ -1269,7 +1269,7 @@ Transform:
   - {fileID: 4000011580191036}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 383.469, z: 0}
 --- !u!4 &4000012182132418
 Transform:
   m_ObjectHideFlags: 1
@@ -1670,7 +1670,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
+  m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2472,7 +2472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a33b67d1ff8ef4c9c1cc0a3ca49aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 100
   HealthBar: {fileID: 0}
   anima: {fileID: 95000013672798366}
   boostEmmitter: {fileID: 114000011359161896}
@@ -2494,38 +2494,17 @@ MonoBehaviour:
   bladeClashSound: {fileID: 8300000, guid: 49617da2843f7854c9987ed4efbdd2e8, type: 3}
   epeeTip: {fileID: 114000012214951474}
   isParrying: 0
---- !u!114 &114846971486934472
+--- !u!114 &114234020733087038
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011092839074}
+  m_GameObject: {fileID: 1000010674974710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 31363f8db63ab714084e68e23b3c4cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 3
-    i1: 172
-    i2: 132
-    i3: 156
-    i4: 99
-    i5: 151
-    i6: 217
-    i7: 84
-    i8: 217
-    i9: 145
-    i10: 23
-    i11: 72
-    i12: 115
-    i13: 35
-    i14: 2
-    i15: 176
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
 --- !u!124 &124000013407115398
 Behaviour:
   m_ObjectHideFlags: 1

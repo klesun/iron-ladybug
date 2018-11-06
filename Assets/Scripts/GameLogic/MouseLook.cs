@@ -7,15 +7,9 @@ public class MouseLook : MonoBehaviour
     public float maxAngle = +60;
     public float sensitivity = 0.0005f;
 
-    void Update ()
+    public void Rotate(float yAxis)
     {
-        if (!Tls.Inst().IsPaused()) {
-            Rotate (Input.GetAxis("Mouse Y") * sensitivity);
-        }
-    }
-
-    private void Rotate(float mouseYFactor)
-    {
+        var mouseYFactor = yAxis * sensitivity;
         var e = transform.rotation.eulerAngles;
         var xRot = e.x - mouseYFactor * 10;
         xRot = xRot > 180 ? xRot - 360 : xRot;

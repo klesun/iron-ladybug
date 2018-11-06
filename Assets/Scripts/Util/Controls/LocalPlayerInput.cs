@@ -13,5 +13,13 @@ namespace Util.Controls {
         {
             return Input.GetKey(key);
         }
+
+        public Vector2 GetMouseDelta()
+        {
+            return new Vector2(
+                Input.GetAxis("Mouse X"),
+                Input.GetAxis("Mouse Y")
+            );
+        }
     }
 }

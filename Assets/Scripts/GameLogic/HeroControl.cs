@@ -16,7 +16,7 @@ namespace Assets.Scripts.GameLogic
 {
     public class HeroControl : IHeroMb
     {
-        public GameObject cameraAngle;
+        public MouseLook cameraAngle;
         public AudioClip jumpingSound;
         public AudioClip jumpingEvilSound;
         public AudioClip sprintingEvilSound;
@@ -55,7 +55,8 @@ namespace Assets.Scripts.GameLogic
         void Update ()
         {
             if (!Tls.Inst().IsPaused()) {
-                transform.Rotate (new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0));
+                transform.Rotate (new Vector3(0, input.GetMouseDelta().x * mouseSensitivity, 0));
+                cameraAngle.Rotate (input.GetMouseDelta().y);
                 HandleKeys ();
             }
             enemies = new HashSet<EnemyLogic>(enemies.Where (e => !e.npc.IsDead));

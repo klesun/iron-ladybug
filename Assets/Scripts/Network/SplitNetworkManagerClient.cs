@@ -20,7 +20,7 @@ namespace Network {
     public class SplitNetworkManagerClient : NetworkManager {
     
         float lastSyncAt = 0;
-        Vector2 lastMousePos = Vector2.zero; 
+        V2 lastMousePos = new V2(); 
 
         private List<NetworkConnection> serverConnections = new List<NetworkConnection>();
 
@@ -59,17 +59,6 @@ namespace Network {
             } else {
                 Debug.Log("unhandled event - " + e.type + " " + e);
             }
-            if ((lastMousePos - e.mousePosition).magnitude > 0.01f) {
-                var mouseDelta = e.mousePosition - lastMousePos; 
-                msgs.Add(new Msg{
-                    type = Msg.EType.Sync,
-                    mouseDelta = new V2{
-                        x = mouseDelta.x, 
-                        y = mouseDelta.y,
-                    },
-                });
-            }
-            lastMousePos = e.mousePosition;
             msgs.ForEach((msg) => {
                 serverConnections.ForEach(serv => {
                     var dataStr = JsonConvert.SerializeObject(msg);
@@ -80,15 +69,30 @@ namespace Network {
 
         void Update ()
         {
-            if (Time.fixedTime - lastSyncAt > 2.5f) {
-                lastSyncAt = Time.fixedTime;
-                serverConnections.ForEach(serv => {
-                    var dataStr = JsonConvert.SerializeObject(new Msg{
-                        type = Msg.EType.Sync,
-                    });
-                    new NetworkClient(serv).SendUnreliable(MsgType.Highest + 1, new StringMessage(dataStr));
+            var msgs = new List<Msg>();
+            var mouseDelta = new V2{
+                x = Input.GetAxis("Mouse X"), 
+                y = Input.GetAxis("Mouse Y")
+            };
+            if (mouseDelta.toStd().magnitude > 0.000001f) {
+                msgs.Add(new Msg{
+                    type = Msg.EType.MouseMove,
+                    mouseDelta = mouseDelta,
                 });
             }
+            lastMousePos = mouseDelta;
+            if (Time.fixedTime - lastSyncAt > 2.5f) {
+                lastSyncAt = Time.fixedTime;
+                msgs.Add(new Msg{
+                    type = Msg.EType.Sync,
+                });
+            }
+            msgs.ForEach((msg) => {
+                serverConnections.ForEach(serv => {
+                    var dataStr = JsonConvert.SerializeObject(msg);
+                    new NetworkClient(serv).SendUnreliable(MsgType.Highest + 1, new StringMessage(dataStr));
+                });
+            });
         }
     }
 

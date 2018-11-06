@@ -6,6 +6,8 @@ using UnityEngine;
 namespace Util.Controls {
     public class RemotePlayerInput : IPlayerInput {
         HashSet<KeyCode> pressedKeys = new HashSet<KeyCode>();
+        Vector2 mouseDelta = Vector2.zero;
+        int lastFrame = -1;
 
         public bool GetKeyDown(KeyCode key)
         {
@@ -20,10 +22,26 @@ namespace Util.Controls {
 
         public void HandleEvent(Msg msgData)
         {
+            lastFrame = -1;
+            mouseDelta = Vector2.zero;
             if (msgData.type == Msg.EType.KeyDown) {
                 pressedKeys.Add(msgData.keyCode);
             } else if (msgData.type == Msg.EType.KeyUp) {
                 pressedKeys.Remove(msgData.keyCode);
+            } else if (msgData.type == Msg.EType.MouseMove) {
+                mouseDelta = msgData.mouseDelta.toStd();
+            }
+        }
+        
+        public Vector2 GetMouseDelta()
+        {
+            if (lastFrame == -1) {
+                lastFrame = Time.frameCount;
+            }
+            if (lastFrame == Time.frameCount) {
+                return mouseDelta;
+            } else {
+                return Vector2.zero;
             }
         }
     }

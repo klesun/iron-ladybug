@@ -30,7 +30,6 @@ namespace Network {
             playerObj.SetActive(true);
             var hero = playerObj.GetComponent<HeroControl>();
             foreach (var cam in playerObj.GetComponentsInChildren<Camera>()) {
-                Debug.Log("zhop camera " + cam);
                 if (clientConnections.Count > 1) {
                     cam.rect = new Rect(0,0,0.5f,1);
                 } else {

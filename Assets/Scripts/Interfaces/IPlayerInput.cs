@@ -10,5 +10,6 @@ namespace Interfaces {
         bool GetKeyDown(KeyCode key);
         /** key was pressed in this frame */
         bool GetKey(KeyCode key);
+        Vector2 GetMouseDelta();
     }
 }

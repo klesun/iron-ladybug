@@ -5181,7 +5181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590043a644852ea478a7a77b2ab4edaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraAngle: {fileID: 1079061028449078}
+  cameraAngle: {fileID: 114776625575744350}
   jumpingSound: {fileID: 8300000, guid: f502229f301866a45980eed9f57ac7d6, type: 3}
   jumpingEvilSound: {fileID: 8300000, guid: ec4d22c620d19c348b7737c24222a803, type: 3}
   sprintingEvilSound: {fileID: 8300000, guid: 54d3b3d05222241429fc85c540c46902, type: 3}

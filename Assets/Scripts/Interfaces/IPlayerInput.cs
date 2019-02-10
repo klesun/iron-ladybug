@@ -11,5 +11,6 @@ namespace Interfaces {
         /** key was pressed in this frame */
         bool GetKey(KeyCode key);
         Vector2 GetMouseDelta();
+        string GetNextSpell();
     }
 }

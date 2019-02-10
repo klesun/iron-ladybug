@@ -26,6 +26,7 @@ namespace Network {
         private List<NetworkClient> clientConnections = new List<NetworkClient>();
         float lastFrameSentAt = 0;
         byte chanId = 0;
+        List<Action> lateUpdates = new List<Action>();
 
         public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
         {
@@ -53,6 +54,10 @@ namespace Network {
             }
             var input = new RemotePlayerInput();
             hero.SetInput(input);
+            hero.output.Add(msg => {
+                var dataStr = JsonConvert.SerializeObject(msg);
+                client.SendUnreliable(MsgType.Highest + 1, new StringMessage(dataStr));
+            });
             client.RegisterHandler(MsgType.Highest + 1, msg => {
                 var str = msg.reader.ReadString();
                 try {

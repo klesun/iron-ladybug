@@ -21,5 +21,11 @@ namespace Util.Controls {
                 Input.GetAxis("Mouse Y")
             );
         }
+
+        public string GetNextSpell()
+        {
+            // handled manually in HeroControl.cs
+            return null;
+        }
     }
 }

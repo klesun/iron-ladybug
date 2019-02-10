@@ -22,6 +22,7 @@ namespace Network {
 			tex2d.ReadPixels(new Rect(0, 0, render.width, render.height), 0, 0);
 			tex2d.Apply();
 
+			// it would probably be much more efficient to encode the video with H.264 at some point...
 			return tex2d.EncodeToJPG();
 			//File.WriteAllBytes(Application.dataPath + "/zhopa.png", bytes);
 		}

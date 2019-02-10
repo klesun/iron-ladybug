@@ -1,16 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Util.Bgm;
 using Assets.Scripts.Util.Shorthands;
 using GameLogic;
 using GameLogic.Entities;
 using Interfaces;
+using Network;
 using Newtonsoft.Json;
 using UnityEngine;
 using Util;
 using Util.Controls;
 using Util.Midi;
 using Util.SoundFontPlayer;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.GameLogic
 {
@@ -33,6 +36,7 @@ namespace Assets.Scripts.GameLogic
         private MidJsDefinition currentBattleBgm = null;
 
         private IPlayerInput input = new LocalPlayerInput();
+        public List<Action<Msg>> output = new List<Action<Msg>>();
 
         public void SetInput(IPlayerInput input)
         {
@@ -78,17 +82,23 @@ namespace Assets.Scripts.GameLogic
             }
         }
 
-        private void OpenSpellBook()
-        {
-            new SpellBook(this).Open();
-        }
-
         void HandleKeys()
         {
             npc.Move (GetKeyedDirection ());
 
+            var spell = input.GetNextSpell();
+            if (spell != null) {
+                var error = new SpellBook(this).Cast(spell);
+                if (error != "") {
+                    output.ForEach(o => o(new Msg {
+                        type = Msg.EType.Error,
+                        strValue = error,
+                    }));
+                }
+            }
+            // TODO: encapsulate in local GetNextSpell()
             if (input.GetKeyDown(KeyCode.E)) {
-                OpenSpellBook();
+                new SpellBook(this).Open();
             }
 
             if (input.GetKeyDown(KeyCode.Space) && npc.Jump()) {

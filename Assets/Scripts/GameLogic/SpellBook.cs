@@ -11,7 +11,7 @@ namespace GameLogic {
     public class SpellBook {
         readonly HeroControl hero;
         private readonly string CASTED = "";
-        
+
         public SpellBook(HeroControl hero)
         {
             this.hero = hero;
@@ -21,7 +21,7 @@ namespace GameLogic {
         {
             return "Not implemented yet";
         }
-        
+
         private string MegaJump()
         {
             if (!hero.GetNpc().IsGrounded()) {
@@ -31,13 +31,13 @@ namespace GameLogic {
                     ? CASTED : "Can not jump now";
             }
         }
-        
+
         private string Dash()
         {
             var vector = hero.npc.transform.forward * NpcControl.RUNNING_BOOST * 0.25f;
             return hero.npc.Boost(vector) ? CASTED : "Can not dash now";
         }
-        
+
         private string FireBall()
         {
             return S.Opt(Sa.Inst().fireBallRef).Match(
@@ -51,14 +51,14 @@ namespace GameLogic {
                         fireBall.rigidBody.velocity = hero.cameraAngle.transform.forward * 20;
                     }
                     return CASTED;
-                }, 
+                },
                 () => "Fire Ball reference object is not set, say thanks to the developer of this map =3"
             );
         }
-        
-        public void Open()
+
+        private Dictionary<string, D.Su<string>> GetSpellMap()
         {
-            var spellMap = new Dictionary<string, D.Su<string>> {
+            return new Dictionary<string, D.Su<string>> {
                 {"DoNothing", () => ""},
                 {"MegaJump", MegaJump},
                 {"Dash", Dash},
@@ -66,8 +66,22 @@ namespace GameLogic {
                 {"FireBall", FireBall},
                 {"Telekinesis", () => "Not Telekinesable"},
             };
-                
-            Sa.Inst().gui.AskForChoice (spellMap, (cb) => {
+        }
+
+        /** @return - error or empty string on success */
+        public string Cast(string spellName)
+        {
+            var map = GetSpellMap();
+            if (map.ContainsKey(spellName)) {
+                return map[spellName]();
+            } else {
+                return "Unknown spell - " + spellName;
+            }
+        }
+
+        public void Open()
+        {
+            Sa.Inst().gui.AskForChoice (GetSpellMap(), (cb) => {
                 var msg = cb();
                 if (msg != CASTED) {
                     Sa.Inst().gui.SayShyly(msg, hero.GetNpc());

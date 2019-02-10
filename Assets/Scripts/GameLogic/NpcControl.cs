@@ -25,10 +25,12 @@ namespace Assets.Scripts.GameLogic
         public const float RUNNING_BOOST = 18;
         public const float JUMP_BOOST = 8;
 
+        public static readonly int START_HP = 100;
+
         // HEATLH
         public int Health;
         public UnityEngine.UI.Slider HealthBar;
-        
+
         public Animator anima;
         // optional
         public EmmitterControl boostEmmitter = null;
@@ -55,7 +57,7 @@ namespace Assets.Scripts.GameLogic
             if (HealthBar) {
                 HealthBar.transform.position = new Vector3(hbX, hbY, 1);
             }
-            SetHeroHealth(100);
+            SetHeroHealth(START_HP);
             distToGround = GetComponent<Collider> ().bounds.extents.y;
             lastGroundTime = Time.fixedTime;
             body = GetComponent<Rigidbody> ();
@@ -69,7 +71,7 @@ namespace Assets.Scripts.GameLogic
 
         // Update is called once per frame
         void Update ()
-        { 
+        {
             if (!isDead) {
                 Live();
             }
@@ -78,26 +80,26 @@ namespace Assets.Scripts.GameLogic
         public void SetHeroHealth(int value)
         {
             Health = value;
-            
+
             if (Health < 1) {
                 Die();
             }
-            
+
             RenderHealthBar();
         }
-    
-        private int GetHeroHealth () 
+
+        private int GetHeroHealth ()
         {
             return Health;
         }
-    
+
         void RenderHealthBar()
         {
             if (HealthBar) {
                 HealthBar.value = GetHeroHealth();
             }
         }
-        
+
         void Live()
         {
             isCloseToGround = Physics.Raycast (
@@ -148,7 +150,7 @@ namespace Assets.Scripts.GameLogic
                 }
                 Camera.main.transform.parent = null;
             }
-           
+
             // Destroy(this.gameObject);
         }
 
@@ -282,6 +284,16 @@ namespace Assets.Scripts.GameLogic
             return IsGrounded()
                 ? S.Opt(transform.position)
                 : S.Opt(floor).Map(r => r.point);
+        }
+
+        public float GetMpFactor()
+        {
+            if (lastSprintTime != null) {
+                var mpFactor = (Time.fixedTime - lastSprintTime.Value) / SPRINT_INTERVAL / 1.0f;
+                return mpFactor > 1.0f ? 1.0f : mpFactor;
+            } else {
+                return 1.0f;
+            }
         }
 
         public bool CanAttack()

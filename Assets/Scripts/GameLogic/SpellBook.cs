@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.GameLogic;
 using Assets.Scripts.Util.Shorthands;
 using GameLogic.Destructibles;
@@ -54,6 +55,11 @@ namespace GameLogic {
                 },
                 () => "Fire Ball reference object is not set, say thanks to the developer of this map =3"
             );
+        }
+
+        public string[] GetNames()
+        {
+            return GetSpellMap().Keys.ToArray();
         }
 
         private Dictionary<string, D.Su<string>> GetSpellMap()

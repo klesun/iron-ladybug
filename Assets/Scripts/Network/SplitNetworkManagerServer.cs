@@ -20,14 +20,13 @@ namespace Network {
         public NetworkClient client;
         public byte chanId;
         public HeroControl hero;
+        public CamStreaming camStreaming;
     }
 
     /**
      * will use this to do the transport stuff of separation of client code from server code
      */
     public class SplitNetworkManagerServer : NetworkManager {
-
-        public CamStreaming camStreaming;
 
         private readonly bool USE_SPLIT_SCREEN = false;
 
@@ -39,30 +38,19 @@ namespace Network {
         {
             var config = new ConnectionConfig();
             var chanId = config.AddChannel(QosType.UnreliableFragmented);
-            // trying to set it big enough to pass an image in a message.
-            // probably I'll have to fragment them, after all..
             var client = new NetworkClient(conn);
             client.Configure(config, 1);
 
             var playerObj = Instantiate(Sa.Inst().playerRef.gameObject);
             playerObj.SetActive(true);
             var hero = playerObj.GetComponent<HeroControl>();
+            var cam = playerObj.GetComponentInChildren<Camera>();
             clientConnections.Add(new RemotePlayer {
                 client = client,
                 hero = hero,
                 chanId = chanId,
+                camStreaming = new CamStreaming(cam),
             });
-            foreach (var cam in playerObj.GetComponentsInChildren<Camera>()) {
-                if (USE_SPLIT_SCREEN) {
-                    if (clientConnections.Count > 1) {
-                        cam.rect = new Rect(0,0,0.5f,1);
-                    } else {
-                        cam.rect = new Rect(0.5f,0,0.5f,1);
-                    }
-                } else {
-                    cam.targetTexture = camStreaming.render;
-                }
-            }
             var input = new RemotePlayerInput();
             hero.SetInput(input);
             hero.output.Add(msg => {
@@ -78,7 +66,7 @@ namespace Network {
                     Debug.Log("Could not parse JSON message - " + exc.Message + " - " + str);
                 }
             });
-            base.OnServerAddPlayer(conn, playerControllerId);
+            //base.OnServerAddPlayer(conn, playerControllerId);
         }
 
         private void SendHeroState(RemotePlayer remote)
@@ -101,7 +89,7 @@ namespace Network {
             if (Time.fixedTime - lastFrameSentAt > 0.05f) {
                 lastFrameSentAt = Time.fixedTime;
                 clientConnections.ForEach(remote => {
-                    var bytes = camStreaming.GetFrameImgBytes();
+                    var bytes = remote.camStreaming.GetFrameImgBytes();
                     remote.client.SendByChannel(MsgType.Highest + 2, new BytesMessage(bytes), remote.chanId);
                     SendHeroState(remote);
                 });

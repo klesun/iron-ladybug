@@ -7,12 +7,15 @@ using Util;
 
 namespace Network {
 
-	public class CamStreaming : MonoBehaviour {
-		public RenderTexture render;
+	public class CamStreaming {
+
+		private RenderTexture render;
 		private Texture2D tex2d;
 
-		private void Start()
+		public CamStreaming(Camera cam)
 		{
+			render = new RenderTexture(480, 270, 16);
+			cam.targetTexture = render;
 			tex2d = new Texture2D(render.width, render.height, TextureFormat.RGB24, false);
 		}
 

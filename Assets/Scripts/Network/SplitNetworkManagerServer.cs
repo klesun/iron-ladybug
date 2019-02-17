@@ -45,11 +45,17 @@ namespace Network {
             playerObj.SetActive(true);
             var hero = playerObj.GetComponent<HeroControl>();
             var cam = playerObj.GetComponentInChildren<Camera>();
-            clientConnections.Add(new RemotePlayer {
+            var remote = new RemotePlayer {
                 client = client,
                 hero = hero,
                 chanId = chanId,
                 camStreaming = new CamStreaming(cam),
+            };
+            clientConnections.Add(remote);
+            client.RegisterHandler(MsgType.Disconnect, msg => {
+                Debug.Log("player disconnected " + playerControllerId);
+                clientConnections.Remove(remote);
+                Destroy(playerObj);
             });
             var input = new RemotePlayerInput();
             hero.SetInput(input);
@@ -74,7 +80,7 @@ namespace Network {
             var msg = new Msg {
                 type = Msg.EType.State,
                 state = new HeroState {
-                    hp = remote.hero.npc.Health,
+                    hp = remote.hero.npc.GetHealth(),
                     hpMax = NpcControl.START_HP,
                     mpFactor = remote.hero.npc.GetMpFactor(),
                     spells = new SpellBook(remote.hero).GetNames(),

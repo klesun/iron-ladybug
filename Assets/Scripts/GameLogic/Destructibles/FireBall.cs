@@ -1,5 +1,7 @@
+using Assets.Scripts.GameLogic;
 using Assets.Scripts.Util.Logic;
 using Assets.Scripts.Util.Shorthands;
+using Interfaces;
 using UnityEngine;
 using Util;
 
@@ -18,8 +20,15 @@ namespace GameLogic.Destructibles {
         {
             impactTrigger.OnIn(c => {
                 S.Opt(explosionSfx).get = (sfx) => Tls.Inst ().PlayAudio (sfx);
+                foreach (var col in Physics.OverlapSphere(transform.position, 2)) {
+                    foreach (var npc in col.GetComponents<NpcControl>()) {
+                        npc.ChangeHealth(-20);
+                    }
+                }
+                // add explosion animation one of these days...
                 Destroy(gameObject);
             });
+            Tls.Inst().timeout.Game(15, () => Destroy(gameObject));
         }
     }
 }

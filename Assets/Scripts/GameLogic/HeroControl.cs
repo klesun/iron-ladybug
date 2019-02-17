@@ -34,6 +34,7 @@ namespace Assets.Scripts.GameLogic
         private float mouseSensitivity = 4.0F;
         private HashSet<EnemyLogic> enemies = new HashSet<EnemyLogic>();
         private MidJsDefinition currentBattleBgm = null;
+        private float lastSpellTime = 0;
 
         private IPlayerInput input = new LocalPlayerInput();
         public List<Action<Msg>> output = new List<Action<Msg>>();
@@ -82,13 +83,18 @@ namespace Assets.Scripts.GameLogic
             }
         }
 
-        void HandleKeys()
+        private void CastSpell(String spell)
         {
-            npc.Move (GetKeyedDirection ());
-
-            var spell = input.GetNextSpell();
             if (spell != null) {
-                var error = new SpellBook(this).Cast(spell);
+                var time = Time.fixedTime;
+                String error;
+                if (time - lastSpellTime < 0.25) {
+                    error = "Cooldown";
+                } else {
+                    error = new SpellBook(this).Cast(spell);
+                }
+                lastSpellTime = time;
+
                 if (error != "") {
                     output.ForEach(o => o(new Msg {
                         type = Msg.EType.Error,
@@ -96,9 +102,20 @@ namespace Assets.Scripts.GameLogic
                     }));
                 }
             }
+        }
+
+        void HandleKeys()
+        {
+            npc.Move (GetKeyedDirection ());
+
+            var spell = input.GetNextSpell();
+            CastSpell(spell);
             // TODO: encapsulate in local GetNextSpell()
             if (input.GetKeyDown(KeyCode.E)) {
                 new SpellBook(this).Open();
+            }
+            if (input.GetKeyDown(KeyCode.F)) {
+                CastSpell("FireBall"); // it's a pain to always select it from list
             }
 
             if (input.GetKeyDown(KeyCode.Space) && npc.Jump()) {

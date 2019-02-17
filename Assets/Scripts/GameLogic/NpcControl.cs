@@ -18,7 +18,7 @@ namespace Assets.Scripts.GameLogic
         public const float LOUNGE_HEIGHT = 1.5f;
         public const float LOUNGE_LENGTH = 6;
 
-        const float SPRINT_INTERVAL = 5;
+        const float SPRINT_INTERVAL = 3;
 
         const float FRICTION_FORCE = 12;
         const float MAX_RUNNING_SPEED = 13;
@@ -27,8 +27,7 @@ namespace Assets.Scripts.GameLogic
 
         public static readonly int START_HP = 100;
 
-        // HEATLH
-        public int Health;
+        public int health;
         public UnityEngine.UI.Slider HealthBar;
 
         public Animator anima;
@@ -57,7 +56,7 @@ namespace Assets.Scripts.GameLogic
             if (HealthBar) {
                 HealthBar.transform.position = new Vector3(hbX, hbY, 1);
             }
-            SetHeroHealth(START_HP);
+            SetHealth(START_HP);
             distToGround = GetComponent<Collider> ().bounds.extents.y;
             lastGroundTime = Time.fixedTime;
             body = GetComponent<Rigidbody> ();
@@ -77,26 +76,29 @@ namespace Assets.Scripts.GameLogic
             }
         }
 
-        public void SetHeroHealth(int value)
+        public void ChangeHealth(int diff)
         {
-            Health = value;
+            SetHealth(GetHealth() + diff);
+        }
 
-            if (Health < 1) {
+        public void SetHealth(int value)
+        {
+            health = value;
+            if (health < 1) {
                 Die();
             }
-
             RenderHealthBar();
         }
 
-        private int GetHeroHealth ()
+        public int GetHealth ()
         {
-            return Health;
+            return health;
         }
 
         void RenderHealthBar()
         {
             if (HealthBar) {
-                HealthBar.value = GetHeroHealth();
+                HealthBar.value = GetHealth();
             }
         }
 
@@ -107,7 +109,7 @@ namespace Assets.Scripts.GameLogic
                 layerMask: -5, queryTriggerInteraction: QueryTriggerInteraction.Ignore
             );
 
-            if (GetHeroHealth() <= 0) {
+            if (GetHealth() <= 0) {
                 Die ();
             } else {
                 if (IsGrounded ()) {
@@ -237,10 +239,10 @@ namespace Assets.Scripts.GameLogic
         public void GetPierced()
         {
             if (!isDead) {
-                SetHeroHealth(GetHeroHealth() - 20);
+                SetHealth(GetHealth() - 20);
                 AudioSource.PlayClipAtPoint(Sa.Inst().audioMap.npcHitSfx, transform.position);
                 LoseGrip();
-                Sa.Inst().gui.SayShyly("HP left: " + GetHeroHealth(), this);
+                Sa.Inst().gui.SayShyly("HP left: " + GetHealth(), this);
             }
         }
 

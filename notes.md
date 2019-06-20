@@ -1,3 +1,7 @@
+Alternative name options:
+- riddle-needle
+- Kalina - World's Best Fencer
+
 ```python
 1. Gameplay
     1.1. Jump on platforms; trigger doors; use special abilities to get from point A to point B

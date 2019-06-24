@@ -23,8 +23,11 @@ namespace Assets.Scripts.Util.Architecture {
         private void OnEnable()
         {
             foreach (var listener in transformListeners) {
-                Console.WriteLine("ololo listener");
-                listener.onChange = () => UpdatePosition(0);
+                listener.onChange = () => {
+                    if (!Application.isPlaying) {
+                        UpdatePosition(0);
+                    }
+                };
             }
         }
 

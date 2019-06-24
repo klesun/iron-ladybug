@@ -1,4 +1,6 @@
+using System;
 using Assets.Scripts.Interfaces;
+using Assets.Scripts.Util.Logic;
 using UnityEngine;
 
 namespace Assets.Scripts.Util.Architecture {
@@ -14,9 +16,18 @@ namespace Assets.Scripts.Util.Architecture {
         public float spacing = 0.05f;
         [Range(0,1)]
         public float offset = 0;
-
+        public float speed = 1f / 180;
+        public TransformListener[] transformListeners = {};
 
 #if UNITY_EDITOR
+        private void OnEnable()
+        {
+            foreach (var listener in transformListeners) {
+                Console.WriteLine("ololo listener");
+                listener.onChange = () => UpdatePosition(0);
+            }
+        }
+
         void OnValidate()
         {
             UnityEditor.EditorApplication.delayCall += () => {
@@ -27,12 +38,17 @@ namespace Assets.Scripts.Util.Architecture {
         }
 #endif
 
-        void UpdatePosition(float progress)
+        public void UpdatePosition(float progress)
         {
             for (var i = 0; i < wagons.Length; ++i) {
+                var wagon = wagons[i];
+                if (!wagon) {
+                    // if this element was removed from scene,
+                    // if it was a collected berry for example
+                    continue;
+                }
                 var spacing = (wagons.Length - i - 1) * this.spacing;
                 var wagonProgress = (progress + offset + spacing) % 1;
-                var wagon = wagons[i];
                 trajectory.GetAt(wagonProgress).get
                 = point => wagon.position = point;
                 trajectory.GetAt(wagonProgress + 0.00001f).get
@@ -42,7 +58,7 @@ namespace Assets.Scripts.Util.Architecture {
 
         void FixedUpdate()
         {
-            UpdatePosition(Time.fixedTime / 180);
+            UpdatePosition(speed * Time.fixedTime);
         }
     }
 }

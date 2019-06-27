@@ -10,6 +10,9 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.GameLogic
 {
+    /** each direction will have it's own cooldown */
+    public enum COOLDOWN {FORWARD, RIGHT}
+
     [RequireComponent (typeof(Rigidbody))]
     [RequireComponent (typeof(Collider))]
     [SelectionBase]
@@ -42,6 +45,7 @@ namespace Assets.Scripts.GameLogic
         public bool IsDead {
             get { return isDead; }
         }
+        private Dictionary<COOLDOWN, float> kindToLastCooldown = new Dictionary<COOLDOWN, float>();
         private float? lastSprintTime = null;
         private float distToGround;
         private RaycastHit floor;
@@ -218,14 +222,26 @@ namespace Assets.Scripts.GameLogic
             return false;
         }
 
-        public bool Boost(Vector3 direction)
+        private bool takeCooldown(COOLDOWN cooldownKind)
+        {
+            var isAvailable = true;
+            if (kindToLastCooldown.ContainsKey(cooldownKind)) {
+                var lastTime = kindToLastCooldown[cooldownKind];
+                isAvailable = Time.fixedTime - lastTime > SPRINT_INTERVAL;
+            }
+            if (isAvailable) {
+                kindToLastCooldown[cooldownKind] = Time.fixedTime;
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public bool Boost(Vector3 direction, COOLDOWN cooldownKind)
         {
             if (!isDead) {
-                if (lastSprintTime == null ||
-                    Time.fixedTime - lastSprintTime > SPRINT_INTERVAL
-                ) {
+                if (takeCooldown(cooldownKind)) {
                     body.velocity += direction * 10;
-                    lastSprintTime = Time.fixedTime;
                     AudioSource.PlayClipAtPoint(Sa.Inst().audioMap.npcSprintSfx, transform.position);
                     if (boostEmmitter != null) {
                         boostEmmitter.Emmit ();

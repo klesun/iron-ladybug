@@ -36,7 +36,7 @@ namespace GameLogic {
         private string Dash()
         {
             var vector = hero.npc.transform.forward * NpcControl.RUNNING_BOOST * 0.25f;
-            return hero.npc.Boost(vector) ? CASTED : "Can not dash now";
+            return hero.npc.Boost(vector, COOLDOWN.FORWARD) ? CASTED : "Can not dash now";
         }
 
         private string FireBall()

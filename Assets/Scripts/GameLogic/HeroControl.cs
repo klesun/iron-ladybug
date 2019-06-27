@@ -164,7 +164,13 @@ namespace Assets.Scripts.GameLogic
             } else {
                 if (input.GetKeyDown(KeyCode.Mouse0)) {
                     Cursor.lockState = CursorLockMode.Locked;
-                    if (npc.Boost(cameraAngle.transform.forward)) {
+                    if (npc.Boost(cameraAngle.transform.forward, COOLDOWN.FORWARD)) {
+                        Tls.Inst ().PlayAudio (sprintingEvilSound);
+                    } else {
+                        Tls.Inst ().PlayAudio (outOfManaEvilSound);
+                    }
+                } else if (input.GetKeyDown(KeyCode.R)) {
+                    if (npc.Boost(cameraAngle.transform.right, COOLDOWN.RIGHT)) {
                         Tls.Inst ().PlayAudio (sprintingEvilSound);
                     } else {
                         Tls.Inst ().PlayAudio (outOfManaEvilSound);

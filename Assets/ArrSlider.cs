@@ -11,23 +11,45 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class ArrSlider : MonoBehaviour
 {
+	const float REVALIDATION_PERIOD = 0.1f;
+
 	public GameObject wagonHolder;
 	public GameObject wagonRef;
 	public int copyCnt = 1;
 	public Train train;
 
-#if UNITY_EDITOR
+	double? lastValidatedOn = null;
+	bool revalidationRequested = false;
+
+	#if UNITY_EDITOR
 	void OnValidate()
 	{
 		UnityEditor.EditorApplication.delayCall += () => {
-			if (!Application.isPlaying) {
-				Renew();
-			}
+			UnityEditor.EditorApplication.delayCall += () => revalidationRequested = true;
 		};
 	}
-#endif
-	
+	#endif
+
+	void Update()
+	{
+		var now = System.DateTime.Now.Ticks / 10000000d; // microsoft is microsoft
+		if (revalidationRequested && (lastValidatedOn == null || now - lastValidatedOn > REVALIDATION_PERIOD)) {
+			revalidationRequested = false;
+			lastValidatedOn = now;
+			Renew ();
+		}
+	}
+
 	void Renew() {
+		if (this == null) {
+			// well, it complains about it being
+			// destroyed when i starts the game
+			return;
+		}
+		if (Application.isPlaying) {
+			return;
+		}
+
 		var deadmen = new List<GameObject>();
 		foreach (Transform ch in wagonHolder.transform) {
 			deadmen.Add (ch.gameObject);

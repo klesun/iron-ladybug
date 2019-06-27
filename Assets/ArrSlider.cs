@@ -9,6 +9,7 @@ using UnityEngine;
  * copies of the n game object equally alongside the curve
  */
 [ExecuteInEditMode]
+[SelectionBase]
 public class ArrSlider : MonoBehaviour
 {
 	const float REVALIDATION_PERIOD = 0.1f;

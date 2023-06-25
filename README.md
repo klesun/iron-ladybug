@@ -1,6 +1,6 @@
-We are creating a game!
+An adventure/puzzle Unity game
 =======================
-We have moving platforms and a charismatic heroine so far...
+We have moving platforms and a charismatic heroine!
 
 Multiplayer client part - https://github.com/klesun-misc/riddle-needle-client
 
